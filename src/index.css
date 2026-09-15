@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-naha: #080909;
+    --bg-charcoal: #151515;
+    --bg-deep: #1e1e1e;
+    --text-primary: #F3F0EA;
+    --text-secondary: #A5A29B;
+    --accent-champagne: #C8AE82;
+    --accent-champagne-light: #E5D1B0;
+  }
+
+  html.ambient {
+    --bg-naha: #16181b;
+    --bg-charcoal: #202327;
+    --bg-deep: #262a2f;
+    --text-primary: #FAF8F5;
+    --text-secondary: #B6B3AA;
+    --accent-champagne: #D4BC92;
+    --accent-champagne-light: #EDE0CB;
+  }
+
+  html {
+    background-color: #080909;
+    color: #F3F0EA;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.ambient {
+    background-color: #16181b;
+    color: #FAF8F5;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Ambient Mode Theme Shifter for soft low-light grey palette */
+html.ambient .bg-\[\#080909\] {
+  background-color: #16181b !important;
+}
+html.ambient .bg-\[\#0a0b0c\] {
+  background-color: #191b1e !important;
+}
+html.ambient .bg-\[\#101112\] {
+  background-color: #1d2024 !important;
+}
+html.ambient .bg-\[\#121314\],
+html.ambient .bg-\[\#121315\] {
+  background-color: #212429 !important;
+}
+html.ambient .bg-\[\#151515\] {
+  background-color: #24282d !important;
+}
+html.ambient .bg-\[\#161719\],
+html.ambient .bg-\[\#181818\],
+html.ambient .bg-\[\#18191b\] {
+  background-color: #282c32 !important;
+}
+html.ambient .bg-\[\#1e1e1e\] {
+  background-color: #2d3238 !important;
+}
+html.ambient .bg-\[\#080909\]\/90 {
+  background-color: rgba(22, 24, 27, 0.92) !important;
+}
+html.ambient .bg-\[\#080909\]\/80 {
+  background-color: rgba(22, 24, 27, 0.82) !important;
+}
+
+/* Ambient borders */
+html.ambient .border-\[\#181818\],
+html.ambient .border-\[\#1f2022\],
+html.ambient .border-\[\#222222\],
+html.ambient .border-\[\#222\] {
+  border-color: #31363d !important;
+}
+html.ambient .border-\[\#262626\],
+html.ambient .border-\[\#2a2a2a\],
+html.ambient .border-\[\#2c2c2c\],
+html.ambient .border-\[\#333\] {
+  border-color: #3a4048 !important;
+}
+
+/* Ambient text readability */
+html.ambient .text-\[\#A5A29B\] {
+  color: #B6B3AA !important;
+}
+html.ambient .text-\[\#777\],
+html.ambient .text-\[\#666\] {
+  color: #92979e !important;
+}
+
+/* Ambient scrollbar */
+html.ambient ::-webkit-scrollbar-track {
+  background: #16181b;
+}
+html.ambient ::-webkit-scrollbar-thumb {
+  background: #343a42;
+}
+
+/* 3D Flip Card Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Custom fine scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080909;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C8AE82;
+}
+
+/* Success State & Check-mark Keyframes */
+@keyframes checkmark-stroke {
+  0% {
+    stroke-dashoffset: 48;
+    opacity: 0;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes success-pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes success-glow-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(200, 174, 130, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(200, 174, 130, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(200, 174, 130, 0);
+  }
+}
+
+.animate-success-pop {
+  animation: success-pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.animate-checkmark-draw {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: checkmark-stroke 0.55s ease-in-out 0.2s forwards;
+}
+
+.animate-success-glow {
+  animation: success-glow-ring 2.2s infinite ease-out;
+}
+
+/* Auto-scrolling Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Ambient / Obsidian Cross-Fade View Transitions & Global Smoothing */
+html, body {
+  transition: background-color 0.45s cubic-bezier(0.4, 0, 0.2, 1), color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  transition-property: background-color, border-color;
+  transition-duration: 0.35s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Subtle CSS Parallax & Dynamic Flow Helpers */
+.parallax-layer {
+  transform: translateY(calc(var(--scroll-y, 0px) * 0.08));
+  will-change: transform;
+}
+
+.parallax-layer-reverse {
+  transform: translateY(calc(var(--scroll-y, 0px) * -0.06));
+  will-change: transform;
+}
+
+
