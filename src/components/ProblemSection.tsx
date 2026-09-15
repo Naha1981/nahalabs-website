@@ -34,12 +34,12 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onSelectOutcome 
   ];
 
   return (
-    <section id="solutions" className="py-24 sm:py-32 bg-[#0a0b0d] border-b border-[#1c1d21] relative">
+    <section id="solutions" className="py-20 sm:py-32 bg-[#0a0b0d] border-b border-[#1c1d21] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Massive Editorial Statement */}
-        <div className="max-w-3xl mb-16 sm:mb-20 space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase">
+        {/* Massive Editorial Statement — Centered on mobile, left-aligned on desktop */}
+        <div className="max-w-3xl mb-14 sm:mb-20 space-y-4 text-center md:text-left mx-auto md:mx-0">
+          <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase mx-auto md:mx-0">
             <span className="w-1.5 h-1.5 rounded-full bg-[#C8AE82]" />
             <span>The Operating Reality</span>
           </div>
@@ -51,7 +51,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onSelectOutcome 
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg text-[#A5A29B] leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg text-[#A5A29B] leading-relaxed max-w-2xl mx-auto md:mx-0">
             Most companies already pay for dozens of tools that don't talk to each other. We engineer the intelligent layer that connects them and drives bottom-line execution.
           </p>
         </div>
@@ -64,10 +64,10 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onSelectOutcome 
               <div
                 key={item.id}
                 onClick={() => onSelectOutcome(item.title)}
-                className="group relative rounded-2xl border border-[#202228] bg-gradient-to-b from-[#131418] to-[#0c0d10] hover:border-[#C8AE82]/70 p-8 sm:p-10 flex flex-col justify-between transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-[#C8AE82]/5"
+                className="group relative rounded-2xl border border-[#202228] bg-gradient-to-b from-[#131418] to-[#0c0d10] hover:border-[#C8AE82]/70 p-6 sm:p-8 lg:p-10 flex flex-col justify-between transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-[#C8AE82]/5 text-center md:text-left items-center md:items-start"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-8">
+                <div className="w-full">
+                  <div className="flex items-center justify-between mb-6 sm:mb-8">
                     <div className="w-12 h-12 rounded-xl bg-[#1a1c22] border border-[#2d2f38] flex items-center justify-center text-[#C8AE82] group-hover:scale-110 transition-transform">
                       <Icon className="w-6 h-6" />
                     </div>
@@ -76,7 +76,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onSelectOutcome 
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-[#F3F0EA] tracking-tight mb-4 group-hover:text-[#C8AE82] transition-colors">
+                  <h3 className="text-2xl font-bold text-[#F3F0EA] tracking-tight mb-3 sm:mb-4 group-hover:text-[#C8AE82] transition-colors">
                     {item.title}
                   </h3>
 
@@ -85,7 +85,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({ onSelectOutcome 
                   </p>
                 </div>
 
-                <div className="pt-8 mt-8 border-t border-[#1e2026] flex items-center justify-between text-xs font-mono text-[#F3F0EA] group-hover:text-[#C8AE82] transition-colors">
+                <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-[#1e2026] flex items-center justify-between text-xs font-mono text-[#F3F0EA] group-hover:text-[#C8AE82] transition-colors w-full">
                   <span>{item.action}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
                 </div>

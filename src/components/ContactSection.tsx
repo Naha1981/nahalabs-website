@@ -405,9 +405,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
     <section id="contact" className="py-24 sm:py-36 bg-[#080909] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Top Callout Headline */}
-        <div className="max-w-4xl mb-16 sm:mb-20 space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase">
+        {/* Top Callout Headline — Centered on mobile, left-aligned on desktop */}
+        <div className="max-w-4xl mb-14 sm:mb-20 space-y-4 text-center lg:text-left mx-auto lg:mx-0">
+          <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase mx-auto lg:mx-0">
             <span className="w-1.5 h-1.5 rounded-full bg-[#C8AE82]" />
             <span>Commercial Diagnosis</span>
           </div>
@@ -417,7 +417,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
               Let’s find it.
             </span>
           </h2>
-          <p className="text-base sm:text-lg text-[#A5A29B] leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg text-[#A5A29B] leading-relaxed max-w-2xl mx-auto lg:mx-0">
             Tell us about an operational friction, a manual process, or an unmonitored margin leak. We’ll evaluate whether an intelligent system can solve it.
           </p>
         </div>

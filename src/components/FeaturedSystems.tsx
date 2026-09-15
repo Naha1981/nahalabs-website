@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, CheckCircle2, TrendingUp } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { ASSETS } from '../data/assets';
 
 interface FeaturedSystemsProps {
@@ -15,7 +15,7 @@ export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem
       headline: 'Recover revenue hidden inside restaurant demand.',
       description: 'Predictive kitchen prep, automated ingredient replenishment, and real-time food cost margin tracking for high-volume multi-location dining.',
       image: ASSETS.flavourly,
-      imageFallback: '/assets/images/flavourly_system_1789398600949_opt.jpg',
+      imageFallback: ASSETS.flavourlyJpg,
       alt: 'Flavourly Restaurant Kitchen Demand and Food Margin Intelligence System',
       outcomes: [
         'Dynamic demand-driven kitchen prep forecasting',
@@ -31,7 +31,7 @@ export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem
       headline: 'Autonomous freight intelligence and quote margin protection.',
       description: 'Instant multi-modal carrier rate validation, automated quote assembly, and proactive port demurrage risk mitigation across African trade corridors.',
       image: ASSETS.cargoiq,
-      imageFallback: '/assets/images/cargoiq_system_1789398617043_opt.jpg',
+      imageFallback: ASSETS.cargoiqJpg,
       alt: 'CargoIQ Freight Forwarding Rate Validation and Demurrage Protection System',
       outcomes: [
         'Multi-carrier tariff comparison & sub-second client quote generation',
@@ -47,7 +47,7 @@ export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem
       headline: 'Autonomous corridor and heavy infrastructure intelligence.',
       description: 'Continuous predictive track condition monitoring, automated incident dispatch, and digital corridor security surveillance across SADC rail networks.',
       image: ASSETS.railwatch,
-      imageFallback: '/assets/images/railwatch_system_1789398646749_opt.jpg',
+      imageFallback: ASSETS.railwatchJpg,
       alt: 'RailWatch Autonomous Railway Track Condition and Corridor Monitoring System',
       outcomes: [
         'Real-time line telemetry & predictive defect detection',
@@ -63,7 +63,7 @@ export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem
       headline: 'High-velocity commercial pipeline and autonomous deal qualification.',
       description: 'Instant inbound enterprise intent scoring, automated prospect data enrichment, and digital worker follow-up before buyer momentum fades.',
       image: ASSETS.enterpriseJhb,
-      imageFallback: '/assets/images/enterprise_jhb_1789398631359_opt.jpg',
+      imageFallback: ASSETS.enterpriseJhbJpg,
       alt: 'NahaLabs Revenue OS Enterprise Inbound Intent and Pipeline System',
       outcomes: [
         'Sub-second inbound enterprise enrichment and executive intent mapping',
@@ -75,12 +75,12 @@ export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem
   ];
 
   return (
-    <section id="systems" className="py-24 sm:py-36 bg-[#080909] border-b border-[#1c1d21] relative">
+    <section id="systems" className="py-20 sm:py-32 bg-[#080909] border-b border-[#1c1d21] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="max-w-3xl mb-16 sm:mb-24 space-y-4">
-          <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase">
+        {/* Section Header — Centered on mobile, left-aligned on desktop */}
+        <div className="max-w-3xl mb-14 sm:mb-20 space-y-4 text-center lg:text-left mx-auto lg:mx-0">
+          <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase mx-auto lg:mx-0">
             <span className="w-1.5 h-1.5 rounded-full bg-[#C8AE82]" />
             <span>Operational Proof</span>
           </div>
@@ -89,13 +89,13 @@ export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem
             Systems we’ve built.
           </h2>
 
-          <p className="text-base sm:text-lg text-[#A5A29B] leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg text-[#A5A29B] leading-relaxed max-w-2xl mx-auto lg:mx-0">
             We don't design conceptual prototypes or hypothetical slides. Here are production systems engineered around high-stakes commercial friction.
           </p>
         </div>
 
         {/* 4 Large Product Launch Cards */}
-        <div className="space-y-16 lg:space-y-24">
+        <div className="space-y-12 sm:space-y-16 lg:space-y-24">
           {systems.map((sys, idx) => {
             const isReversed = idx % 2 === 1;
             return (
@@ -106,10 +106,10 @@ export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem
               >
                 <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
                   
-                  {/* Left (or Right): Text & Outcomes */}
-                  <div className={`lg:col-span-6 space-y-6 ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
+                  {/* Text & Outcomes: Centered on mobile, left-aligned on desktop */}
+                  <div className={`lg:col-span-6 space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
                     
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
                       <span className="px-3 py-1 rounded-full bg-[#C8AE82]/10 border border-[#C8AE82]/30 text-[11px] font-mono tracking-wider text-[#C8AE82] uppercase">
                         {sys.badge}
                       </span>
@@ -127,14 +127,14 @@ export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem
                       </h4>
                     </div>
 
-                    <p className="text-sm sm:text-base text-[#A5A29B] leading-relaxed">
+                    <p className="text-sm sm:text-base text-[#A5A29B] leading-relaxed max-w-xl">
                       {sys.description}
                     </p>
 
                     {/* Three Proof Points */}
-                    <div className="space-y-3 pt-2">
+                    <div className="space-y-3 pt-2 w-full">
                       {sys.outcomes.map((outcome, oIdx) => (
-                        <div key={oIdx} className="flex items-start gap-3 text-xs sm:text-sm text-[#F3F0EA]">
+                        <div key={oIdx} className="flex items-start justify-center lg:justify-start gap-3 text-xs sm:text-sm text-[#F3F0EA] text-left">
                           <CheckCircle2 className="w-4 h-4 text-[#C8AE82] shrink-0 mt-0.5" />
                           <span>{outcome}</span>
                         </div>
@@ -142,10 +142,10 @@ export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem
                     </div>
 
                     {/* CTA to diagnose or deploy this system */}
-                    <div className="pt-4">
+                    <div className="pt-4 w-full sm:w-auto flex justify-center lg:justify-start">
                       <button
                         onClick={() => onSelectSystem(sys.name, sys.headline)}
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#18191d] hover:bg-[#C8AE82] text-[#F3F0EA] hover:text-[#080909] border border-[#2c2e36] hover:border-[#C8AE82] text-xs font-mono uppercase tracking-wider font-semibold transition-all duration-200 cursor-pointer active:scale-95 shadow-md"
+                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#18191d] hover:bg-[#C8AE82] text-[#F3F0EA] hover:text-[#080909] border border-[#2c2e36] hover:border-[#C8AE82] text-xs font-mono uppercase tracking-wider font-semibold transition-all duration-200 cursor-pointer active:scale-95 shadow-md"
                       >
                         <span>Deploy or tailor this system</span>
                         <ArrowUpRight className="w-4 h-4" />
@@ -154,8 +154,8 @@ export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem
                   </div>
 
                   {/* Large Product Visual */}
-                  <div className={`lg:col-span-6 ${isReversed ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <div className="relative rounded-2xl overflow-hidden border border-[#262830] bg-[#0c0d10] shadow-2xl group">
+                  <div className={`lg:col-span-6 w-full ${isReversed ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <div className="relative rounded-2xl overflow-hidden border border-[#262830] bg-[#0c0d10] shadow-2xl group mx-auto max-w-lg lg:max-w-none">
                       <img
                         src={sys.image}
                         onError={(e) => {
@@ -171,7 +171,7 @@ export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#080909]/80 via-transparent to-transparent pointer-events-none" />
                       
-                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[11px] font-mono text-[#A5A29B] bg-[#080909]/80 backdrop-blur-md px-3.5 py-2 rounded-lg border border-[#222]">
+                      <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center justify-between text-[11px] font-mono text-[#A5A29B] bg-[#080909]/80 backdrop-blur-md px-3.5 py-2 rounded-lg border border-[#222]">
                         <span className="text-[#F3F0EA] font-semibold">{sys.name} SYSTEM CORE</span>
                         <span className="text-[#C8AE82]">IN PRODUCTION</span>
                       </div>

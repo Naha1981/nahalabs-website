@@ -21,6 +21,13 @@
     --accent-champagne-light: #EDE0CB;
   }
 
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
   html {
     background-color: #080909;
     color: #F3F0EA;

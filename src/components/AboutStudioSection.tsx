@@ -7,15 +7,15 @@ interface AboutStudioSectionProps {
 
 export const AboutStudioSection: React.FC<AboutStudioSectionProps> = ({ onStartConversation }) => {
   return (
-    <section id="about" className="py-24 sm:py-36 bg-[#0a0b0d] border-b border-[#1c1d21] relative">
+    <section id="about" className="py-20 sm:py-32 bg-[#0a0b0d] border-b border-[#1c1d21] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Short, High-Conviction Story */}
-          <div className="lg:col-span-7 space-y-8">
+          {/* Left Column: Short, High-Conviction Story — Centered on mobile, left-aligned on desktop */}
+          <div className="lg:col-span-7 space-y-6 sm:space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left">
             
-            <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase">
+            <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase mx-auto lg:mx-0">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C8AE82]" />
               <span>About NahaLabs</span>
             </div>
@@ -27,8 +27,8 @@ export const AboutStudioSection: React.FC<AboutStudioSectionProps> = ({ onStartC
               </span>
             </h2>
 
-            <div className="space-y-4 text-base sm:text-lg text-[#A5A29B] leading-relaxed">
-              <p className="text-xl font-medium text-[#F3F0EA]">
+            <div className="space-y-4 text-base sm:text-lg text-[#A5A29B] leading-relaxed max-w-2xl">
+              <p className="text-lg sm:text-xl font-medium text-[#F3F0EA]">
                 NahaLabs was founded by Thabiso Naha on a straightforward observation: modern enterprises are inundated with software licenses and AI hype, yet their most critical operational bottlenecks remain entirely manual.
               </p>
 
@@ -41,7 +41,7 @@ export const AboutStudioSection: React.FC<AboutStudioSectionProps> = ({ onStartC
               </p>
             </div>
 
-            <div className="pt-4 flex flex-wrap items-center gap-6 border-t border-[#20222a] text-xs font-mono text-[#A5A29B]">
+            <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 border-t border-[#20222a] text-xs font-mono text-[#A5A29B] w-full">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-[#C8AE82]" />
                 <span>JOHANNESBURG & GAUTENG</span>
@@ -56,8 +56,8 @@ export const AboutStudioSection: React.FC<AboutStudioSectionProps> = ({ onStartC
           </div>
 
           {/* Right Column: Architectural Studio Anchor Box */}
-          <div className="lg:col-span-5">
-            <div className="rounded-3xl border border-[#262830] bg-gradient-to-b from-[#141519] to-[#0c0d10] p-8 sm:p-10 shadow-2xl space-y-6">
+          <div className="lg:col-span-5 w-full">
+            <div className="rounded-3xl border border-[#262830] bg-gradient-to-b from-[#141519] to-[#0c0d10] p-6 sm:p-10 shadow-2xl space-y-6 max-w-md mx-auto lg:max-w-none">
               
               <div className="flex items-center justify-between pb-6 border-b border-[#22242a]">
                 <div>
