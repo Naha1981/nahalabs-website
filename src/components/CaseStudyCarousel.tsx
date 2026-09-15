@@ -136,22 +136,22 @@ export const CaseStudyCarousel: React.FC<CaseStudyCarouselProps> = ({
               <button
                 onClick={handlePrev}
                 aria-label="Previous slide"
-                className="w-8 h-8 rounded border border-[#2a2c32] bg-[#16181d] text-[#A5A29B] hover:text-[#F3F0EA] hover:border-[#C8AE82] flex items-center justify-center transition-colors cursor-pointer"
+                className="w-10 h-10 sm:w-8 sm:h-8 rounded border border-[#2a2c32] bg-[#16181d] text-[#A5A29B] hover:text-[#F3F0EA] hover:border-[#C8AE82] flex items-center justify-center transition-colors cursor-pointer active:scale-95"
               >
-                <ChevronLeft className="w-4 h-4" />
+                <ChevronLeft className="w-5 h-5 sm:w-4 sm:h-4" />
               </button>
               <button
                 onClick={handleNext}
                 aria-label="Next slide"
-                className="w-8 h-8 rounded border border-[#2a2c32] bg-[#16181d] text-[#A5A29B] hover:text-[#F3F0EA] hover:border-[#C8AE82] flex items-center justify-center transition-colors cursor-pointer"
+                className="w-10 h-10 sm:w-8 sm:h-8 rounded border border-[#2a2c32] bg-[#16181d] text-[#A5A29B] hover:text-[#F3F0EA] hover:border-[#C8AE82] flex items-center justify-center transition-colors cursor-pointer active:scale-95"
               >
-                <ChevronRight className="w-4 h-4" />
+                <ChevronRight className="w-5 h-5 sm:w-4 sm:h-4" />
               </button>
             </div>
 
             <button
               onClick={() => onDiagnoseProblem(caseStudy.systemName, caseStudy.businessProblemLabel)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#1c1e23] hover:bg-[#C8AE82] hover:text-[#080909] text-xs font-mono text-[#F3F0EA] border border-[#2d3037] hover:border-[#C8AE82] transition-all duration-200 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 sm:px-3 sm:py-1.5 min-h-[40px] sm:min-h-0 rounded bg-[#1c1e23] hover:bg-[#C8AE82] hover:text-[#080909] text-xs font-mono text-[#F3F0EA] border border-[#2d3037] hover:border-[#C8AE82] transition-all duration-200 cursor-pointer active:scale-95"
             >
               <span>Solve this</span>
               <ArrowRight className="w-3.5 h-3.5" />

@@ -81,27 +81,27 @@ export const ProblemEntrySection: React.FC<ProblemEntrySectionProps> = ({
   ];
 
   return (
-    <section id="solutions" className="py-20 lg:py-28 bg-[#080909] relative border-b border-[#1c1d21]">
+    <section id="solutions" className="py-14 sm:py-20 lg:py-28 bg-[#080909] relative border-b border-[#1c1d21]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Headline */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#C8AE82]/30 bg-[#16171a] text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full border border-[#C8AE82]/30 bg-[#16171a] text-[11px] sm:text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase">
             <Sparkles className="w-3.5 h-3.5 text-[#C8AE82]" />
             <span>PRIMARY BUSINESS INTENTS</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F3F0EA] tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#F3F0EA] tracking-tight">
             What are you trying to improve?
           </h2>
 
-          <p className="text-base sm:text-lg text-[#A5A29B] leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-lg text-[#A5A29B] leading-relaxed">
             NahaLabs doesn't start with generic software. Choose your primary commercial objective to see how we systematically engineer the solution.
           </p>
         </div>
 
         {/* 3 Large Pathway Cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {pathways.map((item) => {
             const Icon = item.icon;
             const isSelected = activeIntent === item.id;
@@ -111,7 +111,7 @@ export const ProblemEntrySection: React.FC<ProblemEntrySectionProps> = ({
                 key={item.id}
                 id={`intent-card-${item.id}`}
                 onClick={() => handleSelectIntent(item.id)}
-                className={`group relative rounded-2xl border transition-all duration-300 p-8 flex flex-col justify-between cursor-pointer ${
+                className={`group relative rounded-2xl border transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between cursor-pointer ${
                   isSelected
                     ? 'border-[#C8AE82] bg-gradient-to-b from-[#181a20] to-[#101114] shadow-2xl ring-1 ring-[#C8AE82]'
                     : 'border-[#22242a] bg-gradient-to-b from-[#131418] to-[#0d0e11] hover:border-[#383a42]'
@@ -127,15 +127,15 @@ export const ProblemEntrySection: React.FC<ProblemEntrySectionProps> = ({
 
                 <div>
                   {/* Icon Header */}
-                  <div className="w-14 h-14 rounded-xl bg-[#1a1c22] border border-[#2a2c34] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
-                    <Icon className="w-7 h-7 text-[#C8AE82]" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#1a1c22] border border-[#2a2c34] flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-105 transition-transform">
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-[#C8AE82]" />
                   </div>
 
-                  <h3 className="text-2xl font-bold text-[#F3F0EA] tracking-tight mb-3">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#F3F0EA] tracking-tight mb-2 sm:mb-3">
                     {item.title}
                   </h3>
 
-                  <p className="text-sm text-[#A5A29B] leading-relaxed mb-6">
+                  <p className="text-sm text-[#A5A29B] leading-relaxed mb-5 sm:mb-6">
                     {item.subtitle}
                   </p>
 
@@ -154,9 +154,9 @@ export const ProblemEntrySection: React.FC<ProblemEntrySectionProps> = ({
                 </div>
 
                 {/* Bottom CTA button */}
-                <div className="pt-8 mt-6">
+                <div className="pt-6 sm:pt-8 mt-4 sm:mt-6">
                   <div
-                    className={`w-full py-3 px-5 rounded-xl border text-xs font-mono uppercase tracking-wider font-semibold flex items-center justify-between transition-all duration-200 ${
+                    className={`w-full py-3 min-h-[44px] px-5 rounded-xl border text-xs font-mono uppercase tracking-wider font-semibold flex items-center justify-between transition-all duration-200 ${
                       isSelected
                         ? 'bg-[#C8AE82] text-[#080909] border-[#C8AE82]'
                         : 'bg-[#181a20] text-[#F3F0EA] border-[#2b2d35] group-hover:border-[#C8AE82] group-hover:bg-[#1e2027]'

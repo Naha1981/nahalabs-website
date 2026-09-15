@@ -1,63 +1,97 @@
 import React from 'react';
-import { PROBLEM_QUESTIONS } from '../data/narrative';
-import { AlertCircle, HelpCircle } from 'lucide-react';
+import { ArrowRight, Coins, Layers, Zap } from 'lucide-react';
 
-export const ProblemSection: React.FC = () => {
+interface ProblemSectionProps {
+  onSelectOutcome: (outcome: string) => void;
+}
+
+export const ProblemSection: React.FC<ProblemSectionProps> = ({ onSelectOutcome }) => {
+  const outcomes = [
+    {
+      id: 'revenue',
+      title: 'Find lost revenue',
+      icon: Coins,
+      tag: 'FINANCIAL IMPACT',
+      summary: 'Recover invisible margin leakage, unbilled freight demurrage, kitchen inventory waste, and uncaptured inbound pipeline.',
+      action: 'Diagnose revenue leaks',
+    },
+    {
+      id: 'friction',
+      title: 'Remove operational friction',
+      icon: Layers,
+      tag: 'HUMAN EFFICIENCY',
+      summary: 'Eliminate manual spreadsheet coordination, delayed approvals, and double data entry with autonomous digital workflows.',
+      action: 'Streamline operations',
+    },
+    {
+      id: 'action',
+      title: 'Turn data into action',
+      icon: Zap,
+      tag: 'DECISION VELOCITY',
+      summary: 'Replace passive executive reporting dashboards with automated decision engines that act before losses compound.',
+      action: 'Automate decisions',
+    },
+  ];
+
   return (
-    <section className="py-24 sm:py-36 bg-[#080909] border-b border-[#181818] relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="solutions" className="py-24 sm:py-32 bg-[#0a0b0d] border-b border-[#1c1d21] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#151515] border border-[#262626] text-[11px] font-mono tracking-widest text-[#C8AE82] uppercase mb-4">
-            <HelpCircle className="w-3.5 h-3.5 text-[#C8AE82]" />
-            <span>08 / DIAGNOSTIC DISCOVERY</span>
+        {/* Massive Editorial Statement */}
+        <div className="max-w-3xl mb-16 sm:mb-20 space-y-4">
+          <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C8AE82]" />
+            <span>The Operating Reality</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#F3F0EA] leading-[1.1]">
-            WE DON’T START <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F3F0EA] to-[#C8AE82]">
-              WITH TECHNOLOGY.
+
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#F3F0EA] tracking-tight leading-[1.08]">
+            Businesses don’t need more software. <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F3F0EA] via-[#E5D1B0] to-[#C8AE82]">
+              They need better systems.
             </span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#A5A29B] max-w-2xl">
-            We interrogate the actual balance sheet and daily operating machinery before recommending a single algorithmic framework.
+
+          <p className="text-base sm:text-lg text-[#A5A29B] leading-relaxed max-w-2xl">
+            Most companies already pay for dozens of tools that don't talk to each other. We engineer the intelligent layer that connects them and drives bottom-line execution.
           </p>
         </div>
 
-        {/* The 7 High-Stakes Operational Questions */}
-        <div className="space-y-4">
-          {PROBLEM_QUESTIONS.map((q, idx) => (
-            <div
-              key={idx}
-              className="p-6 sm:p-8 rounded-sm bg-[#0e0f11] border border-[#1f2022] hover:border-[#C8AE82]/50 transition-all duration-300 flex items-start sm:items-center justify-between gap-6 group"
-            >
-              <div className="flex items-start sm:items-center gap-4 sm:gap-6">
-                <span className="font-mono text-xs sm:text-sm text-[#C8AE82] tracking-widest pt-1 sm:pt-0">
-                  0{idx + 1}
-                </span>
-                <p className="text-lg sm:text-2xl md:text-3xl font-bold text-[#A5A29B] group-hover:text-[#F3F0EA] transition-colors leading-snug">
-                  {q}
-                </p>
+        {/* Three Large Outcome Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {outcomes.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={item.id}
+                onClick={() => onSelectOutcome(item.title)}
+                className="group relative rounded-2xl border border-[#202228] bg-gradient-to-b from-[#131418] to-[#0c0d10] hover:border-[#C8AE82]/70 p-8 sm:p-10 flex flex-col justify-between transition-all duration-300 cursor-pointer shadow-lg hover:shadow-2xl hover:shadow-[#C8AE82]/5"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-12 h-12 rounded-xl bg-[#1a1c22] border border-[#2d2f38] flex items-center justify-center text-[#C8AE82] group-hover:scale-110 transition-transform">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <span className="text-[10px] font-mono tracking-[0.2em] text-[#71747e] uppercase">
+                      {item.tag}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-[#F3F0EA] tracking-tight mb-4 group-hover:text-[#C8AE82] transition-colors">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-sm text-[#A5A29B] leading-relaxed">
+                    {item.summary}
+                  </p>
+                </div>
+
+                <div className="pt-8 mt-8 border-t border-[#1e2026] flex items-center justify-between text-xs font-mono text-[#F3F0EA] group-hover:text-[#C8AE82] transition-colors">
+                  <span>{item.action}</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
+                </div>
               </div>
-
-              <span className="text-[11px] font-mono text-[#555] group-hover:text-[#C8AE82] transition-colors uppercase whitespace-nowrap hidden md:block">
-                DIAGNOSE →
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* Final Statement */}
-        <div className="mt-16 sm:mt-24 p-8 sm:p-12 rounded-sm bg-[#121315] border-l-4 border-[#C8AE82] border-y border-r border-[#262626]">
-          <span className="text-[10px] font-mono text-[#C8AE82] tracking-[0.25em] uppercase block mb-2">
-            THE NAHALABS AXIOM
-          </span>
-          <h3 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#F3F0EA] tracking-tight">
-            FIND THE PROBLEM. ENGINEER THE SYSTEM.
-          </h3>
-          <p className="mt-3 text-sm sm:text-base text-[#A5A29B] max-w-xl">
-            Zero technology theatre. Pure commercial clarity backed by robust software execution.
-          </p>
+            );
+          })}
         </div>
 
       </div>

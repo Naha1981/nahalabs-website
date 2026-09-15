@@ -406,18 +406,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Top Callout Headline */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#151515] border border-[#262626] text-[11px] font-mono tracking-widest text-[#C8AE82] uppercase mb-4">
-            <span>12 / COMMERCIAL ENGAGEMENT</span>
+        <div className="max-w-4xl mb-16 sm:mb-20 space-y-4">
+          <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C8AE82]" />
+            <span>Commercial Diagnosis</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#F3F0EA] leading-[1.1]">
-            HAVE AN EXPENSIVE <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F3F0EA] to-[#C8AE82]">
-              PROBLEM?
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#F3F0EA] tracking-tight leading-[1.08]">
+            There is probably something in your business that should work better. <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F3F0EA] via-[#E5D1B0] to-[#C8AE82]">
+              Let’s find it.
             </span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#A5A29B]">
-            Tell us what is happening. We’ll help determine whether intelligence, automation or bespoke software can change the economics of it.
+          <p className="text-base sm:text-lg text-[#A5A29B] leading-relaxed max-w-2xl">
+            Tell us about an operational friction, a manual process, or an unmonitored margin leak. We’ll evaluate whether an intelligent system can solve it.
           </p>
         </div>
 

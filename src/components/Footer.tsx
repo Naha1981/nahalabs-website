@@ -318,7 +318,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Directory Links */}
           <div className="space-y-3">
             <div className="text-xs font-mono text-[#F3F0EA] uppercase tracking-widest">
-              ARCHITECTURE
+              NAVIGATION
             </div>
             <ul className="space-y-2 text-xs">
               <li>
@@ -326,15 +326,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => onNavigate('solutions')} 
                   className="hover:text-[#C8AE82] transition-colors"
                 >
-                  Solutions Overview
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onNavigate('enterprise')} 
-                  className="hover:text-[#C8AE82] transition-colors"
-                >
-                  Enterprise Systems
+                  Solutions
                 </button>
               </li>
               <li>
@@ -342,39 +334,31 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => onNavigate('systems')} 
                   className="hover:text-[#C8AE82] transition-colors"
                 >
-                  System Portfolio
+                  Featured Systems
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => onNavigate('action')} 
+                  onClick={() => onNavigate('approach')} 
                   className="hover:text-[#C8AE82] transition-colors"
                 >
-                  Intelligence In Action
+                  Methodology
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => onNavigate('lab')} 
+                  onClick={() => onNavigate('about')} 
                   className="hover:text-[#C8AE82] transition-colors"
                 >
-                  NahaLabs Lab
+                  About Studio
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => onNavigate('testimonials')} 
+                  onClick={() => onNavigate('contact')} 
                   className="hover:text-[#C8AE82] transition-colors"
                 >
-                  Client Outcomes
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onNavigate('faq')} 
-                  className="hover:text-[#C8AE82] transition-colors"
-                >
-                  FAQ & Specifications
+                  Commercial Diagnosis
                 </button>
               </li>
             </ul>

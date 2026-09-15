@@ -1,10 +1,17 @@
+import heroImg from '../assets/images/nahalabs_hero_1789398573439_opt.webp';
+import flavourlyImg from '../assets/images/flavourly_system_1789398600949_opt.webp';
+import cargoiqImg from '../assets/images/cargoiq_system_1789398617043_opt.webp';
+import railwatchImg from '../assets/images/railwatch_system_1789398646749_opt.webp';
+import enterpriseJhbImg from '../assets/images/enterprise_jhb_1789398631359_opt.webp';
+
 // Canonical assets mapping
 export const ASSETS = {
-  hero: '/src/assets/images/nahalabs_hero_1789398573439.jpg',
-  flavourly: '/src/assets/images/flavourly_system_1789398600949.jpg',
-  cargoiq: '/src/assets/images/cargoiq_system_1789398617043.jpg',
-  railwatch: '/src/assets/images/railwatch_system_1789398646749.jpg',
-  enterpriseJhb: '/src/assets/images/enterprise_jhb_1789398631359.jpg',
+  hero: heroImg,
+  heroJpg: '/assets/images/nahalabs_hero_1789398573439_opt.jpg',
+  flavourly: flavourlyImg,
+  cargoiq: cargoiqImg,
+  railwatch: railwatchImg,
+  enterpriseJhb: enterpriseJhbImg,
   logo: '/nahalabs-logo.svg',
   icon: '/nahalabs-icon.svg',
   // High-fidelity architectural & editorial backdrops for remaining systems
