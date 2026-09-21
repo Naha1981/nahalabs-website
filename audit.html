@@ -44,6 +44,15 @@ section{border-top:1px solid #1b1c1f;padding:58px 0}.topgrid,.roi{display:grid;g
 <section><div class="wrap"><div class="eyebrow">NahaLabs fix stack</div><h2>The audit turns into work.</h2><p class="sub">Every finding maps to a concrete implementation layer. The next conversation is about fixing the leak, not buying another report.</p><div id="fixPlan" class="fixgrid"></div>
 <div class="cta"><a id="whatsapp" class="btn" target="_blank" rel="noreferrer">Send this audit to NahaLabs</a><a class="btn secondary" href="/services/lead-follow-up-automation-johannesburg">See the Lead Machine fix layer</a></div></div></section>
 
+<section><div class="wrap"><div class="eyebrow">Fix Pack preview</div><h2>Here is what we would change.</h2><p class="sub">This turns the audit into implementation-ready work. The preview is generated from the problems detected on the page.</p>
+<div class="fixgrid">
+<div class="fixcard"><div class="micro">Page title</div><h3 id="fixTitle" style="margin-top:8px">—</h3><p id="fixMeta">—</p></div>
+<div class="fixcard"><div class="micro">Hero + primary CTA</div><h3 id="fixH1" style="margin-top:8px">—</h3><p><strong id="fixCta">—</strong></p><p id="fixPlacement">—</p></div>
+</div>
+<div class="panel" style="margin-top:14px"><div class="micro">Implementation acceptance</div><div id="fixTests" class="findings" style="margin-top:14px"></div></div>
+<div class="cta"><a id="fixCtaLink" class="btn" href="/#contact">Ask NahaLabs to implement the fixes</a></div>
+</div></section>
+
 <section><div class="wrap"><div class="eyebrow">ROI scenario</div><h2>Put a value on one extra percentage point.</h2><p class="sub">A scenario calculator, not a promise. Change the inputs to model your own economics.</p>
 <div class="roi">
 <div class="panel"><div class="row"><span>Monthly visitors</span><span id="visitorsValue">1,000</span></div><input id="visitors" class="range" type="range" min="0" max="100000" step="50" value="1000"><div class="row"><span>Current enquiry conversion %</span><span id="rateValue">2</span></div><input id="rate" class="range" type="range" min="0" max="20" step=".1" value="2"><div class="row"><span>Gross profit per customer</span><span id="valueValue">R2,500</span></div><input id="value" class="range" type="range" min="0" max="100000" step="50" value="2500"></div>
@@ -72,6 +81,16 @@ $("mResponse").textContent=a.metrics.responseMs+"ms";$("mHtml").textContent=a.me
 $("findings").innerHTML=a.findings.slice(0,8).map(item=>'<article class="finding"><div class="chips"><span class="'+severityClass[item.severity]+'">'+severityName[item.severity]+'</span><span class="chip">'+esc(item.category)+'</span></div><h3>'+esc(item.title)+'</h3><p>'+esc(item.description)+'</p><div class="two"><div class="reason"><small>Why it matters</small><div>'+esc(item.whyItMatters)+'</div></div><div class="fix"><small>Recommended fix</small><strong>'+esc(item.fixTitle)+'</strong><div style="margin-top:6px;color:#a5a29b">'+esc(item.fixAction)+'</div></div></div></article>').join("");
 $("fixPlan").innerHTML=a.fixPlan.map(fix=>'<div class="fixcard"><h3>'+esc(fix.title)+'</h3><p>'+esc(fix.description)+'</p><div class="modules">'+fix.modules.map(m=>'<span class="module">'+esc(m)+'</span>').join("")+'</div></div>').join("");
 $("whatsapp").href="https://wa.me/?text="+encodeURIComponent("Hi NahaLabs — I ran the free Revenue Leak Audit for "+a.domain+". Score: "+a.score+"/100. I want help fixing the highest-impact leaks.");
+const service=a.domain.replace(/^www\\./i,"").split(".")[0].replace(/[-_]+/g," ");
+const needsWhatsapp=a.findings.some(item=>item.id==="missing-whatsapp");
+const needsH1=a.findings.some(item=>item.id==="missing-h1");
+$("fixTitle").textContent=service+" | "+a.domain;
+$("fixMeta").textContent="Clear service context, proof and a direct enquiry path for customers of "+a.domain+".";
+$("fixH1").textContent=needsH1?"Get "+service+" without the usual friction.":"Turn "+service+" visitors into enquiries.";
+$("fixCta").textContent=needsWhatsapp?"Chat on WhatsApp":"Request a quote";
+$("fixPlacement").textContent="Place the primary action in the hero, beside the strongest proof point, and again at the bottom of the mobile journey.";
+const tests=["Complete the primary CTA from a private browser window.","Verify the page remains actionable at 360px width.","Validate title, meta description, H1 and canonical in the published HTML.",needsWhatsapp?"Send a real WhatsApp test and confirm it reaches the business.":"Complete a real enquiry and confirm it reaches the business.","Hard-refresh after deployment and confirm the change persists."];
+$("fixTests").innerHTML=tests.map(function(test){return '<div class="fixcard" style="padding:14px"><p style="margin:0">'+esc(test)+'</p></div>';}).join("");
 window.scrollTo({top:0,behavior:"smooth"});
 }
 
