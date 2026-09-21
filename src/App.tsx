@@ -11,6 +11,7 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { LOCATIONS_DATA } from './data/locations';
 import { InsightArticlePage, InsightIndexPage } from './components/InsightArticlePage';
+import { GeneratedInsightPage } from './components/GeneratedInsightPage';
 
 const LocationView = lazy(() => import('./components/LocationView').then(m => ({ default: m.LocationView })));
 const LegalModal = lazy(() => import('./components/LegalModal').then(m => ({ default: m.LegalModal })));
@@ -22,8 +23,10 @@ export default function App() {
   const normalizedPath = window.location.pathname.replace(/\/+$/, '') || '/';
   const isInsightsIndexPage = normalizedPath === '/insights';
   const isInsightArticlePage = normalizedPath === '/insights/hidden-cost-fragmented-operational-information';
+  const generatedInsightSlug = normalizedPath.startsWith('/insights/') && !isInsightArticlePage
+    ? normalizedPath.replace('/insights/', '')
+    : null;
 
-  // Sync hash routing for regional hub URLs (e.g. #locations/johannesburg)
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
@@ -35,14 +38,12 @@ export default function App() {
           return;
         }
       }
-      if (hash === '' || hash === 'hero') {
-        setActiveLocationSlug(null);
-      }
+      if (hash === '' || hash === 'hero') setActiveLocationSlug(null);
     };
 
     handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
-  return () => window.removeEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   const handleNavigate = (sectionId: string) => {
@@ -51,60 +52,37 @@ export default function App() {
       window.location.hash = '';
       setTimeout(() => {
         const el = document.getElementById(sectionId);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     } else {
       const el = document.getElementById(sectionId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const handleSelectLocation = (slug: string) => {
     setActiveLocationSlug(slug);
-    window.location.hash = `locations/${slug}`;
+    window.location.hash = 'locations/' + slug;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSystemInquiry = (systemName: string, problemDesc?: string) => {
-    setPrefilledSystem(`${systemName}${problemDesc ? ` — ${problemDesc}` : ''}`);
-    if (activeLocationSlug) {
-      setActiveLocationSlug(null);
-    }
+    setPrefilledSystem(systemName + (problemDesc ? ' — ' + problemDesc : ''));
+    if (activeLocationSlug) setActiveLocationSlug(null);
     setTimeout(() => {
       const contactEl = document.getElementById('contact');
-      if (contactEl) {
-        contactEl.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
     }, 100);
   };
 
-  if (isInsightsIndexPage) {
-    return <InsightIndexPage />;
-  }
-
-  if (isInsightArticlePage) {
-    return <InsightArticlePage />;
-  }
+  if (isInsightsIndexPage) return <InsightIndexPage />;
+  if (isInsightArticlePage) return <InsightArticlePage />;
+  if (generatedInsightSlug) return <GeneratedInsightPage slug={generatedInsightSlug} />;
 
   return (
     <div className="min-h-screen bg-[#080909] text-[#F3F0EA] flex flex-col font-sans selection:bg-[#C8AE82] selection:text-[#080909]">
-      
-      {/* Toast Notification Provider */}
-      <Toaster 
-        position="top-right" 
-        richColors 
-        closeButton 
-        theme="dark"
-      />
-
-      {/* 01 — Header: Clean & Confident */}
+      <Toaster position="top-right" richColors closeButton theme="dark" />
       <Navbar onNavigate={handleNavigate} />
-
-      {/* Main Content */}
       <main className="flex-1">
         {activeLocationSlug && LOCATIONS_DATA[activeLocationSlug] ? (
           <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-[#888] font-mono text-xs">Loading regional intelligence...</div>}>
@@ -126,59 +104,25 @@ export default function App() {
           </Suspense>
         ) : (
           <>
-            {/* 02 — Hero: One Dominant Idea & Cinematic Visual */}
-            <Hero 
-              onExploreSystems={() => handleNavigate('systems')}
-              onStartConversation={() => handleNavigate('contact')}
-            />
-
-            {/* 03 — The Problem: "Businesses don't need more software. They need better systems." */}
-            <ProblemSection 
-              onSelectOutcome={(outcome) => handleSystemInquiry('Commercial Focus', outcome)}
-            />
-
-            {/* 04 — Featured Systems: Flavourly · CargoIQ · RailWatch · Revenue OS */}
-            <FeaturedSystems 
-              onSelectSystem={handleSystemInquiry}
-            />
-
-            {/* 05 — Scroll-driven "How we work": Diagnosis → Prototype → Production */}
-            <ScrollMethodSection 
-              onStartDiagnosis={() => handleNavigate('contact')}
-            />
-
-            {/* 06 — Visual Proof: Operational Drag → NahaLabs Intelligence Layer → Transformed Precision */}
+            <Hero onExploreSystems={() => handleNavigate('systems')} onStartConversation={() => handleNavigate('contact')} />
+            <ProblemSection onSelectOutcome={(outcome) => handleSystemInquiry('Commercial Focus', outcome)} />
+            <FeaturedSystems onSelectSystem={handleSystemInquiry} />
+            <ScrollMethodSection onStartDiagnosis={() => handleNavigate('contact')} />
             <VisualTransformation />
-
-            {/* 07 — About NahaLabs: High-conviction engineering from Johannesburg */}
-            <AboutStudioSection 
-              onStartConversation={() => handleNavigate('contact')}
-            />
-
-            {/* 08 — Final CTA: "There is probably something in your business that should work better. Let's find it." */}
+            <AboutStudioSection onStartConversation={() => handleNavigate('contact')} />
             <ContactSection prefilledSystem={prefilledSystem} />
           </>
         )}
       </main>
-
-      {/* Footer */}
-      <Footer 
+      <Footer
         onNavigate={handleNavigate}
         onSelectLocation={handleSelectLocation}
         onOpenPrivacy={() => setLegalModalType('privacy')}
         onOpenTerms={() => setLegalModalType('terms')}
       />
-
-      {/* Legal & Privacy Modal */}
       <Suspense fallback={null}>
-        {legalModalType && (
-          <LegalModal 
-            type={legalModalType}
-            onClose={() => setLegalModalType(null)}
-          />
-        )}
+        {legalModalType && <LegalModal type={legalModalType} onClose={() => setLegalModalType(null)} />}
       </Suspense>
-
     </div>
   );
 }
