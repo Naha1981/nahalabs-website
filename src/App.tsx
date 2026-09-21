@@ -12,6 +12,7 @@ import { Footer } from './components/Footer';
 import { LOCATIONS_DATA } from './data/locations';
 import { InsightArticlePage, InsightIndexPage } from './components/InsightArticlePage';
 import { GeneratedInsightPage } from './components/GeneratedInsightPage';
+import { ContentMediaUploader } from './components/ContentMediaUploader';
 
 const LocationView = lazy(() => import('./components/LocationView').then(m => ({ default: m.LocationView })));
 const LegalModal = lazy(() => import('./components/LegalModal').then(m => ({ default: m.LegalModal })));
@@ -23,6 +24,7 @@ export default function App() {
   const normalizedPath = window.location.pathname.replace(/\/+$/, '') || '/';
   const isInsightsIndexPage = normalizedPath === '/insights';
   const isInsightArticlePage = normalizedPath === '/insights/hidden-cost-fragmented-operational-information';
+  const isContentMediaAdmin = normalizedPath === '/content-admin';
   const generatedInsightSlug = normalizedPath.startsWith('/insights/') && !isInsightArticlePage
     ? normalizedPath.replace('/insights/', '')
     : null;
@@ -75,6 +77,7 @@ export default function App() {
     }, 100);
   };
 
+  if (isContentMediaAdmin) return <ContentMediaUploader />;
   if (isInsightsIndexPage) return <InsightIndexPage />;
   if (isInsightArticlePage) return <InsightArticlePage />;
   if (generatedInsightSlug) return <GeneratedInsightPage slug={generatedInsightSlug} />;

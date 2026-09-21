@@ -230,6 +230,7 @@ async function syncNotion(bundle: Bundle, heroUrl: string, videoUrl: string) {
     CTA: { rich_text: [{ text: { content: bundle.cta } }] },
     Hook: { rich_text: [{ text: { content: bundle.hook } }] },
     "Product / Campaign": { rich_text: [{ text: { content: bundle.product } }] },
+    "Media Source": { select: { name: "AI generated" } },
     Notes: { rich_text: [{ text: { content: "Created by the NahaLabs Content Engine. Human approval required before merge/publication." } }] },
     Format: { select: { name: "Article" } },
     Channel: { select: { name: "Website" } },
