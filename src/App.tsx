@@ -42,14 +42,6 @@ export default function App() {
 
     handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
-    if (isInsightsIndexPage) {
-    return <InsightIndexPage />;
-  }
-
-  if (isInsightArticlePage) {
-    return <InsightArticlePage />;
-  }
-
   return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
@@ -89,6 +81,14 @@ export default function App() {
       }
     }, 100);
   };
+
+  if (isInsightsIndexPage) {
+    return <InsightIndexPage />;
+  }
+
+  if (isInsightArticlePage) {
+    return <InsightArticlePage />;
+  }
 
   return (
     <div className="min-h-screen bg-[#080909] text-[#F3F0EA] flex flex-col font-sans selection:bg-[#C8AE82] selection:text-[#080909]">
