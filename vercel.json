@@ -11,6 +11,14 @@
     {
       "source": "/services/lead-follow-up-automation-johannesburg",
       "destination": "/services/lead-follow-up-automation-johannesburg.html"
+    },
+    {
+      "source": "/services/revenue-leak-audit-johannesburg",
+      "destination": "/services/revenue-leak-audit-johannesburg.html"
+    },
+    {
+      "source": "/audit",
+      "destination": "/audit.html"
     }
   ]
 }
