@@ -95,7 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
             About
           </button>
           <a
-            href="/insights/hidden-cost-fragmented-operational-information"
+            href="/insights"
             className="hover:text-[#F3F0EA] transition-colors"
           >
             Insights
