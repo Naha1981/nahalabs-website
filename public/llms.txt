@@ -1,0 +1,30 @@
+# NahaLabs
+
+> NahaLabs is an intelligent systems engineering company based in Johannesburg, South Africa. It finds the operational problems that quietly cost businesses money or time, then engineers the intelligent systems, AI digital workers, automations and software that fix them. It serves enterprises and high-growth businesses across Gauteng, South Africa, Lesotho and the wider region.
+
+Key facts:
+- Legal name: NahaLabs (PTY) Ltd. Founder and systems architect: Thabiso Naha.
+- Location: Johannesburg, Gauteng, South Africa. Contact: ai-solutions@nahalabs.co.za
+- How projects run: fixed scope, no open-ended retainers, in three stages: Diagnosis (1-2 weeks), Prototype (2-3 weeks), Production (3-6 weeks). Engagements start with a 45-minute technical diagnosis.
+- What it is not: NahaLabs does not sell off-the-shelf software or generic consulting. Each system is engineered around one client's workflows, data and commercial rules.
+
+## Core pages
+
+- [NahaLabs home](https://nahalabs.co.za/): What NahaLabs builds, the systems it has engineered (Flavourly, CargoIQ, RailWatch, Revenue OS), its Diagnosis-Prototype-Production method, an FAQ, and how to start an enquiry.
+- [Lead follow-up automation, Johannesburg](https://nahalabs.co.za/services/lead-follow-up-automation-johannesburg): Automated first response and scheduled follow-up for Facebook, WhatsApp and website enquiries, running until the customer replies, books or opts out. Pilot pricing is published on the page.
+
+## Regional pages
+
+- [Intelligent systems engineering in Johannesburg](https://nahalabs.co.za/locations/johannesburg): Bespoke intelligent systems, operational automation and business intelligence for Johannesburg enterprises, commercial leaders and fast-growing businesses.
+- [Business intelligence and automation in Soweto](https://nahalabs.co.za/locations/soweto): Practical business intelligence, WhatsApp automation and revenue systems for township enterprises, retailers and restaurants in Soweto.
+- [Systems engineering across Gauteng](https://nahalabs.co.za/locations/gauteng): Industrial-grade systems engineering, geospatial intelligence and enterprise automation across the Gauteng economic heartland.
+- [Intelligent systems in Lesotho](https://nahalabs.co.za/locations/lesotho): Practical intelligent systems, cross-border customs intelligence and digital operations for businesses and institutions in Lesotho.
+
+## Insights
+
+- [Insights index](https://nahalabs.co.za/insights): Evidence-led field notes on intelligent systems, revenue, operations, logistics and where fragmented information becomes expensive.
+- [The Hidden Cost of Fragmented Operational Information](https://nahalabs.co.za/insights/hidden-cost-fragmented-operational-information): Why South African businesses with more operational data than ever still struggle to reconstruct delays, costs and disputes when their systems are fragmented.
+
+## Optional
+
+- [Sitemap](https://nahalabs.co.za/sitemap.xml): Machine-readable list of all public pages.

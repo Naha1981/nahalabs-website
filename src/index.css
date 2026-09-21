@@ -314,6 +314,34 @@ select:focus-visible {
   .rule-list > li:last-child {
     border-bottom: 1px solid var(--line);
   }
+
+  /* FAQ disclosure mark: a plus that becomes a minus, no icon font needed. */
+  .faq-mark {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+  }
+  .faq-mark::before,
+  .faq-mark::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.2s var(--ease-out), opacity 0.2s ease;
+  }
+  .faq-mark::after {
+    transform: rotate(90deg);
+  }
+  details[open] > summary .faq-mark::after {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  details > summary:hover h3 {
+    color: var(--accent-hi);
+  }
 }
 
 /* 6. MOTION --------------------------------------------------------------- */

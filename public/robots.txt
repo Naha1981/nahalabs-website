@@ -1,5 +1,27 @@
+# NahaLabs crawl policy
+# Search engines and AI assistants are welcome to crawl, index and cite the public pages.
+
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /content-admin
+
+# AI search, answer engines and assistants. A named group replaces the * group for
+# these agents, so the disallow rules are repeated on purpose.
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: meta-externalagent
+User-agent: cohere-ai
+Allow: /
+Disallow: /api/
+Disallow: /content-admin
 
 Sitemap: https://nahalabs.co.za/sitemap.xml

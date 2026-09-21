@@ -24,8 +24,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreSystems, onStartConversatio
           </h1>
 
           <p className="mt-7 max-w-[34rem] text-lead text-fg-2">
-            NahaLabs finds where your operations are quietly losing money, then engineers the
-            intelligent system that fixes it. Built around your data, your workflows and your people.
+            NahaLabs is an intelligent systems engineering company in Johannesburg, South Africa. We find
+            where your operations are quietly losing money, then engineer the systems, AI digital workers
+            and automations that fix it.
           </p>
 
           <div className="mt-10 flex flex-col items-stretch sm:flex-row sm:items-center gap-x-8 gap-y-2">
