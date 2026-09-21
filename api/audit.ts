@@ -17,7 +17,7 @@ function attr(tag: string, name: string) {
 }
 
 function tags(html: string, name: string) {
-  return [...html.matchAll(new RegExp("<" + name + String.raw'\b[^>]*>', "gi"))].map((m) => m[0]);
+  return [...html.matchAll(new RegExp("<" + name + "\\b[^>]*>", "gi"))].map((m) => m[0]);
 }
 
 function strip(html: string) {
