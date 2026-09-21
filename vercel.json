@@ -15,6 +15,10 @@
     {
       "source": "/services/revenue-leak-audit-johannesburg",
       "destination": "/services/revenue-leak-audit-johannesburg.html"
+    },
+    {
+      "source": "/audit",
+      "destination": "/audit.html"
     }
   ]
 }
