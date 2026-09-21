@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { ArrowLeft, ArrowUpRight, ExternalLink } from 'lucide-react';
 
-const INSIGHTS_PATH = '/insights';
 const ARTICLE_PATH = '/insights/hidden-cost-fragmented-operational-information';
 const TITLE = 'The Hidden Cost of Fragmented Operational Information';
 const DESCRIPTION = 'South African businesses have more operational data than ever, but fragmented systems make delays, costs and disputes difficult to reconstruct.';
