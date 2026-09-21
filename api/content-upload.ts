@@ -1,18 +1,11 @@
 import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
 import { createHmac, timingSafeEqual } from "node:crypto";
 
-const allowedContentTypes = [
-  "image/jpeg",
-  "image/png",
-  "image/webp",
-  "image/avif",
-  "video/mp4",
-  "video/webm",
-  "video/quicktime"
-];
-
 function validSession(req: any) {
-  const cookie = String(req.headers?.cookie || "").split(";").map((v: string) => v.trim()).find((v: string) => v.startsWith("nahalabs_content_session="));
+  const cookie = String(req.headers?.cookie || "")
+    .split(";")
+    .map((v: string) => v.trim())
+    .find((v: string) => v.startsWith("nahalabs_content_session="));
   if (!cookie) return false;
 
   const raw = decodeURIComponent(cookie.split("=").slice(1).join("="));
@@ -43,7 +36,8 @@ async function updateNotion(pageId: string, field: "Hero Image URL" | "Video URL
     },
     body: JSON.stringify({
       properties: {
-        [field]: { url }
+        [field]: { url },
+        "Media Source": { select: { name: "User supplied" } }
       }
     })
   });
@@ -64,18 +58,15 @@ export default async function handler(request: any, response: any) {
         if (!clientPayload) throw new Error("Missing content target");
 
         const target = parsePayload(clientPayload);
-        const extension = pathname.toLowerCase();
-
-        const expectedType = target.field === "Video URL"
+        const contentTypes = target.field === "Video URL"
           ? ["video/mp4", "video/webm", "video/quicktime"]
           : ["image/jpeg", "image/png", "image/webp", "image/avif"];
 
         return {
-          allowedContentTypes: expectedType,
+          allowedContentTypes: contentTypes,
           maximumSizeInBytes: target.field === "Video URL" ? 500 * 1024 * 1024 : 15 * 1024 * 1024,
           addRandomSuffix: true,
-          tokenPayload: JSON.stringify(target),
-          pathname: "nahalabs/content/" + Date.now() + "-" + extension.split("/").pop()
+          tokenPayload: JSON.stringify(target)
         };
       },
       onUploadCompleted: async ({ blob, tokenPayload }) => {
