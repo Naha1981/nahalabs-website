@@ -95,6 +95,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
             About
           </button>
           <a
+            href="/services/lead-follow-up-automation-johannesburg"
+            className="hover:text-[#F3F0EA] transition-colors"
+          >
+            Lead follow-up
+          </a>
+          <a
             href="/insights"
             className="hover:text-[#F3F0EA] transition-colors"
           >
@@ -155,7 +161,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
               About
             </button>
             <a
-              href="/insights/hidden-cost-fragmented-operational-information"
+              href="/services/lead-follow-up-automation-johannesburg"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-left py-2 hover:text-[#F3F0EA] transition-colors"
+            >
+              Lead follow-up
+            </a>
+            <a
+              href="/insights"
               onClick={() => setMobileMenuOpen(false)}
               className="text-left py-2 hover:text-[#F3F0EA] transition-colors"
             >
