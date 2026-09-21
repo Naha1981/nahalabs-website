@@ -1,6 +1,9 @@
 import { GoogleGenAI } from "@google/genai";
-import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { put } from "@vercel/blob";
+import { google } from "googleapis";
+import { createReadStream, createWriteStream, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { pipeline } from "node:stream/promises";
+import os from "node:os";
 import path from "node:path";
 
 type Block =
@@ -11,6 +14,7 @@ type Block =
 
 type Bundle = {
   slug: string;
+  mediaKey: string;
   title: string;
   description: string;
   category: string;
@@ -42,6 +46,10 @@ const slugify = (value: string) =>
 const schema = {
   type: "object",
   properties: {
+    mediaKey: {
+      type: "string",
+      description: "Short stable kebab-case media library key, 2-5 words. Example: port-delay-evidence"
+    },
     title: { type: "string" },
     description: { type: "string" },
     category: { type: "string" },
@@ -105,7 +113,7 @@ const schema = {
     },
     heroPrompt: { type: "string" }
   },
-  required: ["title", "description", "category", "product", "hook", "cta", "mediaAltText", "blocks", "sources", "linkedin", "newsletter", "video", "heroPrompt"]
+  required: ["mediaKey", "title", "description", "category", "product", "hook", "cta", "mediaAltText", "blocks", "sources", "linkedin", "newsletter", "video", "heroPrompt"]
 };
 
 async function createBundle(): Promise<Bundle> {
@@ -115,6 +123,7 @@ async function createBundle(): Promise<Bundle> {
     "Prioritise South African business operations, logistics, freight, ports, revenue leakage, evidence, intelligent systems, AI Opportunity Engineering, restaurant revenue operations, or enterprise automation. " +
     "Prefer primary sources, regulators, official company publications and reputable reporting. Never invent facts or source URLs. " +
     "Create one 1200-1800 word evidence-aware article, three differentiated LinkedIn posts, one newsletter, one 30-60 second video script and one premium hero-image prompt. " +
+    "Also create a short stable mediaKey: 2-5 lowercase kebab-case words describing the topic, suitable for matching a pre-generated media folder. " +
     "NahaLabs is an intelligent systems engineering company / AI Opportunity Engineering company, not a chatbot agency. " +
     "Use calm premium South African English. Separate facts, source-reported claims, analysis and inference. " +
     "Do not make legal-liability conclusions. Connect the topic to a real commercial consequence and a credible NahaLabs opportunity without making the article a sales pitch. " +
@@ -133,11 +142,109 @@ async function createBundle(): Promise<Bundle> {
   if (!response.text) throw new Error("Gemini returned no content");
 
   const parsed = JSON.parse(response.text) as Omit<Bundle, "slug" | "datePublished">;
-
   return {
     ...parsed,
+    mediaKey: slugify(parsed.mediaKey),
     slug: slugify(parsed.title),
     datePublished: new Date().toISOString().slice(0, 10)
+  };
+}
+
+type DriveAsset = {
+  id: string;
+  name: string;
+  mimeType: string;
+};
+
+function getDriveClient() {
+  const json = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+  if (!json) return null;
+
+  const credentials = JSON.parse(json);
+  const auth = new google.auth.GoogleAuth({
+    credentials,
+    scopes: ["https://www.googleapis.com/auth/drive.readonly"]
+  });
+
+  return google.drive({ version: "v3", auth });
+}
+
+async function listFolder(drive: ReturnType<typeof google.drive>, folderId: string) {
+  const response = await drive.files.list({
+    q: `'${folderId}' in parents and trashed = false`,
+    pageSize: 1000,
+    fields: "files(id,name,mimeType,size,modifiedTime)"
+  });
+
+  return (response.data.files || []).filter((file): file is DriveAsset & { mimeType: string } =>
+    Boolean(file.id && file.name && file.mimeType)
+  );
+}
+
+async function findDriveMedia(bundle: Bundle) {
+  const drive = getDriveClient();
+  const rootFolderId = process.env.GOOGLE_DRIVE_MEDIA_FOLDER_ID;
+
+  if (!drive || !rootFolderId) {
+    return { imageUrl: null, videoUrl: null, source: "AI generated" as const };
+  }
+
+  const rootItems = await listFolder(drive, rootFolderId);
+  const slugFolder = rootItems.find(
+    (item) => item.mimeType === "application/vnd.google-apps.folder" && item.name === bundle.mediaKey
+  );
+
+  const mediaItems = slugFolder
+    ? await listFolder(drive, slugFolder.id)
+    : rootItems;
+
+  const image = mediaItems.find((item) =>
+    /^hero\.(jpg|jpeg|png|webp|avif)$/i.test(item.name) ||
+    new RegExp(`^${bundle.mediaKey}__hero\\.(jpg|jpeg|png|webp|avif)$`, "i").test(item.name)
+  );
+
+  const video = mediaItems.find((item) =>
+    /^video\.(mp4|webm|mov)$/i.test(item.name) ||
+    new RegExp(`^${bundle.mediaKey}__video\\.(mp4|webm|mov)$`, "i").test(item.name)
+  );
+
+  const downloadAndPublish = async (asset: DriveAsset, kind: "hero" | "video") => {
+    const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
+    if (!blobToken) throw new Error("BLOB_READ_WRITE_TOKEN is required when using Google Drive media");
+
+    const extension = path.extname(asset.name).toLowerCase() || (kind === "hero" ? ".png" : ".mp4");
+    const tmpDir = path.join(os.tmpdir(), "nahalabs-media");
+    mkdirSync(tmpDir, { recursive: true });
+    const localPath = path.join(tmpDir, Date.now() + "-" + asset.id + extension);
+
+    const downloaded = await drive.files.get(
+      { fileId: asset.id, alt: "media" },
+      { responseType: "stream" }
+    );
+
+    await pipeline(downloaded.data as any, createWriteStream(localPath));
+
+    const blob = await put(
+      `nahalabs/content/${bundle.mediaKey}/${kind}${extension}`,
+      createReadStream(localPath) as any,
+      {
+        access: "public",
+        token: blobToken,
+        contentType: asset.mimeType
+      }
+    );
+
+    rmSync(localPath, { force: true });
+    return blob.url;
+  };
+
+  const imageUrl = image ? await downloadAndPublish(image, "hero") : null;
+  const videoUrl = video ? await downloadAndPublish(video, "video") : null;
+
+  return {
+    imageUrl,
+    videoUrl,
+    source: imageUrl || videoUrl ? "User supplied" as const : "AI generated" as const
   };
 }
 
@@ -149,9 +256,7 @@ async function createHeroImage(bundle: Bundle) {
     contents: bundle.heroPrompt,
     config: {
       responseModalities: ["IMAGE"],
-      responseFormat: {
-        image: { aspectRatio: "16:9", imageSize: "1K" }
-      }
+      responseFormat: { image: { aspectRatio: "16:9", imageSize: "1K" } }
     } as any
   });
 
@@ -189,7 +294,7 @@ function createVideo(bundle: Bundle, imageFile: string) {
   return videoFile;
 }
 
-async function syncNotion(bundle: Bundle, heroUrl: string, videoUrl: string) {
+async function syncNotion(bundle: Bundle, heroUrl: string, videoUrl: string, mediaSource: "AI generated" | "User supplied") {
   const token = process.env.NOTION_TOKEN;
   const dataSourceId = process.env.NOTION_DATA_SOURCE_ID;
   if (!token || !dataSourceId) {
@@ -222,16 +327,25 @@ async function syncNotion(bundle: Bundle, heroUrl: string, videoUrl: string) {
   }
 
   const site = process.env.NAHALABS_SITE_URL || "https://nahalabs.co.za";
+  const absolute = (value: string) => value.startsWith("http") ? value : site + value;
+
   const properties: any = {
     Content: { title: [{ text: { content: bundle.title } }] },
-    "Hero Image URL": { url: site + heroUrl },
-    "Video URL": { url: site + videoUrl },
+    "Hero Image URL": { url: heroUrl ? absolute(heroUrl) : null },
+    "Video URL": { url: videoUrl ? absolute(videoUrl) : null },
     "Media Alt Text": { rich_text: [{ text: { content: bundle.mediaAltText } }] },
     CTA: { rich_text: [{ text: { content: bundle.cta } }] },
     Hook: { rich_text: [{ text: { content: bundle.hook } }] },
     "Product / Campaign": { rich_text: [{ text: { content: bundle.product } }] },
-    "Media Source": { select: { name: "AI generated" } },
-    Notes: { rich_text: [{ text: { content: "Created by the NahaLabs Content Engine. Human approval required before merge/publication." } }] },
+    "Media Source": { select: { name: mediaSource } },
+    Notes: {
+      rich_text: [{
+        text: {
+          content:
+            `Created by the NahaLabs Content Engine. Media key: ${bundle.mediaKey}. Human approval required before merge/publication.`
+        }
+      }]
+    },
     Format: { select: { name: "Article" } },
     Channel: { select: { name: "Website" } },
     Status: { select: { name: "Review" } },
@@ -241,10 +355,7 @@ async function syncNotion(bundle: Bundle, heroUrl: string, videoUrl: string) {
   const page = await fetch("https://api.notion.com/v1/pages", {
     method: "POST",
     headers,
-    body: JSON.stringify({
-      parent: { data_source_id: dataSourceId },
-      properties
-    })
+    body: JSON.stringify({ parent: { data_source_id: dataSourceId }, properties })
   });
 
   if (!page.ok) throw new Error("Notion page creation failed: " + page.status + " " + await page.text());
@@ -255,32 +366,60 @@ async function main() {
   mkdirSync(mediaDir, { recursive: true });
 
   const bundle = await createBundle();
-  const imageFile = await createHeroImage(bundle);
-  const videoFile = createVideo(bundle, imageFile);
+  const driveMedia = await findDriveMedia(bundle);
 
-  const heroUrl = "/content/media/" + bundle.slug + ".png";
-  const videoUrl = "/content/media/" + bundle.slug + ".mp4";
+  let heroUrl = driveMedia.imageUrl;
+  let videoUrl = driveMedia.videoUrl;
+  let mediaSource: "AI generated" | "User supplied" = driveMedia.source;
+
+  if (!heroUrl) {
+    const imageFile = await createHeroImage(bundle);
+    heroUrl = "/content/media/" + bundle.slug + ".png";
+
+    if (!videoUrl) {
+      createVideo(bundle, imageFile);
+      videoUrl = "/content/media/" + bundle.slug + ".mp4";
+    }
+
+    if (!mediaSource) mediaSource = "AI generated";
+  } else if (!videoUrl) {
+    const imageFile = path.join(root, "public", heroUrl);
+    if (existsSync(imageFile)) {
+      createVideo(bundle, imageFile);
+      videoUrl = "/content/media/" + bundle.slug + ".mp4";
+    }
+  }
+
+  if (!heroUrl && !videoUrl) mediaSource = "AI generated";
 
   const output = {
     ...bundle,
     heroImageUrl: heroUrl,
     videoUrl,
+    mediaSource,
     reviewStatus: "Review",
     generatedAt: new Date().toISOString()
   };
 
-  writeFileSync(path.join(generatedDir, bundle.slug + ".json"), JSON.stringify(output, null, 2));
+  writeFileSync(
+    path.join(generatedDir, bundle.slug + ".json"),
+    JSON.stringify(output, null, 2)
+  );
 
   const manifestPath = path.join(root, "public", "content", "manifest.json");
-  const manifest = existsSync(manifestPath) ? JSON.parse(readFileSync(manifestPath, "utf8")) : [];
+  const manifest = existsSync(manifestPath)
+    ? JSON.parse(readFileSync(manifestPath, "utf8"))
+    : [];
   if (!manifest.includes(bundle.slug)) manifest.unshift(bundle.slug);
   writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
-  await syncNotion(bundle, heroUrl, videoUrl);
+  await syncNotion(bundle, heroUrl || "", videoUrl || "", mediaSource);
 
   console.log("Generated article: " + bundle.title);
-  console.log("Hero: " + heroUrl);
-  console.log("Video: " + videoUrl);
+  console.log("Media key: " + bundle.mediaKey);
+  console.log("Hero: " + (heroUrl || "none"));
+  console.log("Video: " + (videoUrl || "none"));
+  console.log("Media source: " + mediaSource);
   console.log("Review status: Review");
 }
 
