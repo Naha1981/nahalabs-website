@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ArrowLeft, ArrowUpRight, ExternalLink } from 'lucide-react';
 
+const INSIGHTS_PATH = '/insights';
 const ARTICLE_PATH = '/insights/hidden-cost-fragmented-operational-information';
 const TITLE = 'The Hidden Cost of Fragmented Operational Information';
 const DESCRIPTION = 'South African businesses have more operational data than ever, but fragmented systems make delays, costs and disputes difficult to reconstruct.';
@@ -92,7 +93,7 @@ export const InsightArticlePage: React.FC = () => {
             NahaLabs
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#18191c] hover:bg-[#C8AE82] text-[#F3F0EA] hover:text-[#080909] border border-[#2b2d35] hover:border-[#C8AE82] text-[10px] font-mono uppercase tracking-wider font-semibold transition-all"
           >
             Start a conversation
@@ -430,3 +431,75 @@ export const InsightArticlePage: React.FC = () => {
     </div>
   );
 };
+
+
+export const InsightIndexPage: React.FC = () => (
+  <div className="min-h-screen bg-[#080909] text-[#F3F0EA]">
+    <header className="sticky top-0 z-40 border-b border-[#1b1c1f] bg-[#080909]/92 backdrop-blur-md">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between gap-4">
+        <a
+          href="/"
+          className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-[#A5A29B] hover:text-[#F3F0EA] transition-colors"
+        >
+          NahaLabs
+        </a>
+        <a
+          href="/#contact"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#18191c] hover:bg-[#C8AE82] text-[#F3F0EA] hover:text-[#080909] border border-[#2b2d35] hover:border-[#C8AE82] text-[10px] font-mono uppercase tracking-wider font-semibold transition-all"
+        >
+          Start a conversation
+          <ArrowUpRight className="w-3.5 h-3.5" />
+        </a>
+      </div>
+    </header>
+
+    <main className="max-w-6xl mx-auto px-5 sm:px-8 py-20 sm:py-28">
+      <div className="max-w-3xl">
+        <div className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">
+          NahaLabs Intelligence
+        </div>
+        <h1 className="mt-5 text-4xl sm:text-6xl leading-[1.02] font-semibold tracking-[-0.035em]">
+          Business problems worth understanding before they become software.
+        </h1>
+        <p className="mt-6 text-lg sm:text-xl leading-relaxed text-[#A5A29B]">
+          Evidence-led field notes on intelligent systems, revenue, operations, logistics and the places where fragmented information becomes expensive.
+        </p>
+      </div>
+
+      <div className="mt-14 grid gap-6 max-w-4xl">
+        <a
+          href={ARTICLE_PATH}
+          className="group rounded-2xl border border-[#24262a] bg-[#0c0d0e] p-7 sm:p-9 hover:border-[#C8AE82]/60 transition-all"
+        >
+          <div className="flex flex-wrap items-center gap-3 text-[10px] font-mono uppercase tracking-[0.16em] text-[#666]">
+            <span className="text-[#C8AE82]">Intelligent Revenue & Operations</span>
+            <span>·</span>
+            <span>21 September 2026</span>
+          </div>
+          <h2 className="mt-5 text-2xl sm:text-4xl font-semibold tracking-tight text-[#F3F0EA] group-hover:text-[#E5D1B0] transition-colors">
+            The Hidden Cost of Fragmented Operational Information
+          </h2>
+          <p className="mt-4 max-w-2xl text-sm sm:text-base leading-7 text-[#A5A29B]">
+            South African businesses have more operational data than ever, but fragmented systems make delays, costs and disputes difficult to reconstruct.
+          </p>
+          <div className="mt-6 inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.16em] text-[#C8AE82]">
+            Read intelligence
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </div>
+        </a>
+      </div>
+    </main>
+
+    <footer className="border-t border-[#1b1c1f] bg-[#050606]">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
+        <div>
+          <div className="text-sm font-bold tracking-[0.22em]">NAHALABS</div>
+          <div className="mt-2 text-[10px] font-mono uppercase tracking-[0.18em] text-[#666]">AI Opportunity Engineering</div>
+        </div>
+        <a href="/" className="text-[11px] font-mono uppercase tracking-[0.14em] text-[#666] hover:text-[#F3F0EA] transition-colors">
+          Home
+        </a>
+      </div>
+    </footer>
+  </div>
+);
