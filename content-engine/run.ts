@@ -197,13 +197,13 @@ async function findDriveMedia(bundle: Bundle) {
   const mediaItems = slugFolder ? await listFolder(drive, slugFolder.id) : rootItems;
 
   const image = mediaItems.find((item) =>
-    /^hero\\.(jpg|jpeg|png|webp|avif)$/i.test(item.name) ||
-    new RegExp(`^${bundle.mediaKey}__hero\\\\.(jpg|jpeg|png|webp|avif)$`, "i").test(item.name)
+    /^hero\./(jpg|jpeg|png|webp|avif)$/i.test(item.name) ||
+    new RegExp(`^${bundle.mediaKey}__hero\\.(jpg|jpeg|png|webp|avif)$`, "i").test(item.name)
   );
 
   const video = mediaItems.find((item) =>
-    /^video\\.(mp4|webm|mov)$/i.test(item.name) ||
-    new RegExp(`^${bundle.mediaKey}__video\\\\.(mp4|webm|mov)$`, "i").test(item.name)
+    /^video\./(mp4|webm|mov)$/i.test(item.name) ||
+    new RegExp(`^${bundle.mediaKey}__video\\.(mp4|webm|mov)$`, "i").test(item.name)
   );
 
   const downloadToTemp = async (asset: DriveAsset, kind: "hero" | "video") => {
@@ -391,8 +391,8 @@ async function main() {
 
     if (!mediaSource) mediaSource = "AI generated";
   } else if (!videoUrl) {
-    const imageFile = path.join(root, "public", heroUrl);
-    if (existsSync(imageFile)) {
+    const imageFile = driveMedia.localImageFile;
+    if (imageFile && existsSync(imageFile)) {
       createVideo(bundle, imageFile);
       videoUrl = "/content/media/" + bundle.slug + ".mp4";
     }
