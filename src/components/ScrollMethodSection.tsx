@@ -1,187 +1,100 @@
-import React, { useState } from 'react';
-import { CheckCircle2, FileSearch, Hammer, Rocket } from 'lucide-react';
+import React from 'react';
+import { Reveal } from './Reveal';
 
 interface ScrollMethodSectionProps {
   onStartDiagnosis?: () => void;
 }
 
+const STAGES = [
+  {
+    title: 'Diagnosis',
+    question: 'What is actually broken?',
+    timeline: '1–2 weeks',
+    description:
+      'We audit the workflow, identify where value or time is lost, and define the exact intelligence system required. If automation or AI is the wrong solution, we tell you immediately.',
+    deliverables: [
+      'Root-cause process and bottleneck audit',
+      'Commercial feasibility and ROI projection',
+      'System specification and deployment blueprint',
+    ],
+  },
+  {
+    title: 'Prototype',
+    question: 'What should the system do?',
+    timeline: '2–3 weeks',
+    description:
+      'We engineer a working prototype integrated with your actual data streams, testing real-world accuracy, operator adoption, and commercial leverage before wide rollout.',
+    deliverables: [
+      'Working prototype on live or sampled company data',
+      'Core model, rule engine and integration testing',
+      'Executive and operational usability validation',
+    ],
+  },
+  {
+    title: 'Production',
+    question: 'How do we put it into operation?',
+    timeline: '3–6 weeks',
+    description:
+      'We deploy the hardened system into your production infrastructure with security, automated error handling, operator handover, and SLA guarantees.',
+    deliverables: [
+      'Containerised production deployment with security hardening',
+      'Team handover and documentation',
+      'Ongoing maintenance, latency monitoring and model optimisation',
+    ],
+  },
+];
+
 export const ScrollMethodSection: React.FC<ScrollMethodSectionProps> = ({ onStartDiagnosis }) => {
-  const [activeStage, setActiveStage] = useState(0);
-
-  const stages = [
-    {
-      step: '01',
-      title: 'Diagnosis',
-      question: 'What is actually broken?',
-      icon: FileSearch,
-      timeline: '1–2 Weeks',
-      badge: 'Fixed Scope · Zero Retainers',
-      description: 'We audit the workflow, identify where value or time is lost, and define the exact intelligence system required. If automation or AI is the wrong solution, we tell you immediately.',
-      deliverables: [
-        'Root-cause process & bottleneck architecture audit',
-        'Commercial feasibility and ROI projection report',
-        'Detailed system specification & deployment blueprint',
-      ],
-      axiom: 'We only build what directly improves your operating margin.',
-    },
-    {
-      step: '02',
-      title: 'Prototype',
-      question: 'What should the system do?',
-      icon: Hammer,
-      timeline: '2–3 Weeks',
-      badge: 'Working Production Architecture',
-      description: 'We engineer a working prototype integrated with your actual data streams, testing real-world accuracy, operator adoption, and commercial leverage before wide rollout.',
-      deliverables: [
-        'Functional prototype running on live/sampled company data',
-        'Core model, rule engine, and integration testing',
-        'Executive & operational usability validation',
-      ],
-      axiom: 'We demonstrate measurable execution before production deployment.',
-    },
-    {
-      step: '03',
-      title: 'Production',
-      question: 'How do we put it into operation?',
-      icon: Rocket,
-      timeline: '3–6 Weeks',
-      badge: 'Hardened Enterprise Deployment',
-      description: 'We deploy the hardened system into your production infrastructure with comprehensive security, automated error handling, operator handover, and SLA guarantees.',
-      deliverables: [
-        'Containerized production deployment with security hardening',
-        'Team operational handover & documentation',
-        'Ongoing system maintenance, latency monitoring, and model optimization',
-      ],
-      axiom: 'The system runs autonomously, elevating your team rather than replacing their judgment.',
-    },
-  ];
-
   return (
-    <section id="approach" className="py-20 sm:py-32 bg-[#0a0b0d] border-b border-[#1c1d21] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header — Centered on mobile, left-aligned on desktop */}
-        <div className="max-w-3xl mb-14 sm:mb-20 space-y-4 text-center lg:text-left mx-auto lg:mx-0">
-          <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase mx-auto lg:mx-0">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C8AE82]" />
-            <span>The NahaLabs Method</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#F3F0EA] tracking-tight leading-[1.08]">
-            Diagnosis. Prototype. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F3F0EA] via-[#E5D1B0] to-[#C8AE82]">
-              Production.
-            </span>
+    <section id="approach" data-tone="light" className="section bg-canvas text-fg">
+      <div className="wrap">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-end">
+          <h2 className="lg:col-span-7 font-serif text-h1 font-medium">
+            Diagnosis. Prototype. Production.
           </h2>
-
-          <p className="text-base sm:text-lg text-[#A5A29B] leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            We don't do open-ended retainers or infinite consulting roadmaps. Every project executes in three disciplined, predictable stages.
+          <p className="lg:col-span-4 lg:col-start-9 text-lead text-fg-2">
+            Fixed scope, no open-ended retainers. Every project runs in three disciplined stages, and
+            we only build what directly improves your operating margin.
           </p>
         </div>
 
-        {/* 3 Interactive Horizontal Selector Tabs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 sm:mb-12">
-          {stages.map((st, idx) => {
-            const Icon = st.icon;
-            const isActive = activeStage === idx;
-            return (
-              <button
-                key={st.step}
-                onClick={() => setActiveStage(idx)}
-                className={`p-5 sm:p-6 rounded-2xl border text-center sm:text-left transition-all duration-300 cursor-pointer ${
-                  isActive
-                    ? 'bg-[#15161b] border-[#C8AE82] shadow-xl shadow-[#C8AE82]/5 ring-1 ring-[#C8AE82]'
-                    : 'bg-[#101114] border-[#22242a] hover:border-[#383b45]'
-                }`}
-              >
-                <div className="flex items-center justify-between mb-3 sm:mb-4">
-                  <span className="font-mono text-sm font-bold text-[#C8AE82]">
-                    {st.step}
-                  </span>
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isActive ? 'bg-[#C8AE82] text-[#080909]' : 'bg-[#1a1c22] text-[#A5A29B]'}`}>
-                    <Icon className="w-4 h-4" />
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-[#F3F0EA] mb-1">
-                  {st.title}
-                </h3>
-                <p className="text-xs font-mono text-[#A5A29B]">
-                  {st.question}
-                </p>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Stage In-Depth Architectural Card */}
-        <div className="rounded-3xl border border-[#262830] bg-gradient-to-b from-[#141519] to-[#0c0d10] p-6 sm:p-10 lg:p-14 shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            <div className="lg:col-span-7 space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 text-xs font-mono tracking-wider text-[#C8AE82] bg-[#1a1c24] px-3.5 py-1.5 rounded-full border border-[#2e313d] mx-auto lg:mx-0">
-                {stages[activeStage].badge}
+        <ol className="mt-14 sm:mt-20 grid grid-cols-1 md:grid-cols-3 gap-x-10 lg:gap-x-14 gap-y-12">
+          {STAGES.map((stage, i) => (
+            <Reveal as="li" key={stage.title} className="border-t border-line-strong pt-6 flex flex-col">
+              <div className="flex items-baseline justify-between gap-4 text-small text-fg-3">
+                <span>Stage {i + 1}</span>
+                <span>{stage.timeline}</span>
               </div>
 
-              <div className="space-y-2 w-full">
-                <div className="text-xs font-mono text-[#A5A29B] tracking-[0.2em] uppercase">
-                  Stage {stages[activeStage].step} — {stages[activeStage].title}
-                </div>
-                <h4 className="text-2xl sm:text-4xl font-extrabold text-[#F3F0EA] tracking-tight">
-                  {stages[activeStage].question}
-                </h4>
-              </div>
+              <h3 className="mt-5 font-serif text-h2 font-medium">{stage.title}</h3>
+              <p className="mt-2 text-body font-medium text-fg">{stage.question}</p>
+              <p className="mt-4 text-body text-fg-2">{stage.description}</p>
 
-              <p className="text-base sm:text-lg text-[#A5A29B] leading-relaxed max-w-xl">
-                {stages[activeStage].description}
-              </p>
-
-              <div className="space-y-3 pt-2 w-full">
-                <div className="text-xs font-mono text-[#F3F0EA] tracking-wider uppercase">
-                  Key Deliverables:
-                </div>
-                {stages[activeStage].deliverables.map((item, dIdx) => (
-                  <div key={dIdx} className="flex items-start justify-center lg:justify-start gap-3 text-sm text-[#F3F0EA] text-left">
-                    <CheckCircle2 className="w-4 h-4 text-[#C8AE82] shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </div>
+              <ul className="rule-list mt-8 text-small text-fg">
+                {stage.deliverables.map((d) => (
+                  <li key={d}>{d}</li>
                 ))}
-              </div>
+              </ul>
+            </Reveal>
+          ))}
+        </ol>
 
-              <div className="p-4 rounded-xl bg-[#0a0b0d] border border-[#22242c] text-xs font-mono text-[#C8AE82] italic w-full">
-                "{stages[activeStage].axiom}"
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 flex flex-col items-center justify-center p-6 sm:p-8 rounded-2xl bg-[#0f1013] border border-[#22242a] text-center space-y-6 w-full">
-              <div className="w-20 h-20 rounded-2xl bg-[#17181e] border border-[#2c2e38] flex items-center justify-center text-[#C8AE82] shadow-inner">
-                {React.createElement(stages[activeStage].icon, { className: 'w-10 h-10' })}
-              </div>
-
-              <div className="space-y-2">
-                <div className="text-xs font-mono text-[#A5A29B] uppercase tracking-widest">
-                  Ready to execute
-                </div>
-                <div className="text-xl font-bold text-[#F3F0EA]">
-                  Start with a 45-minute technical diagnosis.
-                </div>
-                <p className="text-xs text-[#888] max-w-xs mx-auto">
-                  We review your bottleneck, verify technical viability, and estimate return on investment before any commitments.
-                </p>
-              </div>
-
-              {onStartDiagnosis && (
-                <button
-                  onClick={onStartDiagnosis}
-                  className="w-full py-3.5 px-6 rounded-full bg-[#C8AE82] hover:bg-[#E5D1B0] text-[#080909] font-bold text-xs font-mono uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-lg active:scale-95"
-                >
-                  Book Diagnosis
-                </button>
-              )}
-            </div>
-
+        <div className="mt-16 sm:mt-20 pt-10 border-t border-line-strong grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-center">
+          <div className="lg:col-span-7">
+            <h3 className="font-serif text-h2 font-medium">Start with a 45-minute technical diagnosis.</h3>
+            <p className="mt-3 text-body text-fg-2 max-w-[36rem]">
+              We review your bottleneck, verify technical viability, and estimate return on investment
+              before any commitments.
+            </p>
           </div>
+          {onStartDiagnosis && (
+            <div className="lg:col-span-4 lg:col-start-9 lg:justify-self-end">
+              <button type="button" onClick={onStartDiagnosis} className="btn btn-primary w-full sm:w-auto">
+                Book a diagnosis
+              </button>
+            </div>
+          )}
         </div>
-
       </div>
     </section>
   );

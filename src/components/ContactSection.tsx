@@ -402,23 +402,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
   ];
 
   return (
-    <section id="contact" className="py-24 sm:py-36 bg-[#080909] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" data-tone="dark" className="section bg-canvas text-fg border-t border-line">
+      <div className="wrap">
         
-        {/* Top Callout Headline — Centered on mobile, left-aligned on desktop */}
-        <div className="max-w-4xl mb-14 sm:mb-20 space-y-4 text-center lg:text-left mx-auto lg:mx-0">
-          <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase mx-auto lg:mx-0">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C8AE82]" />
-            <span>Commercial Diagnosis</span>
-          </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#F3F0EA] tracking-tight leading-[1.08]">
-            There is probably something in your business that should work better. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F3F0EA] via-[#E5D1B0] to-[#C8AE82]">
-              Let’s find it.
-            </span>
+        {/* Closing statement: what the visitor can do next */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-end mb-14 sm:mb-20">
+          <h2 className="lg:col-span-7 font-serif text-h1 font-medium">
+            There is probably something in your business that should work better. Let&rsquo;s find it.
           </h2>
-          <p className="text-base sm:text-lg text-[#A5A29B] leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            Tell us about an operational friction, a manual process, or an unmonitored margin leak. We’ll evaluate whether an intelligent system can solve it.
+          <p className="lg:col-span-4 lg:col-start-9 text-lead text-fg-2">
+            Tell us about an operational friction, a manual process, or an unmonitored margin leak.
+            We&rsquo;ll evaluate whether an intelligent system can solve it.
           </p>
         </div>
 
@@ -441,10 +435,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                 <div className="flex items-center justify-between gap-3 p-2.5 rounded bg-[#161719] border border-[#262626] group hover:border-[#3a3c40] transition-colors">
                   <a 
                     href="mailto:ai-solutions@nahalabs.co.za" 
-                    className="flex items-center gap-2.5 text-[#F3F0EA] hover:text-[#C8AE82] transition-colors truncate min-w-0"
+                    className="flex items-center gap-2.5 text-[#F3F0EA] hover:text-[#C8AE82] transition-colors min-w-0"
                   >
                     <Mail className="w-4 h-4 text-[#C8AE82] shrink-0" />
-                    <span className="truncate">ai-solutions@nahalabs.co.za</span>
+                    <span className="break-all">ai-solutions@nahalabs.co.za</span>
                   </a>
                   <button
                     type="button"
@@ -469,9 +463,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
 
                 {/* Physical Address with Copy to Clipboard */}
                 <div className="flex items-center justify-between gap-3 p-2.5 rounded bg-[#161719] border border-[#262626] group hover:border-[#3a3c40] transition-colors">
-                  <div className="flex items-center gap-2.5 text-[#A5A29B] truncate min-w-0">
+                  <div className="flex items-center gap-2.5 text-[#A5A29B] min-w-0">
                     <MapPin className="w-4 h-4 text-[#C8AE82] shrink-0" />
-                    <span className="truncate">Johannesburg, Gauteng, South Africa</span>
+                    <span>Johannesburg, Gauteng, South Africa</span>
                   </div>
                   <button
                     type="button"
@@ -688,7 +682,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                         setTouched({});
                         setErrors({});
                       }}
-                      className="px-6 py-2.5 rounded-full border border-[#333] hover:border-[#C8AE82] text-xs font-mono text-[#A5A29B] hover:text-[#F3F0EA] transition-colors cursor-pointer flex items-center gap-2"
+                      className="px-6 py-2.5 rounded-md border border-[#333] hover:border-[#C8AE82] text-xs font-mono text-[#A5A29B] hover:text-[#F3F0EA] transition-colors cursor-pointer flex items-center gap-2"
                     >
                       <RotateCcw className="w-3.5 h-3.5" />
                       <span>Submit Another Inquiry</span>
@@ -732,7 +726,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                                 : 'bg-[#101112] border-[#1d1e20] text-[#555] cursor-not-allowed'
                             }`}
                           >
-                            <div className="flex items-center gap-2 mb-1">
+                            <div className="flex flex-col items-start gap-1.5 sm:flex-row sm:items-center sm:gap-2 mb-1">
                               <span
                                 className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold shrink-0 ${
                                   isCurrent
@@ -744,7 +738,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                               >
                                 {isDone ? <Check className="w-3 h-3" /> : s.number}
                               </span>
-                              <span className="text-xs font-bold truncate">
+                              <span className="text-xs font-bold sm:truncate">
                                 {s.title}
                               </span>
                             </div>
@@ -959,7 +953,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           <button
                             type="button"
                             onClick={handleNext}
-                            className="w-full py-3.5 rounded-full bg-[#C8AE82] text-[#080909] font-bold text-xs tracking-wider uppercase hover:bg-[#E5D1B0] transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#C8AE82]/10"
+                            className="w-full py-3.5 rounded-md bg-[#C8AE82] text-[#080909] font-bold text-xs tracking-wider uppercase hover:bg-[#E5D1B0] transition-colors flex items-center justify-center gap-2 cursor-pointer"
                           >
                             <span>Proceed To Problem Brief</span>
                             <ArrowRight className="w-3.5 h-3.5" />
@@ -1065,7 +1059,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           <button
                             type="button"
                             onClick={handlePrev}
-                            className="py-3 px-5 rounded-full border border-[#333] hover:border-[#666] text-xs font-mono text-[#A5A29B] hover:text-[#F3F0EA] transition-colors flex items-center gap-2 cursor-pointer"
+                            className="py-3 px-5 rounded-md border border-[#333] hover:border-[#666] text-xs font-mono text-[#A5A29B] hover:text-[#F3F0EA] transition-colors flex items-center gap-2 cursor-pointer"
                           >
                             <ArrowLeft className="w-3.5 h-3.5" />
                             <span>Previous</span>
@@ -1073,7 +1067,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           <button
                             type="button"
                             onClick={handleNext}
-                            className="flex-1 py-3.5 rounded-full bg-[#C8AE82] text-[#080909] font-bold text-xs tracking-wider uppercase hover:bg-[#E5D1B0] transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#C8AE82]/10"
+                            className="flex-1 py-3.5 rounded-md bg-[#C8AE82] text-[#080909] font-bold text-xs tracking-wider uppercase hover:bg-[#E5D1B0] transition-colors flex items-center justify-center gap-2 cursor-pointer"
                           >
                             <span>Proceed To Final Review</span>
                             <ArrowRight className="w-3.5 h-3.5" />
@@ -1156,7 +1150,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           <button
                             type="button"
                             onClick={handlePrev}
-                            className="py-3.5 px-5 rounded-full border border-[#333] hover:border-[#666] text-xs font-mono text-[#A5A29B] hover:text-[#F3F0EA] transition-colors flex items-center gap-2 cursor-pointer"
+                            className="py-3.5 px-5 rounded-md border border-[#333] hover:border-[#666] text-xs font-mono text-[#A5A29B] hover:text-[#F3F0EA] transition-colors flex items-center gap-2 cursor-pointer"
                           >
                             <ArrowLeft className="w-3.5 h-3.5" />
                             <span>Back</span>
@@ -1165,7 +1159,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="flex-1 py-3.5 rounded-full bg-[#C8AE82] text-[#080909] font-bold text-xs tracking-wider uppercase hover:bg-[#E5D1B0] transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#C8AE82]/10"
+                            className="flex-1 py-3.5 rounded-md bg-[#C8AE82] text-[#080909] font-bold text-xs tracking-wider uppercase hover:bg-[#E5D1B0] transition-colors flex items-center justify-center gap-2 cursor-pointer"
                           >
                             {isSubmitting ? (
                               <span>Transmitting Brief...</span>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUpRight, Mail, CheckCircle2, ArrowRight, Loader2, Copy, Check, MapPin } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -131,335 +131,175 @@ export const Footer: React.FC<FooterProps> = ({
     }, 450);
   };
 
+  const linkCls = 'text-small text-fg-2 hover:text-fg transition-colors text-left py-1.5';
+
   return (
-    <footer className="bg-[#050606] text-[#A5A29B] border-t border-[#181818] pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Newsletter Subscription Banner */}
-        <div className="mb-14 p-6 sm:p-10 rounded-sm bg-[#0c0d0e] border border-[#202224] flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-          <div className="max-w-xl space-y-2">
-            <div className="inline-flex items-center gap-2 text-[10px] font-mono text-[#C8AE82] uppercase tracking-[0.2em]">
-              <Mail className="w-3.5 h-3.5 text-[#C8AE82]" />
-              <span>{t.footer.dispatchesBadge}</span>
-            </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-[#F3F0EA] tracking-tight">
-              {t.footer.dispatchesTitle}
-            </h3>
-            <p className="text-xs sm:text-sm text-[#888] leading-relaxed">
-              {t.footer.dispatchesDesc}
-            </p>
-          </div>
+    <footer data-tone="dark" className="bg-surface text-fg-2 border-t border-line pt-16 sm:pt-20 pb-10">
+      <div className="wrap">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-12 gap-y-14 pb-14 border-b border-line">
 
-          <div className="w-full lg:w-auto flex-1 max-w-md">
-            {isSubscribed ? (
-              <div className="p-4 rounded-sm bg-[#151719] border border-[#C8AE82]/40 flex items-center justify-between gap-3 text-xs font-mono">
-                <div className="flex items-center gap-2 text-[#C8AE82]">
-                  <CheckCircle2 className="w-4 h-4 text-[#C8AE82] flex-shrink-0" />
-                  <span>DISPATCHES SUBSCRIPTION ACTIVE</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setIsSubscribed(false)}
-                  className="text-[10px] text-[#888] hover:text-[#F3F0EA] underline cursor-pointer"
-                >
-                  Add Another
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleNewsletterSubmit} className="space-y-2">
-                <div className="flex flex-col sm:flex-row items-stretch gap-2">
-                  <div className="relative flex-1">
-                    <Mail className="w-4 h-4 text-[#666] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                    <input
-                      type="email"
-                      id="newsletter-email-input"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder={t.footer.placeholder}
-                      disabled={isSubscribing}
-                      className="w-full bg-[#141517] border border-[#2a2c30] rounded-sm py-2.5 pl-10 pr-3 text-xs text-[#F3F0EA] placeholder-[#666] focus:outline-none focus:border-[#C8AE82] transition-colors font-mono disabled:opacity-50"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    id="newsletter-submit-btn"
-                    disabled={isSubscribing}
-                    className="px-5 py-2.5 rounded-sm bg-[#C8AE82] hover:bg-[#E5D1B0] text-[#080909] font-bold text-xs font-mono uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 whitespace-nowrap"
-                  >
-                    {isSubscribing ? (
-                      <>
-                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                        <span>Verifying...</span>
-                      </>
-                    ) : (
-                      <>
-                        <span>{t.footer.subscribeBtn}</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </>
-                    )}
-                  </button>
-                </div>
-                <div className="text-[10px] font-mono text-[#666] flex items-center justify-between">
-                  <span>POPIA Compliant · Confidential</span>
-                  <span>Dispatches every alternate Thursday</span>
-                </div>
-              </form>
-            )}
-          </div>
-        </div>
-
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-[#181818]">
-          
-          {/* Brand Col */}
-          <div className="lg:col-span-2 space-y-4">
+          {/* Brand and direct contact */}
+          <div className="lg:col-span-4">
             <div className="flex items-center gap-3">
-              <div className="w-7 h-7 flex-shrink-0">
-                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-                  <defs>
-                    <linearGradient id="footGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#E5D1B0" />
-                      <stop offset="50%" stopColor="#C8AE82" />
-                      <stop offset="100%" stopColor="#9C8358" />
-                    </linearGradient>
-                  </defs>
-                  <g transform="translate(22, 16)">
-                    <rect x="0" y="2" width="8" height="8" fill="url(#footGold)" />
-                    <rect x="0" y="16" width="7" height="52" fill="url(#footGold)" />
-                    <path d="M 2 22 L 48 68 L 40 68 L 2 30 Z" fill="url(#footGold)" />
-                    <path d="M 8 16 L 54 62 L 54 54 L 16 16 Z" fill="url(#footGold)" />
-                    <rect x="47" y="16" width="7" height="52" fill="url(#footGold)" />
-                    <rect x="47" y="74" width="8" height="8" fill="url(#footGold)" />
-                  </g>
-                </svg>
-              </div>
-              <div>
-                <span className="text-lg font-bold tracking-[0.25em] text-[#F3F0EA]">
-                  NAHALABS
-                </span>
-                <span className="block text-[8px] font-mono tracking-[0.2em] text-[#A5A29B] uppercase">
-                  (PTY) LTD · EST. SOUTH AFRICA
-                </span>
-              </div>
+              <svg viewBox="0 0 100 100" fill="none" className="w-7 h-7 shrink-0" aria-hidden="true">
+                <defs>
+                  <linearGradient id="footGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#E5D1B0" />
+                    <stop offset="50%" stopColor="#C8AE82" />
+                    <stop offset="100%" stopColor="#9C8358" />
+                  </linearGradient>
+                </defs>
+                <g transform="translate(22, 16)">
+                  <rect x="0" y="2" width="8" height="8" fill="url(#footGold)" />
+                  <rect x="0" y="16" width="7" height="52" fill="url(#footGold)" />
+                  <path d="M 2 22 L 48 68 L 40 68 L 2 30 Z" fill="url(#footGold)" />
+                  <path d="M 8 16 L 54 62 L 54 54 L 16 16 Z" fill="url(#footGold)" />
+                  <rect x="47" y="16" width="7" height="52" fill="url(#footGold)" />
+                  <rect x="47" y="74" width="8" height="8" fill="url(#footGold)" />
+                </g>
+              </svg>
+              <span className="text-[1rem] font-semibold tracking-[0.22em] text-fg leading-none">NAHALABS</span>
             </div>
 
-            <p className="text-xs text-[#777] leading-relaxed max-w-sm">
-              {t.footer.brandDesc}
-            </p>
+            <p className="mt-5 text-small text-fg-2 max-w-sm">{t.footer.brandDesc}</p>
 
-            <div className="text-xs font-mono text-[#F3F0EA] pt-2 space-y-2">
-              {/* Regional HQ with Copy */}
-              <div className="flex items-center justify-between gap-3 p-2 rounded bg-[#0f1011] border border-[#1e2022] max-w-sm">
-                <div className="flex items-center gap-2 text-xs text-[#C8AE82]">
-                  <MapPin className="w-3.5 h-3.5 text-[#C8AE82] flex-shrink-0" />
-                  <span className="text-[#DDD]">Johannesburg · Gauteng · South Africa</span>
-                </div>
-                <div className="relative">
-                  <button
-                    type="button"
-                    onClick={() => handleCopy('Johannesburg · Gauteng · South Africa', 'address', 'Headquarters Address')}
-                    className="p-1.5 rounded hover:bg-[#1a1c1e] text-[#888] hover:text-[#C8AE82] transition-colors cursor-pointer flex items-center gap-1 text-[10px]"
-                    title="Copy address to clipboard"
-                    aria-label="Copy address to clipboard"
-                  >
-                    {copiedTarget === 'address' ? (
-                      <Check className="w-3.5 h-3.5 text-[#4ade80]" />
-                    ) : (
-                      <Copy className="w-3.5 h-3.5" />
-                    )}
-                  </button>
-                  {copiedTarget === 'address' && (
-                    <span className="absolute -top-7 right-0 px-2 py-0.5 rounded bg-[#1e2022] border border-[#4ade80]/40 text-[#4ade80] text-[10px] font-mono shadow-md whitespace-nowrap animate-in fade-in zoom-in-95 duration-200">
-                      {t.footer.copied}
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {/* Direct Email with Copy to Clipboard Button & Tooltip Indicator */}
-              <div className="flex items-center justify-between gap-3 p-2 rounded bg-[#0f1011] border border-[#1e2022] max-w-sm">
-                <a 
-                  href="mailto:ai-solutions@nahalabs.co.za" 
-                  className="text-[#C8AE82] hover:underline block truncate text-xs"
-                >
-                  ai-solutions@nahalabs.co.za
-                </a>
-                <div className="relative flex items-center">
+            <dl className="mt-7 space-y-4 text-small">
+              <div>
+                <dt className="text-caption text-fg-3">Email</dt>
+                <dd className="mt-1 flex items-center gap-4">
+                  <a href="mailto:ai-solutions@nahalabs.co.za" className="text-fg underline decoration-line-strong underline-offset-4 hover:decoration-accent break-all">
+                    ai-solutions@nahalabs.co.za
+                  </a>
                   <button
                     type="button"
                     id="footer-copy-email-btn"
                     onClick={() => handleCopy('ai-solutions@nahalabs.co.za', 'email', 'Engineering Email')}
-                    className="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-[#181a1c] hover:bg-[#222528] border border-[#2c2f33] hover:border-[#C8AE82]/50 text-[#C8AE82] text-[11px] font-mono transition-all cursor-pointer"
-                    title="Copy email to clipboard"
-                    aria-label="Copy email to clipboard"
+                    className="text-caption text-fg-2 hover:text-accent transition-colors shrink-0 min-h-11 px-1"
+                    aria-label="Copy email address"
                   >
-                    {copiedTarget === 'email' ? (
+                    {copiedTarget === 'email' ? t.footer.copied : t.footer.copyEmail}
+                  </button>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-caption text-fg-3">Location</dt>
+                <dd className="mt-1 flex items-center gap-4">
+                  <span className="text-fg">Johannesburg, Gauteng, South Africa</span>
+                  <button
+                    type="button"
+                    onClick={() => handleCopy('Johannesburg · Gauteng · South Africa', 'address', 'Headquarters Address')}
+                    className="text-caption text-fg-2 hover:text-accent transition-colors shrink-0 min-h-11 px-1"
+                    aria-label="Copy location"
+                  >
+                    {copiedTarget === 'address' ? t.footer.copied : 'Copy'}
+                  </button>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          {/* Site */}
+          <nav aria-label="Footer" className="lg:col-span-2 lg:col-start-6">
+            <h2 className="text-caption font-medium text-fg">Explore</h2>
+            <ul className="mt-4 flex flex-col">
+              {[
+                ['solutions', 'Solutions'],
+                ['systems', 'Systems'],
+                ['approach', 'Approach'],
+                ['about', 'About'],
+                ['contact', 'Contact'],
+              ].map(([id, label]) => (
+                <li key={id}>
+                  <button type="button" onClick={() => onNavigate(id)} className={linkCls}>
+                    {label}
+                  </button>
+                </li>
+              ))}
+              <li>
+                <a href="/insights" className={`${linkCls} block`}>Insights</a>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Regional pages */}
+          <nav aria-label="Regions" className="lg:col-span-2">
+            <h2 className="text-caption font-medium text-fg">{t.footer.regionalHubs}</h2>
+            <ul className="mt-4 flex flex-col">
+              {[
+                ['johannesburg', 'Johannesburg and Sandton'],
+                ['soweto', 'Soweto township commerce'],
+                ['gauteng', 'Gauteng industrial corridor'],
+                ['lesotho', 'Lesotho and cross-border'],
+              ].map(([slug, label]) => (
+                <li key={slug}>
+                  <button type="button" onClick={() => onSelectLocation(slug)} className={linkCls}>
+                    {label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Briefings */}
+          <div className="lg:col-span-3">
+            <h2 className="text-caption font-medium text-fg">{t.footer.dispatchesTitle}</h2>
+            <p className="mt-4 text-small text-fg-2">{t.footer.dispatchesDesc}</p>
+
+            <div className="mt-5">
+              {isSubscribed ? (
+                <div className="flex items-center justify-between gap-3 text-small">
+                  <span className="text-fg">You're on the list.</span>
+                  <button type="button" onClick={() => setIsSubscribed(false)} className="text-caption text-fg-2 hover:text-fg underline underline-offset-4 min-h-11 px-1">
+                    Add another
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleNewsletterSubmit} noValidate className="space-y-3">
+                  <label htmlFor="newsletter-email-input" className="sr-only">Email address</label>
+                  <input
+                    type="email"
+                    id="newsletter-email-input"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder={t.footer.placeholder}
+                    disabled={isSubscribing}
+                    autoComplete="email"
+                    className="w-full min-h-11 bg-canvas border border-line-strong rounded-md px-3.5 text-small text-fg placeholder:text-fg-3 focus:border-accent transition-colors disabled:opacity-50"
+                  />
+                  <button
+                    type="submit"
+                    id="newsletter-submit-btn"
+                    disabled={isSubscribing}
+                    className="btn btn-primary btn-sm w-full disabled:opacity-60"
+                  >
+                    {isSubscribing ? (
                       <>
-                        <Check className="w-3 h-3 text-[#4ade80]" />
-                        <span className="text-[#4ade80] font-bold">{t.footer.copied}</span>
+                        <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
+                        <span>Verifying</span>
                       </>
                     ) : (
-                      <>
-                        <Copy className="w-3 h-3 text-[#C8AE82]" />
-                        <span>{t.footer.copyEmail}</span>
-                      </>
+                      <span>{t.footer.subscribeBtn}</span>
                     )}
                   </button>
-                  {copiedTarget === 'email' && (
-                    <span className="absolute -top-7 right-0 px-2 py-0.5 rounded bg-[#151719] border border-[#4ade80]/50 text-[#4ade80] text-[10px] font-mono shadow-lg whitespace-nowrap animate-in fade-in zoom-in-95 duration-200">
-                      ✓ {t.footer.copied}
-                    </span>
-                  )}
-                </div>
-              </div>
+                  <p className="text-caption text-fg-3">POPIA compliant and confidential. Dispatches every alternate Thursday.</p>
+                </form>
+              )}
             </div>
           </div>
-
-          {/* Directory Links */}
-          <div className="space-y-3">
-            <div className="text-xs font-mono text-[#F3F0EA] uppercase tracking-widest">
-              NAVIGATION
-            </div>
-            <ul className="space-y-2 text-xs">
-              <li>
-                <button 
-                  onClick={() => onNavigate('solutions')} 
-                  className="hover:text-[#C8AE82] transition-colors"
-                >
-                  Solutions
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onNavigate('systems')} 
-                  className="hover:text-[#C8AE82] transition-colors"
-                >
-                  Featured Systems
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onNavigate('approach')} 
-                  className="hover:text-[#C8AE82] transition-colors"
-                >
-                  Methodology
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onNavigate('about')} 
-                  className="hover:text-[#C8AE82] transition-colors"
-                >
-                  About Studio
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onNavigate('contact')} 
-                  className="hover:text-[#C8AE82] transition-colors"
-                >
-                  Commercial Diagnosis
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Regional Hubs (SEO) */}
-          <div className="space-y-3">
-            <div className="text-xs font-mono text-[#C8AE82] uppercase tracking-widest">
-              {t.footer.regionalHubs}
-            </div>
-            <ul className="space-y-2 text-xs">
-              <li>
-                <button 
-                  onClick={() => onSelectLocation('johannesburg')} 
-                  className="hover:text-[#F3F0EA] transition-colors flex items-center gap-1.5"
-                >
-                  <span>Johannesburg & Sandton</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#C8AE82]" />
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onSelectLocation('soweto')} 
-                  className="hover:text-[#F3F0EA] transition-colors flex items-center gap-1.5"
-                >
-                  <span>Soweto Township Commerce</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#C8AE82]" />
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onSelectLocation('gauteng')} 
-                  className="hover:text-[#F3F0EA] transition-colors flex items-center gap-1.5"
-                >
-                  <span>Gauteng Industrial Corridor</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#C8AE82]" />
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => onSelectLocation('lesotho')} 
-                  className="hover:text-[#F3F0EA] transition-colors flex items-center gap-1.5"
-                >
-                  <span>Lesotho & Cross-Border</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#C8AE82]" />
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Methodology & Contact */}
-          <div className="space-y-3">
-            <div className="text-xs font-mono text-[#F3F0EA] uppercase tracking-widest">
-              {t.footer.methodology}
-            </div>
-            <p className="text-xs text-[#777] font-mono leading-relaxed">
-              DIAGNOSIS<br />
-              ↓<br />
-              PROTOTYPE<br />
-              ↓<br />
-              PRODUCTION
-            </p>
-            <div className="pt-2">
-              <button
-                onClick={() => onNavigate('contact')}
-                className="text-xs font-mono text-[#C8AE82] hover:text-[#E5D1B0] transition-colors uppercase flex items-center gap-1"
-              >
-                <span>Start Conversation</span>
-                <span>→</span>
-              </button>
-            </div>
-          </div>
-
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-[#666]">
-          <div>
-            © {new Date().getFullYear()} NahaLabs (PTY) Ltd. {t.footer.rights}
-          </div>
+        <div className="pt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-caption text-fg-3">
+          <p>© {new Date().getFullYear()} NahaLabs (PTY) Ltd. {t.footer.rights}</p>
           <div className="flex items-center gap-6">
-            <button 
-              onClick={onOpenPrivacy}
-              className="hover:text-[#A5A29B] transition-colors"
-            >
+            <button type="button" onClick={onOpenPrivacy} className="hover:text-fg transition-colors min-h-11">
               {t.footer.privacy}
             </button>
-            <button 
-              onClick={onOpenTerms}
-              className="hover:text-[#A5A29B] transition-colors"
-            >
+            <button type="button" onClick={onOpenTerms} className="hover:text-fg transition-colors min-h-11">
               {t.footer.terms}
             </button>
-            <span className="text-[#C8AE82]">
-              AI OPPORTUNITY ENGINEERING
-            </span>
           </div>
         </div>
-
       </div>
     </footer>
   );
 };
-

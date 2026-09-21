@@ -1,5 +1,146 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   NahaLabs design system
+   --------------------------------------------------------------------------
+   1. Foundations  (@theme)   : type families, type scale, palette, radii, shadows
+   2. Tones        ([data-tone]) : dark / light semantic colours per section
+   3. Base                    : document defaults, focus, skip link
+   4. Layout                  : .wrap, .section, measure
+   5. Components              : .btn, .link, .rule-list
+   6. Motion                  : hero entrance, .reveal, reduced-motion
+   Legacy utilities used by components outside the home page follow at the end.
+   ========================================================================== */
+
+/* 1. FOUNDATIONS ---------------------------------------------------------- */
+@theme {
+  /* Families. Serif carries the voice, sans carries the work, mono only for
+     legacy technical labels still used inside the enquiry form. */
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Type scale: fluid between 360px and 1440px viewports. */
+  --text-display: clamp(2.5rem, 1.7rem + 3.2vw, 4rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.022em;
+  --text-h1: clamp(2rem, 1.5rem + 2.2vw, 3.25rem);
+  --text-h1--line-height: 1.1;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h2: clamp(1.625rem, 1.35rem + 1.3vw, 2.375rem);
+  --text-h2--line-height: 1.15;
+  --text-h2--letter-spacing: -0.015em;
+  --text-h3: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.01em;
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --text-lead--line-height: 1.55;
+  --text-body: 1rem;
+  --text-body--line-height: 1.65;
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.55;
+  --text-caption: 0.8125rem;
+  --text-caption--line-height: 1.5;
+  --text-button: 0.9375rem;
+  --text-button--line-height: 1.2;
+
+  /* Palette: a neutral ink / porcelain foundation, one champagne accent. */
+  --color-ink: #080909;
+  --color-ink-2: #101214;
+  --color-ink-3: #171a1d;
+  --color-porcelain: #f2f2ee;
+  --color-porcelain-2: #e8e8e3;
+  --color-graphite: #15171a;
+  --color-champagne: #c8ae82;
+  --color-champagne-hi: #dcc69f;
+  --color-bronze: #7a6236;
+  --color-bronze-deep: #5f4b25;
+  --color-success: #4f9d7a;
+  --color-warning: #b98a2e;
+  --color-danger: #c65d52;
+
+  /* Restrained shape. Overrides Tailwind's larger defaults so untouched
+     components (enquiry form, location pages) inherit the same discipline. */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+  --radius-2xl: 8px;
+  --radius-3xl: 10px;
+
+  /* Shadows only where elevation carries meaning. */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.2);
+  --shadow-md: 0 2px 6px rgb(0 0 0 / 0.22);
+  --shadow-lg: 0 8px 20px -8px rgb(0 0 0 / 0.4);
+  --shadow-xl: 0 12px 28px -12px rgb(0 0 0 / 0.45);
+  --shadow-2xl: 0 16px 36px -16px rgb(0 0 0 / 0.5);
+}
+
+/* Semantic colours point at the per-tone variables (section 2). `inline`
+   keeps the reference live so each [data-tone] section resolves its own values
+   instead of inheriting the root's. */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-raised: var(--raised);
+  --color-fg: var(--fg);
+  --color-fg-2: var(--fg-2);
+  --color-fg-3: var(--fg-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-hi: var(--accent-hi);
+}
+
+/* Layout tokens */
+:root {
+  --container: 75rem;                              /* 1200px section width */
+  --measure: 62ch;                                 /* reading width */
+  --gutter: clamp(1.25rem, 0.5rem + 3.5vw, 2.5rem);/* mobile 20px -> 40px */
+  --section-y: clamp(4.5rem, 2.5rem + 6.5vw, 8rem);/* vertical rhythm */
+  --header-h: 4.5rem;
+  --ease-out: cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+/* 2. TONES ---------------------------------------------------------------- */
+:root,
+[data-tone="dark"] {
+  --canvas: #080909;
+  --surface: #101214;
+  --raised: #171a1d;
+  --fg: #f1eee8;        /* 16.9:1 on canvas */
+  --fg-2: #b3b0a9;      /*  9.0:1 */
+  --fg-3: #8d8b86;      /*  5.7:1 (smallest text tone) */
+  --line: rgb(241 238 232 / 0.12);
+  --line-strong: rgb(241 238 232 / 0.24);
+  --accent: #c8ae82;    /*  9.2:1 */
+  --accent-hi: #dcc69f;
+  --btn-bg: #c8ae82;
+  --btn-bg-hover: #dcc69f;
+  --btn-fg: #080909;
+  --focus: #dcc69f;
+  color-scheme: dark;
+}
+
+[data-tone="light"] {
+  --canvas: #f2f2ee;
+  --surface: #e8e8e3;
+  --raised: #ffffff;
+  --fg: #15171a;        /* 16.0:1 on canvas */
+  --fg-2: #4a5057;      /*  7.3:1 */
+  --fg-3: #6a7078;      /*  4.5:1 (smallest text tone) */
+  --line: rgb(21 23 26 / 0.14);
+  --line-strong: rgb(21 23 26 / 0.3);
+  --accent: #7a6236;    /*  5.2:1 */
+  --accent-hi: #5f4b25;
+  --btn-bg: #15171a;
+  --btn-bg-hover: #2b3036;
+  --btn-fg: #f2f2ee;
+  --focus: #5f4b25;
+  color-scheme: light;
+}
+
+/* 3. BASE ----------------------------------------------------------------- */
 @layer base {
   :root {
     --bg-naha: #080909;
@@ -31,7 +172,8 @@
   html {
     background-color: #080909;
     color: #F3F0EA;
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
@@ -40,11 +182,189 @@
     color: #FAF8F5;
   }
 
-  code, pre, .font-mono {
-    font-family: 'JetBrains Mono', monospace;
+  body {
+    font-feature-settings: "kern", "liga";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+
+  p, li {
+    text-wrap: pretty;
+  }
+
+  /* Anchored sections must clear the fixed header. */
+  section[id] {
+    scroll-margin-top: calc(var(--header-h) - 1px);
   }
 }
 
+/* Focus: one visible, tone-aware ring for keyboard users everywhere.
+   Unlayered on purpose so it also wins over legacy `focus:outline-none`. */
+:focus-visible {
+  outline: 2px solid var(--focus, #dcc69f);
+  outline-offset: 3px;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--focus, #dcc69f) !important;
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 0.75rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background: #f1eee8;
+  color: #080909;
+  font-size: var(--text-small);
+  font-weight: 500;
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: none;
+}
+
+/* 4 + 5. LAYOUT AND COMPONENTS -------------------------------------------- */
+@layer components {
+  .wrap {
+    width: min(100% - 2 * var(--gutter), var(--container));
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: var(--section-y);
+  }
+
+  .measure {
+    max-width: var(--measure);
+  }
+
+  /* Buttons: one shape, two emphases, one size step. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    min-height: 3rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    font-size: var(--text-button);
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: 0.005em;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  }
+  .btn-sm {
+    min-height: 2.5rem;
+    padding: 0.5rem 1rem;
+  }
+  .btn-primary {
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+  }
+  .btn-primary:hover {
+    background: var(--btn-bg-hover);
+  }
+  .btn-outline {
+    border-color: var(--line-strong);
+    color: var(--fg);
+  }
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent-hi);
+  }
+
+  /* Text action: quiet underline, no glyphs. Used for secondary actions. */
+  .link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    color: var(--fg);
+    font-size: var(--text-button);
+    font-weight: 500;
+    text-align: left;
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-underline-offset: 0.4em;
+    text-decoration-thickness: 1px;
+    cursor: pointer;
+    transition: color 0.18s ease, text-decoration-color 0.18s ease;
+  }
+  .link:hover {
+    color: var(--accent-hi);
+    text-decoration-color: var(--accent);
+  }
+
+  /* Hairline-separated list: replaces icon bullets and card grids. */
+  .rule-list > li {
+    border-top: 1px solid var(--line);
+    padding-block: 0.75rem;
+  }
+  .rule-list > li:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+/* 6. MOTION --------------------------------------------------------------- */
+/* One orchestrated moment: the hero settles into place on first load. */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes hero-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-in > * {
+    animation: hero-rise 0.8s var(--ease-out) both;
+  }
+  .hero-in > *:nth-child(2) { animation-delay: 0.08s; }
+  .hero-in > *:nth-child(3) { animation-delay: 0.16s; }
+  .hero-visual {
+    animation: hero-fade 1.1s ease-out 0.15s both;
+  }
+
+  /* Long-form blocks ease in once. Only hidden when JS has confirmed it can
+     reveal them again (class set in main.tsx). */
+  .js-reveal .reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+  }
+  .js-reveal .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* LEGACY -----------------------------------------------------------------
+   Used by components outside the redesigned home page (enquiry form, footer,
+   location and insight pages). Kept intact so nothing there regresses.     */
 /* Ambient Mode Theme Shifter for soft low-light grey palette */
 html.ambient .bg-\[\#080909\] {
   background-color: #16181b !important;

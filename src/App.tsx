@@ -5,7 +5,6 @@ import { Hero } from './components/Hero';
 import { ProblemSection } from './components/ProblemSection';
 import { FeaturedSystems } from './components/FeaturedSystems';
 import { ScrollMethodSection } from './components/ScrollMethodSection';
-import { VisualTransformation } from './components/VisualTransformation';
 import { AboutStudioSection } from './components/AboutStudioSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -13,6 +12,7 @@ import { LOCATIONS_DATA } from './data/locations';
 import { InsightArticlePage, InsightIndexPage } from './components/InsightArticlePage';
 import { GeneratedInsightPage } from './components/GeneratedInsightPage';
 import { ContentMediaUploader } from './components/ContentMediaUploader';
+import { scrollBehavior } from './lib/motion';
 
 const LocationView = lazy(() => import('./components/LocationView').then(m => ({ default: m.LocationView })));
 const LegalModal = lazy(() => import('./components/LegalModal').then(m => ({ default: m.LegalModal })));
@@ -36,7 +36,7 @@ export default function App() {
         const slug = hash.split('/')[1];
         if (LOCATIONS_DATA[slug]) {
           setActiveLocationSlug(slug);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.scrollTo({ top: 0, behavior: scrollBehavior() });
           return;
         }
       }
@@ -54,18 +54,18 @@ export default function App() {
       window.location.hash = '';
       setTimeout(() => {
         const el = document.getElementById(sectionId);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        if (el) el.scrollIntoView({ behavior: scrollBehavior() });
       }, 100);
     } else {
       const el = document.getElementById(sectionId);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      if (el) el.scrollIntoView({ behavior: scrollBehavior() });
     }
   };
 
   const handleSelectLocation = (slug: string) => {
     setActiveLocationSlug(slug);
     window.location.hash = 'locations/' + slug;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: scrollBehavior() });
   };
 
   const handleSystemInquiry = (systemName: string, problemDesc?: string) => {
@@ -73,7 +73,7 @@ export default function App() {
     if (activeLocationSlug) setActiveLocationSlug(null);
     setTimeout(() => {
       const contactEl = document.getElementById('contact');
-      if (contactEl) contactEl.scrollIntoView({ behavior: 'smooth' });
+      if (contactEl) contactEl.scrollIntoView({ behavior: scrollBehavior() });
     }, 100);
   };
 
@@ -83,24 +83,25 @@ export default function App() {
   if (generatedInsightSlug) return <GeneratedInsightPage slug={generatedInsightSlug} />;
 
   return (
-    <div className="min-h-screen bg-[#080909] text-[#F3F0EA] flex flex-col font-sans selection:bg-[#C8AE82] selection:text-[#080909]">
+    <div className="min-h-screen bg-ink text-fg flex flex-col font-sans selection:bg-champagne selection:text-ink">
+      <a href="#main" className="skip-link">Skip to content</a>
       <Toaster position="top-right" richColors closeButton theme="dark" />
       <Navbar onNavigate={handleNavigate} />
-      <main className="flex-1">
+      <main id="main" tabIndex={-1} className="flex-1 outline-none">
         {activeLocationSlug && LOCATIONS_DATA[activeLocationSlug] ? (
-          <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-[#888] font-mono text-xs">Loading regional intelligence...</div>}>
+          <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-fg-3 text-small">Loading regional pages…</div>}>
             <LocationView
               location={LOCATIONS_DATA[activeLocationSlug]}
               onBack={() => {
                 setActiveLocationSlug(null);
                 window.location.hash = '';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: scrollBehavior() });
               }}
               onContact={() => {
                 setActiveLocationSlug(null);
                 setTimeout(() => {
                   const el = document.getElementById('contact');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  if (el) el.scrollIntoView({ behavior: scrollBehavior() });
                 }, 100);
               }}
             />
@@ -111,8 +112,7 @@ export default function App() {
             <ProblemSection onSelectOutcome={(outcome) => handleSystemInquiry('Commercial Focus', outcome)} />
             <FeaturedSystems onSelectSystem={handleSystemInquiry} />
             <ScrollMethodSection onStartDiagnosis={() => handleNavigate('contact')} />
-            <VisualTransformation />
-            <AboutStudioSection onStartConversation={() => handleNavigate('contact')} />
+            <AboutStudioSection />
             <ContactSection prefilledSystem={prefilledSystem} />
           </>
         )}

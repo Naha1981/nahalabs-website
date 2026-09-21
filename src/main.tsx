@@ -21,6 +21,11 @@ import {createRoot} from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 
+// Section reveals only hide content when the browser can reveal it again.
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.documentElement.classList.add('js-reveal');
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />

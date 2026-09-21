@@ -1,189 +1,145 @@
 import React from 'react';
-import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
 import { ASSETS } from '../data/assets';
+import { Reveal } from './Reveal';
 
 interface FeaturedSystemsProps {
   onSelectSystem: (systemName: string, problemDesc: string) => void;
 }
 
+const SYSTEMS = [
+  {
+    id: 'flavourly',
+    name: 'FLAVOURLY', // passed to the enquiry form; keep stable
+    displayName: 'Flavourly',
+    category: 'Hospitality and food operations',
+    headline: 'Recover revenue hidden inside restaurant demand.',
+    description:
+      'Predictive kitchen prep, automated ingredient replenishment, and real-time food cost margin tracking for high-volume multi-location dining.',
+    image: ASSETS.flavourly,
+    imageFallback: ASSETS.flavourlyJpg,
+    alt: 'A busy restaurant dining room with an open kitchen, the setting for the Flavourly kitchen demand and margin system',
+    outcomes: [
+      'Dynamic demand-driven kitchen prep forecasting',
+      'Automated supplier invoice reconciliation and stock leakage alerts',
+      '+18% average operating margin uplift across active locations',
+    ],
+  },
+  {
+    id: 'cargoiq',
+    name: 'CARGOiQ',
+    displayName: 'CargoIQ',
+    category: 'Freight forwarding and logistics',
+    headline: 'Autonomous freight intelligence and quote margin protection.',
+    description:
+      'Instant multi-modal carrier rate validation, automated quote assembly, and proactive port demurrage risk mitigation across African trade corridors.',
+    image: ASSETS.cargoiq,
+    imageFallback: ASSETS.cargoiqJpg,
+    alt: 'Container trucks and gantry cranes at a freight terminal, the setting for the CargoIQ rate validation and demurrage protection system',
+    outcomes: [
+      'Multi-carrier tariff comparison and sub-second client quote generation',
+      'Autonomous port detention and demurrage penalty warning engine',
+      '94% faster quote turnaround with zero human spreadsheet leakage',
+    ],
+  },
+  {
+    id: 'railwatch',
+    name: 'RAILWATCH',
+    displayName: 'RailWatch',
+    category: 'Rail transit and corridor telemetry',
+    headline: 'Autonomous corridor and heavy infrastructure intelligence.',
+    description:
+      'Continuous predictive track condition monitoring, automated incident dispatch, and digital corridor security surveillance across SADC rail networks.',
+    image: ASSETS.railwatch,
+    imageFallback: ASSETS.railwatchJpg,
+    alt: 'Railway tracks and signal gantries at dusk, the setting for the RailWatch track condition and corridor monitoring system',
+    outcomes: [
+      'Real-time line telemetry and predictive defect detection',
+      'Autonomous security incident dispatch and crew escalation',
+      '-62% incident response latency across heavy transit corridors',
+    ],
+  },
+  {
+    id: 'enterprise',
+    name: 'REVENUE OS',
+    displayName: 'Revenue OS',
+    category: 'Enterprise B2B and high-value sales',
+    headline: 'High-velocity commercial pipeline and autonomous deal qualification.',
+    description:
+      'Instant inbound enterprise intent scoring, automated prospect data enrichment, and digital worker follow-up before buyer momentum fades.',
+    image: ASSETS.enterpriseJhb,
+    imageFallback: ASSETS.enterpriseJhbJpg,
+    alt: 'Johannesburg office towers at dusk, the setting for the Revenue OS inbound intent and pipeline system',
+    outcomes: [
+      'Sub-second inbound enterprise enrichment and executive intent mapping',
+      'Autonomous digital worker outreach active within 120 seconds of inquiry',
+      '+3.4x qualified enterprise pipeline generated in first 30 days',
+    ],
+  },
+];
+
 export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem }) => {
-  const systems = [
-    {
-      id: 'flavourly',
-      name: 'FLAVOURLY',
-      category: 'Hospitality & Food Operations',
-      headline: 'Recover revenue hidden inside restaurant demand.',
-      description: 'Predictive kitchen prep, automated ingredient replenishment, and real-time food cost margin tracking for high-volume multi-location dining.',
-      image: ASSETS.flavourly,
-      imageFallback: ASSETS.flavourlyJpg,
-      alt: 'Flavourly Restaurant Kitchen Demand and Food Margin Intelligence System',
-      outcomes: [
-        'Dynamic demand-driven kitchen prep forecasting',
-        'Automated supplier invoice reconciliation & stock leakage alerts',
-        '+18% average operating margin uplift across active locations',
-      ],
-      badge: 'Revenue Recovery',
-    },
-    {
-      id: 'cargoiq',
-      name: 'CARGOiQ',
-      category: 'Freight Forwarding & Global Logistics',
-      headline: 'Autonomous freight intelligence and quote margin protection.',
-      description: 'Instant multi-modal carrier rate validation, automated quote assembly, and proactive port demurrage risk mitigation across African trade corridors.',
-      image: ASSETS.cargoiq,
-      imageFallback: ASSETS.cargoiqJpg,
-      alt: 'CargoIQ Freight Forwarding Rate Validation and Demurrage Protection System',
-      outcomes: [
-        'Multi-carrier tariff comparison & sub-second client quote generation',
-        'Autonomous port detention & demurrage penalty warning engine',
-        '94% faster quote turnaround with zero human spreadsheet leakage',
-      ],
-      badge: 'Margin Protection',
-    },
-    {
-      id: 'railwatch',
-      name: 'RAILWATCH',
-      category: 'Rail Transit & Corridor Telemetry',
-      headline: 'Autonomous corridor and heavy infrastructure intelligence.',
-      description: 'Continuous predictive track condition monitoring, automated incident dispatch, and digital corridor security surveillance across SADC rail networks.',
-      image: ASSETS.railwatch,
-      imageFallback: ASSETS.railwatchJpg,
-      alt: 'RailWatch Autonomous Railway Track Condition and Corridor Monitoring System',
-      outcomes: [
-        'Real-time line telemetry & predictive defect detection',
-        'Autonomous security incident dispatch & crew escalation',
-        '-62% incident response latency across heavy transit corridors',
-      ],
-      badge: 'Autonomous Telemetry',
-    },
-    {
-      id: 'enterprise',
-      name: 'REVENUE OS',
-      category: 'Enterprise B2B & High-Value Sales',
-      headline: 'High-velocity commercial pipeline and autonomous deal qualification.',
-      description: 'Instant inbound enterprise intent scoring, automated prospect data enrichment, and digital worker follow-up before buyer momentum fades.',
-      image: ASSETS.enterpriseJhb,
-      imageFallback: ASSETS.enterpriseJhbJpg,
-      alt: 'NahaLabs Revenue OS Enterprise Inbound Intent and Pipeline System',
-      outcomes: [
-        'Sub-second inbound enterprise enrichment and executive intent mapping',
-        'Autonomous digital worker outreach active within 120 seconds of inquiry',
-        '+3.4x qualified enterprise pipeline generated in first 30 days',
-      ],
-      badge: 'Pipeline Acceleration',
-    },
-  ];
-
   return (
-    <section id="systems" className="py-20 sm:py-32 bg-[#080909] border-b border-[#1c1d21] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header — Centered on mobile, left-aligned on desktop */}
-        <div className="max-w-3xl mb-14 sm:mb-20 space-y-4 text-center lg:text-left mx-auto lg:mx-0">
-          <div className="inline-flex items-center gap-2 text-xs font-mono tracking-[0.2em] text-[#C8AE82] uppercase mx-auto lg:mx-0">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C8AE82]" />
-            <span>Operational Proof</span>
-          </div>
-
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#F3F0EA] tracking-tight leading-[1.08]">
-            Systems we’ve built.
-          </h2>
-
-          <p className="text-base sm:text-lg text-[#A5A29B] leading-relaxed max-w-2xl mx-auto lg:mx-0">
-            We don't design conceptual prototypes or hypothetical slides. Here are production systems engineered around high-stakes commercial friction.
+    <section id="systems" data-tone="dark" className="section bg-canvas text-fg">
+      <div className="wrap">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-end">
+          <h2 className="lg:col-span-7 font-serif text-h1 font-medium">Systems we've built.</h2>
+          <p className="lg:col-span-4 lg:col-start-9 text-lead text-fg-2">
+            We don't design conceptual prototypes or hypothetical slides. Here are production systems
+            engineered around high-stakes commercial friction.
           </p>
         </div>
 
-        {/* 4 Large Product Launch Cards */}
-        <div className="space-y-12 sm:space-y-16 lg:space-y-24">
-          {systems.map((sys, idx) => {
-            const isReversed = idx % 2 === 1;
-            return (
-              <div
-                key={sys.id}
-                id={`system-showcase-${sys.id}`}
-                className="rounded-3xl border border-[#202228] bg-gradient-to-b from-[#111215] to-[#090a0c] p-6 sm:p-10 lg:p-12 transition-all duration-300 hover:border-[#C8AE82]/50 shadow-2xl"
-              >
-                <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
-                  
-                  {/* Text & Outcomes: Centered on mobile, left-aligned on desktop */}
-                  <div className={`lg:col-span-6 space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
-                    
-                    <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
-                      <span className="px-3 py-1 rounded-full bg-[#C8AE82]/10 border border-[#C8AE82]/30 text-[11px] font-mono tracking-wider text-[#C8AE82] uppercase">
-                        {sys.badge}
-                      </span>
-                      <span className="text-xs font-mono text-[#777] uppercase tracking-widest">
-                        {sys.category}
-                      </span>
-                    </div>
+        <div className="mt-14 sm:mt-20">
+          {SYSTEMS.map((sys) => (
+            <Reveal
+              as="article"
+              key={sys.id}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 py-12 lg:py-16 last:pb-0 border-t border-line"
+            >
+              <div id={`system-showcase-${sys.id}`} className="lg:col-span-5 scroll-mt-24">
+                <picture>
+                  <source srcSet={sys.image} type="image/webp" />
+                  <img
+                    src={sys.imageFallback}
+                    alt={sys.alt}
+                    loading="lazy"
+                    decoding="async"
+                    width={1280}
+                    height={960}
+                    className="w-full aspect-[4/3] object-cover rounded-sm ring-1 ring-line"
+                  />
+                </picture>
+              </div>
 
-                    <div className="space-y-2">
-                      <h3 className="text-xs font-mono tracking-[0.25em] text-[#A5A29B] uppercase font-bold">
-                        {sys.name}
-                      </h3>
-                      <h4 className="text-2xl sm:text-4xl font-extrabold text-[#F3F0EA] tracking-tight leading-snug">
-                        {sys.headline}
-                      </h4>
-                    </div>
+              <div className="lg:col-span-7 flex flex-col">
+                <p className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-small">
+                  <span className="font-semibold text-fg">{sys.displayName}</span>
+                  <span className="text-fg-3">{sys.category}</span>
+                </p>
 
-                    <p className="text-sm sm:text-base text-[#A5A29B] leading-relaxed max-w-xl">
-                      {sys.description}
-                    </p>
+                <h3 className="mt-4 font-serif text-h2 font-medium max-w-[26ch]">{sys.headline}</h3>
 
-                    {/* Three Proof Points */}
-                    <div className="space-y-3 pt-2 w-full">
-                      {sys.outcomes.map((outcome, oIdx) => (
-                        <div key={oIdx} className="flex items-start justify-center lg:justify-start gap-3 text-xs sm:text-sm text-[#F3F0EA] text-left">
-                          <CheckCircle2 className="w-4 h-4 text-[#C8AE82] shrink-0 mt-0.5" />
-                          <span>{outcome}</span>
-                        </div>
-                      ))}
-                    </div>
+                <p className="mt-5 text-body text-fg-2 max-w-[40rem]">{sys.description}</p>
 
-                    {/* CTA to diagnose or deploy this system */}
-                    <div className="pt-4 w-full sm:w-auto flex justify-center lg:justify-start">
-                      <button
-                        onClick={() => onSelectSystem(sys.name, sys.headline)}
-                        className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#18191d] hover:bg-[#C8AE82] text-[#F3F0EA] hover:text-[#080909] border border-[#2c2e36] hover:border-[#C8AE82] text-xs font-mono uppercase tracking-wider font-semibold transition-all duration-200 cursor-pointer active:scale-95 shadow-md"
-                      >
-                        <span>Deploy or tailor this system</span>
-                        <ArrowUpRight className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
+                <ul className="rule-list mt-8 max-w-[40rem] text-small text-fg">
+                  {sys.outcomes.map((outcome) => (
+                    <li key={outcome}>{outcome}</li>
+                  ))}
+                </ul>
 
-                  {/* Large Product Visual */}
-                  <div className={`lg:col-span-6 w-full ${isReversed ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <div className="relative rounded-2xl overflow-hidden border border-[#262830] bg-[#0c0d10] shadow-2xl group mx-auto max-w-lg lg:max-w-none">
-                      <img
-                        src={sys.image}
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          if (target.src !== sys.imageFallback) {
-                            target.src = sys.imageFallback;
-                          }
-                        }}
-                        alt={sys.alt}
-                        loading="lazy"
-                        decoding="async"
-                        className="w-full h-auto aspect-video lg:aspect-[4/3] object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#080909]/80 via-transparent to-transparent pointer-events-none" />
-                      
-                      <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4 flex items-center justify-between text-[11px] font-mono text-[#A5A29B] bg-[#080909]/80 backdrop-blur-md px-3.5 py-2 rounded-lg border border-[#222]">
-                        <span className="text-[#F3F0EA] font-semibold">{sys.name} SYSTEM CORE</span>
-                        <span className="text-[#C8AE82]">IN PRODUCTION</span>
-                      </div>
-                    </div>
-                  </div>
-
+                <div className="mt-6">
+                  <button
+                    type="button"
+                    onClick={() => onSelectSystem(sys.name, sys.headline)}
+                    className="link"
+                  >
+                    Tailor {sys.displayName} to your business
+                  </button>
                 </div>
               </div>
-            );
-          })}
+            </Reveal>
+          ))}
         </div>
-
       </div>
     </section>
   );
