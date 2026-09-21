@@ -10,6 +10,7 @@ import { AboutStudioSection } from './components/AboutStudioSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { LOCATIONS_DATA } from './data/locations';
+import { InsightArticlePage, InsightIndexPage } from './components/InsightArticlePage';
 
 const LocationView = lazy(() => import('./components/LocationView').then(m => ({ default: m.LocationView })));
 const LegalModal = lazy(() => import('./components/LegalModal').then(m => ({ default: m.LegalModal })));
@@ -18,6 +19,9 @@ export default function App() {
   const [activeLocationSlug, setActiveLocationSlug] = useState<string | null>(null);
   const [prefilledSystem, setPrefilledSystem] = useState<string | null>(null);
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | null>(null);
+  const normalizedPath = window.location.pathname.replace(/\/+$/, '') || '/';
+  const isInsightsIndexPage = normalizedPath === '/insights';
+  const isInsightArticlePage = normalizedPath === '/insights/hidden-cost-fragmented-operational-information';
 
   // Sync hash routing for regional hub URLs (e.g. #locations/johannesburg)
   useEffect(() => {
@@ -38,7 +42,7 @@ export default function App() {
 
     handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+  return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
   const handleNavigate = (sectionId: string) => {
@@ -77,6 +81,14 @@ export default function App() {
       }
     }, 100);
   };
+
+  if (isInsightsIndexPage) {
+    return <InsightIndexPage />;
+  }
+
+  if (isInsightArticlePage) {
+    return <InsightArticlePage />;
+  }
 
   return (
     <div className="min-h-screen bg-[#080909] text-[#F3F0EA] flex flex-col font-sans selection:bg-[#C8AE82] selection:text-[#080909]">

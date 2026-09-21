@@ -94,6 +94,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           >
             About
           </button>
+          <a
+            href="/insights"
+            className="hover:text-[#F3F0EA] transition-colors"
+          >
+            Insights
+          </a>
         </nav>
 
         {/* Right CTA */}
@@ -148,6 +154,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
             >
               About
             </button>
+            <a
+              href="/insights/hidden-cost-fragmented-operational-information"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-left py-2 hover:text-[#F3F0EA] transition-colors"
+            >
+              Insights
+            </a>
           </div>
 
           <div className="pt-3 border-t border-[#1f2025]">
