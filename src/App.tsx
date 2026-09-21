@@ -6,6 +6,7 @@ import { ProblemSection } from './components/ProblemSection';
 import { FeaturedSystems } from './components/FeaturedSystems';
 import { ScrollMethodSection } from './components/ScrollMethodSection';
 import { AboutStudioSection } from './components/AboutStudioSection';
+import { HomeFaqSection } from './components/HomeFaqSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { LOCATIONS_DATA } from './data/locations';
@@ -18,10 +19,21 @@ const LocationView = lazy(() => import('./components/LocationView').then(m => ({
 const LegalModal = lazy(() => import('./components/LegalModal').then(m => ({ default: m.LegalModal })));
 
 export default function App() {
-  const [activeLocationSlug, setActiveLocationSlug] = useState<string | null>(null);
+  // On the server (build-time prerender) there is no window; the path is supplied by entry-server.tsx.
+  const rawPath =
+    typeof window !== 'undefined'
+      ? window.location.pathname
+      : (globalThis as { __SSR_PATH__?: string }).__SSR_PATH__ ?? '/';
+  const normalizedPath = rawPath.replace(/\/+$/, '') || '/';
+
+  // Regional pages are real URLs (/locations/johannesburg) so they can be crawled and cited.
+  // The older #locations/<slug> hash links keep working for existing bookmarks.
+  const locationPathMatch = normalizedPath.match(/^\/locations\/([a-z0-9-]+)$/);
+  const locationPathSlug = locationPathMatch && LOCATIONS_DATA[locationPathMatch[1]] ? locationPathMatch[1] : null;
+
+  const [activeLocationSlug, setActiveLocationSlug] = useState<string | null>(locationPathSlug);
   const [prefilledSystem, setPrefilledSystem] = useState<string | null>(null);
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | null>(null);
-  const normalizedPath = window.location.pathname.replace(/\/+$/, '') || '/';
   const isInsightsIndexPage = normalizedPath === '/insights';
   const isInsightArticlePage = normalizedPath === '/insights/hidden-cost-fragmented-operational-information';
   const isContentMediaAdmin = normalizedPath === '/content-admin';
@@ -40,7 +52,7 @@ export default function App() {
           return;
         }
       }
-      if (hash === '' || hash === 'hero') setActiveLocationSlug(null);
+      if ((hash === '' || hash === 'hero') && !locationPathSlug) setActiveLocationSlug(null);
     };
 
     handleHashChange();
@@ -48,7 +60,26 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // Deep links such as /#contact: the browser cannot scroll to sections that React has not
+  // rendered yet, so scroll once after mount.
+  useEffect(() => {
+    const id = window.location.hash.replace('#', '');
+    if (!id || id.startsWith('locations/')) return;
+    const frame = requestAnimationFrame(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'auto' });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  const goHome = (sectionId?: string) => {
+    window.location.assign('/' + (sectionId ? '#' + sectionId : ''));
+  };
+
   const handleNavigate = (sectionId: string) => {
+    if (locationPathSlug) {
+      goHome(sectionId);
+      return;
+    }
     if (activeLocationSlug) {
       setActiveLocationSlug(null);
       window.location.hash = '';
@@ -93,11 +124,19 @@ export default function App() {
             <LocationView
               location={LOCATIONS_DATA[activeLocationSlug]}
               onBack={() => {
+                if (locationPathSlug) {
+                  goHome();
+                  return;
+                }
                 setActiveLocationSlug(null);
                 window.location.hash = '';
                 window.scrollTo({ top: 0, behavior: scrollBehavior() });
               }}
               onContact={() => {
+                if (locationPathSlug) {
+                  goHome('contact');
+                  return;
+                }
                 setActiveLocationSlug(null);
                 setTimeout(() => {
                   const el = document.getElementById('contact');
@@ -113,6 +152,7 @@ export default function App() {
             <FeaturedSystems onSelectSystem={handleSystemInquiry} />
             <ScrollMethodSection onStartDiagnosis={() => handleNavigate('contact')} />
             <AboutStudioSection />
+            <HomeFaqSection />
             <ContactSection prefilledSystem={prefilledSystem} />
           </>
         )}

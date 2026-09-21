@@ -12,6 +12,50 @@ const FAQS = [
   ['What is the Johannesburg pilot price?', 'The 15-day pilot is R990 setup plus R499 per month. The standard price after the pilot is R4,500 setup plus R1,500 per month.'],
 ];
 
+export const getLeadFollowUpJsonLd = () => (
+  {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Service',
+        '@id': CANONICAL + '#service',
+        name: 'Lead Follow-Up Automation',
+        serviceType: 'Lead response and follow-up automation',
+        description: DESCRIPTION,
+        provider: { '@type': 'Organization', name: 'NahaLabs', url: 'https://nahalabs.co.za' },
+        areaServed: [
+          { '@type': 'City', name: 'Johannesburg' },
+          { '@type': 'AdministrativeArea', name: 'Gauteng' },
+          { '@type': 'Country', name: 'South Africa' }
+        ],
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'ZAR',
+          price: '990',
+          description: '15-day Johannesburg pilot setup fee. Monthly service is R499 during the pilot.',
+          url: CANONICAL
+        }
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': CANONICAL + '#faq',
+        mainEntity: FAQS.map(([question, answer]) => ({
+          '@type': 'Question',
+          name: question,
+          acceptedAnswer: { '@type': 'Answer', text: answer }
+        }))
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'NahaLabs', item: 'https://nahalabs.co.za/' },
+          { '@type': 'ListItem', position: 2, name: 'Lead Follow-Up Automation Johannesburg', item: CANONICAL }
+        ]
+      }
+    ]
+  }
+);
+
 function setMeta(selector: string, attrs: Record<string, string>, content: string) {
   let el = document.head.querySelector(selector) as HTMLMetaElement | null;
   if (!el) {
@@ -47,47 +91,7 @@ export const LeadFollowUpAutomationPage: React.FC = () => {
     const jsonld = document.createElement('script');
     jsonld.id = 'nahalabs-lead-follow-up-jsonld';
     jsonld.type = 'application/ld+json';
-    jsonld.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'Service',
-          '@id': CANONICAL + '#service',
-          name: 'Lead Follow-Up Automation',
-          serviceType: 'Lead response and follow-up automation',
-          description: DESCRIPTION,
-          provider: { '@type': 'Organization', name: 'NahaLabs', url: 'https://nahalabs.co.za' },
-          areaServed: [
-            { '@type': 'City', name: 'Johannesburg' },
-            { '@type': 'AdministrativeArea', name: 'Gauteng' },
-            { '@type': 'Country', name: 'South Africa' }
-          ],
-          offers: {
-            '@type': 'Offer',
-            priceCurrency: 'ZAR',
-            price: '990',
-            description: '15-day Johannesburg pilot setup fee. Monthly service is R499 during the pilot.',
-            url: CANONICAL
-          }
-        },
-        {
-          '@type': 'FAQPage',
-          '@id': CANONICAL + '#faq',
-          mainEntity: FAQS.map(([question, answer]) => ({
-            '@type': 'Question',
-            name: question,
-            acceptedAnswer: { '@type': 'Answer', text: answer }
-          }))
-        },
-        {
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'NahaLabs', item: 'https://nahalabs.co.za/' },
-            { '@type': 'ListItem', position: 2, name: 'Lead Follow-Up Automation Johannesburg', item: CANONICAL }
-          ]
-        }
-      ]
-    });
+    jsonld.text = JSON.stringify(getLeadFollowUpJsonLd());
     document.head.appendChild(jsonld);
     return () => jsonld.remove();
   }, []);

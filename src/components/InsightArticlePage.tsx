@@ -1,12 +1,44 @@
 import React, { useEffect } from 'react';
 import { ArrowLeft, ArrowUpRight, ExternalLink } from 'lucide-react';
 
-const ARTICLE_PATH = '/insights/hidden-cost-fragmented-operational-information';
-const TITLE = 'The Hidden Cost of Fragmented Operational Information';
-const DESCRIPTION = 'South African businesses have more operational data than ever, but fragmented systems make delays, costs and disputes difficult to reconstruct.';
+export const ARTICLE_PATH = '/insights/hidden-cost-fragmented-operational-information';
+export const TITLE = 'The Hidden Cost of Fragmented Operational Information';
+export const DESCRIPTION = 'South African businesses have more operational data than ever, but fragmented systems make delays, costs and disputes difficult to reconstruct.';
 const HERO_IMAGE_URL = '/insights/hidden-cost-fragmented-operational-information/hero.svg';
 const VIDEO_URL = '';
 const MEDIA_ALT_TEXT = 'NahaLabs visual showing fragmented operational evidence connecting port events, fleet movement, commercial rules and financial exposure';
+
+export const getArticleJsonLd = () => {
+  const canonicalUrl = `https://nahalabs.co.za${ARTICLE_PATH}`;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: TITLE,
+    description: DESCRIPTION,
+    author: {
+      '@type': 'Organization',
+      name: 'NahaLabs',
+      url: 'https://nahalabs.co.za',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'NahaLabs',
+      url: 'https://nahalabs.co.za',
+    },
+    datePublished: '2026-09-21',
+    dateModified: '2026-09-21',
+    mainEntityOfPage: canonicalUrl,
+    articleSection: 'Intelligent Revenue & Operations',
+    keywords: [
+      'fragmented operational information',
+      'logistics intelligence',
+      'demurrage',
+      'freight intelligence',
+      'AI Opportunity Engineering',
+    ],
+    inLanguage: 'en-ZA',
+  };
+};
 
 const upsertMeta = (selector: string, attrs: Record<string, string>, content: string) => {
   let el = document.head.querySelector(selector) as HTMLMetaElement | null;
@@ -48,34 +80,7 @@ export const InsightArticlePage: React.FC = () => {
     const script = document.createElement('script');
     script.id = 'nahalabs-insight-jsonld';
     script.type = 'application/ld+json';
-    script.text = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: TITLE,
-      description: DESCRIPTION,
-      author: {
-        '@type': 'Organization',
-        name: 'NahaLabs',
-        url: 'https://nahalabs.co.za',
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'NahaLabs',
-        url: 'https://nahalabs.co.za',
-      },
-      datePublished: '2026-09-21',
-      dateModified: '2026-09-21',
-      mainEntityOfPage: canonicalUrl,
-      articleSection: 'Intelligent Revenue & Operations',
-      keywords: [
-        'fragmented operational information',
-        'logistics intelligence',
-        'demurrage',
-        'freight intelligence',
-        'AI Opportunity Engineering',
-      ],
-      inLanguage: 'en-ZA',
-    });
+    script.text = JSON.stringify(getArticleJsonLd());
     document.head.appendChild(script);
 
     return () => {

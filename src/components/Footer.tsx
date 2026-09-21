@@ -232,9 +232,9 @@ export const Footer: React.FC<FooterProps> = ({
                 ['lesotho', 'Lesotho and cross-border'],
               ].map(([slug, label]) => (
                 <li key={slug}>
-                  <button type="button" onClick={() => onSelectLocation(slug)} className={linkCls}>
+                  <a href={`/locations/${slug}`} className={`${linkCls} block`}>
                     {label}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
