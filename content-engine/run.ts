@@ -186,7 +186,7 @@ async function findDriveMedia(bundle: Bundle) {
   const rootFolderId = process.env.GOOGLE_DRIVE_MEDIA_FOLDER_ID;
 
   if (!drive || !rootFolderId) {
-    return { imageUrl: null, videoUrl: null, localImageFile: null, source: "AI generated" as const };
+    return { imageUrl: null, videoUrl: null, localImageFile: null, localVideoFile: null, source: "AI generated" as const };
   }
 
   const rootItems = await listFolder(drive, rootFolderId);
@@ -197,12 +197,12 @@ async function findDriveMedia(bundle: Bundle) {
   const mediaItems = slugFolder ? await listFolder(drive, slugFolder.id) : rootItems;
 
   const image = mediaItems.find((item) =>
-    /^hero\./(jpg|jpeg|png|webp|avif)$/i.test(item.name) ||
+    /^hero\.(jpg|jpeg|png|webp|avif)$/i.test(item.name) ||
     new RegExp(`^${bundle.mediaKey}__hero\\.(jpg|jpeg|png|webp|avif)$`, "i").test(item.name)
   );
 
   const video = mediaItems.find((item) =>
-    /^video\./(mp4|webm|mov)$/i.test(item.name) ||
+    /^video\.(mp4|webm|mov)$/i.test(item.name) ||
     new RegExp(`^${bundle.mediaKey}__video\\.(mp4|webm|mov)$`, "i").test(item.name)
   );
 
