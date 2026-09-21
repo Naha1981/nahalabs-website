@@ -11,7 +11,7 @@ type Severity = "critical" | "high" | "medium" | "low";
 type Category = "conversion" | "trust" | "mobile" | "technical" | "performance" | "local";
 
 function attr(tag: string, name: string) {
-  const match = tag.match(new RegExp(name + String.raw'\s*=\s*(?:"([^"]*)"|\\'([^\\']*)\\'|([^\\s>]+))', "i"));
+  const match = tag.match(new RegExp(name + "\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))", "i"));
   return (match?.[1] || match?.[2] || match?.[3] || "").trim();
 }
 
