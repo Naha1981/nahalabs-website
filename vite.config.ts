@@ -16,6 +16,10 @@ export default defineConfig(() => {
       cssCodeSplit: true,
       chunkSizeWarningLimit: 600,
       rollupOptions: {
+        input: {
+          main: path.resolve(__dirname, 'index.html'),
+          leadFollowUp: path.resolve(__dirname, 'services/lead-follow-up-automation-johannesburg.html'),
+        },
         output: {
           manualChunks: {
             'vendor-react': ['react', 'react-dom'],
