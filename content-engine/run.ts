@@ -1,5 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 import { put } from "@vercel/blob";
+import { execFileSync } from "node:child_process";
 import { google } from "googleapis";
 import { createReadStream, createWriteStream, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { pipeline } from "node:stream/promises";
