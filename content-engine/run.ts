@@ -186,7 +186,7 @@ async function findDriveMedia(bundle: Bundle) {
   const rootFolderId = process.env.GOOGLE_DRIVE_MEDIA_FOLDER_ID;
 
   if (!drive || !rootFolderId) {
-    return { imageUrl: null, videoUrl: null, source: "AI generated" as const };
+    return { imageUrl: null, videoUrl: null, localImageFile: null, source: "AI generated" as const };
   }
 
   const rootItems = await listFolder(drive, rootFolderId);
@@ -194,27 +194,23 @@ async function findDriveMedia(bundle: Bundle) {
     (item) => item.mimeType === "application/vnd.google-apps.folder" && item.name === bundle.mediaKey
   );
 
-  const mediaItems = slugFolder
-    ? await listFolder(drive, slugFolder.id)
-    : rootItems;
+  const mediaItems = slugFolder ? await listFolder(drive, slugFolder.id) : rootItems;
 
   const image = mediaItems.find((item) =>
-    /^hero\.(jpg|jpeg|png|webp|avif)$/i.test(item.name) ||
-    new RegExp(`^${bundle.mediaKey}__hero\\.(jpg|jpeg|png|webp|avif)$`, "i").test(item.name)
+    /^hero\\.(jpg|jpeg|png|webp|avif)$/i.test(item.name) ||
+    new RegExp(`^${bundle.mediaKey}__hero\\\\.(jpg|jpeg|png|webp|avif)$`, "i").test(item.name)
   );
 
   const video = mediaItems.find((item) =>
-    /^video\.(mp4|webm|mov)$/i.test(item.name) ||
-    new RegExp(`^${bundle.mediaKey}__video\\.(mp4|webm|mov)$`, "i").test(item.name)
+    /^video\\.(mp4|webm|mov)$/i.test(item.name) ||
+    new RegExp(`^${bundle.mediaKey}__video\\\\.(mp4|webm|mov)$`, "i").test(item.name)
   );
 
-  const downloadAndPublish = async (asset: DriveAsset, kind: "hero" | "video") => {
-    const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
-    if (!blobToken) throw new Error("BLOB_READ_WRITE_TOKEN is required when using Google Drive media");
-
-    const extension = path.extname(asset.name).toLowerCase() || (kind === "hero" ? ".png" : ".mp4");
+  const downloadToTemp = async (asset: DriveAsset, kind: "hero" | "video") => {
     const tmpDir = path.join(os.tmpdir(), "nahalabs-media");
     mkdirSync(tmpDir, { recursive: true });
+
+    const extension = path.extname(asset.name).toLowerCase() || (kind === "hero" ? ".png" : ".mp4");
     const localPath = path.join(tmpDir, Date.now() + "-" + asset.id + extension);
 
     const downloaded = await drive.files.get(
@@ -223,6 +219,14 @@ async function findDriveMedia(bundle: Bundle) {
     );
 
     await pipeline(downloaded.data as any, createWriteStream(localPath));
+    return localPath;
+  };
+
+  const publishTempFile = async (localPath: string, asset: DriveAsset, kind: "hero" | "video") => {
+    const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
+    if (!blobToken) throw new Error("BLOB_READ_WRITE_TOKEN is required when using Google Drive media");
+
+    const extension = path.extname(asset.name).toLowerCase() || (kind === "hero" ? ".png" : ".mp4");
 
     const blob = await put(
       `nahalabs/content/${bundle.mediaKey}/${kind}${extension}`,
@@ -234,16 +238,20 @@ async function findDriveMedia(bundle: Bundle) {
       }
     );
 
-    rmSync(localPath, { force: true });
     return blob.url;
   };
 
-  const imageUrl = image ? await downloadAndPublish(image, "hero") : null;
-  const videoUrl = video ? await downloadAndPublish(video, "video") : null;
+  const imagePath = image ? await downloadToTemp(image, "hero") : null;
+  const videoPath = video ? await downloadToTemp(video, "video") : null;
+
+  const imageUrl = imagePath && image ? await publishTempFile(imagePath, image, "hero") : null;
+  const videoUrl = videoPath && video ? await publishTempFile(videoPath, video, "video") : null;
 
   return {
     imageUrl,
     videoUrl,
+    localImageFile: imagePath,
+    localVideoFile: videoPath,
     source: imageUrl || videoUrl ? "User supplied" as const : "AI generated" as const
   };
 }
