@@ -4,6 +4,9 @@ import { ArrowLeft, ArrowUpRight, ExternalLink } from 'lucide-react';
 const ARTICLE_PATH = '/insights/hidden-cost-fragmented-operational-information';
 const TITLE = 'The Hidden Cost of Fragmented Operational Information';
 const DESCRIPTION = 'South African businesses have more operational data than ever, but fragmented systems make delays, costs and disputes difficult to reconstruct.';
+const HERO_IMAGE_URL = '/insights/hidden-cost-fragmented-operational-information/hero.svg';
+const VIDEO_URL = '';
+const MEDIA_ALT_TEXT = 'NahaLabs visual showing fragmented operational evidence connecting port events, fleet movement, commercial rules and financial exposure';
 
 const upsertMeta = (selector: string, attrs: Record<string, string>, content: string) => {
   let el = document.head.querySelector(selector) as HTMLMetaElement | null;
@@ -120,6 +123,32 @@ export const InsightArticlePage: React.FC = () => {
               <span>·</span>
               <span>CargoIQ</span>
             </div>
+
+            {HERO_IMAGE_URL && (
+              <figure className="mt-10 overflow-hidden rounded-2xl border border-[#24262a] bg-[#0d0e10]">
+                <img src={HERO_IMAGE_URL} alt={MEDIA_ALT_TEXT} className="w-full h-auto" loading="eager" />
+                <figcaption className="px-4 py-3 text-[10px] font-mono uppercase tracking-[0.14em] text-[#666]">
+                  NahaLabs Intelligence · Evidence → Operations → Financial consequence
+                </figcaption>
+              </figure>
+            )}
+
+            {VIDEO_URL && (
+              <div className="mt-8 overflow-hidden rounded-2xl border border-[#24262a] bg-black aspect-video">
+                {/\\.(mp4|webm|ogg)(\\?|$)/i.test(VIDEO_URL) ? (
+                  <video className="w-full h-full" controls preload="metadata" src={VIDEO_URL} />
+                ) : (
+                  <iframe
+                    className="w-full h-full"
+                    src={VIDEO_URL}
+                    title={TITLE + ' video'}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                )}
+              </div>
+            )}
           </div>
 
           <div className="mt-14 sm:mt-20 max-w-3xl space-y-10 text-[17px] sm:text-[18px] leading-[1.85] text-[#D7D3CA]">
