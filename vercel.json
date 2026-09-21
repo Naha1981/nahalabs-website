@@ -7,6 +7,10 @@
     {
       "source": "/insights/:path*",
       "destination": "/index.html"
+    },
+    {
+      "source": "/services/lead-follow-up-automation-johannesburg",
+      "destination": "/services/lead-follow-up-automation-johannesburg.html"
     }
   ]
 }

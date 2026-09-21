@@ -12,6 +12,12 @@ const LINKS = [
   { id: 'about', label: 'About' },
 ];
 
+// Separate pages (not sections of the home page).
+const PAGES = [
+  { href: '/services/lead-follow-up-automation-johannesburg', label: 'Lead follow-up' },
+  { href: '/insights', label: 'Insights' },
+];
+
 export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,7 +41,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
       }
     };
     const onResize = () => {
-      if (window.innerWidth >= 768) setMobileMenuOpen(false);
+      if (window.innerWidth >= 1024) setMobileMenuOpen(false);
     };
     window.addEventListener('keydown', onKey);
     window.addEventListener('resize', onResize);
@@ -88,7 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           <span className="text-[1rem] font-semibold tracking-[0.22em] leading-none">NAHALABS</span>
         </a>
 
-        <nav aria-label="Primary" className="hidden md:flex items-center gap-8 text-button">
+        <nav aria-label="Primary" className="hidden lg:flex items-center gap-6 xl:gap-8 text-button">
           {LINKS.map((l) => (
             <a
               key={l.id}
@@ -99,12 +105,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
               {l.label}
             </a>
           ))}
-          <a href="/insights" className="py-2 text-fg-2 hover:text-fg transition-colors">
-            Insights
-          </a>
+          {PAGES.map((p) => (
+            <a key={p.href} href={p.href} className="py-2 text-fg-2 hover:text-fg transition-colors">
+              {p.label}
+            </a>
+          ))}
         </nav>
 
-        <div className="hidden md:flex items-center">
+        <div className="hidden lg:flex items-center">
           <button
             type="button"
             onClick={(e) => go(e, 'contact')}
@@ -119,7 +127,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           ref={toggleRef}
           type="button"
           onClick={() => setMobileMenuOpen((v) => !v)}
-          className="md:hidden -mr-2 w-11 h-11 inline-flex items-center justify-center rounded-md text-fg-2 hover:text-fg"
+          className="lg:hidden -mr-2 w-11 h-11 inline-flex items-center justify-center rounded-md text-fg-2 hover:text-fg"
           aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-menu"
@@ -129,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
       </div>
 
       {mobileMenuOpen && (
-        <div id="mobile-menu" className="md:hidden border-t border-line bg-canvas">
+        <div id="mobile-menu" className="lg:hidden border-t border-line bg-canvas">
           <nav aria-label="Mobile" className="wrap py-4 flex flex-col">
             {LINKS.map((l) => (
               <a
@@ -141,13 +149,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                 {l.label}
               </a>
             ))}
-            <a
-              href="/insights"
-              onClick={() => setMobileMenuOpen(false)}
-              className="min-h-12 flex items-center text-body text-fg border-b border-line"
-            >
-              Insights
-            </a>
+            {PAGES.map((p) => (
+              <a
+                key={p.href}
+                href={p.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="min-h-12 flex items-center text-body text-fg border-b border-line"
+              >
+                {p.label}
+              </a>
+            ))}
             <button
               type="button"
               onClick={(e) => go(e, 'contact')}
