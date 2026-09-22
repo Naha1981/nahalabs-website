@@ -14,6 +14,7 @@ const LINKS = [
 
 // Separate pages (not sections of the home page).
 const PAGES = [
+  { href: '/audit', label: 'Free audit' },
   { href: '/services/lead-follow-up-automation-johannesburg', label: 'Lead follow-up' },
   { href: '/insights', label: 'Insights' },
 ];

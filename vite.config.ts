@@ -20,6 +20,7 @@ export default defineConfig(() => {
           main: path.resolve(__dirname, 'index.html'),
           audit: path.resolve(__dirname, 'audit.html'),
           leadFollowUp: path.resolve(__dirname, 'services/lead-follow-up-automation-johannesburg.html'),
+          revenueLeakAudit: path.resolve(__dirname, 'services/revenue-leak-audit-johannesburg.html'),
         },
         output: {
           manualChunks: {

@@ -12,6 +12,7 @@ Key facts:
 
 - [NahaLabs home](https://nahalabs.co.za/): What NahaLabs builds, the systems it has engineered (Flavourly, CargoIQ, RailWatch, Revenue OS), its Diagnosis-Prototype-Production method, an FAQ, and how to start an enquiry.
 - [Lead follow-up automation, Johannesburg](https://nahalabs.co.za/services/lead-follow-up-automation-johannesburg): Automated first response and scheduled follow-up for Facebook, WhatsApp and website enquiries, running until the customer replies, books or opts out. Pilot pricing is published on the page.
+- [Free Website Revenue Leak Audit](https://nahalabs.co.za/audit): Free, no-login tool. Enter a public website URL and receive a revenue leak score, prioritised findings on conversion, trust, mobile and technical issues, a fix-pack preview, and an ROI scenario calculator.
 
 ## Regional pages
 
