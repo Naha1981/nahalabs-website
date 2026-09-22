@@ -1,5 +1,5 @@
 import React from 'react';
-import { ASSETS } from '../data/assets';
+import { HeroSystemVisual } from './HeroSystemVisual';
 
 interface HeroProps {
   onExploreSystems: () => void;
@@ -39,21 +39,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreSystems, onStartConversatio
           </div>
         </div>
 
-        <figure className="hero-visual lg:col-span-5 m-0">
-          <picture>
-            <source srcSet={ASSETS.hero} type="image/webp" />
-            <img
-              src={ASSETS.heroJpg}
-              alt="A NahaLabs business intelligence system installed on a mountain ridge above a South African city at dusk"
-              fetchPriority="high"
-              loading="eager"
-              decoding="async"
-              width={1280}
-              height={1280}
-              className="w-full aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5] object-cover rounded-sm ring-1 ring-line"
-            />
-          </picture>
-        </figure>
+        <div className="lg:col-span-5">
+          <HeroSystemVisual />
+        </div>
       </div>
     </section>
   );

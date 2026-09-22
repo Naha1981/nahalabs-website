@@ -390,6 +390,163 @@ select:focus-visible {
   }
 }
 
+/* HERO SYSTEM VISUAL --------------------------------------------------------
+   Scattered friction flowing into one core, and out again as the page's three
+   promised outcomes. Entrance runs once; the loop is what gives it a "living
+   system" quality without ever competing with the headline for attention. */
+.sys-diagram {
+  --sys-line-in: var(--line-strong);
+  --sys-line-out: var(--accent);
+  --sys-node-in: var(--fg-3);
+  --sys-node-out: var(--accent-hi);
+}
+
+.sys-grid line {
+  opacity: 0.5;
+}
+
+.sys-line {
+  fill: none;
+  stroke-width: 1.25;
+}
+.sys-line-in {
+  stroke: var(--sys-line-in);
+  opacity: 0.8;
+}
+.sys-line-out {
+  stroke: var(--sys-line-out);
+  opacity: 0.85;
+}
+
+.sys-core-glow {
+  transform-origin: 250px 250px;
+}
+.sys-core-ring {
+  stroke: var(--accent);
+  stroke-width: 1;
+  opacity: 0.55;
+  transform-origin: 250px 250px;
+}
+.sys-core {
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  transform-origin: 250px 250px;
+}
+.sys-core-mark {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.sys-node circle {
+  stroke-width: 1.25;
+}
+.sys-node-in circle {
+  fill: var(--canvas);
+  stroke: var(--sys-node-in);
+}
+.sys-node-out circle {
+  fill: var(--canvas);
+  stroke: var(--sys-node-out);
+}
+.sys-label {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  fill: var(--fg-3);
+  letter-spacing: 0.01em;
+}
+.sys-label-out {
+  fill: var(--fg-2);
+}
+@media (max-width: 640px) {
+  .sys-label-hide-mobile {
+    display: none;
+  }
+}
+
+.sys-pulse {
+  fill: var(--accent-hi);
+  offset-distance: 0%;
+  opacity: 0;
+}
+
+/* Static, fully legible single frame: no JS/CSS-animation dependency at all. */
+.sys-node,
+.sys-core,
+.sys-core-ring,
+.sys-core-glow,
+.sys-core-mark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* `pathLength={1}` is set on each <path> in JSX so 0..1 dash units are exact
+     regardless of the path's real length. */
+  .sys-line-in,
+  .sys-line-out {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: sys-draw 0.9s var(--ease-out) var(--sys-draw-delay, 0s) both;
+  }
+
+  .sys-node,
+  .sys-core,
+  .sys-core-ring,
+  .sys-core-glow,
+  .sys-core-mark {
+    opacity: 0;
+    transform: scale(0.85);
+    animation: sys-pop 0.6s var(--ease-out) var(--sys-delay, 0s) both;
+  }
+  .sys-core,
+  .sys-core-ring,
+  .sys-core-glow,
+  .sys-core-mark {
+    animation-delay: 0.05s;
+  }
+
+  .sys-core-glow {
+    animation: sys-pop 0.6s var(--ease-out) 0.05s both, sys-breathe 4.5s ease-in-out 0.9s infinite;
+  }
+  .sys-core-ring {
+    animation: sys-pop 0.6s var(--ease-out) 0.05s both, sys-rotate 34s linear 0.7s infinite;
+  }
+
+  .sys-pulse {
+    animation: sys-flow 2.6s linear var(--sys-flow-delay, 0s) infinite;
+  }
+  .sys-pulse-in {
+    animation-duration: 3.1s;
+  }
+}
+
+@keyframes sys-draw {
+  from { stroke-dashoffset: 1; }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes sys-pop {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes sys-breathe {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.75; transform: scale(1.06); }
+}
+@keyframes sys-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes sys-flow {
+  0%   { offset-distance: 0%; opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sys-pulse { display: none; }
+}
+
 /* LEGACY -----------------------------------------------------------------
    Used by components outside the redesigned home page (enquiry form, footer,
    location and insight pages). Kept intact so nothing there regresses.     */
