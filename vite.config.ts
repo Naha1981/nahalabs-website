@@ -18,6 +18,7 @@ export default defineConfig(() => {
       rollupOptions: {
         input: {
           main: path.resolve(__dirname, 'index.html'),
+          audit: path.resolve(__dirname, 'audit.html'),
           leadFollowUp: path.resolve(__dirname, 'services/lead-follow-up-automation-johannesburg.html'),
         },
         output: {
