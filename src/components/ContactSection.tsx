@@ -350,7 +350,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (honeypot) return; // Silent spam rejection
 
@@ -361,15 +361,37 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
     setErrorMsg(null);
     setIsSubmitting(true);
 
-    const generatedRef = `NL-ENG-${Math.floor(100000 + Math.random() * 900000)}`;
-    setSubmissionRef(generatedRef);
+    try {
+      const response = await fetch('/api/enquiries', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          company: formData.company,
+          email: formData.email,
+          phone: formData.phone,
+          location: formData.location,
+          regionalDesk: formData.regionalDesk,
+          businessArea: formData.businessArea,
+          urgency: formData.urgency,
+          problem: [formData.businessDescription, formData.problemDescription, formData.successDescription]
+            .filter(Boolean)
+            .join('\n\n'),
+          pageUrl: typeof window !== 'undefined' ? window.location.href : '',
+          website: honeypot, // honeypot field; real visitors leave it empty
+        }),
+      });
 
-    // Lead capture simulation & draft removal
-    setTimeout(() => {
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data?.ok) {
+        throw new Error(data?.error || 'Something went wrong. Please try again or email ai-solutions@nahalabs.co.za directly.');
+      }
+
       setIsSubmitting(false);
+      setSubmissionRef(data.reference);
       setSubmitted(true);
 
-      // Clean up auto-saved draft upon successful transmission
       try {
         localStorage.removeItem(DRAFT_STORAGE_KEY);
       } catch (err) {
@@ -377,22 +399,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
       }
 
       toast.success('Operational Brief Transmitted', {
-        description: `Thank you, ${formData.name}. Brief ${generatedRef} received. Our systems engineering desk will reply within 1 business day.`,
+        description: `Thank you, ${formData.name}. Brief ${data.reference} received. Our systems engineering desk will reply within 1 business day.`,
         duration: 7000,
       });
-
-      try {
-        const stored = JSON.parse(localStorage.getItem('nahalabs_inquiries') || '[]');
-        stored.push({
-          ...formData,
-          reference: generatedRef,
-          timestamp: new Date().toISOString()
-        });
-        localStorage.setItem('nahalabs_inquiries', JSON.stringify(stored));
-      } catch (err) {
-        // ignore storage errors in private mode
-      }
-    }, 600);
+    } catch (error) {
+      setIsSubmitting(false);
+      const message = error instanceof Error ? error.message : 'Something went wrong. Please try again or email ai-solutions@nahalabs.co.za directly.';
+      setErrorMsg(message);
+      toast.error('Submission Failed', { description: message, duration: 8000 });
+    }
   };
 
   const STEPS = [

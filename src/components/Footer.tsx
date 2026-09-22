@@ -85,7 +85,7 @@ export const Footer: React.FC<FooterProps> = ({
     }
   };
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const cleanEmail = email.trim();
 
@@ -106,7 +106,18 @@ export const Footer: React.FC<FooterProps> = ({
 
     setIsSubscribing(true);
 
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: cleanEmail }),
+      });
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data?.ok) {
+        throw new Error(data?.error || 'Something went wrong. Please try again later.');
+      }
+
       setIsSubscribing(false);
       setIsSubscribed(true);
       setEmail('');
@@ -117,18 +128,15 @@ export const Footer: React.FC<FooterProps> = ({
       });
 
       try {
-        const stored = JSON.parse(localStorage.getItem('nahalabs_newsletter_subscribers') || '[]');
-        stored.push({
-          email: cleanEmail,
-          timestamp: new Date().toISOString(),
-          source: 'footer_subscription_form'
-        });
-        localStorage.setItem('nahalabs_newsletter_subscribers', JSON.stringify(stored));
         localStorage.setItem('nahalabs_subscribed', 'true');
       } catch (err) {
-        console.warn('LocalStorage unavailable for newsletter subscription', err);
+        // ignore storage errors in private mode
       }
-    }, 450);
+    } catch (error) {
+      setIsSubscribing(false);
+      const message = error instanceof Error ? error.message : 'Something went wrong. Please try again later.';
+      toast.error('Subscription Failed', { description: message, duration: 6000 });
+    }
   };
 
   const linkCls = 'text-small text-fg-2 hover:text-fg transition-colors text-left py-1.5';
@@ -217,6 +225,12 @@ export const Footer: React.FC<FooterProps> = ({
               ))}
               <li>
                 <a href="/insights" className={`${linkCls} block`}>Insights</a>
+              </li>
+              <li>
+                <a href="/audit" className={`${linkCls} block`}>Free website audit</a>
+              </li>
+              <li>
+                <a href="/services/lead-follow-up-automation-johannesburg" className={`${linkCls} block`}>Lead follow-up</a>
               </li>
             </ul>
           </nav>
