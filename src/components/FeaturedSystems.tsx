@@ -21,7 +21,7 @@ const SYSTEMS = [
     outcomes: [
       'Dynamic demand-driven kitchen prep forecasting',
       'Automated supplier invoice reconciliation and stock leakage alerts',
-      '+18% average operating margin uplift across active locations',
+      'Margin visibility down to the individual dish and location',
     ],
   },
   {
@@ -38,7 +38,7 @@ const SYSTEMS = [
     outcomes: [
       'Multi-carrier tariff comparison and sub-second client quote generation',
       'Autonomous port detention and demurrage penalty warning engine',
-      '94% faster quote turnaround with zero human spreadsheet leakage',
+      'Quote assembly without manual spreadsheet handling',
     ],
   },
   {
@@ -55,7 +55,7 @@ const SYSTEMS = [
     outcomes: [
       'Real-time line telemetry and predictive defect detection',
       'Autonomous security incident dispatch and crew escalation',
-      '-62% incident response latency across heavy transit corridors',
+      'Full audit trail from detection through to crew dispatch',
     ],
   },
   {
@@ -72,7 +72,7 @@ const SYSTEMS = [
     outcomes: [
       'Sub-second inbound enterprise enrichment and executive intent mapping',
       'Autonomous digital worker outreach active within 120 seconds of inquiry',
-      '+3.4x qualified enterprise pipeline generated in first 30 days',
+      'Continuous enrichment as new inbound signals arrive',
     ],
   },
 ];
@@ -82,10 +82,10 @@ export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem
     <section id="systems" data-tone="dark" className="section bg-canvas text-fg">
       <div className="wrap">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-end">
-          <h2 className="lg:col-span-7 font-serif text-h1 font-medium">Systems we've built.</h2>
+          <h2 className="lg:col-span-7 font-serif text-h1 font-medium">Systems we engineer.</h2>
           <p className="lg:col-span-4 lg:col-start-9 text-lead text-fg-2">
-            We don't design conceptual prototypes or hypothetical slides. Here are production systems
-            engineered around high-stakes commercial friction.
+            We don't design conceptual prototypes or hypothetical slides. Here's the kind of system we
+            build around high-stakes commercial friction.
           </p>
         </div>
 

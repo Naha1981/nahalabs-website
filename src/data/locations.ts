@@ -27,9 +27,9 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
       'Digital Workers augmenting repetitive administrative workflows across financial institutions'
     ],
     localCaseStudy: {
-      context: 'A multi-depot commercial distributor based in Johannesburg was losing 4.2% of billable revenue in freight demurrage and untracked carrier invoice discrepancies.',
+      context: 'A multi-depot commercial distributor based in Johannesburg was losing billable revenue to freight demurrage and untracked carrier invoice discrepancies.',
       intervention: 'Engineered an automated document extraction and tariff verification pipeline connecting ERP dispatch logs with carrier waybills.',
-      outcome: 'Recovered R1.84M in disputed freight charges in the first 90 days of production with zero manual audit overhead.'
+      outcome: 'Designed to recover disputed freight charges automatically, with a full audit trail and no manual reconciliation.'
     }
   },
   soweto: {
@@ -60,7 +60,7 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
     localCaseStudy: {
       context: 'A high-traffic Vilakazi Street restaurant lost dozens of prime weekend reservations due to unmanaged WhatsApp inquiries and manual telephone booking logs.',
       intervention: 'Deployed a WhatsApp reservation and VIP notification system integrated with table seating allocation and guest deposit confirmations.',
-      outcome: 'No-show rates dropped from 26% to under 4%, generating consistent weekend capacity and unlocking an additional R48,000 monthly turnover.'
+      outcome: 'Designed to cut no-shows and turn unmanaged weekend inquiries into confirmed, deposit-backed bookings.'
     }
   },
   gauteng: {
@@ -91,7 +91,7 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
     localCaseStudy: {
       context: 'An intermodal freight terminal operating between Ekurhuleni and Pretoria experienced excessive siding dwell times and delayed cargo clearance.',
       intervention: 'Implemented predictive wagon turnaround modeling and automated customs documentation dispatch.',
-      outcome: 'Reduced average yard dwell time by 31%, releasing capital tied up in delayed freight containers.'
+      outcome: 'Designed to shorten yard dwell time and release capital tied up in delayed freight containers.'
     }
   },
   lesotho: {
@@ -122,7 +122,7 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
     localCaseStudy: {
       context: 'A cross-border supplier moving agricultural equipment between the Free State and Maseru was facing repetitive border delays from mismatched customs tariff paperwork.',
       intervention: 'Engineered an automated customs document compilation tool validating invoice line items against Lesotho revenue authority classifications.',
-      outcome: 'Cleared 98% of border consignments on initial submission, eliminating 14 to 28 hours of vehicle idle time per round trip.'
+      outcome: 'Designed to clear consignments on initial submission and cut vehicle idle time at the border.'
     }
   }
 };

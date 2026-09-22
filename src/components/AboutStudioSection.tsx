@@ -6,7 +6,7 @@ interface AboutStudioSectionProps {
 
 const COMMITMENTS = [
   'Direct founder-led technical engagement',
-  'Production-first delivery in 3–6 weeks',
+  'Diagnosis to production in 6–11 weeks',
   'Tied directly to measurable bottom-line metrics',
 ];
 

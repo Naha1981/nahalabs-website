@@ -39,7 +39,7 @@ const STAGES = [
     deliverables: [
       'Containerised production deployment with security hardening',
       'Team handover and documentation',
-      'Ongoing maintenance, latency monitoring and model optimisation',
+      'Deployment monitoring and a defined post-launch support window',
     ],
   },
 ];

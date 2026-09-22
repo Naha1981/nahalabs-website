@@ -102,14 +102,14 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
 
           </div>
 
-          {/* Right Column: Verified Regional Case Study & CTA */}
+          {/* Right Column: Regional Scenario & CTA */}
           <div className="lg:col-span-5 space-y-8">
             
             {/* Local Intervention Snapshot */}
             <div className="p-8 rounded-sm bg-[#121315] border border-[#262626] shadow-xl space-y-5">
               <div className="flex items-center justify-between border-b border-[#222222] pb-3">
                 <span className="text-[10px] font-mono text-[#C8AE82] uppercase tracking-widest">
-                  REGIONAL CASE STUDY
+                  REGIONAL SCENARIO
                 </span>
                 <span className="text-xs font-mono text-[#A5A29B]">{location.city}</span>
               </div>
@@ -125,7 +125,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
 
               <div>
                 <span className="text-[10px] font-mono text-[#C8AE82] uppercase tracking-wider block mb-1">
-                  NAHALABS INTERVENTION
+                  NAHALABS APPROACH
                 </span>
                 <p className="text-xs text-[#A5A29B] leading-relaxed">
                   {location.localCaseStudy.intervention}
@@ -134,7 +134,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
 
               <div className="p-4 rounded bg-[#18191c] border border-[#2e2f33]">
                 <span className="text-[10px] font-mono text-[#C8AE82] uppercase tracking-wider block mb-1">
-                  PROVED OUTCOME
+                  TARGET OUTCOME
                 </span>
                 <p className="text-xs font-semibold text-[#F3F0EA]">
                   {location.localCaseStudy.outcome}
