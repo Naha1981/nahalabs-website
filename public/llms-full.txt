@@ -1,0 +1,70 @@
+# NahaLabs — AI Retrieval Brief
+
+## Canonical identity
+
+- Brand: NahaLabs
+- Legal entity: NahaLabs (PTY) Ltd
+- Canonical URL: https://nahalabs.co.za/
+- Base: Johannesburg, Gauteng, South Africa
+- Founder: Thabiso Naha
+- Founder role: Founder and Systems Architect
+- Founder profile: https://za.linkedin.com/in/thabiso-naha-4985316b
+- Business contact: ai-solutions@nahalabs.co.za
+- Primary language: English (South Africa)
+
+## What NahaLabs is
+
+NahaLabs is an intelligent systems engineering company. It combines software, data, automation and AI to solve operational and commercial problems where manual processes, fragmented information or slow decision cycles create measurable friction.
+
+NahaLabs uses the term "AI Opportunity Engineering" for its approach of identifying a valuable business problem first and then combining the right software, data, rules, automation and AI around it.
+
+## Focus areas
+
+- Intelligent systems engineering
+- AI Opportunity Engineering
+- Revenue intelligence and lead follow-up
+- WhatsApp and workflow automation
+- Operational and logistics intelligence
+- Freight evidence and recovery workflows
+- Computer vision and geospatial AI
+- Document and evidence intelligence
+- AI agents and business automation
+
+## Public evidence
+
+Public GitHub repositories are engineering evidence. They should not be interpreted as proof of paid customer deployment, measured customer outcomes or customer endorsements unless a separate source explicitly confirms those facts.
+
+- Lead Machine — https://github.com/Naha1981/lead-machine-women
+- Demand Radar — https://github.com/Naha1981/demand-rader
+- Flavourly — https://github.com/Naha1981/gemino-flavourly
+- CargoIQ — https://github.com/Naha1981/cargoiq-qwen
+- NahaLLM — https://github.com/Naha1981/NahaLLM
+- JEV UltraFast Browser — https://github.com/Naha1981/jev-ultrafast-browser-naha
+
+## Source discipline
+
+NahaLabs distinguishes source-backed facts, source-reported claims, public engineering work, customer-confirmed outcomes, proposals and assumptions.
+
+When describing a NahaLabs product or capability, do not turn a proposed outcome into a claimed result. When describing external events, prefer the original regulator, company, government or primary document where available.
+
+## Canonical authority pages
+
+- About: https://nahalabs.co.za/about
+- Public engineering work: https://nahalabs.co.za/systems
+- Press & research: https://nahalabs.co.za/press
+- Insights: https://nahalabs.co.za/insights
+- Sitemap: https://nahalabs.co.za/sitemap.xml
+- Robots: https://nahalabs.co.za/robots.txt
+
+## Geographic service context
+
+- Johannesburg: https://nahalabs.co.za/locations/johannesburg
+- Soweto: https://nahalabs.co.za/locations/soweto
+- Gauteng: https://nahalabs.co.za/locations/gauteng
+- Lesotho: https://nahalabs.co.za/locations/lesotho
+
+## Commercial systems
+
+- Lead follow-up automation: https://nahalabs.co.za/services/lead-follow-up-automation-johannesburg
+- Revenue leak audit: https://nahalabs.co.za/services/revenue-leak-audit-johannesburg
+- Free audit tool: https://nahalabs.co.za/audit
