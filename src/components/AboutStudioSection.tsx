@@ -38,7 +38,7 @@ export const AboutStudioSection: React.FC<AboutStudioSectionProps> = () => {
         </div>
 
         <aside className="lg:col-span-4 lg:col-start-9 lg:pt-3" aria-label="Founder">
-          <p className="font-serif text-h3 font-medium">Thabiso Naha</p>
+          <a href="https://za.linkedin.com/in/thabiso-naha-4985316b" target="_blank" rel="noreferrer" className="font-serif text-h3 font-medium hover:text-champagne transition-colors">Thabiso Naha</a>
           <p className="mt-1 text-small text-fg-3">Founder and Systems Architect</p>
 
           <ul className="rule-list mt-8 text-body text-fg">
