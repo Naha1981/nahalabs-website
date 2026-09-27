@@ -13,6 +13,9 @@ import { LOCATIONS_DATA } from './data/locations';
 import { InsightArticlePage, InsightIndexPage } from './components/InsightArticlePage';
 import { GeneratedInsightPage } from './components/GeneratedInsightPage';
 import { ContentMediaUploader } from './components/ContentMediaUploader';
+import { EntityProfilePage } from './components/EntityProfilePage';
+import { PublicSystemsPage } from './components/PublicSystemsPage';
+import { PressPage } from './components/PressPage';
 import { scrollBehavior } from './lib/motion';
 
 const LocationView = lazy(() => import('./components/LocationView').then(m => ({ default: m.LocationView })));
@@ -34,6 +37,9 @@ export default function App() {
   const [activeLocationSlug, setActiveLocationSlug] = useState<string | null>(locationPathSlug);
   const [prefilledSystem, setPrefilledSystem] = useState<string | null>(null);
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | null>(null);
+  const isAboutPage = normalizedPath === '/about';
+  const isSystemsPage = normalizedPath === '/systems';
+  const isPressPage = normalizedPath === '/press';
   const isInsightsIndexPage = normalizedPath === '/insights';
   const isInsightArticlePage = normalizedPath === '/insights/hidden-cost-fragmented-operational-information';
   const isContentMediaAdmin = normalizedPath === '/content-admin';
@@ -109,6 +115,9 @@ export default function App() {
   };
 
   if (isContentMediaAdmin) return <ContentMediaUploader />;
+  if (isAboutPage) return <EntityProfilePage />;
+  if (isSystemsPage) return <PublicSystemsPage />;
+  if (isPressPage) return <PressPage />;
   if (isInsightsIndexPage) return <InsightIndexPage />;
   if (isInsightArticlePage) return <InsightArticlePage />;
   if (generatedInsightSlug) return <GeneratedInsightPage slug={generatedInsightSlug} />;
