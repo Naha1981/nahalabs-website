@@ -1,6 +1,18 @@
 {
   "rewrites": [
     {
+      "source": "/about",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/systems",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/press",
+      "destination": "/index.html"
+    },
+    {
       "source": "/insights",
       "destination": "/index.html"
     },
