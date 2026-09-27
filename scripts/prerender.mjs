@@ -60,12 +60,36 @@ async function main() {
     const leadPage = await vite.ssrLoadModule('/src/components/LeadFollowUpAutomationPage.tsx');
     const { LOCATIONS_DATA } = await vite.ssrLoadModule('/src/data/locations.ts');
     const article = await vite.ssrLoadModule('/src/components/InsightArticlePage.tsx');
+    const entity = await vite.ssrLoadModule('/src/components/EntityProfilePage.tsx');
+    const systems = await vite.ssrLoadModule('/src/components/PublicSystemsPage.tsx');
+    const press = await vite.ssrLoadModule('/src/components/PressPage.tsx');
 
     const areaType = { johannesburg: 'City', soweto: 'City', gauteng: 'AdministrativeArea', lesotho: 'Country' };
 
     const routes = [
       // Home keeps the head already authored in index.html.
       { path: '/', keepHead: true },
+      {
+        path: '/about',
+        title: 'About NahaLabs | Intelligent Systems Engineering',
+        description:
+          'Company profile for NahaLabs (PTY) Ltd, an intelligent systems engineering company based in Johannesburg, South Africa, founded by Thabiso Naha.',
+        jsonLd: [jsonLdTag(entity.getEntityProfileJsonLd(), 'nahalabs-entity-jsonld')],
+      },
+      {
+        path: '/systems',
+        title: 'Public Engineering Work | NahaLabs',
+        description:
+          'Public engineering repositories and system experiments from NahaLabs across revenue intelligence, logistics, restaurant systems, model gateways and agent automation.',
+        jsonLd: [jsonLdTag(systems.getPublicSystemsJsonLd(), 'nahalabs-systems-jsonld')],
+      },
+      {
+        path: '/press',
+        title: 'Press & Research | NahaLabs',
+        description:
+          'Company background, public engineering evidence and research themes from NahaLabs, with source requests and founder contact details.',
+        jsonLd: [jsonLdTag(press.getPressJsonLd(), 'nahalabs-press-jsonld')],
+      },
       {
         path: '/insights',
         title: 'Insights | NahaLabs',
