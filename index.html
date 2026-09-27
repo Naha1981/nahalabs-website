@@ -61,81 +61,152 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap" rel="stylesheet" />
     <meta name="theme-color" content="#080909" />
 
-    <!-- Schema.org JSON-LD Structured Data: Organization & ProfessionalService -->
+    <!-- Schema.org entity graph: company, founder, website and service -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@graph": [
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://nahalabs.co.za/#website",
+      "url": "https://nahalabs.co.za/",
+      "name": "NahaLabs",
+      "description": "NahaLabs is an intelligent systems engineering company in Johannesburg, South Africa.",
+      "inLanguage": "en-ZA",
+      "publisher": {
+        "@id": "https://nahalabs.co.za/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://nahalabs.co.za/#organization",
+      "name": "NahaLabs",
+      "legalName": "NahaLabs (PTY) Ltd",
+      "alternateName": [
+        "NahaLabs (Pty) Ltd",
+        "NahaLabs AI"
+      ],
+      "url": "https://nahalabs.co.za/",
+      "logo": "https://nahalabs.co.za/nahalabs-logo.svg",
+      "founder": {
+        "@id": "https://nahalabs.co.za/about#founder"
+      },
+      "email": "ai-solutions@nahalabs.co.za",
+      "description": "NahaLabs is an intelligent systems engineering company based in Johannesburg, South Africa. It combines software, data, automation and AI to solve operational and commercial problems.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Johannesburg",
+        "addressRegion": "Gauteng",
+        "addressCountry": "ZA"
+      },
+      "areaServed": [
         {
-          "@type": "WebSite",
-          "@id": "https://nahalabs.co.za/#website",
-          "url": "https://nahalabs.co.za/",
-          "name": "NahaLabs",
-          "description": "NahaLabs is an intelligent systems engineering company in Johannesburg, South Africa.",
-          "inLanguage": "en-ZA",
-          "publisher": { "@id": "https://nahalabs.co.za/#organization" }
+          "@type": "City",
+          "name": "Johannesburg"
         },
         {
-          "@type": "Organization",
-          "@id": "https://nahalabs.co.za/#organization",
-          "name": "NahaLabs (PTY) Ltd",
-          "url": "https://nahalabs.co.za",
-          "logo": "https://nahalabs.co.za/nahalabs-logo.svg",
-          "founder": {
-            "@type": "Person",
-            "name": "Thabiso Naha",
-            "jobTitle": "Founder / Intelligent Systems Engineer"
-          },
-          "email": "ai-solutions@nahalabs.co.za",
-          "description": "Intelligent Systems Engineering company building bespoke operational systems, revenue recovery engines, and automated intelligence for high-impact enterprises.",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Johannesburg",
-            "addressRegion": "Gauteng",
-            "addressCountry": "ZA"
-          },
-          "areaServed": [
-            { "@type": "City", "name": "Johannesburg" },
-            { "@type": "City", "name": "Sandton" },
-            { "@type": "AdministrativeArea", "name": "Gauteng" },
-            { "@type": "Country", "name": "South Africa" },
-            { "@type": "Country", "name": "Lesotho" }
-          ]
+          "@type": "City",
+          "name": "Sandton"
         },
         {
-          "@type": "ProfessionalService",
-          "@id": "https://nahalabs.co.za/#service",
-          "name": "NahaLabs Intelligent Systems Engineering",
-          "url": "https://nahalabs.co.za",
-          "email": "ai-solutions@nahalabs.co.za",
-          "priceRange": "$$$$",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Johannesburg",
-            "addressRegion": "Gauteng",
-            "addressCountry": "ZA"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": -26.2041,
-            "longitude": 28.0473
-          },
-          "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-            "opens": "08:00",
-            "closes": "18:00"
-          },
-          "serviceType": [
-            "Intelligent Systems Engineering",
-            "Revenue Recovery Systems",
-            "Freight & Logistics Intelligence",
-            "Operational Automation",
-            "Lead Response & Follow-Up Automation"
-          ]
+          "@type": "AdministrativeArea",
+          "name": "Gauteng"
+        },
+        {
+          "@type": "Country",
+          "name": "South Africa"
+        },
+        {
+          "@type": "Country",
+          "name": "Lesotho"
         }
-      ]
+      ],
+      "knowsAbout": [
+        "Intelligent systems engineering",
+        "AI Opportunity Engineering",
+        "Revenue intelligence",
+        "Lead response and follow-up automation",
+        "WhatsApp business automation",
+        "Operational intelligence",
+        "Logistics and freight intelligence",
+        "Computer vision",
+        "Geospatial AI",
+        "Document and evidence intelligence",
+        "AI agents",
+        "Business process automation"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "business enquiries",
+        "email": "ai-solutions@nahalabs.co.za",
+        "areaServed": [
+          "ZA",
+          "LS"
+        ],
+        "availableLanguage": [
+          "en"
+        ]
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://nahalabs.co.za/about#founder",
+      "name": "Thabiso Naha",
+      "jobTitle": "Founder and Systems Architect",
+      "url": "https://za.linkedin.com/in/thabiso-naha-4985316b",
+      "sameAs": [
+        "https://za.linkedin.com/in/thabiso-naha-4985316b"
+      ],
+      "worksFor": {
+        "@id": "https://nahalabs.co.za/#organization"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://nahalabs.co.za/#service",
+      "name": "NahaLabs Intelligent Systems Engineering",
+      "url": "https://nahalabs.co.za/",
+      "provider": {
+        "@id": "https://nahalabs.co.za/#organization"
+      },
+      "email": "ai-solutions@nahalabs.co.za",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Johannesburg",
+        "addressRegion": "Gauteng",
+        "addressCountry": "ZA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -26.2041,
+        "longitude": 28.0473
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "serviceType": [
+        "Intelligent Systems Engineering",
+        "Revenue Intelligence",
+        "Freight and Logistics Intelligence",
+        "Operational Automation",
+        "Lead Response and Follow-Up Automation"
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "South Africa"
+      }
     }
+  ]
+}
     </script>
   </head>
   <body class="bg-[#080909] text-[#F3F0EA] antialiased selection:bg-[#C8AE82] selection:text-[#080909]">

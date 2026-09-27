@@ -7,6 +7,7 @@ export const DESCRIPTION = 'South African businesses have more operational data 
 const HERO_IMAGE_URL = '/insights/hidden-cost-fragmented-operational-information/hero.svg';
 const VIDEO_URL = '';
 const MEDIA_ALT_TEXT = 'NahaLabs visual showing fragmented operational evidence connecting port events, fleet movement, commercial rules and financial exposure';
+const FOUNDER_URL = 'https://za.linkedin.com/in/thabiso-naha-4985316b';
 
 export const getArticleJsonLd = () => {
   const canonicalUrl = `https://nahalabs.co.za${ARTICLE_PATH}`;
@@ -16,9 +17,12 @@ export const getArticleJsonLd = () => {
     headline: TITLE,
     description: DESCRIPTION,
     author: {
-      '@type': 'Organization',
-      name: 'NahaLabs',
-      url: 'https://nahalabs.co.za',
+      '@type': 'Person',
+      '@id': 'https://nahalabs.co.za/about#founder',
+      name: 'Thabiso Naha',
+      jobTitle: 'Founder and Systems Architect',
+      url: FOUNDER_URL,
+      worksFor: { '@id': 'https://nahalabs.co.za/#organization' },
     },
     publisher: {
       '@type': 'Organization',
@@ -26,8 +30,14 @@ export const getArticleJsonLd = () => {
       url: 'https://nahalabs.co.za',
     },
     datePublished: '2026-09-21',
-    dateModified: '2026-09-21',
+    dateModified: '2026-09-27',
     mainEntityOfPage: canonicalUrl,
+    image: `https://nahalabs.co.za${HERO_IMAGE_URL}`,
+    about: [
+      { '@type': 'Thing', name: 'Operational intelligence' },
+      { '@type': 'Thing', name: 'Freight and logistics intelligence' },
+      { '@type': 'Thing', name: 'Evidence-based business systems' },
+    ],
     articleSection: 'Intelligent Revenue & Operations',
     keywords: [
       'fragmented operational information',
