@@ -8,6 +8,12 @@ Key facts:
 - How projects run: fixed scope, no open-ended retainers, in three stages: Diagnosis (1-2 weeks), Prototype (2-3 weeks), Production (3-6 weeks). Engagements start with a 45-minute technical diagnosis.
 - What it is not: NahaLabs does not sell off-the-shelf software or generic consulting. Each system is engineered around one client's workflows, data and commercial rules.
 
+## Entity and authority pages
+
+- [About NahaLabs](https://nahalabs.co.za/about): canonical company identity, legal name, Johannesburg location, founder Thabiso Naha, focus areas and evidence/claim discipline.
+- [Public engineering work](https://nahalabs.co.za/systems): inspectable public repositories for Lead Machine, Demand Radar, Flavourly, CargoIQ, NahaLLM and JEV UltraFast Browser. These are labelled as public engineering evidence, not customer-result claims.
+- [Press & research](https://nahalabs.co.za/press): company boilerplate, founder/contact details, research themes and interview/source requests.
+
 ## Core pages
 
 - [NahaLabs home](https://nahalabs.co.za/): What NahaLabs builds, the systems it has engineered (Flavourly, CargoIQ, RailWatch, Revenue OS), its Diagnosis-Prototype-Production method, an FAQ, and how to start an enquiry.
@@ -20,6 +26,15 @@ Key facts:
 - [Business intelligence and automation in Soweto](https://nahalabs.co.za/locations/soweto): Practical business intelligence, WhatsApp automation and revenue systems for township enterprises, retailers and restaurants in Soweto.
 - [Systems engineering across Gauteng](https://nahalabs.co.za/locations/gauteng): Industrial-grade systems engineering, geospatial intelligence and enterprise automation across the Gauteng economic heartland.
 - [Intelligent systems in Lesotho](https://nahalabs.co.za/locations/lesotho): Practical intelligent systems, cross-border customs intelligence and digital operations for businesses and institutions in Lesotho.
+
+## Public engineering evidence
+
+- Lead Machine: https://github.com/Naha1981/lead-machine-women
+- Demand Radar: https://github.com/Naha1981/demand-rader
+- Flavourly: https://github.com/Naha1981/gemino-flavourly
+- CargoIQ: https://github.com/Naha1981/cargoiq-qwen
+- NahaLLM: https://github.com/Naha1981/NahaLLM
+- JEV UltraFast Browser: https://github.com/Naha1981/jev-ultrafast-browser-naha
 
 ## Insights
 
