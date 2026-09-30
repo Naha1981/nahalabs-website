@@ -417,7 +417,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
   ];
 
   return (
-    <section id="contact" data-tone="dark" className="section bg-canvas text-fg border-t border-line">
+    <section id="contact" data-tone="light" className="section bg-canvas text-fg border-t border-line">
       <div className="wrap">
         
         {/* Closing statement: what the visitor can do next */}
