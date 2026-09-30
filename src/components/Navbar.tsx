@@ -63,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   return (
     <header
       id="main-navbar"
-      data-tone="dark"
+      data-tone="light"
       className={`fixed top-0 left-0 right-0 z-50 text-fg transition-[background-color,border-color] duration-300 border-b ${
         solid ? 'bg-canvas/92 backdrop-blur-md border-line' : 'bg-transparent border-transparent'
       }`}
