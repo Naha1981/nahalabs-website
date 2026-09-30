@@ -142,7 +142,7 @@ export const Footer: React.FC<FooterProps> = ({
   const linkCls = 'text-small text-fg-2 hover:text-fg transition-colors text-left py-1.5';
 
   return (
-    <footer data-tone="dark" className="bg-surface text-fg-2 border-t border-line pt-16 sm:pt-20 pb-10">
+    <footer data-tone="light" className="bg-surface text-fg-2 border-t border-line pt-16 sm:pt-20 pb-10">
       <div className="wrap">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-12 gap-y-14 pb-14 border-b border-line">
 
