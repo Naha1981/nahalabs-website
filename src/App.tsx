@@ -1,14 +1,8 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Toaster } from 'sonner';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { ProblemSection } from './components/ProblemSection';
-import { FeaturedSystems } from './components/FeaturedSystems';
-import { ScrollMethodSection } from './components/ScrollMethodSection';
-import { AboutStudioSection } from './components/AboutStudioSection';
-import { HomeFaqSection } from './components/HomeFaqSection';
-import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { LightHome } from './components/LightHome';
 import { LOCATIONS_DATA } from './data/locations';
 import { InsightArticlePage, InsightIndexPage } from './components/InsightArticlePage';
 import { GeneratedInsightPage } from './components/GeneratedInsightPage';
@@ -123,9 +117,9 @@ export default function App() {
   if (generatedInsightSlug) return <GeneratedInsightPage slug={generatedInsightSlug} />;
 
   return (
-    <div className="min-h-screen bg-ink text-fg flex flex-col font-sans selection:bg-champagne selection:text-ink">
+    <div className="min-h-screen bg-[#eef1f5] text-[#0c0c0c] flex flex-col font-sans selection:bg-[#496b58] selection:text-white">
       <a href="#main" className="skip-link">Skip to content</a>
-      <Toaster position="top-right" richColors closeButton theme="dark" />
+      <Toaster position="top-right" richColors closeButton theme="light" />
       <Navbar onNavigate={handleNavigate} />
       <main id="main" tabIndex={-1} className="flex-1 outline-none">
         {activeLocationSlug && LOCATIONS_DATA[activeLocationSlug] ? (
@@ -156,13 +150,7 @@ export default function App() {
           </Suspense>
         ) : (
           <>
-            <Hero onExploreSystems={() => handleNavigate('systems')} onStartConversation={() => handleNavigate('contact')} />
-            <ProblemSection onSelectOutcome={(outcome) => handleSystemInquiry('Commercial Focus', outcome)} />
-            <FeaturedSystems onSelectSystem={handleSystemInquiry} />
-            <ScrollMethodSection onStartDiagnosis={() => handleNavigate('contact')} />
-            <AboutStudioSection />
-            <HomeFaqSection />
-            <ContactSection prefilledSystem={prefilledSystem} />
+            <LightHome onStartConversation={() => handleNavigate('contact')} />
           </>
         )}
       </main>
