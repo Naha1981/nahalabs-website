@@ -17,7 +17,7 @@
   /* Families. Serif carries the voice, sans carries the work, mono only for
      legacy technical labels still used inside the enquiry form. */
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-serif: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 
   /* Type scale: fluid between 360px and 1440px viewports. */
@@ -123,20 +123,20 @@
 }
 
 [data-tone="light"] {
-  --canvas: #f2f2ee;
-  --surface: #e8e8e3;
+  --canvas: #eef1f5;
+  --surface: #f7f7f7;
   --raised: #ffffff;
-  --fg: #15171a;        /* 16.0:1 on canvas */
-  --fg-2: #4a5057;      /*  7.3:1 */
-  --fg-3: #6a7078;      /*  4.5:1 (smallest text tone) */
-  --line: rgb(21 23 26 / 0.14);
-  --line-strong: rgb(21 23 26 / 0.3);
-  --accent: #7a6236;    /*  5.2:1 */
-  --accent-hi: #5f4b25;
-  --btn-bg: #15171a;
-  --btn-bg-hover: #2b3036;
-  --btn-fg: #f2f2ee;
-  --focus: #5f4b25;
+  --fg: #0c0c0c;
+  --fg-2: #404040;
+  --fg-3: #6b6f75;
+  --line: rgb(12 12 12 / 0.14);
+  --line-strong: rgb(12 12 12 / 0.26);
+  --accent: #496b58;
+  --accent-hi: #355241;
+  --btn-bg: #0c0c0c;
+  --btn-bg-hover: #355241;
+  --btn-fg: #ffffff;
+  --focus: #355241;
   color-scheme: light;
 }
 
