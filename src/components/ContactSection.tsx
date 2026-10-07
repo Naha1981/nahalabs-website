@@ -825,7 +825,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                               autoComplete="name"
                                value={formData.name}
                               maxLength={80}
-                              onChange={(e) => handleFieldChange('name', e.target.value)}
+                              onChange={(e) = aria-invalid={Boolean(touched.name && errors.name)} aria-describedby={touched.name && errors.name ? "contact-name-error" : undefined}> handleFieldChange('name', e.target.value)}
                               onBlur={(e) => handleFieldBlur('name', e.target.value)}
                               placeholder="e.g. Sipho Molefe"
                               className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#4D5660] focus:outline-none transition-colors ${
@@ -863,7 +863,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                               autoComplete="organization"
                                value={formData.company}
                               maxLength={100}
-                              onChange={(e) => handleFieldChange('company', e.target.value)}
+                              onChange={(e) = aria-invalid={Boolean(touched.company && errors.company)} aria-describedby={touched.company && errors.company ? "contact-company-error" : undefined}> handleFieldChange('company', e.target.value)}
                               onBlur={(e) => handleFieldBlur('company', e.target.value)}
                               placeholder="e.g. Gauteng Freight Logistics"
                               className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#4D5660] focus:outline-none transition-colors ${
@@ -902,10 +902,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                               required
                               autoComplete="email"
                                value={formData.email}
-                              onChange={(e) => handleFieldChange('email', e.target.value)}
+                              onChange={(e) = aria-invalid={Boolean(touched.email && errors.email)} aria-describedby={touched.email && errors.email ? "contact-email-error" : undefined}> handleFieldChange('email', e.target.value)}
                               onBlur={(e) => handleFieldBlur('email', e.target.value)}
                               placeholder="e.g. name@company.co.za"
-                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#555] focus:outline-none transition-colors ${
+                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#4D5660] focus:outline-none transition-colors ${
                                 touched.email && errors.email
                                   ? 'border-red-500/80 bg-red-950/10 focus:border-red-500'
                                   : touched.email && formData.email
@@ -937,7 +937,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                               type="tel"
                               autoComplete="tel"
                                value={formData.phone}
-                              onChange={(e) => handleFieldChange('phone', e.target.value)}
+                              onChange={(e) = aria-invalid={Boolean(touched.phone && errors.phone)} aria-describedby={touched.phone && errors.phone ? "contact-phone-error" : undefined}> handleFieldChange('phone', e.target.value)}
                               onBlur={(e) => handleFieldBlur('phone', e.target.value)}
                               placeholder="e.g. +27 82 000 0000"
                               className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#555] focus:outline-none transition-colors ${
@@ -962,6 +962,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           </label>
                           <input
                             id="contact-location"
+                            name="location"
                             type="text"
                             maxLength={100}
                             autoComplete="address-level2"
@@ -996,6 +997,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                                 Primary Operational Domain
                           </label>
                           <select id="contact-business-area"
+                            name="businessArea"
                             value={formData.businessArea}
                             onChange={(e) => handleFieldChange('businessArea' as any, e.target.value)}
                             className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-base text-[#0B0E10] focus:outline-none focus:border-[#355241]"
@@ -1064,6 +1066,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                             </span>
                           </div>
                           <input
+                            id="contact-success"
+                            name="successDescription"
                             type="text"
                             maxLength={500}
                             value={formData.successDescription}
@@ -1076,14 +1080,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
 
                         {/* Step 2 CTAs */}
                         <div className="pt-3 flex items-center gap-3">
-                          <button
-                            type="button"
-                            onClick={handlePrev}
-                            className="py-3 px-5 rounded-md border border-[#D1D5DB] hover:border-[#666] text-xs font-mono text-[#4D5660] hover:text-[#0B0E10] transition-colors flex items-center gap-2 cursor-pointer"
-                          >
-                            <ArrowLeft className="w-3.5 h-3.5" />
-                            <span>Previous</span>
-                          </button>
+                          <Button type="button" variant="secondary" onClick={handlePrev}>
+                            <ArrowLeft className="w-4 h-4" />
+                            <span>Back</span>
+                          </Button>
                           <Button type="button" onClick={handleNext} className="flex-1">
                             <span>Proceed to Final Review</span>
                             <ArrowRight className="w-4 h-4" />
@@ -1107,6 +1107,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                             </label>
                             <select
                               id="contact-urgency"
+                              name="urgency"
                               value={formData.urgency}
                               onChange={(e) => handleFieldChange('urgency' as any, e.target.value)}
                               className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-base text-[#0B0E10] focus:outline-none focus:border-[#355241]"
@@ -1123,6 +1124,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                             </label>
                             <select
                               id="contact-regional-desk"
+                              name="regionalDesk"
                               value={formData.regionalDesk}
                               onChange={(e) => handleFieldChange('regionalDesk', e.target.value)}
                               className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-base text-[#0B0E10] focus:outline-none focus:border-[#355241]"
