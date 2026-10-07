@@ -7,14 +7,11 @@ interface NavbarProps {
 
 const LINKS = [
   { id: 'solutions', label: 'Solutions' },
-  { id: 'systems', label: 'Systems' },
-  { id: 'approach', label: 'Approach' },
   { id: 'about', label: 'About' },
 ];
 
 // Separate pages (not sections of the home page).
 const PAGES = [
-  { href: '/audit', label: 'Free audit' },
   { href: '/revenuedesk', label: 'RevenueDesk' },
   { href: '/insights', label: 'Insights' },
 ];
@@ -72,27 +69,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
         <a
           href="#hero"
           onClick={(e) => go(e, 'hero')}
-          className="flex items-center gap-3 rounded-sm"
+          className="inline-flex items-center rounded-sm shrink-0"
           aria-label="NahaLabs home"
         >
-          <svg viewBox="0 0 100 100" fill="none" className="w-7 h-7 shrink-0" aria-hidden="true">
-            <defs>
-              <linearGradient id="navMonogramGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#E5D1B0" />
-                <stop offset="50%" stopColor="#C8AE82" />
-                <stop offset="100%" stopColor="#9C8358" />
-              </linearGradient>
-            </defs>
-            <g transform="translate(22, 16)">
-              <rect x="0" y="2" width="8" height="8" fill="url(#navMonogramGold)" />
-              <rect x="0" y="16" width="7" height="52" fill="url(#navMonogramGold)" />
-              <path d="M 2 22 L 48 68 L 40 68 L 2 30 Z" fill="url(#navMonogramGold)" />
-              <path d="M 8 16 L 54 62 L 54 54 L 16 16 Z" fill="url(#navMonogramGold)" />
-              <rect x="47" y="16" width="7" height="52" fill="url(#navMonogramGold)" />
-              <rect x="47" y="74" width="8" height="8" fill="url(#navMonogramGold)" />
-            </g>
-          </svg>
-          <span className="text-[1rem] font-semibold tracking-[0.22em] leading-none">NAHALABS</span>
+          <img
+            src="/nahalabs-logo.svg"
+            alt="NahaLabs — Intelligent Systems Engineering"
+            className="block h-11 sm:h-12 w-auto max-w-[230px] object-contain"
+          />
         </a>
 
         <nav aria-label="Primary" className="hidden lg:flex items-center gap-6 xl:gap-8 text-button">
