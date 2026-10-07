@@ -377,7 +377,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
           urgency: formData.urgency,
           problem: [formData.businessDescription, formData.problemDescription, formData.successDescription]
             .filter(Boolean)
-            .join('\\n\\n'),
+            .join('\n\n'),
           pageUrl: typeof window !== 'undefined' ? window.location.href : '',
           website: honeypot, // honeypot field; real visitors leave it empty
         }),
