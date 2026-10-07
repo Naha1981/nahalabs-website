@@ -12,6 +12,7 @@ import { scrollBehavior } from './lib/motion';
 import { RevenueDeskPage } from './components/RevenueDeskPage';
 import { SiteShell } from './components/SiteShell';
 import { AuditPage } from './components/AuditPage';
+import { ContactSection } from './components/ContactSection';
 
 const LocationView = lazy(() => import('./components/LocationView').then(m => ({ default: m.LocationView })));
 const LegalModal = lazy(() => import('./components/LegalModal').then(m => ({ default: m.LegalModal })));
@@ -37,6 +38,7 @@ export default function App() {
   const isInsightsIndexPage = normalizedPath === '/insights';
   const isInsightArticlePage = normalizedPath === '/insights/hidden-cost-fragmented-operational-information';
   const isAuditPage = normalizedPath === '/audit';
+  const isContactPage = normalizedPath === '/contact';
   const isContentMediaAdmin = normalizedPath === '/content-admin';
   const generatedInsightSlug = normalizedPath.startsWith('/insights/') && !isInsightArticlePage
     ? normalizedPath.replace('/insights/', '')
@@ -135,6 +137,8 @@ export default function App() {
     pageContent = <InsightArticlePage />;
   } else if (isAuditPage) {
     pageContent = <AuditPage />;
+  } else if (isContactPage) {
+    pageContent = <ContactSection prefilledSystem={prefilledSystem} />;
   } else if (generatedInsightSlug) {
     pageContent = <GeneratedInsightPage slug={generatedInsightSlug} />;
   } else {
