@@ -66,9 +66,9 @@ export const PublicSystemsPage: React.FC = () => (
               </div>
               <h2 className="mt-4 text-2xl font-semibold">{system.name}</h2>
               <p className="mt-3 text-sm leading-7 text-[#A5A29B]">{system.description}</p>
-              <a href={system.url} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center rounded-full border border-[#38342e] px-4 py-2.5 text-[10px] font-mono uppercase tracking-[0.14em] text-[#D7D3CA] hover:border-[#C8AE82] hover:text-[#C8AE82]">
-                Open GitHub repository
-              </a>
+              <ButtonLink href={system.url} target="_blank" rel="noreferrer" variant="secondary" className="mt-6">
+                Open GitHub Repository
+              </ButtonLink>
             </article>
           ))}
         </div>
