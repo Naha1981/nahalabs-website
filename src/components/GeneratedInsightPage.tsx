@@ -63,7 +63,7 @@ export const GeneratedInsightPage: React.FC<{ slug: string }> = ({ slug }) => {
 
   if (!bundle) {
     return (
-      <div className="min-h-screen bg-[#080909] text-[#F3F0EA] flex items-center justify-center">
+      <div data-site-theme="light" className="min-h-screen bg-canvas text-fg flex items-center justify-center">
         Intelligence article not found.
       </div>
     );
@@ -73,7 +73,7 @@ export const GeneratedInsightPage: React.FC<{ slug: string }> = ({ slug }) => {
   const videoUrl = media.videoUrl || bundle.videoUrl;
 
   return (
-    <div className="min-h-screen bg-[#080909] text-[#F3F0EA]">
+    <div data-site-theme="light" className="min-h-screen bg-canvas text-fg">
       <header className="sticky top-0 z-40 border-b border-[#1b1c1f] bg-[#080909]/92 backdrop-blur-md">
         <div className="max-w-5xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
           <a href="/" className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#A5A29B] hover:text-[#F3F0EA]">NahaLabs</a>
