@@ -808,8 +808,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           {/* Name Field */}
                           <div>
                             <div className="flex items-center justify-between mb-1.5">
-                              <label className="block text-sm font-semibold text-[#323A42]">
-                                Your Name *
+                              <label htmlFor="contact-name" className="block text-sm font-semibold text-[#323A42] mb-1.5">\n                                Your Name *
                               </label>
                               {touched.name && !errors.name && formData.name && (
                                 <span className="text-[10px] font-mono text-[#1B6B45] flex items-center gap-1">
@@ -817,15 +816,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                                 </span>
                               )}
                             </div>
-                            <input
+                            <input id="contact-name"
                               type="text"
                               required
-                              value={formData.name}
+                              autoComplete="name"\n                               value={formData.name}
                               maxLength={80}
                               onChange={(e) => handleFieldChange('name', e.target.value)}
                               onBlur={(e) => handleFieldBlur('name', e.target.value)}
                               placeholder="e.g. Sipho Molefe"
-                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-xs text-[#0B0E10] placeholder-[#555] focus:outline-none transition-colors ${
+                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#4D5660] focus:outline-none transition-colors ${
                                 touched.name && errors.name
                                   ? 'border-red-500/80 bg-red-950/10 focus:border-red-500'
                                   : touched.name && formData.name
@@ -844,8 +843,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           {/* Company Field */}
                           <div>
                             <div className="flex items-center justify-between mb-1.5">
-                              <label className="block text-xs font-mono text-[#4D5660] uppercase tracking-wider">
-                                Company / Organisation *
+                              <label htmlFor="contact-company" className="block text-sm font-semibold text-[#323A42] mb-1.5">\n                                Company / Organisation *
                               </label>
                               {touched.company && !errors.company && formData.company && (
                                 <span className="text-[10px] font-mono text-[#1B6B45] flex items-center gap-1">
@@ -853,15 +851,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                                 </span>
                               )}
                             </div>
-                            <input
+                            <input id="contact-company"
+                              name="organization"
                               type="text"
                               required
-                              value={formData.company}
+                              autoComplete="organization"\n                               value={formData.company}
                               maxLength={100}
                               onChange={(e) => handleFieldChange('company', e.target.value)}
                               onBlur={(e) => handleFieldBlur('company', e.target.value)}
                               placeholder="e.g. Gauteng Freight Logistics"
-                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-xs text-[#0B0E10] placeholder-[#555] focus:outline-none transition-colors ${
+                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#555] focus:outline-none transition-colors ${
                                 touched.company && errors.company
                                   ? 'border-red-500/80 bg-red-950/10 focus:border-red-500'
                                   : touched.company && formData.company
@@ -883,8 +882,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           {/* Email Field */}
                           <div>
                             <div className="flex items-center justify-between mb-1.5">
-                              <label className="block text-xs font-mono text-[#4D5660] uppercase tracking-wider">
-                                Work Email *
+                              <label htmlFor="contact-email" className="block text-sm font-semibold text-[#323A42] mb-1.5">\n                                Work Email *
                               </label>
                               {touched.email && !errors.email && formData.email && (
                                 <span className="text-[10px] font-mono text-[#1B6B45] flex items-center gap-1">
@@ -892,14 +890,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                                 </span>
                               )}
                             </div>
-                            <input
+                            <input id="contact-email"
                               type="email"
                               required
-                              value={formData.email}
+                              autoComplete="email"\n                               value={formData.email}
                               onChange={(e) => handleFieldChange('email', e.target.value)}
                               onBlur={(e) => handleFieldBlur('email', e.target.value)}
                               placeholder="e.g. name@company.co.za"
-                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-xs text-[#0B0E10] placeholder-[#555] focus:outline-none transition-colors ${
+                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#555] focus:outline-none transition-colors ${
                                 touched.email && errors.email
                                   ? 'border-red-500/80 bg-red-950/10 focus:border-red-500'
                                   : touched.email && formData.email
@@ -918,8 +916,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           {/* Phone Field */}
                           <div>
                             <div className="flex items-center justify-between mb-1.5">
-                              <label className="block text-xs font-mono text-[#4D5660] uppercase tracking-wider">
-                                Phone / WhatsApp (Optional)
+                              <label htmlFor="contact-phone" className="block text-sm font-semibold text-[#323A42] mb-1.5">\n                                Phone / WhatsApp (Optional)
                               </label>
                               {formData.phone && !errors.phone && (
                                 <span className="text-[10px] font-mono text-[#1B6B45] flex items-center gap-1">
@@ -927,13 +924,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                                 </span>
                               )}
                             </div>
-                            <input
+                            <input id="contact-phone"
                               type="tel"
-                              value={formData.phone}
+                              autoComplete="tel"\n                               value={formData.phone}
                               onChange={(e) => handleFieldChange('phone', e.target.value)}
                               onBlur={(e) => handleFieldBlur('phone', e.target.value)}
                               placeholder="e.g. +27 82 000 0000"
-                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-xs text-[#0B0E10] placeholder-[#555] focus:outline-none transition-colors ${
+                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#555] focus:outline-none transition-colors ${
                                 touched.phone && errors.phone
                                   ? 'border-red-500/80 bg-red-950/10 focus:border-red-500'
                                   : 'border-[#6B7280] focus:border-[#355241]'
@@ -950,8 +947,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
 
                         {/* Location */}
                         <div>
-                          <label className="block text-sm font-semibold text-[#323A42] mb-1.5">
-                            Location (City / District)
+                          <label htmlFor="contact-location" className="block text-sm font-semibold text-[#323A42] mb-1.5">\n                                Location (City / District)
                           </label>
                           <input
                             type="text"
@@ -959,7 +955,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                             value={formData.location}
                             onChange={(e) => handleFieldChange('location', e.target.value)}
                             placeholder="e.g. Sandton, Soweto, Pretoria, Maseru, City Deep"
-                            className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-xs text-[#0B0E10] placeholder-[#555] focus:outline-none focus:border-[#355241]"
+                            className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#555] focus:outline-none focus:border-[#355241]"
                           />
                         </div>
 
@@ -983,13 +979,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
 
                         {/* Business Area */}
                         <div>
-                          <label className="block text-xs font-mono text-[#4D5660] uppercase tracking-wider mb-1.5">
-                            Primary Operational Domain
+                          <label htmlFor="contact-business-area" className="block text-sm font-semibold text-[#323A42] mb-1.5">\n                                Primary Operational Domain
                           </label>
-                          <select
+                          <select id="contact-business-area"
                             value={formData.businessArea}
                             onChange={(e) => handleFieldChange('businessArea' as any, e.target.value)}
-                            className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-xs text-[#0B0E10] focus:outline-none focus:border-[#355241]"
+                            className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-base text-[#0B0E10] focus:outline-none focus:border-[#355241]"
                           >
                             <option value="Revenue Recovery">Revenue Recovery & Billing Disputes</option>
                             <option value="Sales Intelligence">Sales Intelligence & Predictive Lead Scoring</option>
@@ -1006,8 +1001,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                         {/* What problem are you trying to solve? */}
                         <div>
                           <div className="flex items-center justify-between mb-1.5">
-                            <label className="block text-xs font-mono text-[#4D5660] uppercase tracking-wider">
-                              What problem or bottleneck are you trying to solve? *
+                            <label htmlFor="contact-problem" className="block text-sm font-semibold text-[#323A42] mb-1.5">\n                                What problem or bottleneck are you trying to solve? *
                             </label>
                             {/* Real-time Character Counter & Validation Status */}
                             <span className={`text-[10px] font-mono ${
@@ -1028,7 +1022,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                             onChange={(e) => handleFieldChange('problemDescription', e.target.value)}
                             onBlur={(e) => handleFieldBlur('problemDescription', e.target.value)}
                             placeholder="Describe the operational friction, manual data entry bottleneck, revenue slippage, or disparate software systems causing pain..."
-                            className={`w-full bg-white border rounded px-3.5 py-2.5 text-xs text-[#0B0E10] placeholder-[#555] focus:outline-none transition-colors ${
+                            className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#555] focus:outline-none transition-colors ${
                               touched.problemDescription && errors.problemDescription
                                 ? 'border-red-500/80 bg-red-950/10 focus:border-red-500'
                                 : touched.problemDescription && formData.problemDescription.length >= 15
@@ -1047,8 +1041,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                         {/* What would success look like? */}
                         <div>
                           <div className="flex items-center justify-between mb-1.5">
-                            <label className="block text-xs font-mono text-[#4D5660] uppercase tracking-wider">
-                              What would measurable success look like? (Optional)
+                            <label htmlFor="contact-success" className="block text-sm font-semibold text-[#323A42] mb-1.5">\n                                What would measurable success look like? (Optional)
                             </label>
                             <span className="text-[10px] font-mono text-[#4D5660]">
                               {formData.successDescription?.length || 0} / 500 chars
@@ -1061,7 +1054,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                             onChange={(e) => handleFieldChange('successDescription', e.target.value)}
                             onBlur={(e) => handleFieldBlur('successDescription', e.target.value)}
                             placeholder="e.g. Turnaround cut from 4 hours to 10 mins, R500k leakage eliminated"
-                            className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-xs text-[#0B0E10] placeholder-[#555] focus:outline-none focus:border-[#355241]"
+                            className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#555] focus:outline-none focus:border-[#355241]"
                           />
                         </div>
 
@@ -1093,14 +1086,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-xs font-mono text-[#4D5660] uppercase tracking-wider mb-1.5">
-                              Deployment Urgency
+                            <label htmlFor="contact-urgency" className="block text-sm font-semibold text-[#323A42] mb-1.5">\n                                Deployment Urgency
                             </label>
                             <select
                               id="contact-urgency"
                               value={formData.urgency}
                               onChange={(e) => handleFieldChange('urgency' as any, e.target.value)}
-                              className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-xs text-[#0B0E10] focus:outline-none focus:border-[#355241]"
+                              className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-base text-[#0B0E10] focus:outline-none focus:border-[#355241]"
                             >
                               <option value="Immediate (< 30 days)">Immediate (&lt; 30 days) — Critical</option>
                               <option value="Quarterly priority (1-3 months)">Quarterly priority (1–3 months)</option>
@@ -1109,14 +1101,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           </div>
 
                           <div>
-                            <label className="block text-xs font-mono text-[#4D5660] uppercase tracking-wider mb-1.5">
-                              Preferred Regional Desk
+                            <label htmlFor="contact-regional-desk" className="block text-sm font-semibold text-[#323A42] mb-1.5">\n                                Preferred Regional Desk
                             </label>
                             <select
                               id="contact-regional-desk"
                               value={formData.regionalDesk}
                               onChange={(e) => handleFieldChange('regionalDesk', e.target.value)}
-                              className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-xs text-[#0B0E10] focus:outline-none focus:border-[#355241]"
+                              className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-base text-[#0B0E10] focus:outline-none focus:border-[#355241]"
                             >
                               <option value="Sandton Corporate (Gauteng)">Sandton Corporate (Gauteng)</option>
                               <option value="Soweto Commerce & Retail">Soweto Commerce & Retail</option>
