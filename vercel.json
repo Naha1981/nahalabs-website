@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/audit",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/index.html"
+    },
+    {
       "source": "/revenuedesk",
       "destination": "/index.html"
     },
@@ -31,10 +39,6 @@
     {
       "source": "/services/revenue-leak-audit-johannesburg",
       "destination": "/services/revenue-leak-audit-johannesburg.html"
-    },
-    {
-      "source": "/audit",
-      "destination": "/audit.html"
     }
   ],
   "redirects": [
