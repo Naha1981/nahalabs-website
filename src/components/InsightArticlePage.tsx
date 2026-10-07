@@ -99,7 +99,7 @@ export const InsightArticlePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#080909] text-[#F3F0EA]">
+    <div data-site-theme="light" className="min-h-screen bg-canvas text-fg">
       <header className="sticky top-0 z-40 border-b border-[#1b1c1f] bg-[#080909]/92 backdrop-blur-md">
         <div className="max-w-5xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between gap-4">
           <a
