@@ -1,4 +1,5 @@
 import React from 'react';
+import { ButtonLink } from './Button';
 
 const SITE = 'https://nahalabs.co.za';
 
@@ -83,8 +84,8 @@ export const PublicSystemsPage: React.FC = () => (
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="/insights" className="rounded-full bg-[#C8AE82] px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-[#080909]">Read the research</a>
-            <a href="/#contact" className="rounded-full border border-[#333] px-6 py-3 text-[11px] font-mono uppercase tracking-wider text-[#D7D3CA]">Discuss a system</a>
+            <ButtonLink href="/insights" variant="primary">Read the research</ButtonLink>
+            <ButtonLink href="/#contact" variant="secondary">Discuss a system</ButtonLink>
           </div>
         </div>
       </section>
