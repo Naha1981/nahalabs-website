@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ArrowRight, ArrowUpRight, Check, ChevronDown } from 'lucide-react';
 import { ASSETS } from '../data/assets';
 import { ContactSection } from './ContactSection';
+import { Button, ButtonLink } from './Button';
 
 interface HomeProps {
   onStartConversation: () => void;
@@ -127,7 +128,7 @@ function HeroFilm() {
 
       <div className="nahafilm-topline">
         <span>NAHALABS / REAL-WORLD INTELLIGENCE</span>
-        <span className="nahafilm-status"><i /> SYSTEM ACTIVE</span>
+
       </div>
 
       <div className="nahafilm-bottom">
@@ -187,12 +188,12 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 NahaLabs finds the operational friction quietly costing your business money, then engineers the intelligent layer that turns scattered signals into decisions and action.
               </p>
               <div className="nh-hero-actions">
-                <a href="#systems" className="nh-text-link">
-                  Explore the systems <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
-                </a>
-                <button type="button" onClick={onStartConversation} className="nh-quiet-link">
-                  Start a conversation
-                </button>
+                <ButtonLink href="#systems" variant="secondary">
+                  Explore the Systems <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
+                </ButtonLink>
+                <Button type="button" onClick={onStartConversation}>
+                  Start a Conversation
+                </Button>
               </div>
             </div>
 
@@ -297,7 +298,9 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
 
             <div className="nh-method-foot">
               <p>We do not sell AI for its own sake. When intelligence is not the right tool, we tell you.</p>
-              <button type="button" onClick={onStartConversation} className="nh-dark-pill">Book a 45-minute diagnosis <ArrowRight size={16} /></button>
+              <Button type="button" onClick={onStartConversation}>
+                Book a 45-Minute Diagnosis <ArrowRight size={16} />
+              </Button>
             </div>
           </div>
         </section>
@@ -349,9 +352,9 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
           <div className="wrap">
             <p className="nh-kicker">THE NEXT MOVE</p>
             <h2>There is probably something in your business that should work better.</h2>
-            <button type="button" onClick={onStartConversation} className="nh-cta-link">
-              Let’s find it <ArrowRight size={20} strokeWidth={1.5} />
-            </button>
+            <Button type="button" onClick={onStartConversation}>
+              Let&rsquo;s Find It <ArrowRight size={20} strokeWidth={1.5} />
+            </Button>
           </div>
         </section>
 
