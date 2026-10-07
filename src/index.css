@@ -103,25 +103,8 @@
 }
 
 /* 2. TONES ---------------------------------------------------------------- */
+/* Public NahaLabs is light by default. Dark is opt-in only for legacy/internal surfaces. */
 :root,
-[data-tone="dark"] {
-  --canvas: #080909;
-  --surface: #101214;
-  --raised: #171a1d;
-  --fg: #f1eee8;        /* 16.9:1 on canvas */
-  --fg-2: #b3b0a9;      /*  9.0:1 */
-  --fg-3: #8d8b86;      /*  5.7:1 (smallest text tone) */
-  --line: rgb(241 238 232 / 0.12);
-  --line-strong: rgb(241 238 232 / 0.24);
-  --accent: #c8ae82;    /*  9.2:1 */
-  --accent-hi: #dcc69f;
-  --btn-bg: #c8ae82;
-  --btn-bg-hover: #dcc69f;
-  --btn-fg: #080909;
-  --focus: #dcc69f;
-  color-scheme: dark;
-}
-
 [data-tone="light"] {
   --canvas: #eef1f5;
   --surface: #f7f7f7;
@@ -140,26 +123,40 @@
   color-scheme: light;
 }
 
+[data-tone="dark"] {
+  --canvas: #080909;
+  --surface: #101214;
+  --raised: #171a1d;
+  --fg: #f1eee8;
+  --fg-2: #b3b0a9;
+  --fg-3: #8d8b86;
+  --line: rgb(241 238 232 / 0.12);
+  --line-strong: rgb(241 238 232 / 0.24);
+  --accent: #c8ae82;
+  --accent-hi: #dcc69f;
+  --btn-bg: #c8ae82;
+  --btn-bg-hover: #dcc69f;
+  --btn-fg: #080909;
+  --focus: #dcc69f;
+  color-scheme: dark;
+}
+
 /* 3. BASE ----------------------------------------------------------------- */
 @layer base {
   :root {
-    --bg-naha: #080909;
-    --bg-charcoal: #151515;
-    --bg-deep: #1e1e1e;
-    --text-primary: #F3F0EA;
-    --text-secondary: #A5A29B;
-    --accent-champagne: #C8AE82;
-    --accent-champagne-light: #E5D1B0;
+    --bg-naha: #eef1f5;
+    --bg-charcoal: #f7f7f7;
+    --bg-deep: #ffffff;
+    --text-primary: #0c0c0c;
+    --text-secondary: #4f555b;
+    --accent-champagne: #496b58;
+    --accent-champagne-light: #355241;
   }
 
+  /* Keep the legacy class harmless if an older component still applies it. */
   html.ambient {
-    --bg-naha: #16181b;
-    --bg-charcoal: #202327;
-    --bg-deep: #262a2f;
-    --text-primary: #FAF8F5;
-    --text-secondary: #B6B3AA;
-    --accent-champagne: #D4BC92;
-    --accent-champagne-light: #EDE0CB;
+    background-color: #eef1f5;
+    color: #0c0c0c;
   }
 
   html, body {
@@ -170,16 +167,16 @@
   }
 
   html {
-    background-color: #080909;
-    color: #F3F0EA;
+    background-color: #eef1f5;
+    color: #0c0c0c;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  html.ambient {
-    background-color: #16181b;
-    color: #FAF8F5;
+  body {
+    background-color: #eef1f5;
+    color: #0c0c0c;
   }
 
   body {
@@ -753,6 +750,8 @@ html, body {
    experience use the same NahaLabs light palette as the current homepage. */
 [data-site-theme="light"] {
   color-scheme: light;
+  background-color: #eef1f5;
+  color: #0c0c0c;
 }
 
 [data-site-theme="light"] [class*="bg-[#080909]"] { background-color:#eef1f5 !important; }
@@ -765,7 +764,13 @@ html, body {
 [data-site-theme="light"] [class*="bg-[#151618]"],
 [data-site-theme="light"] [class*="bg-[#161719]"],
 [data-site-theme="light"] [class*="bg-[#171a1d]"],
-[data-site-theme="light"] [class*="bg-[#18191c]"] {
+[data-site-theme="light"] [class*="bg-[#18191c]"],
+[data-site-theme="light"] [class*="bg-[#181a1d]"],
+[data-site-theme="light"] [class*="bg-[#1c1a16]"],
+[data-site-theme="light"] [class*="bg-[#1e2024]"],
+[data-site-theme="light"] [class*="bg-[#1e1f22]"],
+[data-site-theme="light"] [class*="bg-[#202226]"],
+[data-site-theme="light"] [class*="bg-[#0c0d0e]"] {
   background-color:#ffffff !important;
 }
 [data-site-theme="light"] [class*="from-[#16171a]"],
@@ -783,7 +788,10 @@ html, body {
 [data-site-theme="light"] [class*="text-[#8d8982]"],
 [data-site-theme="light"] [class*="text-[#8f8c85]"],
 [data-site-theme="light"] [class*="text-[#777]"],
-[data-site-theme="light"] [class*="text-[#666]"] { color:#6b6f75 !important; }
+[data-site-theme="light"] [class*="text-[#666]"],
+[data-site-theme="light"] [class*="text-[#888]"],
+[data-site-theme="light"] [class*="text-[#555]"],
+[data-site-theme="light"] [class*="text-[#CCC]"] { color:#6b6f75 !important; }
 [data-site-theme="light"] [class*="text-[#C8AE82]"] { color:#496b58 !important; }
 
 [data-site-theme="light"] [class*="border-[#1b1c1f]"],
