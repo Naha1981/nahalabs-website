@@ -230,7 +230,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <a href="/audit" className={`${linkCls} block`}>Free website audit</a>
               </li>
               <li>
-                <a href="/services/lead-follow-up-automation-johannesburg" className={`${linkCls} block`}>Lead follow-up</a>
+                <a href="/revenuedesk" className={`${linkCls} block`}>RevenueDesk</a>
               </li>
             </ul>
           </nav>
