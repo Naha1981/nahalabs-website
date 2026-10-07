@@ -1,14 +1,14 @@
 /* NahaLabs Light Editorial Home ----------------------------------------- */
 :root {
-  --nh-bg: #eef1f5;
-  --nh-surface: #f7f7f7;
+  --nh-bg: #F2F4F7;
+  --nh-surface: #FFFFFF;
   --nh-white: #ffffff;
-  --nh-text: #0c0c0c;
-  --nh-muted: #404040;
-  --nh-subtle: #6b6f75;
-  --nh-line: rgba(12, 12, 12, 0.14);
-  --nh-line-strong: rgba(12, 12, 12, 0.26);
-  --nh-green: #496b58;
+  --nh-text: #0B0E10;
+  --nh-muted: #323A42;
+  --nh-subtle: #4D5660;
+  --nh-line: #D1D5DB;
+  --nh-line-strong: #6B7280;
+  --nh-green: #355241;
   --nh-green-deep: #355241;
   --nh-max: 1240px;
   --nh-gutter: clamp(20px, 3vw, 44px);
@@ -104,34 +104,7 @@ body {
 }
 
 .nh-text-link,
-.nh-quiet-link,
-.nh-cta-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  min-height: 44px;
-  padding: 0;
-  border: 0;
-  color: var(--nh-text);
-  background: transparent;
-  font: inherit;
-  font-size: 0.95rem;
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-color: var(--nh-line-strong);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.42em;
-  cursor: pointer;
-  transition: color .18s ease, text-decoration-color .18s ease, transform .18s ease;
-}
-
-.nh-text-link:hover,
-.nh-quiet-link:hover,
-.nh-cta-link:hover {
-  color: var(--nh-green-deep);
-  text-decoration-color: var(--nh-green);
-  transform: translateY(-1px);
-}
+.nh-quiet-link { color: var(--nh-muted); }
 
 .nh-quiet-link {
   color: var(--nh-muted);
@@ -231,19 +204,6 @@ body {
   text-transform: uppercase;
 }
 
-.nahafilm-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.nahafilm-status i {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #d7ebdf;
-  box-shadow: 0 0 0 4px rgba(215,235,223,.12);
-}
 
 .nahafilm-bottom {
   bottom: clamp(15px, 2vw, 25px);
