@@ -99,26 +99,7 @@ export const InsightArticlePage: React.FC = () => {
   }, []);
 
   return (
-    <div data-site-theme="light" data-tone="light" className="min-h-screen bg-canvas text-fg">
-      <header className="sticky top-0 z-40 border-b border-[#1b1c1f] bg-[#080909]/92 backdrop-blur-md">
-        <div className="max-w-5xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between gap-4">
-          <a
-            href="/"
-            className="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.18em] text-[#A5A29B] hover:text-[#F3F0EA] transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            NahaLabs
-          </a>
-          <a
-            href="/#contact"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#18191c] hover:bg-[#C8AE82] text-[#F3F0EA] hover:text-[#080909] border border-[#2b2d35] hover:border-[#C8AE82] text-[10px] font-mono uppercase tracking-wider font-semibold transition-all"
-          >
-            Start a conversation
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
-        </div>
-      </header>
-
+    <div data-site-theme="light" data-tone="light" className="min-h-screen bg-[#F2F4F7] text-[#0B0E10]">
       <main>
         <article className="max-w-5xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
           <div className="max-w-3xl">
@@ -457,20 +438,6 @@ export const InsightArticlePage: React.FC = () => {
           </div>
         </article>
       </main>
-
-      <footer className="border-t border-[#1b1c1f] bg-[#050606]">
-        <div className="max-w-5xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
-          <div>
-            <div className="text-sm font-bold tracking-[0.22em] text-[#F3F0EA]">NAHALABS</div>
-            <div className="mt-2 text-[10px] font-mono uppercase tracking-[0.18em] text-[#666]">AI Opportunity Engineering</div>
-          </div>
-          <div className="flex flex-wrap items-center gap-5 text-[11px] font-mono uppercase tracking-[0.14em] text-[#666]">
-            <a href="/" className="hover:text-[#F3F0EA] transition-colors">Home</a>
-            <a href="/#contact" className="hover:text-[#F3F0EA] transition-colors">Contact</a>
-            <a href="mailto:ai-solutions@nahalabs.co.za" className="hover:text-[#C8AE82] transition-colors">ai-solutions@nahalabs.co.za</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
