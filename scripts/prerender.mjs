@@ -61,6 +61,7 @@ async function main() {
     const article = await vite.ssrLoadModule('/src/components/InsightArticlePage.tsx');
     const entity = await vite.ssrLoadModule('/src/components/EntityProfilePage.tsx');
     const systems = await vite.ssrLoadModule('/src/components/PublicSystemsPage.tsx');
+    const revenueDesk = await vite.ssrLoadModule('/src/components/RevenueDeskPage.tsx');
     const press = await vite.ssrLoadModule('/src/components/PressPage.tsx');
 
     const areaType = { johannesburg: 'City', soweto: 'City', gauteng: 'AdministrativeArea', lesotho: 'Country' };
@@ -100,6 +101,7 @@ async function main() {
         title: 'RevenueDesk | AI Front Desk & Revenue Recovery | NahaLabs',
         description:
           "RevenueDesk is NahaLabs' AI front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.",
+        jsonLd: [jsonLdTag(revenueDesk.getRevenueDeskJsonLd(), 'nahalabs-revenuedesk-jsonld')],
       },
       {
         path: article.ARTICLE_PATH,
