@@ -825,7 +825,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                               autoComplete="name"
                                value={formData.name}
                               maxLength={80}
-                              aria-invalid={Boolean(touched.name && errors.name)}\n                              aria-describedby={touched.name && errors.name ? "contact-name-error" : undefined}\n                              onChange={(e) => handleFieldChange('name', e.target.value)}
+                              aria-invalid={Boolean(touched.name && errors.name)}
+                              aria-describedby={touched.name && errors.name ? "contact-name-error" : undefined}
+                              onChange={(e) => handleFieldChange('name', e.target.value)}
                               onBlur={(e) => handleFieldBlur('name', e.target.value)}
                               placeholder="e.g. Sipho Molefe"
                               className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#4D5660] focus:outline-none transition-colors ${
@@ -863,7 +865,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                               autoComplete="organization"
                                value={formData.company}
                               maxLength={100}
-                              aria-invalid={Boolean(touched.company && errors.company)}\n                              aria-describedby={touched.company && errors.company ? "contact-company-error" : undefined}\n                              onChange={(e) => handleFieldChange('company', e.target.value)}
+                              aria-invalid={Boolean(touched.company && errors.company)}
+                              aria-describedby={touched.company && errors.company ? "contact-company-error" : undefined}
+                              onChange={(e) => handleFieldChange('company', e.target.value)}
                               onBlur={(e) => handleFieldBlur('company', e.target.value)}
                               placeholder="e.g. Gauteng Freight Logistics"
                               className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#4D5660] focus:outline-none transition-colors ${
@@ -902,7 +906,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                               required
                               autoComplete="email"
                                value={formData.email}
-                              aria-invalid={Boolean(touched.email && errors.email)}\n                              aria-describedby={touched.email && errors.email ? "contact-email-error" : undefined}\n                              onChange={(e) => handleFieldChange('email', e.target.value)}
+                              aria-invalid={Boolean(touched.email && errors.email)}
+                              aria-describedby={touched.email && errors.email ? "contact-email-error" : undefined}
+                              onChange={(e) => handleFieldChange('email', e.target.value)}
                               onBlur={(e) => handleFieldBlur('email', e.target.value)}
                               placeholder="e.g. name@company.co.za"
                               className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#4D5660] focus:outline-none transition-colors ${
@@ -937,7 +943,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                               type="tel"
                               autoComplete="tel"
                                value={formData.phone}
-                              aria-invalid={Boolean(touched.phone && errors.phone)}\n                              aria-describedby={touched.phone && errors.phone ? "contact-phone-error" : undefined}\n                              onChange={(e) => handleFieldChange('phone', e.target.value)}
+                              aria-invalid={Boolean(touched.phone && errors.phone)}
+                              aria-describedby={touched.phone && errors.phone ? "contact-phone-error" : undefined}
+                              onChange={(e) => handleFieldChange('phone', e.target.value)}
                               onBlur={(e) => handleFieldBlur('phone', e.target.value)}
                               placeholder="e.g. +27 82 000 0000"
                               className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#4D5660] focus:outline-none transition-colors ${
