@@ -78,7 +78,8 @@ export default function App() {
   };
 
   const handleNavigate = (sectionId: string) => {
-    if (locationPathSlug) {
+    const isHomeRoute = normalizedPath === '/';
+    if (locationPathSlug || (!isHomeRoute && !activeLocationSlug)) {
       goHome(sectionId);
       return;
     }
