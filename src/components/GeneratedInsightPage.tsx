@@ -73,14 +73,7 @@ export const GeneratedInsightPage: React.FC<{ slug: string }> = ({ slug }) => {
   const videoUrl = media.videoUrl || bundle.videoUrl;
 
   return (
-    <div data-site-theme="light" data-tone="light" className="min-h-screen bg-canvas text-fg">
-      <header className="sticky top-0 z-40 border-b border-[#1b1c1f] bg-[#080909]/92 backdrop-blur-md">
-        <div className="max-w-5xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
-          <a href="/" className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#A5A29B] hover:text-[#F3F0EA]">NahaLabs</a>
-          <a href="/#contact" className="text-[10px] font-mono uppercase tracking-wider font-semibold border border-[#2b2d35] rounded-full px-4 py-2">Start a conversation</a>
-        </div>
-      </header>
-
+    <div data-site-theme="light" data-tone="light" className="min-h-screen bg-[#F2F4F7] text-[#0B0E10]">
       <main className="max-w-5xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
         <div className="max-w-3xl">
           <div className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#C8AE82] mb-5">

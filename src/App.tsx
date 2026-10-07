@@ -1,7 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Toaster } from 'sonner';
-import { Navbar } from './components/Navbar';
-import { Footer } from './components/Footer';
 import { LightHome } from './components/LightHome';
 import { LOCATIONS_DATA } from './data/locations';
 import { InsightArticlePage, InsightIndexPage } from './components/InsightArticlePage';
@@ -12,32 +10,35 @@ import { PublicSystemsPage } from './components/PublicSystemsPage';
 import { PressPage } from './components/PressPage';
 import { scrollBehavior } from './lib/motion';
 import { RevenueDeskPage } from './components/RevenueDeskPage';
+import { SiteShell } from './components/SiteShell';
+import { AuditPage } from './components/AuditPage';
+import { ContactSection } from './components/ContactSection';
 
 const LocationView = lazy(() => import('./components/LocationView').then(m => ({ default: m.LocationView })));
 const LegalModal = lazy(() => import('./components/LegalModal').then(m => ({ default: m.LegalModal })));
 
 export default function App() {
-  // On the server (build-time prerender) there is no window; the path is supplied by entry-server.tsx.
   const rawPath =
     typeof window !== 'undefined'
       ? window.location.pathname
       : (globalThis as { __SSR_PATH__?: string }).__SSR_PATH__ ?? '/';
   const normalizedPath = rawPath.replace(/\/+$/, '') || '/';
 
-  // Regional pages are real URLs (/locations/johannesburg) so they can be crawled and cited.
-  // The older #locations/<slug> hash links keep working for existing bookmarks.
   const locationPathMatch = normalizedPath.match(/^\/locations\/([a-z0-9-]+)$/);
   const locationPathSlug = locationPathMatch && LOCATIONS_DATA[locationPathMatch[1]] ? locationPathMatch[1] : null;
 
   const [activeLocationSlug, setActiveLocationSlug] = useState<string | null>(locationPathSlug);
   const [prefilledSystem, setPrefilledSystem] = useState<string | null>(null);
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | null>(null);
+
   const isAboutPage = normalizedPath === '/about';
   const isSystemsPage = normalizedPath === '/systems';
   const isPressPage = normalizedPath === '/press';
   const isRevenueDeskPage = normalizedPath === '/revenuedesk';
   const isInsightsIndexPage = normalizedPath === '/insights';
   const isInsightArticlePage = normalizedPath === '/insights/hidden-cost-fragmented-operational-information';
+  const isAuditPage = normalizedPath === '/audit';
+  const isContactPage = normalizedPath === '/contact';
   const isContentMediaAdmin = normalizedPath === '/content-admin';
   const generatedInsightSlug = normalizedPath.startsWith('/insights/') && !isInsightArticlePage
     ? normalizedPath.replace('/insights/', '')
@@ -60,11 +61,10 @@ export default function App() {
     handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+  }, [locationPathSlug]);
 
-  // Deep links such as /#contact: the browser cannot scroll to sections that React has not
-  // rendered yet, so scroll once after mount.
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const id = window.location.hash.replace('#', '');
     if (!id || id.startsWith('locations/')) return;
     const frame = requestAnimationFrame(() => {
@@ -78,10 +78,12 @@ export default function App() {
   };
 
   const handleNavigate = (sectionId: string) => {
-    if (locationPathSlug) {
+    const isHomeRoute = normalizedPath === '/';
+    if (locationPathSlug || (!isHomeRoute && !activeLocationSlug)) {
       goHome(sectionId);
       return;
     }
+
     if (activeLocationSlug) {
       setActiveLocationSlug(null);
       window.location.hash = '';
@@ -89,10 +91,11 @@ export default function App() {
         const el = document.getElementById(sectionId);
         if (el) el.scrollIntoView({ behavior: scrollBehavior() });
       }, 100);
-    } else {
-      const el = document.getElementById(sectionId);
-      if (el) el.scrollIntoView({ behavior: scrollBehavior() });
+      return;
     }
+
+    const el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior: scrollBehavior() });
   };
 
   const handleSelectLocation = (slug: string) => {
@@ -111,22 +114,39 @@ export default function App() {
   };
 
   if (isContentMediaAdmin) return <ContentMediaUploader />;
-  if (isAboutPage) return <EntityProfilePage />;
-  if (isSystemsPage) return <PublicSystemsPage />;
-  if (isPressPage) return <PressPage />;
-  if (isRevenueDeskPage) return <RevenueDeskPage />;
-  if (isInsightsIndexPage) return <InsightIndexPage />;
-  if (isInsightArticlePage) return <InsightArticlePage />;
-  if (generatedInsightSlug) return <GeneratedInsightPage slug={generatedInsightSlug} />;
 
-  return (
-    <div className="min-h-screen bg-[#eef1f5] text-[#0c0c0c] flex flex-col font-sans selection:bg-[#496b58] selection:text-white">
-      <a href="#main" className="skip-link">Skip to content</a>
-      <Toaster position="top-right" richColors closeButton theme="light" />
-      <Navbar onNavigate={handleNavigate} />
-      <main id="main" tabIndex={-1} className="flex-1 outline-none">
+  const commonShellProps = {
+    onNavigate: handleNavigate,
+    onSelectLocation: handleSelectLocation,
+    onOpenPrivacy: () => setLegalModalType('privacy'),
+    onOpenTerms: () => setLegalModalType('terms'),
+  };
+
+  let pageContent: React.ReactNode;
+
+  if (isAboutPage) {
+    pageContent = <EntityProfilePage />;
+  } else if (isSystemsPage) {
+    pageContent = <PublicSystemsPage />;
+  } else if (isPressPage) {
+    pageContent = <PressPage />;
+  } else if (isRevenueDeskPage) {
+    pageContent = <RevenueDeskPage />;
+  } else if (isInsightsIndexPage) {
+    pageContent = <InsightIndexPage />;
+  } else if (isInsightArticlePage) {
+    pageContent = <InsightArticlePage />;
+  } else if (isAuditPage) {
+    pageContent = <AuditPage />;
+  } else if (isContactPage) {
+    pageContent = <ContactSection prefilledSystem={prefilledSystem} />;
+  } else if (generatedInsightSlug) {
+    pageContent = <GeneratedInsightPage slug={generatedInsightSlug} />;
+  } else {
+    pageContent = (
+      <>
         {activeLocationSlug && LOCATIONS_DATA[activeLocationSlug] ? (
-          <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-fg-3 text-small">Loading regional pages…</div>}>
+          <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-fg-3 text-sm">Loading regional pages…</div>}>
             <LocationView
               location={LOCATIONS_DATA[activeLocationSlug]}
               onBack={() => {
@@ -152,20 +172,21 @@ export default function App() {
             />
           </Suspense>
         ) : (
-          <>
-            <LightHome onStartConversation={() => handleNavigate('contact')} />
-          </>
+          <LightHome
+            onStartConversation={() => handleNavigate('contact')}
+          />
         )}
-      </main>
-      <Footer
-        onNavigate={handleNavigate}
-        onSelectLocation={handleSelectLocation}
-        onOpenPrivacy={() => setLegalModalType('privacy')}
-        onOpenTerms={() => setLegalModalType('terms')}
-      />
+      </>
+    );
+  }
+
+  return (
+    <SiteShell {...commonShellProps}>
+      <Toaster position="top-right" richColors closeButton theme="light" />
+      {pageContent}
       <Suspense fallback={null}>
         {legalModalType && <LegalModal type={legalModalType} onClose={() => setLegalModalType(null)} />}
       </Suspense>
-    </div>
+    </SiteShell>
   );
 }

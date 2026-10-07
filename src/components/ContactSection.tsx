@@ -21,6 +21,7 @@ import {
   Save
 } from 'lucide-react';
 import { toast } from 'sonner';
+import { Button } from './Button';
 
 interface ContactSectionProps {
   prefilledSystem?: string | null;
@@ -435,37 +436,37 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
           
           {/* Left Column: Direct Contact & Diagnostic Reassurance */}
           <div className="lg:col-span-5 space-y-8">
-            <div className="p-8 rounded-sm bg-[#121314] border border-[#222222] space-y-6">
-              <h3 className="text-xl font-bold text-[#F3F0EA]">
+            <div className="p-8 rounded-sm bg-white border border-[#D1D5DB] space-y-6">
+              <h3 className="text-xl font-bold text-[#0B0E10]">
                 Engineering Consultation
               </h3>
-              <p className="text-xs sm:text-sm text-[#A5A29B] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#4D5660] leading-relaxed">
                 Initial consultations are conducted directly by systems engineers, not junior account managers. We evaluate technical feasibility and balance sheet return upfront.
               </p>
 
               {/* Direct Contact Cards with Copy to Clipboard */}
-              <div className="space-y-3 pt-2 border-t border-[#1f2022] text-xs font-mono">
+              <div className="space-y-3 pt-2 border-t border-[#D1D5DB] text-xs font-mono">
                 
                 {/* Email with Copy to Clipboard */}
-                <div className="flex items-center justify-between gap-3 p-2.5 rounded bg-[#161719] border border-[#262626] group hover:border-[#3a3c40] transition-colors">
+                <div className="flex items-center justify-between gap-3 p-2.5 rounded bg-[#F7F8FA] border border-[#D1D5DB] group hover:border-[#3a3c40] transition-colors">
                   <a 
                     href="mailto:ai-solutions@nahalabs.co.za" 
-                    className="flex items-center gap-2.5 text-[#F3F0EA] hover:text-[#C8AE82] transition-colors min-w-0"
+                    className="flex items-center gap-2.5 text-[#0B0E10] hover:text-[#355241] transition-colors min-w-0"
                   >
-                    <Mail className="w-4 h-4 text-[#C8AE82] shrink-0" />
+                    <Mail className="w-4 h-4 text-[#355241] shrink-0" />
                     <span className="break-all">ai-solutions@nahalabs.co.za</span>
                   </a>
                   <button
                     type="button"
                     onClick={() => handleCopy('ai-solutions@nahalabs.co.za', 'email', 'Contact Email')}
-                    className="px-2 py-1 rounded bg-[#1e2024] hover:bg-[#272a2f] text-[#A5A29B] hover:text-[#C8AE82] border border-[#33373d] transition-all shrink-0 flex items-center gap-1 text-[11px] font-mono cursor-pointer"
+                    className="px-2 py-1 rounded bg-white hover:bg-[#272a2f] text-[#4D5660] hover:text-[#355241] border border-[#D1D5DB] transition-all shrink-0 flex items-center gap-1 text-[11px] font-mono cursor-pointer"
                     title="Copy email to clipboard"
                     aria-label="Copy email address"
                   >
                     {copiedField === 'email' ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-[#C8AE82]" />
-                        <span className="text-[#C8AE82] font-semibold">Copied</span>
+                        <Check className="w-3.5 h-3.5 text-[#355241]" />
+                        <span className="text-[#355241] font-semibold">Copied</span>
                       </>
                     ) : (
                       <>
@@ -477,22 +478,22 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                 </div>
 
                 {/* Physical Address with Copy to Clipboard */}
-                <div className="flex items-center justify-between gap-3 p-2.5 rounded bg-[#161719] border border-[#262626] group hover:border-[#3a3c40] transition-colors">
-                  <div className="flex items-center gap-2.5 text-[#A5A29B] min-w-0">
-                    <MapPin className="w-4 h-4 text-[#C8AE82] shrink-0" />
+                <div className="flex items-center justify-between gap-3 p-2.5 rounded bg-[#F7F8FA] border border-[#D1D5DB] group hover:border-[#3a3c40] transition-colors">
+                  <div className="flex items-center gap-2.5 text-[#4D5660] min-w-0">
+                    <MapPin className="w-4 h-4 text-[#355241] shrink-0" />
                     <span>Johannesburg, Gauteng, South Africa</span>
                   </div>
                   <button
                     type="button"
                     onClick={() => handleCopy('Johannesburg, Gauteng, South Africa', 'address', 'Physical Address')}
-                    className="px-2 py-1 rounded bg-[#1e2024] hover:bg-[#272a2f] text-[#A5A29B] hover:text-[#C8AE82] border border-[#33373d] transition-all shrink-0 flex items-center gap-1 text-[11px] font-mono cursor-pointer"
+                    className="px-2 py-1 rounded bg-white hover:bg-[#272a2f] text-[#4D5660] hover:text-[#355241] border border-[#D1D5DB] transition-all shrink-0 flex items-center gap-1 text-[11px] font-mono cursor-pointer"
                     title="Copy physical address to clipboard"
                     aria-label="Copy physical address"
                   >
                     {copiedField === 'address' ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-[#C8AE82]" />
-                        <span className="text-[#C8AE82] font-semibold">Copied</span>
+                        <Check className="w-3.5 h-3.5 text-[#355241]" />
+                        <span className="text-[#355241] font-semibold">Copied</span>
                       </>
                     ) : (
                       <>
@@ -504,28 +505,27 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                 </div>
 
                 {/* Regional Desk Badge */}
-                <div className="flex items-center gap-3 text-[#A5A29B] p-2.5 rounded bg-[#161719] border border-[#262626]">
-                  <span className="w-2 h-2 rounded-full bg-[#C8AE82] shrink-0 animate-pulse" />
+                <div className="flex items-center gap-3 text-[#4D5660] p-2.5 rounded bg-[#F7F8FA] border border-[#D1D5DB]">
                   <span className="text-[11px]">Serving South Africa, Lesotho & SADC Corridor</span>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#1f2022]">
-                <span className="text-[10px] font-mono text-[#C8AE82] uppercase tracking-widest block mb-1">
+              <div className="pt-4 border-t border-[#D1D5DB]">
+                <span className="text-[10px] font-mono text-[#355241] uppercase tracking-widest block mb-1">
                   CORE COMMITMENT
                 </span>
-                <p className="text-xs text-[#A5A29B]">
+                <p className="text-xs text-[#4D5660]">
                   Diagnosis → Prototype → Production. If intelligence is not the right tool for your problem, we will tell you straight away.
                 </p>
               </div>
             </div>
 
             {/* Quick Regional Contact Card */}
-            <div className="p-6 rounded-sm bg-[#101112] border border-[#222] text-xs font-mono text-[#777] space-y-2">
-              <div className="text-[#C8AE82] uppercase tracking-wider">
-                REGIONAL ENGAGEMENT DESKS
+            <div className="p-6 rounded-sm bg-white border border-[#D1D5DB] text-xs font-mono text-[#4D5660] space-y-2">
+              <div className="text-[#355241] uppercase tracking-wider">
+                Office Locations
               </div>
-              <div className="grid grid-cols-2 gap-2 text-[#A5A29B]">
+              <div className="grid grid-cols-2 gap-2 text-[#4D5660]">
                 <div>• Sandton Corporate</div>
                 <div>• Soweto Commerce</div>
                 <div>• City Deep Logistics</div>
@@ -536,15 +536,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
 
           {/* Right Column: Multi-Step Enterprise Lead Diagnostic Form */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-10 rounded-sm bg-[#121315] border border-[#262626] shadow-2xl">
+            <div className="p-6 sm:p-10 rounded-lg bg-white border border-[#D1D5DB] shadow-sm">
               
               {/* Header with Title and Auto-save indicator */}
-              <div className="border-b border-[#222222] pb-5 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div className="border-b border-[#D1D5DB] pb-5 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
-                  <h3 className="text-2xl font-black text-[#F3F0EA] tracking-tight">
-                    START A CONVERSATION.
+                  <h3 className="text-2xl font-black text-[#0B0E10] tracking-tight">
+                    Start a Conversation
                   </h3>
-                  <p className="text-xs text-[#A5A29B] mt-1">
+                  <p className="text-xs text-[#4D5660] mt-1">
                     Describe your operational friction. All submissions handled in strict commercial confidence.
                   </p>
                 </div>
@@ -553,16 +553,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                   {/* Auto-save Status Badge */}
                   {lastAutoSaved && !submitted && (
                     <div 
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#16171a] border border-[#2b2d31] text-[10px] font-mono text-[#A5A29B]"
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#F7F8FA] border border-[#D1D5DB] text-[10px] font-mono text-[#4D5660]"
                       title="Form progress is automatically saved to your local browser storage"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      <span>Saved {lastAutoSaved}</span>
+<span>Saved {lastAutoSaved}</span>
                     </div>
                   )}
 
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#161719] border border-[#262626] text-[10px] font-mono text-[#C8AE82] uppercase">
-                    <Lock className="w-3 h-3 text-[#C8AE82]" />
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#F7F8FA] border border-[#D1D5DB] text-[10px] font-mono text-[#355241] uppercase">
+                    <Lock className="w-3 h-3 text-[#355241]" />
                     <span>CONFIDENTIAL</span>
                   </span>
                 </div>
@@ -570,15 +569,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
 
               {/* Draft Restored Banner */}
               {draftRestored && !submitted && (
-                <div className="mb-6 p-3 rounded bg-[#181a1d] border border-[#C8AE82]/30 flex items-center justify-between gap-3 text-xs font-mono">
-                  <div className="flex items-center gap-2 text-[#F3F0EA]">
-                    <Save className="w-3.5 h-3.5 text-[#C8AE82] shrink-0" />
+                <div className="mb-6 p-3 rounded bg-[#F7F8FA] border border-[#355241]/30 flex items-center justify-between gap-3 text-xs font-mono">
+                  <div className="flex items-center gap-2 text-[#0B0E10]">
+                    <Save className="w-3.5 h-3.5 text-[#355241] shrink-0" />
                     <span>Recovered active draft from previous session.</span>
                   </div>
                   <button
                     type="button"
                     onClick={handleDiscardDraft}
-                    className="text-[11px] text-[#A5A29B] hover:text-red-400 flex items-center gap-1 transition-colors cursor-pointer shrink-0"
+                    className="text-[11px] text-[#4D5660] hover:text-[#B3261E] flex items-center gap-1 transition-colors cursor-pointer shrink-0"
                     title="Clear saved draft and start blank"
                   >
                     <RotateCcw className="w-3 h-3" />
@@ -592,17 +591,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                 <div className="py-10 sm:py-14 text-center space-y-6 animate-in fade-in duration-300">
                   {/* Subtle Checkmark Animation */}
                   <div className="relative w-20 h-20 mx-auto flex items-center justify-center">
-                    <div className="absolute inset-0 rounded-full bg-[#C8AE82]/20 animate-success-glow" />
-                    <div className="relative w-16 h-16 rounded-full bg-[#1c1a16] border-2 border-[#C8AE82] flex items-center justify-center animate-success-pop shadow-lg shadow-[#C8AE82]/20">
+                    <div className="absolute inset-0 rounded-full bg-[#355241]/20" />
+                    <div className="relative w-16 h-16 rounded-full bg-white border-2 border-[#355241] flex items-center justify-center shadow-lg shadow-[#355241]/20">
                       <svg 
-                        className="w-9 h-9 text-[#C8AE82]" 
+                        className="w-9 h-9 text-[#355241]" 
                         viewBox="0 0 24 24" 
                         fill="none" 
                         stroke="currentColor" 
                         strokeWidth="2.5"
                       >
                         <path 
-                          className="animate-checkmark-draw"
+                          
                           strokeLinecap="round" 
                           strokeLinejoin="round" 
                           d="M5 13l4 4L19 7" 
@@ -612,34 +611,34 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                   </div>
 
                   <div>
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C8AE82]/10 border border-[#C8AE82]/30 text-[11px] font-mono text-[#C8AE82] uppercase mb-2">
-                      <Sparkles className="w-3.5 h-3.5 text-[#C8AE82]" />
-                      <span>TRANSMISSION CONFIRMED</span>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#355241]/10 border border-[#355241]/30 text-[11px] font-mono text-[#355241] uppercase mb-2">
+                      <Sparkles className="w-3.5 h-3.5 text-[#355241]" />
+                      <span>Inquiry Received</span>
                     </div>
-                    <h4 className="text-2xl sm:text-3xl font-extrabold text-[#F3F0EA] tracking-tight">
+                    <h4 className="text-2xl sm:text-3xl font-extrabold text-[#0B0E10] tracking-tight">
                       Problem Brief Received
                     </h4>
-                    <p className="mt-2 text-sm text-[#A5A29B] max-w-lg mx-auto leading-relaxed">
+                    <p className="mt-2 text-sm text-[#4D5660] max-w-lg mx-auto leading-relaxed">
                       Thank you, <strong>{formData.name}</strong>. An intelligent systems engineer has been assigned to review your inquiry for <strong>{formData.company}</strong> and will deliver initial technical feedback to <strong>{formData.email}</strong> within 1 business day.
                     </p>
                   </div>
 
                   {/* Submission Audit & Reference Code Box */}
-                  <div className="p-5 rounded bg-[#16171a] border border-[#27292d] max-w-md mx-auto text-left text-xs font-mono space-y-3">
-                    <div className="flex items-center justify-between border-b border-[#232529] pb-2.5">
+                  <div className="p-5 rounded bg-[#F7F8FA] border border-[#D1D5DB] max-w-md mx-auto text-left text-xs font-mono space-y-3">
+                    <div className="flex items-center justify-between border-b border-[#D1D5DB] pb-2.5">
                       <div>
-                        <span className="text-[10px] text-[#777] uppercase tracking-wider block">Inquiry Reference</span>
-                        <span className="text-sm font-bold text-[#F3F0EA] tracking-wider">{submissionRef}</span>
+                        <span className="text-[10px] text-[#4D5660] uppercase tracking-wider block">Inquiry Reference</span>
+                        <span className="text-sm font-bold text-[#0B0E10] tracking-wider">{submissionRef}</span>
                       </div>
                       <button
                         type="button"
                         onClick={() => handleCopy(submissionRef, 'ref', 'Reference Code')}
-                        className="px-2.5 py-1 rounded bg-[#202226] hover:bg-[#282a2f] text-[#A5A29B] hover:text-[#C8AE82] border border-[#33373d] transition-colors flex items-center gap-1.5 text-[11px] cursor-pointer"
+                        className="px-2.5 py-1 rounded bg-white hover:bg-[#282a2f] text-[#4D5660] hover:text-[#355241] border border-[#D1D5DB] transition-colors flex items-center gap-1.5 text-[11px] cursor-pointer"
                       >
                         {copiedField === 'ref' ? (
                           <>
-                            <Check className="w-3.5 h-3.5 text-[#C8AE82]" />
-                            <span className="text-[#C8AE82]">Copied</span>
+                            <Check className="w-3.5 h-3.5 text-[#355241]" />
+                            <span className="text-[#355241]">Copied</span>
                           </>
                         ) : (
                           <>
@@ -650,25 +649,25 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                       </button>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2 text-[#A5A29B] text-[11px]">
+                    <div className="grid grid-cols-2 gap-2 text-[#4D5660] text-[11px]">
                       <div>
-                        <span className="text-[#666] block">Client Desk</span>
-                        <span className="text-[#F3F0EA] truncate block">{formData.regionalDesk || 'Sandton Corporate'}</span>
+                        <span className="text-[#4D5660] block">Client Desk</span>
+                        <span className="text-[#0B0E10] truncate block">{formData.regionalDesk || 'Sandton Corporate'}</span>
                       </div>
                       <div>
-                        <span className="text-[#666] block">Operational Domain</span>
-                        <span className="text-[#F3F0EA] truncate block">{formData.businessArea}</span>
+                        <span className="text-[#4D5660] block">Operational Domain</span>
+                        <span className="text-[#0B0E10] truncate block">{formData.businessArea}</span>
                       </div>
                       <div>
-                        <span className="text-[#666] block">Response SLA</span>
-                        <span className="text-[#C8AE82] flex items-center gap-1">
+                        <span className="text-[#4D5660] block">Response SLA</span>
+                        <span className="text-[#355241] flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           <span>≤ 24 Hours</span>
                         </span>
                       </div>
                       <div>
-                        <span className="text-[#666] block">Classification</span>
-                        <span className="text-[#F3F0EA]">NDA Protected</span>
+                        <span className="text-[#4D5660] block">Classification</span>
+                        <span className="text-[#0B0E10]">Confidential</span>
                       </div>
                     </div>
                   </div>
@@ -697,7 +696,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                         setTouched({});
                         setErrors({});
                       }}
-                      className="px-6 py-2.5 rounded-md border border-[#333] hover:border-[#C8AE82] text-xs font-mono text-[#A5A29B] hover:text-[#F3F0EA] transition-colors cursor-pointer flex items-center gap-2"
+                      className="px-6 py-2.5 rounded-md border border-[#D1D5DB] hover:border-[#355241] text-xs font-mono text-[#4D5660] hover:text-[#0B0E10] transition-colors cursor-pointer flex items-center gap-2"
                     >
                       <RotateCcw className="w-3.5 h-3.5" />
                       <span>Submit Another Inquiry</span>
@@ -710,10 +709,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                   <div className="mb-8">
                     {/* Top Progress Subtitle */}
                     <div className="flex items-center justify-between text-[11px] font-mono mb-3">
-                      <span className="text-[#C8AE82] uppercase tracking-wider font-semibold">
+                      <span className="text-[#355241] uppercase tracking-wider font-semibold">
                         STEP {currentStep} OF 3: {STEPS[currentStep - 1].title}
                       </span>
-                      <span className="text-[#888]">
+                      <span className="text-[#4D5660]">
                         {currentStep === 1 && '33% COMPLETED'}
                         {currentStep === 2 && '66% COMPLETED'}
                         {currentStep === 3 && 'FINAL REVIEW'}
@@ -735,20 +734,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                             disabled={!isAccessible}
                             className={`p-2.5 sm:p-3 rounded text-left transition-all relative border cursor-pointer ${
                               isCurrent
-                                ? 'bg-[#1e1f22] border-[#C8AE82] text-[#F3F0EA]'
+                                ? 'bg-[#1e1f22] border-[#355241] text-[#0B0E10]'
                                 : isDone
-                                ? 'bg-[#141517] border-[#2e3034] text-[#C8AE82] hover:border-[#C8AE82]/60'
-                                : 'bg-[#101112] border-[#1d1e20] text-[#555] cursor-not-allowed'
+                                ? 'bg-[#141517] border-[#D1D5DB] text-[#355241] hover:border-[#355241]/60'
+                                : 'bg-white border-[#1d1e20] text-[#555] cursor-not-allowed'
                             }`}
                           >
                             <div className="flex flex-col items-start gap-1.5 sm:flex-row sm:items-center sm:gap-2 mb-1">
                               <span
                                 className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold shrink-0 ${
                                   isCurrent
-                                    ? 'bg-[#C8AE82] text-[#080909]'
+                                    ? 'bg-[#355241] text-[#0B0E10]'
                                     : isDone
-                                    ? 'bg-[#C8AE82]/20 text-[#C8AE82]'
-                                    : 'bg-[#1e1f22] text-[#666]'
+                                    ? 'bg-[#355241]/20 text-[#355241]'
+                                    : 'bg-[#1e1f22] text-[#4D5660]'
                                 }`}
                               >
                                 {isDone ? <Check className="w-3 h-3" /> : s.number}
@@ -757,7 +756,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                                 {s.title}
                               </span>
                             </div>
-                            <span className="hidden sm:block text-[10px] text-[#888] font-mono truncate pl-7">
+                            <span className="hidden sm:block text-[10px] text-[#4D5660] font-mono truncate pl-7">
                               {s.subtitle}
                             </span>
                           </button>
@@ -768,7 +767,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                     {/* Continuous Progress Bar Indicator */}
                     <div className="w-full h-1 bg-[#1a1b1d] rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-[#C8AE82]/80 to-[#E5D1B0] transition-all duration-300 ease-out"
+                        className="h-full bg-gradient-to-r from-[#355241]/80 to-[#496B58] transition-all duration-300 ease-out"
                         style={{
                           width: currentStep === 1 ? '33.33%' : currentStep === 2 ? '66.66%' : '100%'
                         }}
@@ -790,7 +789,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
 
                     {errorMsg && (
                       <div className="p-3.5 rounded bg-red-950/40 border border-red-800/60 text-xs text-red-200 flex items-center gap-2">
-                        <ShieldAlert className="w-4 h-4 text-red-400 shrink-0" />
+                        <ShieldAlert className="w-4 h-4 text-[#B3261E] shrink-0" />
                         <span>{errorMsg}</span>
                       </div>
                     )}
@@ -798,8 +797,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                     {/* STEP 1: Enterprise Profile & Contacts */}
                     {currentStep === 1 && (
                       <div className="space-y-4">
-                        <div className="text-xs text-[#888] font-mono mb-2 flex items-center gap-2">
-                          <Building className="w-3.5 h-3.5 text-[#C8AE82]" />
+                        <div className="text-xs text-[#4D5660] font-mono mb-2 flex items-center gap-2">
+                          <Building className="w-3.5 h-3.5 text-[#355241]" />
                           <span>01 / ENTERPRISE STAKEHOLDER & REGIONAL BASE</span>
                         </div>
 
@@ -808,33 +807,36 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           {/* Name Field */}
                           <div>
                             <div className="flex items-center justify-between mb-1.5">
-                              <label className="block text-xs font-mono text-[#A5A29B] uppercase tracking-wider">
+                              <label htmlFor="contact-name" className="block text-sm font-semibold text-[#323A42] mb-1.5">
                                 Your Name *
                               </label>
                               {touched.name && !errors.name && formData.name && (
-                                <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
+                                <span className="text-[10px] font-mono text-[#1B6B45] flex items-center gap-1">
                                   <Check className="w-3 h-3" /> Valid
                                 </span>
                               )}
                             </div>
-                            <input
+                            <input id="contact-name"
                               type="text"
                               required
-                              value={formData.name}
+                              autoComplete="name"
+                               value={formData.name}
                               maxLength={80}
+                              aria-invalid={Boolean(touched.name && errors.name)}
+                              aria-describedby={touched.name && errors.name ? "contact-name-error" : undefined}
                               onChange={(e) => handleFieldChange('name', e.target.value)}
                               onBlur={(e) => handleFieldBlur('name', e.target.value)}
                               placeholder="e.g. Sipho Molefe"
-                              className={`w-full bg-[#18191b] border rounded px-3.5 py-2.5 text-xs text-[#F3F0EA] placeholder-[#555] focus:outline-none transition-colors ${
+                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#4D5660] focus:outline-none transition-colors ${
                                 touched.name && errors.name
                                   ? 'border-red-500/80 bg-red-950/10 focus:border-red-500'
                                   : touched.name && formData.name
-                                  ? 'border-[#C8AE82]/60 focus:border-[#C8AE82]'
-                                  : 'border-[#2a2a2a] focus:border-[#C8AE82]'
+                                  ? 'border-[#355241]/60 focus:border-[#355241]'
+                                  : 'border-[#6B7280] focus:border-[#355241]'
                               }`}
                             />
                             {touched.name && errors.name && (
-                              <p className="mt-1 text-[11px] font-mono text-red-400 flex items-center gap-1">
+                              <p id="contact-name-error" className="mt-1 text-sm text-[#B3261E] flex items-center gap-1">
                                 <AlertCircle className="w-3 h-3 shrink-0" />
                                 <span>{errors.name}</span>
                               </p>
@@ -844,33 +846,37 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           {/* Company Field */}
                           <div>
                             <div className="flex items-center justify-between mb-1.5">
-                              <label className="block text-xs font-mono text-[#A5A29B] uppercase tracking-wider">
+                              <label htmlFor="contact-company" className="block text-sm font-semibold text-[#323A42] mb-1.5">
                                 Company / Organisation *
                               </label>
                               {touched.company && !errors.company && formData.company && (
-                                <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
+                                <span className="text-[10px] font-mono text-[#1B6B45] flex items-center gap-1">
                                   <Check className="w-3 h-3" /> Valid
                                 </span>
                               )}
                             </div>
-                            <input
+                            <input id="contact-company"
+                              name="organization"
                               type="text"
                               required
-                              value={formData.company}
+                              autoComplete="organization"
+                               value={formData.company}
                               maxLength={100}
+                              aria-invalid={Boolean(touched.company && errors.company)}
+                              aria-describedby={touched.company && errors.company ? "contact-company-error" : undefined}
                               onChange={(e) => handleFieldChange('company', e.target.value)}
                               onBlur={(e) => handleFieldBlur('company', e.target.value)}
                               placeholder="e.g. Gauteng Freight Logistics"
-                              className={`w-full bg-[#18191b] border rounded px-3.5 py-2.5 text-xs text-[#F3F0EA] placeholder-[#555] focus:outline-none transition-colors ${
+                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#4D5660] focus:outline-none transition-colors ${
                                 touched.company && errors.company
                                   ? 'border-red-500/80 bg-red-950/10 focus:border-red-500'
                                   : touched.company && formData.company
-                                  ? 'border-[#C8AE82]/60 focus:border-[#C8AE82]'
-                                  : 'border-[#2a2a2a] focus:border-[#C8AE82]'
+                                  ? 'border-[#355241]/60 focus:border-[#355241]'
+                                  : 'border-[#6B7280] focus:border-[#355241]'
                               }`}
                             />
                             {touched.company && errors.company && (
-                              <p className="mt-1 text-[11px] font-mono text-red-400 flex items-center gap-1">
+                              <p id="contact-company-error" className="mt-1 text-sm text-[#B3261E] flex items-center gap-1">
                                 <AlertCircle className="w-3 h-3 shrink-0" />
                                 <span>{errors.company}</span>
                               </p>
@@ -883,32 +889,35 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           {/* Email Field */}
                           <div>
                             <div className="flex items-center justify-between mb-1.5">
-                              <label className="block text-xs font-mono text-[#A5A29B] uppercase tracking-wider">
+                              <label htmlFor="contact-email" className="block text-sm font-semibold text-[#323A42] mb-1.5">
                                 Work Email *
                               </label>
                               {touched.email && !errors.email && formData.email && (
-                                <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
+                                <span className="text-[10px] font-mono text-[#1B6B45] flex items-center gap-1">
                                   <Check className="w-3 h-3" /> Valid format
                                 </span>
                               )}
                             </div>
-                            <input
+                            <input id="contact-email"
                               type="email"
                               required
-                              value={formData.email}
+                              autoComplete="email"
+                               value={formData.email}
+                              aria-invalid={Boolean(touched.email && errors.email)}
+                              aria-describedby={touched.email && errors.email ? "contact-email-error" : undefined}
                               onChange={(e) => handleFieldChange('email', e.target.value)}
                               onBlur={(e) => handleFieldBlur('email', e.target.value)}
                               placeholder="e.g. name@company.co.za"
-                              className={`w-full bg-[#18191b] border rounded px-3.5 py-2.5 text-xs text-[#F3F0EA] placeholder-[#555] focus:outline-none transition-colors ${
+                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#4D5660] focus:outline-none transition-colors ${
                                 touched.email && errors.email
                                   ? 'border-red-500/80 bg-red-950/10 focus:border-red-500'
                                   : touched.email && formData.email
-                                  ? 'border-[#C8AE82]/60 focus:border-[#C8AE82]'
-                                  : 'border-[#2a2a2a] focus:border-[#C8AE82]'
+                                  ? 'border-[#355241]/60 focus:border-[#355241]'
+                                  : 'border-[#6B7280] focus:border-[#355241]'
                               }`}
                             />
                             {touched.email && errors.email && (
-                              <p className="mt-1 text-[11px] font-mono text-red-400 flex items-center gap-1">
+                              <p id="contact-email-error" className="mt-1 text-sm text-[#B3261E] flex items-center gap-1">
                                 <AlertCircle className="w-3 h-3 shrink-0" />
                                 <span>{errors.email}</span>
                               </p>
@@ -918,29 +927,32 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           {/* Phone Field */}
                           <div>
                             <div className="flex items-center justify-between mb-1.5">
-                              <label className="block text-xs font-mono text-[#A5A29B] uppercase tracking-wider">
+                              <label htmlFor="contact-phone" className="block text-sm font-semibold text-[#323A42] mb-1.5">
                                 Phone / WhatsApp (Optional)
                               </label>
                               {formData.phone && !errors.phone && (
-                                <span className="text-[10px] font-mono text-emerald-400 flex items-center gap-1">
+                                <span className="text-[10px] font-mono text-[#1B6B45] flex items-center gap-1">
                                   <Check className="w-3 h-3" />
                                 </span>
                               )}
                             </div>
-                            <input
+                            <input id="contact-phone"
                               type="tel"
-                              value={formData.phone}
+                              autoComplete="tel"
+                               value={formData.phone}
+                              aria-invalid={Boolean(touched.phone && errors.phone)}
+                              aria-describedby={touched.phone && errors.phone ? "contact-phone-error" : undefined}
                               onChange={(e) => handleFieldChange('phone', e.target.value)}
                               onBlur={(e) => handleFieldBlur('phone', e.target.value)}
                               placeholder="e.g. +27 82 000 0000"
-                              className={`w-full bg-[#18191b] border rounded px-3.5 py-2.5 text-xs text-[#F3F0EA] placeholder-[#555] focus:outline-none transition-colors ${
+                              className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#4D5660] focus:outline-none transition-colors ${
                                 touched.phone && errors.phone
                                   ? 'border-red-500/80 bg-red-950/10 focus:border-red-500'
-                                  : 'border-[#2a2a2a] focus:border-[#C8AE82]'
+                                  : 'border-[#6B7280] focus:border-[#355241]'
                               }`}
                             />
                             {touched.phone && errors.phone && (
-                              <p className="mt-1 text-[11px] font-mono text-red-400 flex items-center gap-1">
+                              <p id="contact-phone-error" className="mt-1 text-sm text-[#B3261E] flex items-center gap-1">
                                 <AlertCircle className="w-3 h-3 shrink-0" />
                                 <span>{errors.phone}</span>
                               </p>
@@ -950,29 +962,28 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
 
                         {/* Location */}
                         <div>
-                          <label className="block text-xs font-mono text-[#A5A29B] uppercase tracking-wider mb-1.5">
-                            Location (City / District)
+                          <label htmlFor="contact-location" className="block text-sm font-semibold text-[#323A42] mb-1.5">
+                                Location (City / District)
                           </label>
                           <input
+                            id="contact-location"
+                            name="location"
                             type="text"
                             maxLength={100}
+                            autoComplete="address-level2"
                             value={formData.location}
                             onChange={(e) => handleFieldChange('location', e.target.value)}
                             placeholder="e.g. Sandton, Soweto, Pretoria, Maseru, City Deep"
-                            className="w-full bg-[#18191b] border border-[#2a2a2a] rounded px-3.5 py-2.5 text-xs text-[#F3F0EA] placeholder-[#555] focus:outline-none focus:border-[#C8AE82]"
+                            className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#555] focus:outline-none focus:border-[#355241]"
                           />
                         </div>
 
                         {/* Step 1 CTA */}
                         <div className="pt-3">
-                          <button
-                            type="button"
-                            onClick={handleNext}
-                            className="w-full py-3.5 rounded-md bg-[#C8AE82] text-[#080909] font-bold text-xs tracking-wider uppercase hover:bg-[#E5D1B0] transition-colors flex items-center justify-center gap-2 cursor-pointer"
-                          >
-                            <span>Proceed To Problem Brief</span>
-                            <ArrowRight className="w-3.5 h-3.5" />
-                          </button>
+                          <Button type="button" onClick={handleNext} className="w-full">
+                            <span>Proceed to Problem Brief</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </Button>
                         </div>
                       </div>
                     )}
@@ -980,20 +991,21 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                     {/* STEP 2: Problem Diagnostics & Architecture Scope */}
                     {currentStep === 2 && (
                       <div className="space-y-4">
-                        <div className="text-xs text-[#888] font-mono mb-2 flex items-center gap-2">
-                          <FileText className="w-3.5 h-3.5 text-[#C8AE82]" />
+                        <div className="text-xs text-[#4D5660] font-mono mb-2 flex items-center gap-2">
+                          <FileText className="w-3.5 h-3.5 text-[#355241]" />
                           <span>02 / OPERATIONAL FRICTION & REQUIREMENTS</span>
                         </div>
 
                         {/* Business Area */}
                         <div>
-                          <label className="block text-xs font-mono text-[#A5A29B] uppercase tracking-wider mb-1.5">
-                            Primary Operational Domain
+                          <label htmlFor="contact-business-area" className="block text-sm font-semibold text-[#323A42] mb-1.5">
+                                Primary Operational Domain
                           </label>
-                          <select
+                          <select id="contact-business-area"
+                            name="businessArea"
                             value={formData.businessArea}
                             onChange={(e) => handleFieldChange('businessArea' as any, e.target.value)}
-                            className="w-full bg-[#18191b] border border-[#2a2a2a] rounded px-3.5 py-2.5 text-xs text-[#F3F0EA] focus:outline-none focus:border-[#C8AE82]"
+                            className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-base text-[#0B0E10] focus:outline-none focus:border-[#355241]"
                           >
                             <option value="Revenue Recovery">Revenue Recovery & Billing Disputes</option>
                             <option value="Sales Intelligence">Sales Intelligence & Predictive Lead Scoring</option>
@@ -1010,38 +1022,42 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                         {/* What problem are you trying to solve? */}
                         <div>
                           <div className="flex items-center justify-between mb-1.5">
-                            <label className="block text-xs font-mono text-[#A5A29B] uppercase tracking-wider">
-                              What problem or bottleneck are you trying to solve? *
+                            <label htmlFor="contact-problem" className="block text-sm font-semibold text-[#323A42] mb-1.5">
+                                What problem or bottleneck are you trying to solve? *
                             </label>
                             {/* Real-time Character Counter & Validation Status */}
                             <span className={`text-[10px] font-mono ${
                               formData.problemDescription.length < 15
-                                ? 'text-amber-400'
+                                ? 'text-[#8A5A00]'
                                 : formData.problemDescription.length > 1400
-                                ? 'text-red-400'
-                                : 'text-[#888]'
+                                ? 'text-[#B3261E]'
+                                : 'text-[#4D5660]'
                             }`}>
                               {formData.problemDescription.length} / 1500 chars (min 15)
                             </span>
                           </div>
                           <textarea
+                            id="contact-problem"
+                            name="problem"
                             required
+                            aria-invalid={Boolean(touched.problemDescription && errors.problemDescription)}
+                            aria-describedby={touched.problemDescription && errors.problemDescription ? "contact-problem-error" : undefined}
                             rows={4}
                             maxLength={1500}
                             value={formData.problemDescription}
                             onChange={(e) => handleFieldChange('problemDescription', e.target.value)}
                             onBlur={(e) => handleFieldBlur('problemDescription', e.target.value)}
                             placeholder="Describe the operational friction, manual data entry bottleneck, revenue slippage, or disparate software systems causing pain..."
-                            className={`w-full bg-[#18191b] border rounded px-3.5 py-2.5 text-xs text-[#F3F0EA] placeholder-[#555] focus:outline-none transition-colors ${
+                            className={`w-full bg-white border rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#555] focus:outline-none transition-colors ${
                               touched.problemDescription && errors.problemDescription
                                 ? 'border-red-500/80 bg-red-950/10 focus:border-red-500'
                                 : touched.problemDescription && formData.problemDescription.length >= 15
-                                ? 'border-[#C8AE82]/60 focus:border-[#C8AE82]'
-                                : 'border-[#2a2a2a] focus:border-[#C8AE82]'
+                                ? 'border-[#355241]/60 focus:border-[#355241]'
+                                : 'border-[#6B7280] focus:border-[#355241]'
                             }`}
                           />
                           {touched.problemDescription && errors.problemDescription && (
-                            <p className="mt-1 text-[11px] font-mono text-red-400 flex items-center gap-1">
+                            <p id="contact-problem-error" className="mt-1 text-sm text-[#B3261E] flex items-center gap-1">
                               <AlertCircle className="w-3 h-3 shrink-0" />
                               <span>{errors.problemDescription}</span>
                             </p>
@@ -1051,42 +1067,36 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                         {/* What would success look like? */}
                         <div>
                           <div className="flex items-center justify-between mb-1.5">
-                            <label className="block text-xs font-mono text-[#A5A29B] uppercase tracking-wider">
-                              What would measurable success look like? (Optional)
+                            <label htmlFor="contact-success" className="block text-sm font-semibold text-[#323A42] mb-1.5">
+                                What would measurable success look like? (Optional)
                             </label>
-                            <span className="text-[10px] font-mono text-[#777]">
+                            <span className="text-[10px] font-mono text-[#4D5660]">
                               {formData.successDescription?.length || 0} / 500 chars
                             </span>
                           </div>
                           <input
+                            id="contact-success"
+                            name="successDescription"
                             type="text"
                             maxLength={500}
                             value={formData.successDescription}
                             onChange={(e) => handleFieldChange('successDescription', e.target.value)}
                             onBlur={(e) => handleFieldBlur('successDescription', e.target.value)}
                             placeholder="e.g. Turnaround cut from 4 hours to 10 mins, R500k leakage eliminated"
-                            className="w-full bg-[#18191b] border border-[#2a2a2a] rounded px-3.5 py-2.5 text-xs text-[#F3F0EA] placeholder-[#555] focus:outline-none focus:border-[#C8AE82]"
+                            className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-base text-[#0B0E10] placeholder-[#555] focus:outline-none focus:border-[#355241]"
                           />
                         </div>
 
                         {/* Step 2 CTAs */}
                         <div className="pt-3 flex items-center gap-3">
-                          <button
-                            type="button"
-                            onClick={handlePrev}
-                            className="py-3 px-5 rounded-md border border-[#333] hover:border-[#666] text-xs font-mono text-[#A5A29B] hover:text-[#F3F0EA] transition-colors flex items-center gap-2 cursor-pointer"
-                          >
-                            <ArrowLeft className="w-3.5 h-3.5" />
-                            <span>Previous</span>
-                          </button>
-                          <button
-                            type="button"
-                            onClick={handleNext}
-                            className="flex-1 py-3.5 rounded-md bg-[#C8AE82] text-[#080909] font-bold text-xs tracking-wider uppercase hover:bg-[#E5D1B0] transition-colors flex items-center justify-center gap-2 cursor-pointer"
-                          >
-                            <span>Proceed To Final Review</span>
-                            <ArrowRight className="w-3.5 h-3.5" />
-                          </button>
+                          <Button type="button" variant="secondary" onClick={handlePrev}>
+                            <ArrowLeft className="w-4 h-4" />
+                            <span>Back</span>
+                          </Button>
+                          <Button type="button" onClick={handleNext} className="flex-1">
+                            <span>Proceed to Final Review</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </Button>
                         </div>
                       </div>
                     )}
@@ -1094,20 +1104,22 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                     {/* STEP 3: Urgency, Regional Desk & Executive Brief Review */}
                     {currentStep === 3 && (
                       <div className="space-y-4">
-                        <div className="text-xs text-[#888] font-mono mb-2 flex items-center gap-2">
-                          <Lock className="w-3.5 h-3.5 text-[#C8AE82]" />
+                        <div className="text-xs text-[#4D5660] font-mono mb-2 flex items-center gap-2">
+                          <Lock className="w-3.5 h-3.5 text-[#355241]" />
                           <span>03 / DEPLOYMENT TIMELINE & BRIEF AUDIT</span>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-xs font-mono text-[#A5A29B] uppercase tracking-wider mb-1.5">
-                              Deployment Urgency
+                            <label htmlFor="contact-urgency" className="block text-sm font-semibold text-[#323A42] mb-1.5">
+                                Deployment Urgency
                             </label>
                             <select
+                              id="contact-urgency"
+                              name="urgency"
                               value={formData.urgency}
                               onChange={(e) => handleFieldChange('urgency' as any, e.target.value)}
-                              className="w-full bg-[#18191b] border border-[#2a2a2a] rounded px-3.5 py-2.5 text-xs text-[#F3F0EA] focus:outline-none focus:border-[#C8AE82]"
+                              className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-base text-[#0B0E10] focus:outline-none focus:border-[#355241]"
                             >
                               <option value="Immediate (< 30 days)">Immediate (&lt; 30 days) — Critical</option>
                               <option value="Quarterly priority (1-3 months)">Quarterly priority (1–3 months)</option>
@@ -1116,13 +1128,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           </div>
 
                           <div>
-                            <label className="block text-xs font-mono text-[#A5A29B] uppercase tracking-wider mb-1.5">
-                              Preferred Regional Desk
+                            <label htmlFor="contact-regional-desk" className="block text-sm font-semibold text-[#323A42] mb-1.5">
+                                Preferred Regional Desk
                             </label>
                             <select
+                              id="contact-regional-desk"
+                              name="regionalDesk"
                               value={formData.regionalDesk}
                               onChange={(e) => handleFieldChange('regionalDesk', e.target.value)}
-                              className="w-full bg-[#18191b] border border-[#2a2a2a] rounded px-3.5 py-2.5 text-xs text-[#F3F0EA] focus:outline-none focus:border-[#C8AE82]"
+                              className="w-full bg-white border border-[#6B7280] rounded px-3.5 py-2.5 text-base text-[#0B0E10] focus:outline-none focus:border-[#355241]"
                             >
                               <option value="Sandton Corporate (Gauteng)">Sandton Corporate (Gauteng)</option>
                               <option value="Soweto Commerce & Retail">Soweto Commerce & Retail</option>
@@ -1134,28 +1148,28 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                         </div>
 
                         {/* Review Summary Card */}
-                        <div className="p-4 rounded bg-[#16171a] border border-[#26282c] text-xs font-mono space-y-2">
-                          <div className="flex items-center justify-between border-b border-[#222428] pb-2 text-[#C8AE82]">
+                        <div className="p-4 rounded bg-[#F7F8FA] border border-[#D1D5DB] text-xs font-mono space-y-2">
+                          <div className="flex items-center justify-between border-b border-[#222428] pb-2 text-[#355241]">
                             <span className="font-bold">BRIEF SPECIFICATION AUDIT</span>
-                            <span className="text-[10px] text-[#888]">NDA PROTECTED</span>
+                            <span className="text-[10px] text-[#4D5660]">Confidential</span>
                           </div>
-                          <div className="grid grid-cols-2 gap-2 text-[#A5A29B]">
+                          <div className="grid grid-cols-2 gap-2 text-[#4D5660]">
                             <div>
-                              <span className="text-[#666]">Contact:</span> {formData.name}
+                              <span className="text-[#4D5660]">Contact:</span> {formData.name}
                             </div>
                             <div>
-                              <span className="text-[#666]">Enterprise:</span> {formData.company}
+                              <span className="text-[#4D5660]">Enterprise:</span> {formData.company}
                             </div>
                             <div>
-                              <span className="text-[#666]">Email:</span> {formData.email}
+                              <span className="text-[#4D5660]">Email:</span> {formData.email}
                             </div>
                             <div>
-                              <span className="text-[#666]">Domain:</span> {formData.businessArea}
+                              <span className="text-[#4D5660]">Domain:</span> {formData.businessArea}
                             </div>
                           </div>
                           {formData.problemDescription && (
-                            <div className="pt-2 border-t border-[#202226] text-[#CCC] line-clamp-2">
-                              <span className="text-[#666]">Problem:</span> "{formData.problemDescription}"
+                            <div className="pt-2 border-t border-[#D1D5DB] text-[#323A42] line-clamp-2">
+                              <span className="text-[#4D5660]">Problem:</span> "{formData.problemDescription}"
                             </div>
                           )}
                         </div>
@@ -1165,30 +1179,26 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           <button
                             type="button"
                             onClick={handlePrev}
-                            className="py-3.5 px-5 rounded-md border border-[#333] hover:border-[#666] text-xs font-mono text-[#A5A29B] hover:text-[#F3F0EA] transition-colors flex items-center gap-2 cursor-pointer"
+                            className="py-3.5 px-5 rounded-md border border-[#D1D5DB] hover:border-[#666] text-xs font-mono text-[#4D5660] hover:text-[#0B0E10] transition-colors flex items-center gap-2 cursor-pointer"
                           >
                             <ArrowLeft className="w-3.5 h-3.5" />
                             <span>Back</span>
                           </button>
                           
-                          <button
-                            type="submit"
-                            disabled={isSubmitting}
-                            className="flex-1 py-3.5 rounded-md bg-[#C8AE82] text-[#080909] font-bold text-xs tracking-wider uppercase hover:bg-[#E5D1B0] transition-colors flex items-center justify-center gap-2 cursor-pointer"
-                          >
+                          <Button type="submit" disabled={isSubmitting} className="flex-1">
                             {isSubmitting ? (
-                              <span>Transmitting Brief...</span>
+                              <span>Submitting…</span>
                             ) : (
                               <>
-                                <span>Transmit Operational Brief</span>
-                                <Send className="w-3.5 h-3.5" />
+                                <span>Submit Inquiry</span>
+                                <Send className="w-4 h-4" />
                               </>
                             )}
-                          </button>
+                          </Button>
                         </div>
 
-                        <p className="text-[10px] font-mono text-[#666] text-center mt-2">
-                          Encrypted routing to systems engineering desk · Guaranteed response in 1 business day
+                        <p className="text-[10px] font-mono text-[#4D5660] text-center mt-2">
+                          Direct routing to the NahaLabs engineering team · Response within 1 business day
                         </p>
                       </div>
                     )}

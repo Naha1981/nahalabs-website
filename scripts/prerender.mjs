@@ -97,6 +97,18 @@ async function main() {
           'Evidence-led field notes on intelligent systems, revenue, operations, logistics and the places where fragmented information becomes expensive.',
       },
       {
+        path: '/contact',
+        title: 'Contact NahaLabs | Intelligent Systems Engineering',
+        description:
+          'Contact NahaLabs about an operational or commercial problem that may benefit from an intelligent system.',
+      },
+      {
+        path: '/audit',
+        title: 'Free Website Revenue Leak Audit | NahaLabs',
+        description:
+          'Find where your website is losing enquiries with a free diagnosis of conversion, trust, mobile and technical leaks.',
+      },
+      {
         path: '/revenuedesk',
         title: 'RevenueDesk | AI Front Desk & Revenue Recovery | NahaLabs',
         description:

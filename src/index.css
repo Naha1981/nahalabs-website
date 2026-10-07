@@ -41,23 +41,23 @@
   --text-small--line-height: 1.55;
   --text-caption: 0.8125rem;
   --text-caption--line-height: 1.5;
-  --text-button: 0.9375rem;
+  --text-button: 1rem;
   --text-button--line-height: 1.2;
 
-  /* Palette: a neutral ink / porcelain foundation, one champagne accent. */
-  --color-ink: #080909;
-  --color-ink-2: #101214;
-  --color-ink-3: #171a1d;
-  --color-porcelain: #f2f2ee;
-  --color-porcelain-2: #e8e8e3;
-  --color-graphite: #15171a;
-  --color-champagne: #c8ae82;
-  --color-champagne-hi: #dcc69f;
-  --color-bronze: #7a6236;
-  --color-bronze-deep: #5f4b25;
-  --color-success: #4f9d7a;
-  --color-warning: #b98a2e;
-  --color-danger: #c65d52;
+  /* Enterprise light foundation: one neutral canvas, one strong accent. */
+  --color-ink: #0B0E10;
+  --color-ink-2: #323A42;
+  --color-ink-3: #4D5660;
+  --color-porcelain: #F2F4F7;
+  --color-porcelain-2: #D1D5DB;
+  --color-graphite: #FFFFFF;
+  --color-champagne: #355241;
+  --color-champagne-hi: #496B58;
+  --color-bronze: #355241;
+  --color-bronze-deep: #1F3328;
+  --color-success: #1B6B45;
+  --color-warning: #8A5A00;
+  --color-danger: #B3261E;
 
   /* Restrained shape. Overrides Tailwind's larger defaults so untouched
      components (enquiry form, location pages) inherit the same discipline. */
@@ -106,19 +106,19 @@
 /* Public NahaLabs is light by default. Dark is opt-in only for legacy/internal surfaces. */
 :root,
 [data-tone="light"] {
-  --canvas: #eef1f5;
-  --surface: #f7f7f7;
-  --raised: #ffffff;
-  --fg: #0c0c0c;
-  --fg-2: #404040;
-  --fg-3: #6b6f75;
-  --line: rgb(12 12 12 / 0.14);
-  --line-strong: rgb(12 12 12 / 0.26);
-  --accent: #496b58;
+  --canvas: #F2F4F7;
+  --surface: #FFFFFF;
+  --raised: #FFFFFF;
+  --fg: #0B0E10;
+  --fg-2: #323A42;
+  --fg-3: #4D5660;
+  --line: #D1D5DB;
+  --line-strong: #6B7280;
+  --accent: #355241;
   --accent-hi: #355241;
-  --btn-bg: #0c0c0c;
-  --btn-bg-hover: #355241;
-  --btn-fg: #ffffff;
+  --btn-bg: #0B0E10;
+  --btn-bg-hover: #23282D;
+  --btn-fg: #FFFFFF;
   --focus: #355241;
   color-scheme: light;
 }
@@ -144,19 +144,19 @@
 /* 3. BASE ----------------------------------------------------------------- */
 @layer base {
   :root {
-    --bg-naha: #eef1f5;
-    --bg-charcoal: #f7f7f7;
-    --bg-deep: #ffffff;
-    --text-primary: #0c0c0c;
-    --text-secondary: #4f555b;
-    --accent-champagne: #496b58;
+    --bg-naha: #F2F4F7;
+    --bg-charcoal: #FFFFFF;
+    --bg-deep: #FFFFFF;
+    --text-primary: #0B0E10;
+    --text-secondary: #323A42;
+    --accent-champagne: #355241;
     --accent-champagne-light: #355241;
   }
 
   /* Keep the legacy class harmless if an older component still applies it. */
   html.ambient {
-    background-color: #eef1f5;
-    color: #0c0c0c;
+    background-color: #F2F4F7;
+    color: #0B0E10;
   }
 
   html, body {
@@ -167,16 +167,16 @@
   }
 
   html {
-    background-color: #eef1f5;
-    color: #0c0c0c;
+    background-color: #F2F4F7;
+    color: #0B0E10;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   body {
-    background-color: #eef1f5;
-    color: #0c0c0c;
+    background-color: #F2F4F7;
+    color: #0B0E10;
   }
 
   body {
@@ -252,11 +252,11 @@ select:focus-visible {
     gap: 0.625rem;
     min-height: 3rem;
     padding: 0.75rem 1.5rem;
-    border-radius: var(--radius-md);
+    border-radius: 8px;
     border: 1px solid transparent;
-    font-size: var(--text-button);
+    font-size: 1rem;
     line-height: 1.2;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.005em;
     text-align: center;
     cursor: pointer;
@@ -267,19 +267,21 @@ select:focus-visible {
     padding: 0.5rem 1rem;
   }
   .btn-primary {
-    background: var(--btn-bg);
-    color: var(--btn-fg);
+    background: #0B0E10;
+    color: #FFFFFF;
   }
   .btn-primary:hover {
-    background: var(--btn-bg-hover);
+    background: #23282D;
   }
   .btn-outline {
-    border-color: var(--line-strong);
-    color: var(--fg);
+    border-color: #D1D5DB;
+    color: #0B0E10;
+    background: transparent;
   }
   .btn-outline:hover {
-    border-color: var(--accent);
-    color: var(--accent-hi);
+    border-color: #6B7280;
+    background: #FFFFFF;
+    color: #0B0E10;
   }
 
   /* Text action: quiet underline, no glyphs. Used for secondary actions. */

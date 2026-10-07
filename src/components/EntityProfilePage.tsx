@@ -1,4 +1,5 @@
 import React from 'react';
+import { ButtonLink } from './Button';
 
 const SITE = 'https://nahalabs.co.za';
 const FOUNDER_LINKEDIN = 'https://za.linkedin.com/in/thabiso-naha-4985316b';
@@ -15,14 +16,7 @@ const focusAreas = [
 ];
 
 export const EntityProfilePage: React.FC = () => (
-  <div data-site-theme="light" data-tone="light" className="min-h-screen bg-canvas text-fg">
-    <header className="border-b border-[#1b1c1f]">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-5 flex items-center justify-between gap-5">
-        <a href="/" className="text-[15px] font-extrabold tracking-[0.2em]">NAHALABS</a>
-        <a href="/#contact" className="text-[10px] font-mono uppercase tracking-[0.16em] text-[#C8AE82]">Start a conversation</a>
-      </div>
-    </header>
-
+  <div data-site-theme="light" data-tone="light" className="min-h-screen bg-[#F2F4F7] text-[#0B0E10]">
     <main>
       <section className="border-b border-[#1b1c1f]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
@@ -58,14 +52,9 @@ export const EntityProfilePage: React.FC = () => (
             <p className="mt-5 max-w-3xl text-base leading-7 text-[#A5A29B]">
               Thabiso Naha builds intelligent systems for organisations that need software to produce practical actions, evidence and commercial outcomes.
             </p>
-            <a
-              href={FOUNDER_LINKEDIN}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex items-center border border-[#38342e] rounded-full px-4 py-2.5 text-[10px] font-mono uppercase tracking-[0.14em] text-[#D7D3CA] hover:border-[#C8AE82] hover:text-[#C8AE82]"
-            >
-              Founder profile on LinkedIn
-            </a>
+            <ButtonLink href={FOUNDER_LINKEDIN} target="_blank" rel="noreferrer" variant="secondary">
+              Founder Profile on LinkedIn
+            </ButtonLink>
           </div>
         </div>
       </section>
@@ -114,18 +103,12 @@ export const EntityProfilePage: React.FC = () => (
             Diagnosis → Prototype → Production. The work starts with a business problem, not a request to add AI.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="/systems" className="rounded-full bg-[#C8AE82] px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-[#080909]">View public engineering work</a>
-            <a href="/insights" className="rounded-full border border-[#333] px-6 py-3 text-[11px] font-mono uppercase tracking-wider text-[#D7D3CA]">Read NahaLabs insights</a>
+            <ButtonLink href="/systems" variant="primary">View public engineering work</ButtonLink>
+            <ButtonLink href="/insights" variant="secondary">Read NahaLabs insights</ButtonLink>
           </div>
         </div>
       </section>
     </main>
-
-    <footer className="border-t border-[#1b1c1f] bg-[#050606]">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-8 text-[10px] font-mono text-[#666]">
-        NahaLabs (PTY) Ltd · Johannesburg · South Africa
-      </div>
-    </footer>
   </div>
 );
 

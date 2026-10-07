@@ -1,4 +1,5 @@
 import React from 'react';
+import { ButtonLink } from './Button';
 
 const SITE = 'https://nahalabs.co.za';
 
@@ -42,14 +43,7 @@ const systems = [
 ];
 
 export const PublicSystemsPage: React.FC = () => (
-  <div data-site-theme="light" data-tone="light" className="min-h-screen bg-canvas text-fg">
-    <header className="border-b border-[#1b1c1f]">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-5 flex items-center justify-between gap-5">
-        <a href="/" className="text-[15px] font-extrabold tracking-[0.2em]">NAHALABS</a>
-        <a href="/about" className="text-[10px] font-mono uppercase tracking-[0.16em] text-[#A5A29B]">Company profile</a>
-      </div>
-    </header>
-
+  <div data-site-theme="light" data-tone="light" className="min-h-screen bg-[#F2F4F7] text-[#0B0E10]">
     <main>
       <section className="border-b border-[#1b1c1f]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
@@ -72,9 +66,9 @@ export const PublicSystemsPage: React.FC = () => (
               </div>
               <h2 className="mt-4 text-2xl font-semibold">{system.name}</h2>
               <p className="mt-3 text-sm leading-7 text-[#A5A29B]">{system.description}</p>
-              <a href={system.url} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center rounded-full border border-[#38342e] px-4 py-2.5 text-[10px] font-mono uppercase tracking-[0.14em] text-[#D7D3CA] hover:border-[#C8AE82] hover:text-[#C8AE82]">
-                Open GitHub repository
-              </a>
+              <ButtonLink href={system.url} target="_blank" rel="noreferrer" variant="secondary" className="mt-6">
+                Open GitHub Repository
+              </ButtonLink>
             </article>
           ))}
         </div>
@@ -90,8 +84,8 @@ export const PublicSystemsPage: React.FC = () => (
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="/insights" className="rounded-full bg-[#C8AE82] px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-[#080909]">Read the research</a>
-            <a href="/#contact" className="rounded-full border border-[#333] px-6 py-3 text-[11px] font-mono uppercase tracking-wider text-[#D7D3CA]">Discuss a system</a>
+            <ButtonLink href="/insights" variant="primary">Read the research</ButtonLink>
+            <ButtonLink href="/#contact" variant="secondary">Discuss a system</ButtonLink>
           </div>
         </div>
       </section>
