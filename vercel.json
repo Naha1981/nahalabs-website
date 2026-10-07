@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/revenuedesk",
+      "destination": "/index.html"
+    },
+    {
       "source": "/about",
       "destination": "/index.html"
     },
@@ -25,16 +29,19 @@
       "destination": "/index.html"
     },
     {
-      "source": "/services/lead-follow-up-automation-johannesburg",
-      "destination": "/services/lead-follow-up-automation-johannesburg.html"
-    },
-    {
       "source": "/services/revenue-leak-audit-johannesburg",
       "destination": "/services/revenue-leak-audit-johannesburg.html"
     },
     {
       "source": "/audit",
       "destination": "/audit.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/services/lead-follow-up-automation-johannesburg",
+      "destination": "/revenuedesk",
+      "permanent": true
     }
   ]
 }
