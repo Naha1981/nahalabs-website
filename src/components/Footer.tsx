@@ -148,26 +148,13 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Brand and direct contact */}
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-3">
-              <svg viewBox="0 0 100 100" fill="none" className="w-7 h-7 shrink-0" aria-hidden="true">
-                <defs>
-                  <linearGradient id="footGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#E5D1B0" />
-                    <stop offset="50%" stopColor="#C8AE82" />
-                    <stop offset="100%" stopColor="#9C8358" />
-                  </linearGradient>
-                </defs>
-                <g transform="translate(22, 16)">
-                  <rect x="0" y="2" width="8" height="8" fill="url(#footGold)" />
-                  <rect x="0" y="16" width="7" height="52" fill="url(#footGold)" />
-                  <path d="M 2 22 L 48 68 L 40 68 L 2 30 Z" fill="url(#footGold)" />
-                  <path d="M 8 16 L 54 62 L 54 54 L 16 16 Z" fill="url(#footGold)" />
-                  <rect x="47" y="16" width="7" height="52" fill="url(#footGold)" />
-                  <rect x="47" y="74" width="8" height="8" fill="url(#footGold)" />
-                </g>
-              </svg>
-              <span className="text-[1rem] font-semibold tracking-[0.22em] text-fg leading-none">NAHALABS</span>
-            </div>
+            <a href="/" className="inline-flex items-center rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#355241]" aria-label="NahaLabs home">
+              <img
+                src="/nahalabs-logo.svg"
+                alt="NahaLabs — Intelligent Systems Engineering"
+                className="h-9 w-auto max-w-[190px]"
+              />
+            </a>
 
             <p className="mt-5 text-small text-fg-2 max-w-sm">{t.footer.brandDesc}</p>
 
@@ -208,7 +195,7 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Site */}
           <nav aria-label="Footer" className="lg:col-span-2 lg:col-start-6">
-            <h2 className="text-caption font-medium text-fg">Explore</h2>
+            <h2 className="text-sm font-semibold text-fg">Explore</h2>
             <ul className="mt-4 flex flex-col">
               {[
                 ['solutions', 'Solutions'],
@@ -295,7 +282,7 @@ export const Footer: React.FC<FooterProps> = ({
                       <span>{t.footer.subscribeBtn}</span>
                     )}
                   </button>
-                  <p className="text-caption text-fg-3">POPIA compliant and confidential. Dispatches every alternate Thursday.</p>
+                  <p className="text-caption text-fg-3">POPIA compliant and confidential. Dispatches every second Thursday.</p>
                 </form>
               )}
             </div>
