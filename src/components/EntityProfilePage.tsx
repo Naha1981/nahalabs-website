@@ -15,14 +15,7 @@ const focusAreas = [
 ];
 
 export const EntityProfilePage: React.FC = () => (
-  <div data-site-theme="light" data-tone="light" className="min-h-screen bg-canvas text-fg">
-    <header className="border-b border-[#1b1c1f]">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-5 flex items-center justify-between gap-5">
-        <a href="/" className="text-[15px] font-extrabold tracking-[0.2em]">NAHALABS</a>
-        <a href="/#contact" className="text-[10px] font-mono uppercase tracking-[0.16em] text-[#C8AE82]">Start a conversation</a>
-      </div>
-    </header>
-
+  <div data-site-theme="light" data-tone="light" className="min-h-screen bg-[#F2F4F7] text-[#0B0E10]">
     <main>
       <section className="border-b border-[#1b1c1f]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
@@ -120,12 +113,6 @@ export const EntityProfilePage: React.FC = () => (
         </div>
       </section>
     </main>
-
-    <footer className="border-t border-[#1b1c1f] bg-[#050606]">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-8 text-[10px] font-mono text-[#666]">
-        NahaLabs (PTY) Ltd · Johannesburg · South Africa
-      </div>
-    </footer>
   </div>
 );
 
