@@ -1,4 +1,5 @@
 import React from 'react';
+import { ButtonLink } from './Button';
 
 const SITE = 'https://nahalabs.co.za';
 const FOUNDER_LINKEDIN = 'https://za.linkedin.com/in/thabiso-naha-4985316b';
@@ -107,8 +108,8 @@ export const EntityProfilePage: React.FC = () => (
             Diagnosis → Prototype → Production. The work starts with a business problem, not a request to add AI.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="/systems" className="rounded-full bg-[#C8AE82] px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-[#080909]">View public engineering work</a>
-            <a href="/insights" className="rounded-full border border-[#333] px-6 py-3 text-[11px] font-mono uppercase tracking-wider text-[#D7D3CA]">Read NahaLabs insights</a>
+            <ButtonLink href="/systems" variant="primary">View public engineering work</ButtonLink>
+            <ButtonLink href="/insights" variant="secondary">Read NahaLabs insights</ButtonLink>
           </div>
         </div>
       </section>
