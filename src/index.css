@@ -770,7 +770,13 @@ html, body {
 [data-site-theme="light"] [class*="bg-[#1e2024]"],
 [data-site-theme="light"] [class*="bg-[#1e1f22]"],
 [data-site-theme="light"] [class*="bg-[#202226]"],
-[data-site-theme="light"] [class*="bg-[#0c0d0e]"] {
+[data-site-theme="light"] [class*="bg-[#0c0d0e]"],
+[data-site-theme="light"] [class*="bg-[#272a2f]"],
+[data-site-theme="light"] [class*="bg-[#16171a]"],
+[data-site-theme="light"] [class*="bg-[#282a2f]"],
+[data-site-theme="light"] [class*="bg-[#141517]"],
+[data-site-theme="light"] [class*="bg-[#1a1b1d]"],
+[data-site-theme="light"] [class*="bg-[#18191b]"] {
   background-color:#ffffff !important;
 }
 [data-site-theme="light"] [class*="from-[#16171a]"],
@@ -796,6 +802,16 @@ html, body {
 
 [data-site-theme="light"] [class*="border-[#1b1c1f]"],
 [data-site-theme="light"] [class*="border-[#24262a]"],
+[data-site-theme="light"] [class*="border-[#1f2022]"],
+[data-site-theme="light"] [class*="border-[#222]"],
+[data-site-theme="light"] [class*="border-[#2b2d31]"],
+[data-site-theme="light"] [class*="border-[#27292d]"],
+[data-site-theme="light"] [class*="border-[#232529]"],
+[data-site-theme="light"] [class*="border-[#2e3034]"],
+[data-site-theme="light"] [class*="border-[#1d1e20]"],
+[data-site-theme="light"] [class*="border-[#2a2a2a]"],
+[data-site-theme="light"] [class*="border-[#26282c]"],
+[data-site-theme="light"] [class*="border-[#2a2c30]"],
 [data-site-theme="light"] [class*="border-[#222222]"],
 [data-site-theme="light"] [class*="border-[#222428]"],
 [data-site-theme="light"] [class*="border-[#25272b]"],
