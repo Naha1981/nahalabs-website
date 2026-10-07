@@ -11,6 +11,7 @@ import { EntityProfilePage } from './components/EntityProfilePage';
 import { PublicSystemsPage } from './components/PublicSystemsPage';
 import { PressPage } from './components/PressPage';
 import { scrollBehavior } from './lib/motion';
+import { RevenueDeskPage } from './components/RevenueDeskPage';
 
 const LocationView = lazy(() => import('./components/LocationView').then(m => ({ default: m.LocationView })));
 const LegalModal = lazy(() => import('./components/LegalModal').then(m => ({ default: m.LegalModal })));
@@ -34,6 +35,7 @@ export default function App() {
   const isAboutPage = normalizedPath === '/about';
   const isSystemsPage = normalizedPath === '/systems';
   const isPressPage = normalizedPath === '/press';
+  const isRevenueDeskPage = normalizedPath === '/revenuedesk';
   const isInsightsIndexPage = normalizedPath === '/insights';
   const isInsightArticlePage = normalizedPath === '/insights/hidden-cost-fragmented-operational-information';
   const isContentMediaAdmin = normalizedPath === '/content-admin';
@@ -112,6 +114,7 @@ export default function App() {
   if (isAboutPage) return <EntityProfilePage />;
   if (isSystemsPage) return <PublicSystemsPage />;
   if (isPressPage) return <PressPage />;
+  if (isRevenueDeskPage) return <RevenueDeskPage />;
   if (isInsightsIndexPage) return <InsightIndexPage />;
   if (isInsightArticlePage) return <InsightArticlePage />;
   if (generatedInsightSlug) return <GeneratedInsightPage slug={generatedInsightSlug} />;

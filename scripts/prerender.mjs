@@ -56,12 +56,12 @@ async function main() {
   });
 
   try {
-    const { render, renderLeadFollowUp } = await vite.ssrLoadModule('/src/entry-server.tsx');
-    const leadPage = await vite.ssrLoadModule('/src/components/LeadFollowUpAutomationPage.tsx');
+    const { render } = await vite.ssrLoadModule('/src/entry-server.tsx');
     const { LOCATIONS_DATA } = await vite.ssrLoadModule('/src/data/locations.ts');
     const article = await vite.ssrLoadModule('/src/components/InsightArticlePage.tsx');
     const entity = await vite.ssrLoadModule('/src/components/EntityProfilePage.tsx');
     const systems = await vite.ssrLoadModule('/src/components/PublicSystemsPage.tsx');
+    const revenueDesk = await vite.ssrLoadModule('/src/components/RevenueDeskPage.tsx');
     const press = await vite.ssrLoadModule('/src/components/PressPage.tsx');
 
     const areaType = { johannesburg: 'City', soweto: 'City', gauteng: 'AdministrativeArea', lesotho: 'Country' };
@@ -95,6 +95,13 @@ async function main() {
         title: 'Insights | NahaLabs',
         description:
           'Evidence-led field notes on intelligent systems, revenue, operations, logistics and the places where fragmented information becomes expensive.',
+      },
+      {
+        path: '/revenuedesk',
+        title: 'RevenueDesk | AI Front Desk & Revenue Recovery | NahaLabs',
+        description:
+          "RevenueDesk is NahaLabs' AI front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.",
+        jsonLd: [jsonLdTag(revenueDesk.getRevenueDeskJsonLd(), 'nahalabs-revenuedesk-jsonld')],
       },
       {
         path: article.ARTICLE_PATH,
@@ -134,25 +141,6 @@ async function main() {
       console.log(`[prerender] ${route.path.padEnd(64)} ${(markup.length / 1024).toFixed(1)} kB`);
     }
 
-    // Standalone service page (separate Vite entry, own mount node and head).
-    const leadFile = path.join(dist, 'services', 'lead-follow-up-automation-johannesburg.html');
-    if (existsSync(leadFile)) {
-      const shell = await readFile(leadFile, 'utf8');
-      const mount = '<div id="lead-follow-up-root"></div>';
-      if (shell.includes(mount)) {
-        const markup = renderLeadFollowUp();
-        // The shell's hand-written Service block is superseded by the fuller graph the page defines.
-        const cleaned = shell.replace(/\s*<script type="application\/ld\+json">[\s\S]*?<\/script>/, '');
-        const page = cleaned
-          .replace(mount, `<div id="lead-follow-up-root">${markup}</div>`)
-          .replace('</head>', `    ${jsonLdTag(leadPage.getLeadFollowUpJsonLd(), 'nahalabs-lead-follow-up-jsonld')}\n  </head>`);
-        await writeFile(leadFile, page);
-        written++;
-        console.log(`[prerender] ${'/services/lead-follow-up-automation-johannesburg'.padEnd(64)} ${(markup.length / 1024).toFixed(1)} kB`);
-      } else {
-        console.warn('[prerender] lead follow-up mount node not found; left as authored');
-      }
-    }
     console.log(`[prerender] wrote ${written} pages`);
 
     // Guard against dead URLs in the files AI engines and search crawlers read first.

@@ -745,3 +745,60 @@ html, body {
 }
 
 
+
+
+/* PUBLIC LIGHT THEME COMPATIBILITY
+   Legacy public pages were authored with hard-coded dark Tailwind colour utilities.
+   These scoped rules keep their existing layout/content while making the rendered
+   experience use the same NahaLabs light palette as the current homepage. */
+[data-site-theme="light"] {
+  color-scheme: light;
+}
+
+[data-site-theme="light"] [class*="bg-[#080909]"] { background-color:#eef1f5 !important; }
+[data-site-theme="light"] [class*="bg-[#050606]"],
+[data-site-theme="light"] [class*="bg-[#0d0e10]"],
+[data-site-theme="light"] [class*="bg-[#101112]"],
+[data-site-theme="light"] [class*="bg-[#121314]"],
+[data-site-theme="light"] [class*="bg-[#121315]"],
+[data-site-theme="light"] [class*="bg-[#151515]"],
+[data-site-theme="light"] [class*="bg-[#151618]"],
+[data-site-theme="light"] [class*="bg-[#161719]"],
+[data-site-theme="light"] [class*="bg-[#171a1d]"],
+[data-site-theme="light"] [class*="bg-[#18191c]"] {
+  background-color:#ffffff !important;
+}
+[data-site-theme="light"] [class*="from-[#16171a]"],
+[data-site-theme="light"] [class*="to-[#101112]"] {
+  background-image:none !important;
+  background-color:#ffffff !important;
+}
+[data-site-theme="light"] [class*="bg-[#C8AE82]"] { background-color:#0c0c0c !important; }
+[data-site-theme="light"] [class*="bg-black"] { background-color:#0c0c0c !important; }
+
+[data-site-theme="light"] [class*="text-[#F3F0EA]"],
+[data-site-theme="light"] [class*="text-[#D7D3CA]"],
+[data-site-theme="light"] [class*="text-[#080909]"] { color:#0c0c0c !important; }
+[data-site-theme="light"] [class*="text-[#A5A29B]"] { color:#4f555b !important; }
+[data-site-theme="light"] [class*="text-[#8d8982]"],
+[data-site-theme="light"] [class*="text-[#8f8c85]"],
+[data-site-theme="light"] [class*="text-[#777]"],
+[data-site-theme="light"] [class*="text-[#666]"] { color:#6b6f75 !important; }
+[data-site-theme="light"] [class*="text-[#C8AE82]"] { color:#496b58 !important; }
+
+[data-site-theme="light"] [class*="border-[#1b1c1f]"],
+[data-site-theme="light"] [class*="border-[#24262a]"],
+[data-site-theme="light"] [class*="border-[#222222]"],
+[data-site-theme="light"] [class*="border-[#222428]"],
+[data-site-theme="light"] [class*="border-[#25272b]"],
+[data-site-theme="light"] [class*="border-[#262626]"],
+[data-site-theme="light"] [class*="border-[#2b2d35]"],
+[data-site-theme="light"] [class*="border-[#2e2f33]"],
+[data-site-theme="light"] [class*="border-[#333]"],
+[data-site-theme="light"] [class*="border-[#38342e]"] { border-color:rgb(12 12 12 / 0.14) !important; }
+[data-site-theme="light"] [class*="border-[#C8AE82]"] { border-color:#496b58 !important; }
+
+[data-site-theme="light"] [class*="hover:text-[#F3F0EA]"]:hover { color:#0c0c0c !important; }
+[data-site-theme="light"] [class*="hover:text-[#C8AE82]"]:hover { color:#355241 !important; }
+
+/* END PUBLIC LIGHT THEME COMPATIBILITY */

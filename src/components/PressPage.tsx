@@ -3,7 +3,7 @@ import React from 'react';
 const SITE = 'https://nahalabs.co.za';
 
 export const PressPage: React.FC = () => (
-  <div className="min-h-screen bg-[#080909] text-[#F3F0EA]">
+  <div data-site-theme="light" data-tone="light" className="min-h-screen bg-canvas text-fg">
     <header className="border-b border-[#1b1c1f]">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-5 flex items-center justify-between gap-5">
         <a href="/" className="text-[15px] font-extrabold tracking-[0.2em]">NAHALABS</a>

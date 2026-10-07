@@ -40,13 +40,13 @@ const SYSTEMS = [
   },
   {
     eyebrow: 'Revenue',
-    name: 'Revenue OS',
-    flow: 'Enquiry → Intent → Follow-up',
-    title: 'Keep commercial momentum from disappearing.',
+    name: 'RevenueDesk',
+    flow: 'Capture → Understand → Recover',
+    title: 'Recover revenue hidden inside missed enquiries.',
     description:
-      'Intent scoring, prospect enrichment and digital-worker follow-up built around the moment a high-value buyer enters your pipeline.',
+      'An AI front desk for service businesses that captures enquiries, understands intent, handles follow-up and surfaces the revenue leaks that sit between first contact and booked work.',
     image: ASSETS.enterpriseJhb,
-    alt: 'Johannesburg commercial environment representing Revenue OS',
+    alt: 'Johannesburg commercial environment representing RevenueDesk',
   },
 ];
 
@@ -247,8 +247,8 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                     <h3>{system.name}</h3>
                     <p className="nh-system-title">{system.title}</p>
                     <p className="nh-system-description">{system.description}</p>
-                    <a href="#contact" className="nh-text-link">
-                      Discuss this system <ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" />
+                    <a href={system.name === 'RevenueDesk' ? '/revenuedesk' : '#contact'} className="nh-text-link">
+                      {system.name === 'RevenueDesk' ? 'Explore RevenueDesk' : 'Discuss this system'} <ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" />
                     </a>
                   </div>
                 </article>
