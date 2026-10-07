@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLanguage } from '../context/LanguageContext';
+import { Button } from './Button';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -267,11 +268,11 @@ export const Footer: React.FC<FooterProps> = ({
                     autoComplete="email"
                     className="w-full min-h-11 bg-canvas border border-line-strong rounded-md px-3.5 text-small text-fg placeholder:text-fg-3 focus:border-accent transition-colors disabled:opacity-50"
                   />
-                  <button
+                  <Button
                     type="submit"
                     id="newsletter-submit-btn"
                     disabled={isSubscribing}
-                    className="btn btn-primary btn-sm w-full disabled:opacity-60"
+                    className="w-full"
                   >
                     {isSubscribing ? (
                       <>
@@ -281,7 +282,7 @@ export const Footer: React.FC<FooterProps> = ({
                     ) : (
                       <span>{t.footer.subscribeBtn}</span>
                     )}
-                  </button>
+                  </Button>
                   <p className="text-caption text-fg-3">POPIA compliant and confidential. Dispatches every second Thursday.</p>
                 </form>
               )}
