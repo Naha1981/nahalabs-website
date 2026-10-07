@@ -52,14 +52,9 @@ export const EntityProfilePage: React.FC = () => (
             <p className="mt-5 max-w-3xl text-base leading-7 text-[#A5A29B]">
               Thabiso Naha builds intelligent systems for organisations that need software to produce practical actions, evidence and commercial outcomes.
             </p>
-            <a
-              href={FOUNDER_LINKEDIN}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex items-center border border-[#38342e] rounded-full px-4 py-2.5 text-[10px] font-mono uppercase tracking-[0.14em] text-[#D7D3CA] hover:border-[#C8AE82] hover:text-[#C8AE82]"
-            >
-              Founder profile on LinkedIn
-            </a>
+            <ButtonLink href={FOUNDER_LINKEDIN} target="_blank" rel="noreferrer" variant="secondary">
+              Founder Profile on LinkedIn
+            </ButtonLink>
           </div>
         </div>
       </section>
