@@ -42,14 +42,7 @@ const systems = [
 ];
 
 export const PublicSystemsPage: React.FC = () => (
-  <div data-site-theme="light" data-tone="light" className="min-h-screen bg-canvas text-fg">
-    <header className="border-b border-[#1b1c1f]">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-5 flex items-center justify-between gap-5">
-        <a href="/" className="text-[15px] font-extrabold tracking-[0.2em]">NAHALABS</a>
-        <a href="/about" className="text-[10px] font-mono uppercase tracking-[0.16em] text-[#A5A29B]">Company profile</a>
-      </div>
-    </header>
-
+  <div data-site-theme="light" data-tone="light" className="min-h-screen bg-[#F2F4F7] text-[#0B0E10]">
     <main>
       <section className="border-b border-[#1b1c1f]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
