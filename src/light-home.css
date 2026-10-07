@@ -103,12 +103,24 @@ body {
   align-items: center;
 }
 
-.nh-text-link,
-.nh-quiet-link { color: var(--nh-muted); }
+.nh-text-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 9px;
+  color: var(--nh-text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--nh-line-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.42em;
+  transition: color .18s ease, text-decoration-color .18s ease;
+}
 
-.nh-quiet-link {
-  color: var(--nh-muted);
-  text-decoration-color: transparent;
+.nh-text-link:hover {
+  color: var(--nh-green-deep);
+  text-decoration-color: var(--nh-green);
 }
 
 .nahafilm {
@@ -118,7 +130,7 @@ body {
   min-height: 360px;
   overflow: hidden;
   border-radius: var(--nh-radius);
-  border: 1px solid rgba(12, 12, 12, 0.12);
+  border: 1px solid var(--nh-line);
   background: #dfe3e6;
 }
 
