@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Button } from './Button';
 
 interface NavbarProps {
   onNavigate: (sectionId: string) => void;
@@ -61,21 +62,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
     <header
       id="main-navbar"
       data-tone="light"
-      className={`fixed top-0 left-0 right-0 z-50 text-fg transition-[background-color,border-color] duration-300 border-b ${
-        solid ? 'bg-canvas/92 backdrop-blur-md border-line' : 'bg-transparent border-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 text-[#0B0E10] transition-[background-color,border-color] duration-300 border-b ${
+        solid ? 'bg-[#F2F4F7]/95 backdrop-blur-md border-[#D1D5DB]' : 'bg-[#F2F4F7]/90 backdrop-blur-sm border-transparent'
       }`}
     >
       <div className="wrap flex items-center justify-between h-[var(--header-h)]">
         <a
           href="#hero"
           onClick={(e) => go(e, 'hero')}
-          className="inline-flex items-center rounded-sm shrink-0"
+          className="inline-flex items-center rounded-lg shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#355241]"
           aria-label="NahaLabs home"
         >
           <img
             src="/nahalabs-logo.svg"
             alt="NahaLabs — Intelligent Systems Engineering"
-            className="block h-11 sm:h-12 w-auto max-w-[230px] object-contain"
+            className="block h-9 sm:h-10 w-auto max-w-[210px] object-contain"
           />
         </a>
 
@@ -85,7 +86,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
               key={l.id}
               href={`#${l.id}`}
               onClick={(e) => go(e, l.id)}
-              className="py-2 text-fg-2 hover:text-fg transition-colors"
+              className="min-h-12 inline-flex items-center px-1 text-sm font-medium text-[#323A42] hover:text-[#0B0E10] transition-colors"
             >
               {l.label}
             </a>
@@ -98,21 +99,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
         </nav>
 
         <div className="hidden lg:flex items-center">
-          <button
-            type="button"
-            onClick={(e) => go(e, 'contact')}
+          <Button
             id="nav-contact-cta"
-            className="btn btn-outline btn-sm"
+            variant="primary"
+            onClick={(e) => go(e, 'contact')}
           >
-            Start a conversation
-          </button>
+            Start a Conversation
+          </Button>
         </div>
 
         <button
           ref={toggleRef}
           type="button"
           onClick={() => setMobileMenuOpen((v) => !v)}
-          className="lg:hidden -mr-2 w-11 h-11 inline-flex items-center justify-center rounded-md text-fg-2 hover:text-fg"
+          className="lg:hidden -mr-2 w-11 h-11 inline-flex items-center justify-center rounded-lg text-[#323A42] hover:text-[#0B0E10] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#355241]"
           aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={mobileMenuOpen}
           aria-controls="mobile-menu"
@@ -122,14 +122,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
       </div>
 
       {mobileMenuOpen && (
-        <div id="mobile-menu" className="lg:hidden border-t border-line bg-canvas">
+        <div id="mobile-menu" className="lg:hidden border-t border-[#D1D5DB] bg-[#F2F4F7]">
           <nav aria-label="Mobile" className="wrap py-4 flex flex-col">
             {LINKS.map((l) => (
               <a
                 key={l.id}
                 href={`#${l.id}`}
                 onClick={(e) => go(e, l.id)}
-                className="min-h-12 flex items-center text-body text-fg border-b border-line"
+                className="min-h-12 flex items-center text-base text-[#0B0E10] border-b border-[#D1D5DB]"
               >
                 {l.label}
               </a>
@@ -144,13 +144,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                 {p.label}
               </a>
             ))}
-            <button
-              type="button"
+            <Button
+              variant="primary"
               onClick={(e) => go(e, 'contact')}
-              className="btn btn-primary mt-5 mb-2 w-full"
+              className="mt-5 mb-2 w-full"
             >
-              Start a conversation
-            </button>
+              Start a Conversation
+            </Button>
           </nav>
         </div>
       )}
