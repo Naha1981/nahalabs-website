@@ -106,18 +106,7 @@ export const RevenueDeskPage: React.FC = () => {
   }, []);
 
   return (
-    <div data-site-theme="light" data-tone="light" className="min-h-screen bg-canvas text-fg">
-      <header className="border-b border-line bg-canvas/95 backdrop-blur-md sticky top-0 z-40">
-        <div className="wrap min-h-[4.5rem] flex items-center justify-between gap-6">
-          <a href="/" className="text-small font-semibold tracking-[0.22em] text-fg">NAHALABS</a>
-          <nav className="flex items-center gap-4 sm:gap-7 text-small">
-            <a href="/systems" className="text-fg-2 hover:text-fg transition-colors">Systems</a>
-            <a href="/insights" className="text-fg-2 hover:text-fg transition-colors">Insights</a>
-            <a href="/audit" className="btn btn-primary btn-sm">Revenue Leak Audit</a>
-          </nav>
-        </div>
-      </header>
-
+    <div data-site-theme="light" data-tone="light" className="min-h-screen bg-[#F2F4F7] text-[#0B0E10]">
       <main>
         <section className="section border-b border-line">
           <div className="wrap">
@@ -257,18 +246,6 @@ export const RevenueDeskPage: React.FC = () => {
           </div>
         </section>
       </main>
-
-      <footer data-tone="light" className="border-t border-line py-10">
-        <div className="wrap flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between text-caption text-fg-3">
-          <span>© {new Date().getFullYear()} NahaLabs (PTY) Ltd · Johannesburg · South Africa</span>
-          <div className="flex gap-5">
-            <a href="/about" className="hover:text-fg">About</a>
-            <a href="/systems" className="hover:text-fg">Systems</a>
-            <a href="/insights" className="hover:text-fg">Insights</a>
-            <a href="/#contact" className="hover:text-fg">Contact</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
