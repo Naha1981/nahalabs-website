@@ -1,4 +1,5 @@
 import React from 'react';
+import { ButtonLink } from './Button';
 
 const SITE = 'https://nahalabs.co.za';
 
@@ -61,7 +62,7 @@ export const PressPage: React.FC = () => (
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#A5A29B]">
               For company background, founder commentary, technical context or access to public engineering work, contact NahaLabs directly.
             </p>
-            <a href="mailto:ai-solutions@nahalabs.co.za" className="mt-7 inline-flex rounded-full bg-[#C8AE82] px-6 py-3 text-[11px] font-bold uppercase tracking-wider text-[#080909]">Email NahaLabs</a>
+            <ButtonLink href="mailto:ai-solutions@nahalabs.co.za" variant="primary">Email NahaLabs</ButtonLink>
           </div>
         </div>
       </section>
