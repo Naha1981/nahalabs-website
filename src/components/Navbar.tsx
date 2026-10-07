@@ -75,7 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
           <img
             src="/nahalabs-logo.svg"
             alt="NahaLabs — Intelligent Systems Engineering"
-            className="block h-10 sm:h-11 w-auto max-w-[210px] object-contain"
+            className="block h-11 sm:h-12 w-auto max-w-[230px] object-contain"
           />
         </a>
 
