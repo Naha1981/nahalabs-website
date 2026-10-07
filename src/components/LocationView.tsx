@@ -10,7 +10,7 @@ interface LocationViewProps {
 
 export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, onContact }) => {
   return (
-    <div className="pt-28 pb-32 bg-[#080909] min-h-screen text-[#F3F0EA]">
+    <div data-site-theme="light" className="pt-28 pb-32 bg-canvas min-h-screen text-fg">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Back navigation */}
