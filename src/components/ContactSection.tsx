@@ -556,8 +556,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                       className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#F7F8FA] border border-[#D1D5DB] text-[10px] font-mono text-[#4D5660]"
                       title="Form progress is automatically saved to your local browser storage"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      <span>Saved {lastAutoSaved}</span>
+<span>Saved {lastAutoSaved}</span>
                     </div>
                   )}
 
@@ -602,7 +601,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                         strokeWidth="2.5"
                       >
                         <path 
-                          className="animate-checkmark-draw"
+                          
                           strokeLinecap="round" 
                           strokeLinejoin="round" 
                           d="M5 13l4 4L19 7" 
