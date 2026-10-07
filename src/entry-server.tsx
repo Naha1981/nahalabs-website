@@ -1,8 +1,7 @@
 import { StrictMode } from 'react';
-import { renderToPipeableStream, renderToString } from 'react-dom/server';
+import { renderToPipeableStream } from 'react-dom/server';
 import { Writable } from 'node:stream';
 import App from './App';
-import { LeadFollowUpAutomationPage } from './components/LeadFollowUpAutomationPage';
 
 /**
  * Build-time renderer used by scripts/prerender.mjs.
@@ -38,13 +37,4 @@ export function render(pathname: string): Promise<string> {
       }
     );
   });
-}
-
-/** The lead follow-up service page is a separate entry point with its own mount node. */
-export function renderLeadFollowUp(): string {
-  return renderToString(
-    <StrictMode>
-      <LeadFollowUpAutomationPage />
-    </StrictMode>
-  );
 }
