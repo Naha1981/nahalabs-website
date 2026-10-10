@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonLink } from './Button';
 
-const SITE = 'https://nahalabs.co.za';
+const SITE = 'https://www.nahalabs.co.za';
 const FOUNDER_LINKEDIN = 'https://za.linkedin.com/in/thabiso-naha-4985316b';
 
 const focusAreas = [
