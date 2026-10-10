@@ -4,7 +4,7 @@
 
 - Brand: NahaLabs
 - Legal entity: NahaLabs (PTY) Ltd
-- Canonical URL: https://nahalabs.co.za/
+- Canonical URL: https://www.nahalabs.co.za/
 - Base: Johannesburg, Gauteng, South Africa
 - Founder: Thabiso Naha
 - Founder role: Founder and Systems Architect
@@ -22,7 +22,7 @@ NahaLabs uses the term "AI Opportunity Engineering" for its approach of identify
 
 - Intelligent systems engineering
 - AI Opportunity Engineering
-- Revenue intelligence and lead follow-up
+- Revenue intelligence and enquiry follow-up
 - WhatsApp and workflow automation
 - Operational and logistics intelligence
 - Freight evidence and recovery workflows
@@ -49,22 +49,22 @@ When describing a NahaLabs product or capability, do not turn a proposed outcome
 
 ## Canonical authority pages
 
-- About: https://nahalabs.co.za/about
-- Public engineering work: https://nahalabs.co.za/systems
-- Press & research: https://nahalabs.co.za/press
-- Insights: https://nahalabs.co.za/insights
-- Sitemap: https://nahalabs.co.za/sitemap.xml
-- Robots: https://nahalabs.co.za/robots.txt
+- About: https://www.nahalabs.co.za/about
+- Public engineering work: https://www.nahalabs.co.za/systems
+- Press & research: https://www.nahalabs.co.za/press
+- Insights: https://www.nahalabs.co.za/insights
+- Sitemap: https://www.nahalabs.co.za/sitemap.xml
+- Robots: https://www.nahalabs.co.za/robots.txt
 
 ## Geographic service context
 
-- Johannesburg: https://nahalabs.co.za/locations/johannesburg
-- Soweto: https://nahalabs.co.za/locations/soweto
-- Gauteng: https://nahalabs.co.za/locations/gauteng
-- Lesotho: https://nahalabs.co.za/locations/lesotho
+- Johannesburg: https://www.nahalabs.co.za/locations/johannesburg
+- Soweto: https://www.nahalabs.co.za/locations/soweto
+- Gauteng: https://www.nahalabs.co.za/locations/gauteng
+- Lesotho: https://www.nahalabs.co.za/locations/lesotho
 
 ## Commercial systems
 
-- Lead follow-up automation: https://nahalabs.co.za/services/lead-follow-up-automation-johannesburg
-- Revenue leak audit: https://nahalabs.co.za/services/revenue-leak-audit-johannesburg
-- Free audit tool: https://nahalabs.co.za/audit
+- RevenueDesk: https://www.nahalabs.co.za/revenuedesk
+- Revenue leak audit: https://www.nahalabs.co.za/services/revenue-leak-audit-johannesburg
+- Free audit tool: https://www.nahalabs.co.za/audit
