@@ -7,15 +7,15 @@
  * same components, and writes it into dist/ with route-specific <head> tags and JSON-LD.
  * The browser bundle then takes over exactly as before.
  *
- * Fail-safe by design: any error is logged and the untouched SPA build is kept, so a
- * prerender problem can never block a deploy.
+ * Fail closed: a broken prerender must fail CI instead of silently shipping an empty SPA.
  */
 import { createServer } from 'vite';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 
-const SITE = 'https://nahalabs.co.za';
+const SITE = 'https://www.nahalabs.co.za';
 const dist = path.resolve('dist');
 
 const escAttr = (v) => String(v).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
@@ -141,11 +141,34 @@ async function main() {
       })),
     ];
 
+    const manifest = JSON.parse(await readFile('public/content/manifest.json', 'utf8'));
+    if (!Array.isArray(manifest) || new Set(manifest).size !== manifest.length) throw new Error('content manifest must be an array');
+    for (const slug of manifest) {
+      if (typeof slug !== 'string' || !/^[a-z0-9-]+$/.test(slug)) throw new Error('invalid article slug');
+      const bundle = JSON.parse(await readFile(`public/content/generated/${slug}.json`, 'utf8'));
+      if (bundle.slug !== slug || !bundle.title || !bundle.description || !Array.isArray(bundle.blocks) || !bundle.blocks.length) {
+        throw new Error(`invalid article bundle: ${slug}`);
+      }
+      routes.push({
+        path: `/insights/${slug}`, title: `${bundle.title} | NahaLabs`, description: bundle.description,
+        ogType: 'article', bundle,
+        jsonLd: [jsonLdTag({ '@context': 'https://schema.org', '@type': 'Article',
+          headline: bundle.title, description: bundle.description, datePublished: bundle.datePublished,
+          mainEntityOfPage: `${SITE}/insights/${slug}`,
+          author: { '@id': `${SITE}/about#founder` }, publisher: { '@id': `${SITE}/#organization` },
+          inLanguage: 'en-ZA' }, 'nahalabs-generated-jsonld')],
+      });
+    }
+    const insightSummaries = routes.filter(route => route.bundle).map(route => ({ slug: route.bundle.slug, title: route.bundle.title, description: route.bundle.description }));
+    globalThis.__SSR_INSIGHTS__ = insightSummaries;
     let written = 0;
     for (const route of routes) {
-      const markup = await render(route.path);
+      const markup = await render(route.path, route.bundle ?? null);
+      if (markup.length < 300 || !/<h[12]\b/.test(markup)) throw new Error(`empty prerender: ${route.path}`);
       let page = template.replace('<div id="root"></div>', `<div id="root">${markup}</div>`);
       if (!route.keepHead) page = withHead(page, route);
+      if (route.path === '/insights') page = page.replace('</head>', `<script type="application/json" id="nahalabs-insights-data">${JSON.stringify(insightSummaries).replace(/</g, '\\u003c')}</script></head>`);
+      if (route.bundle) page = page.replace('</head>', `<script type="application/json" id="nahalabs-article-data">${JSON.stringify(route.bundle).replace(/</g, '\\u003c')}</script></head>`);
       const file = route.path === '/' ? templatePath : path.join(dist, route.path, 'index.html');
       await mkdir(path.dirname(file), { recursive: true });
       await writeFile(file, page);
@@ -154,6 +177,24 @@ async function main() {
     }
 
     console.log(`[prerender] wrote ${written} pages`);
+
+    // Use source edit dates, not today's build date, for sitemap lastmod.
+    const sourceFor = (route) => route.bundle ? `public/content/generated/${route.bundle.slug}.json`
+      : route.path === '/' ? 'src/components/LightHome.tsx'
+      : route.path.startsWith('/locations/') ? 'src/data/locations.ts'
+      : ({ '/about': 'src/components/EntityProfilePage.tsx', '/systems': 'src/components/PublicSystemsPage.tsx',
+          '/press': 'src/components/PressPage.tsx', '/revenuedesk': 'src/components/RevenueDeskPage.tsx',
+          '/audit': 'src/components/AuditPage.tsx', '/contact': 'src/components/ContactSection.tsx',
+          '/insights': 'src/components/InsightArticlePage.tsx' })[route.path] ?? (route.path.startsWith('/services/') ? 'services/revenue-leak-audit-johannesburg.html' : 'src/components/InsightArticlePage.tsx');
+    const lastmodFor = (route) => {
+      const source = sourceFor(route);
+      const sourceDate = execFileSync('git', ['log', '-1', '--format=%cs', '--', source], { encoding: 'utf8' }).trim();
+      const date = sourceDate || route.bundle?.datePublished || '';
+      return /^\d{4}-\d{2}-\d{2}$/.test(date) ? `<lastmod>${date}</lastmod>` : '';
+    };
+    const sitemapRoutes = [...routes, { path: '/services/revenue-leak-audit-johannesburg' }];
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapRoutes.map(route => `  <url><loc>${SITE}${route.path}</loc>${lastmodFor(route)}</url>`).join('\n')}\n</urlset>\n`;
+    await writeFile(path.join(dist, 'sitemap.xml'), sitemap);
 
     // Guard against dead URLs in the files AI engines and search crawlers read first.
     const resolves = (urlPath) => {
@@ -168,13 +209,12 @@ async function main() {
     for (const file of ['sitemap.xml', 'llms.txt']) {
       const fp = path.join(dist, file);
       if (!existsSync(fp)) {
-        console.warn(`[prerender] WARNING: ${file} is missing from dist/`);
-        continue;
+        throw new Error(`${file} missing from dist/`);
       }
       const text = await readFile(fp, 'utf8');
       const urls = [...text.matchAll(new RegExp(`${SITE.replace(/\./g, '\\.')}(/[^\\s<)\\]"]*)`, 'g'))].map((m) => m[1]);
       const dead = [...new Set(urls)].filter((u) => !resolves(u));
-      if (dead.length) console.warn(`[prerender] WARNING: ${file} lists URLs with no page in dist/:\n  ${dead.join('\n  ')}`);
+      if (dead.length) throw new Error(`${file} lists missing pages: ${dead.join(', ')}`);
       else console.log(`[prerender] ${file}: all ${new Set(urls).size} URLs resolve`);
     }
   } finally {
@@ -183,7 +223,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  // Never fail the build: the plain SPA output in dist/ is still valid.
-  console.warn('[prerender] skipped, serving the client-rendered build instead:', err?.message ?? err);
-  process.exit(0);
+  console.error('[prerender] failed:', err?.message ?? err);
+  process.exit(1);
 });
