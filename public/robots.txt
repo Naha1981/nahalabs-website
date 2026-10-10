@@ -24,4 +24,4 @@ Allow: /
 Disallow: /api/
 Disallow: /content-admin
 
-Sitemap: https://nahalabs.co.za/sitemap.xml
+Sitemap: https://www.nahalabs.co.za/sitemap.xml
