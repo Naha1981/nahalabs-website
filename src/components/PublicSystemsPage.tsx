@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonLink } from './Button';
 
-const SITE = 'https://nahalabs.co.za';
+const SITE = 'https://www.nahalabs.co.za';
 
 const systems = [
   {

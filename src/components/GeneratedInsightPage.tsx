@@ -6,7 +6,7 @@ type Block =
   | { type: "quote"; text: string }
   | { type: "ul"; items: string[] };
 
-type Bundle = {
+export type Bundle = {
   slug: string;
   title: string;
   description: string;
@@ -21,11 +21,12 @@ type Bundle = {
   videoUrl?: string | null;
 };
 
-export const GeneratedInsightPage: React.FC<{ slug: string }> = ({ slug }) => {
-  const [bundle, setBundle] = useState<Bundle | null>(null);
+export const GeneratedInsightPage: React.FC<{ slug: string; initialBundle?: Bundle | null }> = ({ slug, initialBundle }) => {
+  const [bundle, setBundle] = useState<Bundle | null>(initialBundle ?? null);
   const [media, setMedia] = useState<{ heroImageUrl?: string | null; videoUrl?: string | null }>({});
 
   useEffect(() => {
+    if (initialBundle?.slug === slug) return;
     fetch("/content/generated/" + slug + ".json")
       .then((response) => {
         if (!response.ok) throw new Error("Article not found");
@@ -33,7 +34,7 @@ export const GeneratedInsightPage: React.FC<{ slug: string }> = ({ slug }) => {
       })
       .then(setBundle)
       .catch(() => setBundle(null));
-  }, [slug]);
+  }, [slug, initialBundle]);
 
   useEffect(() => {
     if (!bundle) return;
@@ -45,20 +46,17 @@ export const GeneratedInsightPage: React.FC<{ slug: string }> = ({ slug }) => {
 
     document.title = bundle.title + " | NahaLabs";
 
-    const description = document.createElement("meta");
+    const description = document.head.querySelector<HTMLMetaElement>('meta[name="description"]') ?? document.createElement("meta");
     description.name = "description";
     description.content = bundle.description;
     document.head.appendChild(description);
 
-    const canonical = document.createElement("link");
+    const canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]') ?? document.createElement("link");
     canonical.rel = "canonical";
-    canonical.href = "https://nahalabs.co.za/insights/" + bundle.slug;
+    canonical.href = "https://www.nahalabs.co.za/insights/" + bundle.slug;
     document.head.appendChild(canonical);
 
-    return () => {
-      description.remove();
-      canonical.remove();
-    };
+    // Reuse existing head tags rather than adding conflicting duplicate canonicals.
   }, [bundle]);
 
   if (!bundle) {
@@ -80,7 +78,7 @@ export const GeneratedInsightPage: React.FC<{ slug: string }> = ({ slug }) => {
             NahaLabs Intelligence · {bundle.category}
           </div>
           <h1 className="text-4xl sm:text-6xl leading-[1.02] font-semibold tracking-[-0.035em]">{bundle.title}</h1>
-          <p className="mt-6 text-lg sm:text-xl leading-relaxed text-[#A5A29B]">{bundle.description}</p>
+          <p className="mt-6 text-lg sm:text-xl leading-relaxed text-[#5c655e]">{bundle.description}</p>
           <div className="mt-8 flex flex-wrap gap-3 text-[10px] font-mono uppercase tracking-[0.16em] text-[#666]">
             <span>{bundle.datePublished}</span><span>·</span><span>{bundle.product}</span>
           </div>
@@ -94,10 +92,10 @@ export const GeneratedInsightPage: React.FC<{ slug: string }> = ({ slug }) => {
           />
         )}
 
-        <div className="mt-12 max-w-3xl space-y-9 text-[17px] sm:text-[18px] leading-[1.85] text-[#D7D3CA]">
+        <div className="mt-12 max-w-3xl space-y-9 text-[17px] sm:text-[18px] leading-[1.85] text-[#28322c]">
           {bundle.blocks.map((block, index) => {
-            if (block.type === "h2") return <h2 key={index} className="text-2xl sm:text-3xl font-semibold text-[#F3F0EA] pt-6">{block.text}</h2>;
-            if (block.type === "quote") return <blockquote key={index} className="border-l-2 border-[#C8AE82] pl-6 text-[#F3F0EA] font-medium">{block.text}</blockquote>;
+            if (block.type === "h2") return <h2 key={index} className="text-2xl sm:text-3xl font-semibold text-[#17251d] pt-6">{block.text}</h2>;
+            if (block.type === "quote") return <blockquote key={index} className="border-l-2 border-[#C8AE82] pl-6 text-[#17251d] font-medium">{block.text}</blockquote>;
             if (block.type === "ul") return <ul key={index} className="list-disc pl-6 space-y-2">{block.items.map((item) => <li key={item}>{item}</li>)}</ul>;
             return <p key={index}>{block.text}</p>;
           })}
@@ -112,7 +110,7 @@ export const GeneratedInsightPage: React.FC<{ slug: string }> = ({ slug }) => {
 
           {bundle.sources.length > 0 && (
             <section className="pt-8">
-              <h2 className="text-2xl font-semibold text-[#F3F0EA]">Sources</h2>
+              <h2 className="text-2xl font-semibold text-[#17251d]">Sources</h2>
               <div className="mt-5 space-y-4">
                 {bundle.sources.map((source) => (
                   <div key={source.url} className="border-b border-[#24262a] pb-4">
@@ -125,7 +123,7 @@ export const GeneratedInsightPage: React.FC<{ slug: string }> = ({ slug }) => {
           )}
 
           <section className="pt-8 border-t border-[#24262a]">
-            <p className="text-[#F3F0EA] font-semibold">{bundle.cta}</p>
+            <p className="text-[#17251d] font-semibold">{bundle.cta}</p>
           </section>
         </div>
       </main>

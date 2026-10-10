@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { ArrowRight, ArrowUpRight, Check } from 'lucide-react';
 
-const SITE = 'https://nahalabs.co.za';
+const SITE = 'https://www.nahalabs.co.za';
 const PATH = '/revenuedesk';
 const TITLE = 'RevenueDesk | AI Front Desk & Revenue Recovery | NahaLabs';
 const DESCRIPTION = "RevenueDesk is NahaLabs' AI front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.";

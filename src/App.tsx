@@ -3,7 +3,7 @@ import { Toaster } from 'sonner';
 import { LightHome } from './components/LightHome';
 import { LOCATIONS_DATA } from './data/locations';
 import { InsightArticlePage, InsightIndexPage } from './components/InsightArticlePage';
-import { GeneratedInsightPage } from './components/GeneratedInsightPage';
+import { GeneratedInsightPage, type Bundle } from './components/GeneratedInsightPage';
 import { ContentMediaUploader } from './components/ContentMediaUploader';
 import { EntityProfilePage } from './components/EntityProfilePage';
 import { PublicSystemsPage } from './components/PublicSystemsPage';
@@ -141,7 +141,14 @@ export default function App() {
   } else if (isContactPage) {
     pageContent = <ContactSection prefilledSystem={prefilledSystem} />;
   } else if (generatedInsightSlug) {
-    pageContent = <GeneratedInsightPage slug={generatedInsightSlug} />;
+    const initialBundle = typeof window === 'undefined'
+      ? (globalThis as { __SSR_BUNDLE__?: Bundle | null }).__SSR_BUNDLE__ ?? null
+      : (() => {
+          const data = document.getElementById('nahalabs-article-data')?.textContent;
+          if (!data) return null;
+          try { return JSON.parse(data) as Bundle; } catch { return null; }
+        })();
+    pageContent = <GeneratedInsightPage slug={generatedInsightSlug} initialBundle={initialBundle} />;
   } else {
     pageContent = (
       <>

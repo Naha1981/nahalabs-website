@@ -55,7 +55,7 @@ export const FAQ_ITEMS: FaqItem[] = [
 export const faqJsonLd = () => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  '@id': 'https://nahalabs.co.za/#faq',
+  '@id': 'https://www.nahalabs.co.za/#faq',
   inLanguage: 'en-ZA',
   mainEntity: FAQ_ITEMS.map((item) => ({
     '@type': 'Question',

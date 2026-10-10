@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonLink } from './Button';
 
-const SITE = 'https://nahalabs.co.za';
+const SITE = 'https://www.nahalabs.co.za';
 
 export const PressPage: React.FC = () => (
   <div data-site-theme="light" data-tone="light" className="min-h-screen bg-[#F2F4F7] text-[#0B0E10]">

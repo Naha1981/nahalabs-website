@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowUpRight, ExternalLink } from 'lucide-react';
 import { ButtonLink } from './Button';
 
@@ -11,7 +11,7 @@ const MEDIA_ALT_TEXT = 'NahaLabs visual showing fragmented operational evidence 
 const FOUNDER_URL = 'https://za.linkedin.com/in/thabiso-naha-4985316b';
 
 export const getArticleJsonLd = () => {
-  const canonicalUrl = `https://nahalabs.co.za${ARTICLE_PATH}`;
+  const canonicalUrl = `https://www.nahalabs.co.za${ARTICLE_PATH}`;
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -19,21 +19,21 @@ export const getArticleJsonLd = () => {
     description: DESCRIPTION,
     author: {
       '@type': 'Person',
-      '@id': 'https://nahalabs.co.za/about#founder',
+      '@id': 'https://www.nahalabs.co.za/about#founder',
       name: 'Thabiso Naha',
       jobTitle: 'Founder and Systems Architect',
       url: FOUNDER_URL,
-      worksFor: { '@id': 'https://nahalabs.co.za/#organization' },
+      worksFor: { '@id': 'https://www.nahalabs.co.za/#organization' },
     },
     publisher: {
       '@type': 'Organization',
       name: 'NahaLabs',
-      url: 'https://nahalabs.co.za',
+      url: 'https://www.nahalabs.co.za',
     },
     datePublished: '2026-09-21',
     dateModified: '2026-09-27',
     mainEntityOfPage: canonicalUrl,
-    image: `https://nahalabs.co.za${HERO_IMAGE_URL}`,
+    image: `https://www.nahalabs.co.za${HERO_IMAGE_URL}`,
     about: [
       { '@type': 'Thing', name: 'Operational intelligence' },
       { '@type': 'Thing', name: 'Freight and logistics intelligence' },
@@ -63,7 +63,7 @@ const upsertMeta = (selector: string, attrs: Record<string, string>, content: st
 
 export const InsightArticlePage: React.FC = () => {
   useEffect(() => {
-    const canonicalUrl = `https://nahalabs.co.za${ARTICLE_PATH}`;
+    const canonicalUrl = `https://www.nahalabs.co.za${ARTICLE_PATH}`;
     document.title = `${TITLE} | NahaLabs`;
 
     upsertMeta('meta[name="description"]', { name: 'description' }, DESCRIPTION);
@@ -444,7 +444,20 @@ export const InsightArticlePage: React.FC = () => {
 };
 
 
-export const InsightIndexPage: React.FC = () => (
+export const InsightIndexPage: React.FC = () => {
+  type Summary = { slug: string; title: string; description: string };
+  const [generated, setGenerated] = useState<Summary[]>(() => {
+    if (typeof window === 'undefined') return (globalThis as { __SSR_INSIGHTS__?: Summary[] }).__SSR_INSIGHTS__ ?? [];
+    const data = document.getElementById('nahalabs-insights-data')?.textContent;
+    try { return data ? JSON.parse(data) : []; } catch { return []; }
+  });
+  useEffect(() => {
+    fetch('/content/manifest.json').then(r => r.json()).then(async (slugs: string[]) => {
+      const items = await Promise.all(slugs.map(slug => fetch(`/content/generated/${slug}.json`).then(r => r.json())));
+      setGenerated(items);
+    }).catch(() => undefined);
+  }, []);
+  return (
   <div data-site-theme="light" data-tone="light" className="min-h-screen bg-canvas text-fg">
     <main className="max-w-6xl mx-auto px-5 sm:px-8 py-20 sm:py-28">
       <div className="max-w-3xl">
@@ -460,6 +473,11 @@ export const InsightIndexPage: React.FC = () => (
       </div>
 
       <div className="mt-14 grid gap-6 max-w-4xl">
+        {generated.map(item => <a key={item.slug} href={`/insights/${item.slug}`} className="rounded-2xl border border-line bg-surface p-7">
+          <h2 className="text-2xl font-semibold text-fg">{item.title}</h2>
+          <p className="mt-4 text-fg-2">{item.description}</p>
+          <span className="mt-6 inline-block text-accent">Read intelligence</span>
+        </a>)}
         <a
           href={ARTICLE_PATH}
           className="group rounded-2xl border border-[#24262a] bg-[#0c0d0e] p-7 sm:p-9 hover:border-[#C8AE82]/60 transition-all"
@@ -486,3 +504,4 @@ export const InsightIndexPage: React.FC = () => (
 
   </div>
 );
+};
