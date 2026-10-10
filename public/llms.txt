@@ -10,22 +10,22 @@ Key facts:
 
 ## Entity and authority pages
 
-- [About NahaLabs](https://nahalabs.co.za/about): canonical company identity, legal name, Johannesburg location, founder Thabiso Naha, focus areas and evidence/claim discipline.
-- [Public engineering work](https://nahalabs.co.za/systems): inspectable public repositories for Lead Machine, Demand Radar, Flavourly, CargoIQ, NahaLLM and JEV UltraFast Browser. These are labelled as public engineering evidence, not customer-result claims.
-- [Press & research](https://nahalabs.co.za/press): company boilerplate, founder/contact details, research themes and interview/source requests.
+- [About NahaLabs](https://www.nahalabs.co.za/about): canonical company identity, legal name, Johannesburg location, founder Thabiso Naha, focus areas and evidence/claim discipline.
+- [Public engineering work](https://www.nahalabs.co.za/systems): inspectable public repositories for Lead Machine, Demand Radar, Flavourly, CargoIQ, NahaLLM and JEV UltraFast Browser. These are labelled as public engineering evidence, not customer-result claims.
+- [Press & research](https://www.nahalabs.co.za/press): company boilerplate, founder/contact details, research themes and interview/source requests.
 
 ## Core pages
 
-- [NahaLabs home](https://nahalabs.co.za/): What NahaLabs builds, the systems it has engineered (Flavourly, CargoIQ, RailWatch, Revenue OS), its Diagnosis-Prototype-Production method, an FAQ, and how to start an enquiry.
-- [Lead follow-up automation, Johannesburg](https://nahalabs.co.za/services/lead-follow-up-automation-johannesburg): Automated first response and scheduled follow-up for Facebook, WhatsApp and website enquiries, running until the customer replies, books or opts out. Pilot pricing is published on the page.
-- [Free Website Revenue Leak Audit](https://nahalabs.co.za/audit): Free, no-login tool. Enter a public website URL and receive a revenue leak score, prioritised findings on conversion, trust, mobile and technical issues, a fix-pack preview, and an ROI scenario calculator.
+- [NahaLabs home](https://www.nahalabs.co.za/): What NahaLabs builds, the systems it has engineered (Flavourly, CargoIQ, RailWatch, RevenueDesk), its Diagnosis-Prototype-Production method, an FAQ, and how to start an enquiry.
+- [RevenueDesk](https://www.nahalabs.co.za/revenuedesk): NahaLabs' AI front desk and revenue-recovery offering for service businesses. Read the current page for scope and contact NahaLabs to discuss your workflow; no fixed pilot pricing is stated here.
+- [Free Website Revenue Leak Audit](https://www.nahalabs.co.za/audit): Free, no-login tool. Enter a public website URL and receive a revenue leak score, prioritised findings on conversion, trust, mobile and technical issues, a fix-pack preview, and an ROI scenario calculator.
 
 ## Regional pages
 
-- [Intelligent systems engineering in Johannesburg](https://nahalabs.co.za/locations/johannesburg): Bespoke intelligent systems, operational automation and business intelligence for Johannesburg enterprises, commercial leaders and fast-growing businesses.
-- [Business intelligence and automation in Soweto](https://nahalabs.co.za/locations/soweto): Practical business intelligence, WhatsApp automation and revenue systems for township enterprises, retailers and restaurants in Soweto.
-- [Systems engineering across Gauteng](https://nahalabs.co.za/locations/gauteng): Industrial-grade systems engineering, geospatial intelligence and enterprise automation across the Gauteng economic heartland.
-- [Intelligent systems in Lesotho](https://nahalabs.co.za/locations/lesotho): Practical intelligent systems, cross-border customs intelligence and digital operations for businesses and institutions in Lesotho.
+- [Intelligent systems engineering in Johannesburg](https://www.nahalabs.co.za/locations/johannesburg): Bespoke intelligent systems, operational automation and business intelligence for Johannesburg enterprises, commercial leaders and fast-growing businesses.
+- [Business intelligence and automation in Soweto](https://www.nahalabs.co.za/locations/soweto): Practical business intelligence, WhatsApp automation and revenue systems for township enterprises, retailers and restaurants in Soweto.
+- [Systems engineering across Gauteng](https://www.nahalabs.co.za/locations/gauteng): Industrial-grade systems engineering, geospatial intelligence and enterprise automation across the Gauteng economic heartland.
+- [Intelligent systems in Lesotho](https://www.nahalabs.co.za/locations/lesotho): Practical intelligent systems, cross-border customs intelligence and digital operations for businesses and institutions in Lesotho.
 
 ## Public engineering evidence
 
@@ -38,9 +38,9 @@ Key facts:
 
 ## Insights
 
-- [Insights index](https://nahalabs.co.za/insights): Evidence-led field notes on intelligent systems, revenue, operations, logistics and where fragmented information becomes expensive.
-- [The Hidden Cost of Fragmented Operational Information](https://nahalabs.co.za/insights/hidden-cost-fragmented-operational-information): Why South African businesses with more operational data than ever still struggle to reconstruct delays, costs and disputes when their systems are fragmented.
+- [Insights index](https://www.nahalabs.co.za/insights): Evidence-led field notes on intelligent systems, revenue, operations, logistics and where fragmented information becomes expensive.
+- [The Hidden Cost of Fragmented Operational Information](https://www.nahalabs.co.za/insights/hidden-cost-fragmented-operational-information): Why South African businesses with more operational data than ever still struggle to reconstruct delays, costs and disputes when their systems are fragmented.
 
 ## Optional
 
-- [Sitemap](https://nahalabs.co.za/sitemap.xml): Machine-readable list of all public pages.
+- [Sitemap](https://www.nahalabs.co.za/sitemap.xml): Machine-readable list of all public pages.
