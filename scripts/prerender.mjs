@@ -67,6 +67,11 @@ async function main() {
     const areaType = { johannesburg: 'City', soweto: 'City', gauteng: 'AdministrativeArea', lesotho: 'Country' };
 
     const routes = [
+      ...[
+        ['/cargo-iq', 'CargoIQ', 'Freight evidence and dispute intelligence.'],
+        ['/nutri-tummies', 'Nutri Tummies', 'Family meal planning for South African kitchens.'],
+        ['/gtg', 'GTG Field Evidence', 'Field evidence demonstration using fictional data.'],
+      ].map(([path, name, description]) => ({ path, title: `${name} | NahaLabs`, description })),
       // Home keeps the head already authored in index.html.
       { path: '/', keepHead: true },
       {

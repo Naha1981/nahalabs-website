@@ -13,6 +13,7 @@ import { RevenueDeskPage } from './components/RevenueDeskPage';
 import { SiteShell } from './components/SiteShell';
 import { AuditPage } from './components/AuditPage';
 import { ContactSection } from './components/ContactSection';
+import { AppFramePage, LIVE_APPS } from './components/AppFramePage';
 
 const LocationView = lazy(() => import('./components/LocationView').then(m => ({ default: m.LocationView })));
 const LegalModal = lazy(() => import('./components/LegalModal').then(m => ({ default: m.LegalModal })));
@@ -114,6 +115,8 @@ export default function App() {
   };
 
   if (isContentMediaAdmin) return <ContentMediaUploader />;
+  const liveApp = LIVE_APPS.find(app => app.path === normalizedPath);
+  if (liveApp) return <AppFramePage app={liveApp} />;
 
   const commonShellProps = {
     onNavigate: handleNavigate,

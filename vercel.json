@@ -39,6 +39,18 @@
     {
       "source": "/services/revenue-leak-audit-johannesburg",
       "destination": "/services/revenue-leak-audit-johannesburg.html"
+    },
+    {
+      "source": "/cargo-iq",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/nutri-tummies",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/gtg",
+      "destination": "/index.html"
     }
   ],
   "redirects": [
