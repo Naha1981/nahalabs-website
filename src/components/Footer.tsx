@@ -148,7 +148,7 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-x-12 gap-y-14 pb-14 border-b border-line">
 
           {/* Brand and direct contact */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-3">
             <a href="/" className="inline-flex items-center rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#355241]" aria-label="NahaLabs home">
               <img
                 src="/nahalabs-logo.svg"
@@ -162,7 +162,7 @@ export const Footer: React.FC<FooterProps> = ({
             <dl className="mt-7 space-y-4 text-small">
               <div>
                 <dt className="text-caption text-fg-3">Email</dt>
-                <dd className="mt-1 flex items-center gap-4">
+                <dd className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
                   <a href="mailto:ai-solutions@nahalabs.co.za" className="text-fg underline decoration-line-strong underline-offset-4 hover:decoration-accent break-all">
                     ai-solutions@nahalabs.co.za
                   </a>
@@ -179,7 +179,7 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
               <div>
                 <dt className="text-caption text-fg-3">Location</dt>
-                <dd className="mt-1 flex items-center gap-4">
+                <dd className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
                   <span className="text-fg">Johannesburg, Gauteng, South Africa</span>
                   <button
                     type="button"
@@ -195,7 +195,7 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
 
           {/* Site */}
-          <nav aria-label="Footer" className="lg:col-span-2 lg:col-start-6">
+          <nav aria-label="Footer" className="lg:col-span-2">
             <h2 className="text-sm font-semibold text-fg">Explore</h2>
             <ul className="mt-4 flex flex-col">
               {[
@@ -223,6 +223,22 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </nav>
 
+          {/* Public live apps: branded entry links, not main navigation */}
+          <nav aria-label="Apps" className="lg:col-span-2">
+            <h2 className="text-sm font-semibold text-fg">Apps</h2>
+            <ul className="mt-4 flex flex-col">
+              {[
+                ['/cargo-iq', 'CargoIQ'],
+                ['/nutri-tummies', 'Nutri Tummies'],
+                ['/gtg', 'GTG Field Evidence'],
+              ].map(([href, label]) => (
+                <li key={href}>
+                  <a href={href} className={`${linkCls} block`}>{label}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
           {/* Regional pages */}
           <nav aria-label="Regions" className="lg:col-span-2">
             <h2 className="text-caption font-medium text-fg">{t.footer.regionalHubs}</h2>
@@ -243,7 +259,7 @@ export const Footer: React.FC<FooterProps> = ({
           </nav>
 
           {/* Briefings */}
-          <div className="lg:col-span-3">
+          <div className="md:col-span-2 lg:col-span-3">
             <h2 className="text-caption font-medium text-fg">{t.footer.dispatchesTitle}</h2>
             <p className="mt-4 text-small text-fg-2">{t.footer.dispatchesDesc}</p>
 
