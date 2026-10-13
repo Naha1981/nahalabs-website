@@ -231,6 +231,7 @@ export const Footer: React.FC<FooterProps> = ({
                 ['/cargo-iq', 'CargoIQ'],
                 ['/nutri-tummies', 'Nutri Tummies'],
                 ['/gtg', 'GTG Field Evidence'],
+                ['/railwatch', 'RailWatch'],
               ].map(([href, label]) => (
                 <li key={href}>
                   <a href={href} className={`${linkCls} block`}>{label}</a>

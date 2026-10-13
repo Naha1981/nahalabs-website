@@ -51,6 +51,10 @@
     {
       "source": "/gtg",
       "destination": "/index.html"
+    },
+    {
+      "source": "/railwatch",
+      "destination": "/index.html"
     }
   ],
   "redirects": [
