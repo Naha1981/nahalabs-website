@@ -5,10 +5,12 @@ interface TextAnimateProps {
   text: string;
   as?: 'h1' | 'h2' | 'p' | 'span';
   className?: string;
-  /** Seconds before the first word moves. */
+  /** Seconds before the first piece moves. */
   delay?: number;
-  /** Per-word stagger in seconds. */
+  /** Per-piece stagger in seconds. */
   stagger?: number;
+  /** Split by word or by character. */
+  by?: 'word' | 'char';
   /** Words rendered in the accent colour (matched against the split words). */
   accentFrom?: number;
 }

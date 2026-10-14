@@ -235,6 +235,11 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
     <div className="light-home">
       <main>
         <section id="hero" className="nh-section nh-hero" data-tone="light" ref={heroRef}>
+          <div className="nh-aurora" aria-hidden="true">
+            <span className="nh-aurora-blob nh-aurora-b1" />
+            <span className="nh-aurora-blob nh-aurora-b2" />
+            <span className="nh-aurora-blob nh-aurora-b3" />
+          </div>
           <DotPattern className="nh-hero-dots" />
           <div className="wrap">
             <motion.div className="nh-hero-copy" style={reduced ? undefined : { y: copyY }}>
@@ -248,7 +253,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
               </motion.p>
               <h1 className="nh-display">
                 <TextAnimate as="span" className="nh-display-line" text="Intelligence," delay={reduced ? 0 : 0.12} />
-                <TextAnimate as="span" className="nh-display-line nh-display-accent" text="engineered." delay={reduced ? 0 : 0.34} />
+                <TextAnimate as="span" className="nh-display-line nh-display-accent" text="engineered." by="char" delay={reduced ? 0 : 0.42} stagger={0.032} />
               </h1>
               <motion.p
                 className="nh-hero-lede"
