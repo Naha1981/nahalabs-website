@@ -62,6 +62,7 @@ async function main() {
     const entity = await vite.ssrLoadModule('/src/components/EntityProfilePage.tsx');
     const systems = await vite.ssrLoadModule('/src/components/PublicSystemsPage.tsx');
     const revenueDesk = await vite.ssrLoadModule('/src/components/RevenueDeskPage.tsx');
+    const bankbook = await vite.ssrLoadModule('/src/components/BankbookPage.tsx');
     const press = await vite.ssrLoadModule('/src/components/PressPage.tsx');
 
     const areaType = { johannesburg: 'City', soweto: 'City', gauteng: 'AdministrativeArea', lesotho: 'Country' };
@@ -120,6 +121,13 @@ async function main() {
         description:
           "RevenueDesk is NahaLabs' AI front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.",
         jsonLd: [jsonLdTag(revenueDesk.getRevenueDeskJsonLd(), 'nahalabs-revenuedesk-jsonld')],
+      },
+      {
+        path: '/bankbook',
+        title: 'BankBook | Invoice & Bank Review Desk | NahaLabs',
+        description:
+          'BankBook is a NahaLabs review desk for bookkeepers: check extracted invoice data against its source, reconcile it with a bank statement, and record a human decision for every match. Live demo on fictional South African data.',
+        jsonLd: [jsonLdTag(bankbook.getBankbookJsonLd(), 'nahalabs-bankbook-jsonld')],
       },
       {
         path: article.ARTICLE_PATH,

@@ -11,6 +11,7 @@ import { PressPage } from './components/PressPage';
 import { scrollBehavior } from './lib/motion';
 import { initLenis } from './lib/lenis';
 import { RevenueDeskPage } from './components/RevenueDeskPage';
+import { BankbookPage } from './components/BankbookPage';
 import { SiteShell } from './components/SiteShell';
 import { AuditPage } from './components/AuditPage';
 import { ContactSection } from './components/ContactSection';
@@ -37,6 +38,7 @@ export default function App() {
   const isSystemsPage = normalizedPath === '/systems';
   const isPressPage = normalizedPath === '/press';
   const isRevenueDeskPage = normalizedPath === '/revenuedesk';
+  const isBankbookPage = normalizedPath === '/bankbook';
   const isInsightsIndexPage = normalizedPath === '/insights';
   const isInsightArticlePage = normalizedPath === '/insights/hidden-cost-fragmented-operational-information';
   const isAuditPage = normalizedPath === '/audit';
@@ -140,6 +142,8 @@ export default function App() {
     pageContent = <PressPage />;
   } else if (isRevenueDeskPage) {
     pageContent = <RevenueDeskPage />;
+  } else if (isBankbookPage) {
+    pageContent = <BankbookPage />;
   } else if (isInsightsIndexPage) {
     pageContent = <InsightIndexPage />;
   } else if (isInsightArticlePage) {
