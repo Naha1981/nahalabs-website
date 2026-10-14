@@ -1,18 +1,21 @@
-// Canonical asset imports bundled and hashed by Vite for production reliability
-import heroWebp from '../assets/images/nahalabs_hero_1789398573439_opt.webp';
-import heroJpg from '../assets/images/nahalabs_hero_1789398573439_opt.jpg';
+// Canonical asset URLs from /public/assets/images (stable, unhashed).
+// These MUST be plain public paths: the prerender script renders React outside
+// the Vite bundle, so Vite import URLs leak into prerendered HTML as broken
+// /src/assets/... paths (broken homepage film strip + preload links before hydration).
+const heroWebp = '/assets/images/nahalabs_hero_1789398573439_opt.webp';
+const heroJpg = '/assets/images/nahalabs_hero_1789398573439_opt.jpg';
 
-import flavourlyWebp from '../assets/images/flavourly_system_1789398600949_opt.webp';
-import flavourlyJpg from '../assets/images/flavourly_system_1789398600949_opt.jpg';
+const flavourlyWebp = '/assets/images/flavourly_system_1789398600949_opt.webp';
+const flavourlyJpg = '/assets/images/flavourly_system_1789398600949_opt.jpg';
 
-import cargoiqWebp from '../assets/images/cargoiq_system_1789398617043_opt.webp';
-import cargoiqJpg from '../assets/images/cargoiq_system_1789398617043_opt.jpg';
+const cargoiqWebp = '/assets/images/cargoiq_system_1789398617043_opt.webp';
+const cargoiqJpg = '/assets/images/cargoiq_system_1789398617043_opt.jpg';
 
-import railwatchWebp from '../assets/images/railwatch_system_1789398646749_opt.webp';
-import railwatchJpg from '../assets/images/railwatch_system_1789398646749_opt.jpg';
+const railwatchWebp = '/assets/images/railwatch_system_1789398646749_opt.webp';
+const railwatchJpg = '/assets/images/railwatch_system_1789398646749_opt.jpg';
 
-import enterpriseJhbWebp from '../assets/images/enterprise_jhb_1789398631359_opt.webp';
-import enterpriseJhbJpg from '../assets/images/enterprise_jhb_1789398631359_opt.jpg';
+const enterpriseJhbWebp = '/assets/images/enterprise_jhb_1789398631359_opt.webp';
+const enterpriseJhbJpg = '/assets/images/enterprise_jhb_1789398631359_opt.jpg';
 
 export interface SystemAsset {
   webp: string;
