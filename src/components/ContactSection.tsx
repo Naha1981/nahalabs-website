@@ -734,20 +734,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                             disabled={!isAccessible}
                             className={`p-2.5 sm:p-3 rounded text-left transition-all relative border cursor-pointer ${
                               isCurrent
-                                ? 'bg-[#1e1f22] border-[#355241] text-[#0B0E10]'
+                                ? 'bg-[#EEF4F0] border-[#355241] text-[#0B0E10] shadow-[0_0_0_1px_#355241]'
                                 : isDone
-                                ? 'bg-[#141517] border-[#D1D5DB] text-[#355241] hover:border-[#355241]/60'
-                                : 'bg-white border-[#1d1e20] text-[#555] cursor-not-allowed'
+                                ? 'bg-white border-[#355241]/50 text-[#355241] hover:border-[#355241]'
+                                : 'bg-white/60 border-[#D1D5DB] text-[#8A929B] cursor-not-allowed'
                             }`}
                           >
                             <div className="flex flex-col items-start gap-1.5 sm:flex-row sm:items-center sm:gap-2 mb-1">
                               <span
                                 className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold shrink-0 ${
                                   isCurrent
-                                    ? 'bg-[#355241] text-[#0B0E10]'
+                                    ? 'bg-[#355241] text-white'
                                     : isDone
-                                    ? 'bg-[#355241]/20 text-[#355241]'
-                                    : 'bg-[#1e1f22] text-[#4D5660]'
+                                    ? 'bg-[#355241]/15 text-[#355241]'
+                                    : 'bg-[#E7EAEE] text-[#8A929B]'
                                 }`}
                               >
                                 {isDone ? <Check className="w-3 h-3" /> : s.number}

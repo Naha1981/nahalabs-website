@@ -368,8 +368,9 @@ select:focus-visible {
      reveal them again (class set in main.tsx). */
   .js-reveal .reveal {
     opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    transform: translateY(30px) scale(0.985);
+    transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+    will-change: opacity, transform;
   }
   .js-reveal .reveal.is-visible {
     opacity: 1;
