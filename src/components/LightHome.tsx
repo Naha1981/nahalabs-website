@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { ArrowRight, ArrowUpRight, Check, ChevronDown } from 'lucide-react';
 import { ASSETS } from '../data/assets';
 import { ContactSection } from './ContactSection';
-import { IntelligenceCore } from './IntelligenceCore';
 import { Reveal } from './Reveal';
 import { Button, ButtonLink } from './Button';
+import { DotPattern } from './magicui/dot-pattern';
+import { Marquee } from './magicui/marquee';
+import { TextAnimate } from './magicui/text-animate';
+import { BorderBeam } from './magicui/border-beam';
+import { Magnetic } from './magicui/magnetic';
+
+const EASE_OUT: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 interface HomeProps {
   onStartConversation: () => void;
@@ -85,6 +92,115 @@ const FAQS = [
   },
 ];
 
+const FILM_DWELL_MS = 3600;
+
+function HeroFilm() {
+  const [scene, setScene] = useState(0);
+  const reduced = useReducedMotion();
+
+  useEffect(() => {
+    if (reduced) return;
+    const timer = window.setInterval(() => setScene((value) => (value + 1) % SYSTEMS.length), FILM_DWELL_MS);
+    return () => window.clearInterval(timer);
+  }, [reduced]);
+
+  const current = SYSTEMS[scene];
+  const captionTransition = { duration: reduced ? 0 : 0.45, ease: EASE_OUT };
+
+  return (
+    <figure className="nahafilm">
+      <BorderBeam size={130} duration={12} />
+      <div className="nahafilm-media" aria-hidden="true">
+        {reduced ? (
+          <img src={SYSTEMS[0].image} alt="" className="nahafilm-scene is-active" loading="eager" decoding="async" />
+        ) : (
+          SYSTEMS.map((item, index) => (
+            <motion.img
+              key={item.name}
+              src={item.image}
+              alt=""
+              className="nahafilm-scene"
+              initial={false}
+              animate={{
+                opacity: index === scene ? 1 : 0,
+                scale: index === scene ? 1.02 : 1.1,
+              }}
+              transition={{
+                opacity: { duration: 1.05, ease: [0.4, 0, 0.2, 1] },
+                scale: { duration: 5.4, ease: 'linear' },
+              }}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+            />
+          ))
+        )}
+        <div className="nahafilm-wash" />
+        <div className="nahafilm-grid" />
+        <svg className="nahafilm-signal" viewBox="0 0 1000 560" preserveAspectRatio="none">
+          <path d="M75 465 C280 350 330 230 515 280 C680 325 710 165 920 85" />
+          <path d="M120 105 C285 145 340 315 510 300 C700 280 735 400 900 420" />
+          <circle cx="515" cy="280" r="7" />
+        </svg>
+      </div>
+
+      <div className="nahafilm-topline">
+        <span>NAHALABS / REAL-WORLD INTELLIGENCE</span>
+        <span className="nahafilm-index">
+          {String(scene + 1).padStart(2, '0')} / {String(SYSTEMS.length).padStart(2, '0')}
+        </span>
+      </div>
+
+      <div className="nahafilm-bottom">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={scene}
+            initial={{ opacity: 0, y: reduced ? 0 : 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: reduced ? 0 : -10 }}
+            transition={captionTransition}
+          >
+            <p className="nahafilm-eyebrow">{current.eyebrow}</p>
+            <p className="nahafilm-title">{current.name}</p>
+          </motion.div>
+        </AnimatePresence>
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={scene}
+            className="nahafilm-flow"
+            initial={{ opacity: 0, y: reduced ? 0 : 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: reduced ? 0 : -10 }}
+            transition={{ ...captionTransition, delay: reduced ? 0 : 0.05 }}
+          >
+            <span>{current.flow}</span>
+            <span className="nahafilm-arrow">&#8599;</span>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="nahafilm-progress" aria-hidden="true">
+        {SYSTEMS.map((item, index) => (
+          <span key={item.name} className="nahafilm-progress-segment">
+            {index === scene && !reduced && (
+              <motion.span
+                key={scene}
+                className="nahafilm-progress-fill"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: FILM_DWELL_MS / 1000, ease: 'linear' }}
+              />
+            )}
+          </span>
+        ))}
+      </div>
+
+      <figcaption className="sr-only">
+        NahaLabs intelligence systems across hospitality, freight, infrastructure and commercial revenue operations.
+      </figcaption>
+    </figure>
+  );
+}
+
 function SignalField() {
   return (
     <div className="signal-field" aria-label="Signals flowing into the NahaLabs intelligence layer">
@@ -109,34 +225,93 @@ function SignalField() {
 }
 
 export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
+  const reduced = useReducedMotion();
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
+  const filmY = useTransform(scrollYProgress, [0, 1], [0, -44]);
+  const copyY = useTransform(scrollYProgress, [0, 1], [0, 26]);
+
   return (
     <div className="light-home">
       <main>
-        <section id="hero" className="nh-section nh-hero" data-tone="light">
-          <div className="wrap nh-hero-grid">
-            <Reveal className="nh-hero-copy">
-              <p className="nh-eyebrow">Intelligent Systems Engineering · Johannesburg · South Africa</p>
+        <section id="hero" className="nh-section nh-hero" data-tone="light" ref={heroRef}>
+          <DotPattern className="nh-hero-dots" />
+          <div className="wrap">
+            <motion.div className="nh-hero-copy" style={reduced ? undefined : { y: copyY }}>
+              <motion.p
+                className="nh-eyebrow"
+                initial={{ opacity: 0, y: reduced ? 0 : 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: reduced ? 0 : 0.7, ease: EASE_OUT }}
+              >
+                Intelligent Systems Engineering &middot; Johannesburg &middot; South Africa
+              </motion.p>
               <h1 className="nh-display">
-                Intelligence,
-                <span> engineered.</span>
+                <TextAnimate as="span" className="nh-display-line" text="Intelligence," delay={reduced ? 0 : 0.12} />
+                <TextAnimate as="span" className="nh-display-line nh-display-accent" text="engineered." delay={reduced ? 0 : 0.34} />
               </h1>
-              <p className="nh-hero-lede">
+              <motion.p
+                className="nh-hero-lede"
+                initial={{ opacity: 0, y: reduced ? 0 : 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: reduced ? 0 : 0.7, delay: reduced ? 0 : 0.56, ease: EASE_OUT }}
+              >
                 NahaLabs builds intelligent systems for businesses where generic software stops being enough.
-              </p>
-              <div className="nh-hero-actions">
-                <Button type="button" onClick={onStartConversation}>
-                  Start a Conversation
-                </Button>
-                <ButtonLink href="#systems" variant="secondary">
-                  Explore the Systems <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
-                </ButtonLink>
-              </div>
-            </Reveal>
+              </motion.p>
+              <motion.div
+                className="nh-hero-actions"
+                initial={{ opacity: 0, y: reduced ? 0 : 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: reduced ? 0 : 0.7, delay: reduced ? 0 : 0.72, ease: EASE_OUT }}
+              >
+                <Magnetic strength={4}>
+                  <Button type="button" onClick={onStartConversation}>
+                    Start a Conversation
+                  </Button>
+                </Magnetic>
+                <Magnetic>
+                  <ButtonLink href="#systems" variant="secondary">
+                    Explore the Systems <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
+                  </ButtonLink>
+                </Magnetic>
+              </motion.div>
+              <motion.div
+                className="nh-hero-meta"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: reduced ? 0 : 0.9, delay: reduced ? 0 : 0.94 }}
+              >
+                <span className="nh-hero-meta-label">Our systems</span>
+                <span className="nh-hero-meta-items">Flavourly &middot; CargoIQ &middot; RailWatch &middot; RevenueDesk</span>
+              </motion.div>
+            </motion.div>
 
-            <Reveal className="nh-hero-visual">
-              <IntelligenceCore />
-            </Reveal>
+            <motion.div className="nh-hero-film" style={reduced ? undefined : { y: filmY }}>
+              <motion.div
+                initial={{ opacity: 0, y: reduced ? 0 : 28, scale: reduced ? 1 : 0.985 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: reduced ? 0 : 0.9, delay: reduced ? 0 : 0.3, ease: EASE_OUT }}
+              >
+                <HeroFilm />
+              </motion.div>
+            </motion.div>
           </div>
+
+          <motion.div
+            className="nh-hero-signals"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: reduced ? 0 : 0.9, delay: reduced ? 0 : 1.1 }}
+          >
+            <div className="wrap nh-hero-signals-inner">
+              <span className="nh-hero-signals-label">Signals we connect</span>
+              <Marquee duration={38} className="nh-hero-signals-marquee">
+                {SIGNALS.map((signal) => (
+                  <span key={signal} className="nh-hero-signal-chip">{signal}</span>
+                ))}
+              </Marquee>
+            </div>
+          </motion.div>
         </section>
 
         <section className="nh-proof" data-tone="light" aria-label="Verified results">

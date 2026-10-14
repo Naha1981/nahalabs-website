@@ -9,6 +9,7 @@ import { EntityProfilePage } from './components/EntityProfilePage';
 import { PublicSystemsPage } from './components/PublicSystemsPage';
 import { PressPage } from './components/PressPage';
 import { scrollBehavior } from './lib/motion';
+import { initLenis } from './lib/lenis';
 import { RevenueDeskPage } from './components/RevenueDeskPage';
 import { SiteShell } from './components/SiteShell';
 import { AuditPage } from './components/AuditPage';
@@ -44,6 +45,10 @@ export default function App() {
   const generatedInsightSlug = normalizedPath.startsWith('/insights/') && !isInsightArticlePage
     ? normalizedPath.replace('/insights/', '')
     : null;
+
+  useEffect(() => {
+    initLenis();
+  }, []);
 
   useEffect(() => {
     const handleHashChange = () => {
