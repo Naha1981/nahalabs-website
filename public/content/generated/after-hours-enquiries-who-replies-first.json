@@ -1,0 +1,28 @@
+{
+  "slug": "after-hours-enquiries-who-replies-first",
+  "title": "A potential customer messaged at 9pm. By morning they had booked someone else.",
+  "description": "Many enquiries arrive after hours. If nobody answers, the job often goes to the business that replies first. Here is what that looks like and what a simple fix involves.",
+  "category": "Operations",
+  "product": "RevenueDesk",
+  "datePublished": "2026-10-15",
+  "cta": "Want to see a small example for your business? Message us or visit nahalabs.co.za.",
+  "mediaAltText": "Illustrative scene of a small business owner checking a phone in the evening. Not a customer testimonial.",
+  "blocks": [
+    { "type": "p", "text": "It is 9pm. A potential customer finds your business, sends a message and asks about a booking or a quote. You are off for the day, so nobody answers." },
+    { "type": "p", "text": "By the time you reply the next morning, that person has usually messaged two or three other businesses. Whoever answered first is the one they are talking to now." },
+    { "type": "h2", "text": "Why the first reply matters" },
+    { "type": "p", "text": "A person who sends an enquiry wants an answer while the question is fresh. They are not waiting for the best business. They are waiting for the first one that responds. A fast, clear reply says you are open for work and you take them seriously." },
+    { "type": "h2", "text": "Where the work slips away" },
+    { "type": "ul", "items": [
+      "Enquiries that come in after you close for the day or on weekends.",
+      "Messages that arrive while you are with another customer or on a job.",
+      "Enquiries that sit in a phone or inbox until someone has time to type the same answers again."
+    ] },
+    { "type": "h2", "text": "A simple fix" },
+    { "type": "p", "text": "The fix is not complicated. When a potential customer sends an enquiry, they get a reply straight away: a short answer to the common questions, a way to book or leave details, and a clear next step. You then pick up the conversation with someone who is already interested." },
+    { "type": "p", "text": "At NahaLabs we build simple systems that handle this first reply, so enquiries do not wait until morning." },
+    { "type": "h2", "text": "A quick check you can do today" },
+    { "type": "p", "text": "Send a test enquiry to your own business after hours, as a customer would. Note how long the reply takes and what it says. If the answer is 'the next day', you have found where work is slipping away." }
+  ],
+  "sources": []
+}
