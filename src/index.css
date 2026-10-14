@@ -828,3 +828,17 @@ html, body {
 [data-site-theme="light"] [class*="hover:text-[#C8AE82]"]:hover { color:#355241 !important; }
 
 /* END PUBLIC LIGHT THEME COMPATIBILITY */
+
+/* Lenis smooth scrolling */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
