@@ -1,22 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" fill="none">
-  <defs>
-    <linearGradient id="monoGold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#E5D1B0" />
-      <stop offset="50%" stop-color="#C8AE82" />
-      <stop offset="100%" stop-color="#9C8358" />
-    </linearGradient>
-  </defs>
-  <g transform="translate(22, 16)">
-    <!-- Top left square dot -->
-    <rect x="0" y="2" width="8" height="8" fill="url(#monoGold)" />
-    <!-- Left vertical bar -->
-    <rect x="0" y="16" width="7" height="52" fill="url(#monoGold)" />
-    <!-- Diagonals -->
-    <path d="M 2 22 L 48 68 L 40 68 L 2 30 Z" fill="url(#monoGold)" />
-    <path d="M 8 16 L 54 62 L 54 54 L 16 16 Z" fill="url(#monoGold)" />
-    <!-- Right vertical bar -->
-    <rect x="47" y="16" width="7" height="52" fill="url(#monoGold)" />
-    <!-- Bottom right square dot -->
-    <rect x="47" y="74" width="8" height="8" fill="url(#monoGold)" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="26" fill="#F2F4F7"/>
+  <g transform="translate(6, 6) scale(0.9)">
+    <path d="M108.9 77.8 A52 52 0 1 1 86 15" stroke="#355241" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="108.9" cy="77.8" r="8" fill="#C8AE82"/>
+    <path d="M42 86 V36" stroke="#355241" stroke-width="11" stroke-linecap="round"/>
+    <path d="M42 36 L78 86" stroke="#C8AE82" stroke-width="11" stroke-linecap="round"/>
+    <path d="M78 86 V36" stroke="#355241" stroke-width="11" stroke-linecap="round"/>
   </g>
 </svg>
