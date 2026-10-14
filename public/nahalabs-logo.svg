@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="100%" height="100%" fill="none">
-  <g transform="translate(15, 20)" fill="#355241">
-    <rect x="0" y="2" width="7" height="7" />
-    <rect x="0" y="16" width="6.5" height="54" />
-    <path d="M 1.5 22 L 48 70 L 40 70 L 1.5 31 Z" />
-    <path d="M 8 16 L 54.5 64 L 54.5 55 L 16 16 Z" />
-    <rect x="48" y="16" width="6.5" height="54" />
-    <rect x="48" y="77" width="7" height="7" />
+  <g transform="translate(4, 14) scale(0.78)">
+    <path d="M108.9 77.8 A52 52 0 1 1 86 15" stroke="#355241" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="108.9" cy="77.8" r="7" fill="#C8AE82"/>
+    <path d="M42 86 V36" stroke="#355241" stroke-width="10" stroke-linecap="round"/>
+    <path d="M42 36 L78 86" stroke="#C8AE82" stroke-width="10" stroke-linecap="round"/>
+    <path d="M78 86 V36" stroke="#355241" stroke-width="10" stroke-linecap="round"/>
   </g>
   <line x1="100" y1="26" x2="100" y2="94" stroke="#D1D5DB" stroke-width="1.2" />
   <text x="126" y="70" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="34" font-weight="700" letter-spacing="10" fill="#0B0E10">NAHALABS</text>
