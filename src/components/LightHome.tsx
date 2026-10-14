@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { ArrowRight, ArrowUpRight, Check, ChevronDown } from 'lucide-react';
 import { ASSETS } from '../data/assets';
 import { ContactSection } from './ContactSection';
+import { IntelligenceCore } from './IntelligenceCore';
+import { Reveal } from './Reveal';
 import { Button, ButtonLink } from './Button';
 
 interface HomeProps {
@@ -83,72 +85,6 @@ const FAQS = [
   },
 ];
 
-function HeroFilm() {
-  const [scene, setScene] = useState(0);
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const apply = () => setReducedMotion(query.matches);
-    apply();
-    query.addEventListener?.('change', apply);
-
-    return () => query.removeEventListener?.('change', apply);
-  }, []);
-
-  useEffect(() => {
-    if (reducedMotion) return;
-    const timer = window.setInterval(() => setScene((value) => (value + 1) % SYSTEMS.length), 3600);
-    return () => window.clearInterval(timer);
-  }, [reducedMotion]);
-
-  const current = SYSTEMS[scene];
-
-  return (
-    <figure className="nahafilm">
-      <div className="nahafilm-media" aria-hidden="true">
-        {SYSTEMS.map((item, index) => (
-          <img
-            key={item.name}
-            src={item.image}
-            alt=""
-            className={`nahafilm-scene ${index === scene ? 'is-active' : ''}`}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            decoding="async"
-          />
-        ))}
-        <div className="nahafilm-wash" />
-        <div className="nahafilm-grid" />
-        <svg className="nahafilm-signal" viewBox="0 0 1000 560" preserveAspectRatio="none">
-          <path d="M75 465 C280 350 330 230 515 280 C680 325 710 165 920 85" />
-          <path d="M120 105 C285 145 340 315 510 300 C700 280 735 400 900 420" />
-          <circle cx="515" cy="280" r="7" />
-        </svg>
-      </div>
-
-      <div className="nahafilm-topline">
-        <span>NAHALABS / REAL-WORLD INTELLIGENCE</span>
-
-      </div>
-
-      <div className="nahafilm-bottom">
-        <div>
-          <p className="nahafilm-eyebrow">{current.eyebrow}</p>
-          <p className="nahafilm-title">{current.name}</p>
-        </div>
-        <div className="nahafilm-flow">
-          <span>{current.flow}</span>
-          <span className="nahafilm-arrow">↗</span>
-        </div>
-      </div>
-
-      <figcaption className="sr-only">
-        NahaLabs intelligence systems across hospitality, freight, infrastructure and commercial revenue operations.
-      </figcaption>
-    </figure>
-  );
-}
-
 function SignalField() {
   return (
     <div className="signal-field" aria-label="Signals flowing into the NahaLabs intelligence layer">
@@ -177,37 +113,59 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
     <div className="light-home">
       <main>
         <section id="hero" className="nh-section nh-hero" data-tone="light">
-          <div className="wrap">
-            <div className="nh-hero-copy">
+          <div className="wrap nh-hero-grid">
+            <Reveal className="nh-hero-copy">
               <p className="nh-eyebrow">Intelligent Systems Engineering · Johannesburg · South Africa</p>
               <h1 className="nh-display">
-                Turn friction
-                <span> into intelligence.</span>
+                Intelligence,
+                <span> engineered.</span>
               </h1>
               <p className="nh-hero-lede">
-                NahaLabs finds the operational friction quietly costing your business money, then engineers the intelligent layer that turns scattered signals into decisions and action.
+                NahaLabs builds intelligent systems for businesses where generic software stops being enough.
               </p>
               <div className="nh-hero-actions">
-                <ButtonLink href="#systems" variant="secondary">
-                  Explore the Systems <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
-                </ButtonLink>
                 <Button type="button" onClick={onStartConversation}>
                   Start a Conversation
                 </Button>
+                <ButtonLink href="#systems" variant="secondary">
+                  Explore the Systems <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
+                </ButtonLink>
               </div>
-            </div>
+            </Reveal>
 
-            <HeroFilm />
+            <Reveal className="nh-hero-visual">
+              <IntelligenceCore />
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="nh-proof" data-tone="light" aria-label="Verified results">
+          <div className="wrap nh-proof-grid">
+            <Reveal className="nh-proof-item">
+              <p className="nh-proof-number">20</p>
+              <p className="nh-proof-label">Verified buyer &amp; seller leads surfaced in a single day for a Gauteng motor dealership.</p>
+              <p className="nh-proof-source">DealerSignal lead-intelligence report · 10 Oct 2026</p>
+            </Reveal>
+            <Reveal className="nh-proof-item nh-reveal-delay-1">
+              <p className="nh-proof-number">4</p>
+              <p className="nh-proof-label">Intelligent systems designed around real South African operations.</p>
+              <p className="nh-proof-source">Flavourly · CargoIQ · RailWatch · RevenueDesk</p>
+            </Reveal>
+            <Reveal className="nh-proof-item nh-reveal-delay-2">
+              <p className="nh-proof-number">45<span className="nh-proof-unit">min</span></p>
+              <p className="nh-proof-label">Diagnosis before any build is scoped, priced or sold.</p>
+              <p className="nh-proof-source">Every engagement starts with evidence</p>
+            </Reveal>
           </div>
         </section>
 
         <section id="solutions" className="nh-section nh-section-tight nh-intro" data-tone="light">
           <div className="wrap nh-two-col">
-            <div>
+            <Reveal>
               <p className="nh-kicker">THE PROBLEM</p>
               <h2 className="nh-heading-xl">Your business already has the signals.</h2>
-            </div>
-            <div className="nh-intro-copy">
+            </Reveal>
+            <Reveal className="nh-intro-copy nh-reveal-delay-1">
               <p>
                 Most companies already pay for the software, data and people required to run the operation. What is missing is often the intelligence between those systems.
               </p>
@@ -217,7 +175,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
               <a href="#approach" className="nh-text-link">
                 See how we work <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
               </a>
-            </div>
+            </Reveal>
           </div>
         </section>
 
@@ -235,7 +193,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
 
             <div className="nh-system-list">
               {SYSTEMS.map((system, index) => (
-                <article key={system.name} className="nh-system-row">
+                <Reveal key={system.name} as="article" className="nh-system-row">
                   <div className={`nh-system-image ${index % 2 ? 'nh-system-image-right' : ''}`}>
                     <img src={system.image} alt={system.alt} loading="lazy" decoding="async" width="1280" height="960" />
                     <div className="nh-image-label">{system.flow}</div>
@@ -252,7 +210,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                       {system.name === 'RevenueDesk' ? 'Explore RevenueDesk' : 'Discuss this system'} <ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" />
                     </a>
                   </div>
-                </article>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -260,26 +218,28 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
 
         <section className="nh-section nh-signals" data-tone="light">
           <div className="wrap">
-            <div className="nh-signals-head">
+            <Reveal className="nh-signals-head">
               <p className="nh-kicker">THE INTELLIGENCE LAYER</p>
               <h2 className="nh-heading-xl">Connect what you already have. Act on what it tells you.</h2>
               <p>
                 NahaLabs does not need to replace every system in your business. We connect the signals, apply the rules and models that matter, then return something operational: a decision, probability, alert or action.
               </p>
-            </div>
-            <SignalField />
+            </Reveal>
+            <Reveal className="nh-reveal-delay-1">
+              <SignalField />
+            </Reveal>
           </div>
         </section>
 
         <section id="approach" className="nh-section nh-approach" data-tone="light">
           <div className="wrap">
-            <div className="nh-section-head">
+            <Reveal className="nh-section-head">
               <div>
                 <p className="nh-kicker">THE METHOD</p>
                 <h2 className="nh-heading-xl">Find it. Build it. Put it to work.</h2>
               </div>
               <p>Fixed scope. Real data. A hard line between what sounds impressive and what improves the operation.</p>
-            </div>
+            </Reveal>
 
             <div className="nh-method-grid">
               {[
@@ -287,31 +247,31 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 ['02', 'Prototype', 'What should the system do?', 'Build against real or sampled data and test the core decisions, integrations and operator experience.'],
                 ['03', 'Production', 'How does it run?', 'Deploy the hardened system with monitoring, documentation, handover and a defined support window.'],
               ].map(([number, title, question, body]) => (
-                <article key={number} className="nh-method-item">
+                <Reveal key={number} as="article" className={`nh-method-item${number === '02' ? ' nh-reveal-delay-1' : number === '03' ? ' nh-reveal-delay-2' : ''}`}>
                   <div className="nh-method-number">{number}</div>
                   <h3>{title}</h3>
                   <p className="nh-method-question">{question}</p>
                   <p>{body}</p>
-                </article>
+                </Reveal>
               ))}
             </div>
 
-            <div className="nh-method-foot">
+            <Reveal className="nh-method-foot">
               <p>We do not sell AI for its own sake. When intelligence is not the right tool, we tell you.</p>
               <Button type="button" onClick={onStartConversation}>
                 Book a 45-Minute Diagnosis <ArrowRight size={16} />
               </Button>
-            </div>
+            </Reveal>
           </div>
         </section>
 
         <section id="about" className="nh-section nh-about" data-tone="light">
           <div className="wrap nh-about-grid">
-            <div>
+            <Reveal>
               <p className="nh-kicker">NAHALABS</p>
               <h2 className="nh-heading-xl">Founder-led engineering from Johannesburg.</h2>
-            </div>
-            <div className="nh-about-copy">
+            </Reveal>
+            <Reveal className="nh-about-copy nh-reveal-delay-1">
               <p className="nh-about-lede">Too sophisticated for off-the-shelf software. Too specific for generic consulting. Too valuable to keep doing manually.</p>
               <p>NahaLabs is built around one simple idea: the best intelligent systems are not the ones with the most features. They are the ones attached to a real commercial bottleneck, integrated into the operation and measured against an outcome.</p>
               <div className="nh-founder">
@@ -324,17 +284,17 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
               <a href="https://za.linkedin.com/in/thabiso-naha-4985316b" target="_blank" rel="noreferrer" className="nh-text-link">
                 Meet the founder <ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" />
               </a>
-            </div>
+            </Reveal>
           </div>
         </section>
 
         <section className="nh-section nh-faq" data-tone="light">
           <div className="wrap nh-faq-grid">
-            <div>
+            <Reveal>
               <p className="nh-kicker">QUESTIONS</p>
               <h2 className="nh-heading-xl">The useful questions first.</h2>
-            </div>
-            <div className="nh-faq-list">
+            </Reveal>
+            <Reveal className="nh-faq-list nh-reveal-delay-1">
               {FAQS.map((item) => (
                 <details key={item.q}>
                   <summary>
@@ -344,18 +304,18 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                   <p>{item.a}</p>
                 </details>
               ))}
-            </div>
+            </Reveal>
           </div>
         </section>
 
         <section className="nh-cta" data-tone="light">
-          <div className="wrap">
+          <Reveal className="wrap">
             <p className="nh-kicker">THE NEXT MOVE</p>
             <h2>There is probably something in your business that should work better.</h2>
             <Button type="button" onClick={onStartConversation}>
               Let&rsquo;s Find It <ArrowRight size={20} strokeWidth={1.5} />
             </Button>
-          </div>
+          </Reveal>
         </section>
 
         <div className="nh-contact-shell">
