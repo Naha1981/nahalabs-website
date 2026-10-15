@@ -75,7 +75,7 @@ async function main() {
       ...[
         ['/cargo-iq', 'CargoIQ', 'Freight evidence and dispute intelligence.'],
         ['/nutri-tummies', 'Nutri Tummies', 'Family meal planning for South African kitchens.'],
-        ['/gtg', 'GTG Field Evidence', 'Field evidence demonstration using fictional data.'],
+        ['/gtg', 'FieldProof', 'FieldProof: field evidence capture and verification, demonstrated on fictional data.'],
         ['/railwatch', 'RailWatch', 'Rail operations prototype and demonstration.'],
         ['/netpulse', 'NetPulse', 'Free demo of ISP customer, IP and equipment records, using synthetic data only.'],
       ].map(([path, name, description]) => ({ path, title: `${name} | NahaLabs`, description })),
