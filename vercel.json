@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/li",
+      "destination": "/api/li"
+    },
+    {
       "source": "/audit",
       "destination": "/index.html"
     },
@@ -65,11 +69,6 @@
     {
       "source": "/np",
       "destination": "/netpulse?utm_source=outreach&utm_medium=direct&utm_campaign=netpulse",
-      "permanent": false
-    },
-    {
-      "source": "/li",
-      "destination": "/?utm_source=linkedin&utm_medium=profile&utm_campaign=about",
       "permanent": false
     },
     {
