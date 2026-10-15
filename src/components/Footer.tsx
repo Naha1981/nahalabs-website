@@ -243,6 +243,7 @@ export const Footer: React.FC<FooterProps> = ({
                 ['/gtg', 'FieldProof'],
                 ['/railwatch', 'RailWatch'],
                 ['/netpulse', 'NetPulse (demo)'],
+                ['/smile-bridge', 'Smile Bridge (pilot)'],
               ].map(([href, label]) => (
                 <li key={href}>
                   <a href={href} className={`${linkCls} block`}>{label}</a>

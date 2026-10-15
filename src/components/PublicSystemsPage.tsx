@@ -3,7 +3,7 @@ import { ButtonLink } from './Button';
 
 const SITE = 'https://www.nahalabs.co.za';
 
-const systems = [
+const systems: { name: string; description: string; url: string; status: string; cta?: string }[] = [
   {
     name: 'RevenueDesk',
     description: 'Front desk and revenue recovery system for service businesses: capture enquiries, understand intent, act on follow-up and surface revenue leakage.',
@@ -27,6 +27,14 @@ const systems = [
     description: 'Freight and logistics intelligence project focused on operational evidence, commercial rules, financial exposure and recovery workflows.',
     url: 'https://github.com/Naha1981/cargoiq-qwen',
     status: 'Public engineering repository',
+  },
+  {
+    name: 'Smile Bridge',
+    description:
+      'Patient conversion system for dental practices: video greeting, one approved question at a time, emergency escalation first, and routing to booking, WhatsApp or callback. Currently in pilot.',
+    url: '/smile-bridge',
+    status: 'In pilot',
+    cta: 'View product page',
   },
   {
     name: 'NahaLLM',
@@ -66,8 +74,13 @@ export const PublicSystemsPage: React.FC = () => (
               </div>
               <h2 className="mt-4 text-2xl font-semibold">{system.name}</h2>
               <p className="mt-3 text-sm leading-7 text-[#A5A29B]">{system.description}</p>
-              <ButtonLink href={system.url} target="_blank" rel="noreferrer" variant="secondary" className="mt-6">
-                Open GitHub Repository
+              <ButtonLink
+                href={system.url}
+                {...(system.url.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
+                variant="secondary"
+                className="mt-6"
+              >
+                {system.cta ?? 'Open GitHub Repository'}
               </ButtonLink>
             </article>
           ))}

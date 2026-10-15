@@ -67,6 +67,7 @@ async function main() {
     const systems = await vite.ssrLoadModule('/src/components/PublicSystemsPage.tsx');
     const revenueDesk = await vite.ssrLoadModule('/src/components/RevenueDeskPage.tsx');
     const bankbook = await vite.ssrLoadModule('/src/components/BankbookPage.tsx');
+    const smileBridge = await vite.ssrLoadModule('/src/components/SmileBridgePage.tsx');
     const press = await vite.ssrLoadModule('/src/components/PressPage.tsx');
 
     const areaType = { johannesburg: 'City', soweto: 'City', gauteng: 'AdministrativeArea', lesotho: 'Country' };
@@ -126,6 +127,13 @@ async function main() {
         description:
           "RevenueDesk is NahaLabs' front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.",
         jsonLd: [jsonLdTag(revenueDesk.getRevenueDeskJsonLd(), 'nahalabs-revenuedesk-jsonld')],
+      },
+      {
+        path: '/smile-bridge',
+        title: 'Smile Bridge | Patient Conversion for Dental Practices | NahaLabs',
+        description:
+          "Smile Bridge is NahaLabs' patient conversion system for dental practices: a short practice video, one question at a time, and every visitor routed to booking, WhatsApp or a callback - with emergencies escalated first.",
+        jsonLd: [jsonLdTag(smileBridge.getSmileBridgeJsonLd(), 'nahalabs-smilebridge-jsonld')],
       },
       {
         path: '/bankbook',
