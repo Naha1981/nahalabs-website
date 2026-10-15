@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 interface RevealProps {
   as?: 'div' | 'li' | 'article' | 'section';
   className?: string;
+  id?: string;
   children: React.ReactNode;
 }
 
@@ -11,7 +12,7 @@ interface RevealProps {
  * `html.js-reveal` is set (main.tsx) so content is always readable without JS
  * or when the visitor prefers reduced motion.
  */
-export const Reveal: React.FC<RevealProps> = ({ as = 'div', className = '', children }) => {
+export const Reveal: React.FC<RevealProps> = ({ as = 'div', className = '', id, children }) => {
   const ref = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -38,7 +39,7 @@ export const Reveal: React.FC<RevealProps> = ({ as = 'div', className = '', chil
 
   const Tag = as as React.ElementType;
   return (
-    <Tag ref={ref} className={`reveal ${className}`.trim()}>
+    <Tag ref={ref} id={id} className={`reveal ${className}`.trim()}>
       {children}
     </Tag>
   );

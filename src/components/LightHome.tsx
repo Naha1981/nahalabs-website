@@ -402,7 +402,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
 
             <div className="nh-system-list">
               {SYSTEMS.map((system, index) => (
-                <Reveal key={system.name} as="article" className="nh-system-row">
+                <Reveal key={system.name} as="article" id={system.name.toLowerCase()} className="nh-system-row">
                   <div className={`nh-system-image ${index % 2 ? 'nh-system-image-right' : ''}`}>
                     <img src={system.image} alt={system.alt} loading="lazy" decoding="async" width="1280" height="960" />
                     <div className="nh-image-label">{system.flow}</div>
