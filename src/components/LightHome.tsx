@@ -17,7 +17,12 @@ interface HomeProps {
   onStartConversation: () => void;
 }
 
-const SYSTEMS = [
+interface SystemItem {
+  eyebrow: string; name: string; flow: string; title: string; description: string;
+  image: string; alt: string; href?: string; cta?: string;
+}
+
+const SYSTEMS: SystemItem[] = [
   {
     eyebrow: 'Hospitality',
     name: 'Flavourly',
@@ -57,6 +62,30 @@ const SYSTEMS = [
       'An AI front desk for service businesses that captures enquiries, understands intent, handles follow-up and surfaces the revenue leaks that sit between first contact and booked work.',
     image: ASSETS.enterpriseJhb,
     alt: 'Johannesburg commercial environment representing RevenueDesk',
+  },
+  {
+    eyebrow: 'Telecoms',
+    name: 'NetPulse',
+    flow: 'Spreadsheet → Check → Fix',
+    title: 'Turn an ISP spreadsheet into a network health report.',
+    description:
+      'Upload the Excel or CSV you already run on. NetPulse proposes the field mapping, finds duplicate IPs and expired equipment warranties, and tells you what to fix first. Demo uses synthetic data only.',
+    image: ASSETS.netpulse,
+    href: '/netpulse',
+    cta: 'Open the NetPulse demo',
+    alt: 'Network technicians on a Johannesburg rooftop radio mast representing NetPulse',
+  },
+  {
+    eyebrow: 'Field evidence',
+    name: 'FieldProof',
+    flow: 'Notes → Checks → Report',
+    title: 'Catch bad field data before it reaches the report.',
+    description:
+      'Paste technician pump-test notes. FieldProof runs the evidence checks, flags unit mix-ups, duplicates and missing datums, and holds the report behind a human review gate. Demo uses made-up data.',
+    image: ASSETS.fieldproof,
+    href: '/gtg',
+    cta: 'Open the FieldProof demo',
+    alt: 'Field technician capturing evidence at a telecoms cabinet representing FieldProof',
   },
 ];
 
@@ -386,8 +415,8 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                     <h3>{system.name}</h3>
                     <p className="nh-system-title">{system.title}</p>
                     <p className="nh-system-description">{system.description}</p>
-                    <a href={system.name === 'RevenueDesk' ? '/revenuedesk' : '#contact'} className="nh-text-link">
-                      {system.name === 'RevenueDesk' ? 'Explore RevenueDesk' : 'Discuss this system'} <ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" />
+                    <a href={system.href ?? (system.name === 'RevenueDesk' ? '/revenuedesk' : '#contact')} className="nh-text-link">
+                      {system.cta ?? (system.name === 'RevenueDesk' ? 'Explore RevenueDesk' : 'Discuss this system')} <ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" />
                     </a>
                   </div>
                 </Reveal>
