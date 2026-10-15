@@ -1503,7 +1503,7 @@ body {
 /* Code-drawn animated visuals for showcase entries without a photograph */
 .nh-viz { position: absolute; inset: 0; background: linear-gradient(160deg, #0d1f1c, #0a1416); overflow: hidden; }
 .nh-viz svg { width: 100%; height: 100%; display: block; }
-.nh-viz-label { position: absolute; left: 14px; bottom: 14px; padding: 6px 9px; font-size: 10.5px; letter-spacing: .08em; color: #cfe5da; background: rgba(0,0,0,.45); border: 1px solid rgba(207,229,218,.25); border-radius: 3px; }
+.nh-viz-label { position: absolute; left: 14px; top: 14px; padding: 6px 9px; font-size: 10.5px; letter-spacing: .08em; color: #cfe5da; background: rgba(0,0,0,.45); border: 1px solid rgba(207,229,218,.25); border-radius: 3px; }
 .nh-viz-row, .nh-viz-page { fill: rgba(255,255,255,.05); stroke: rgba(207,229,218,.18); }
 .nh-viz-row.is-flag { fill: rgba(245,158,11,.18); stroke: rgba(245,158,11,.7); animation: nh-viz-blink 2.4s ease-in-out infinite; }
 .nh-viz-bar { fill: rgba(207,229,218,.35); }

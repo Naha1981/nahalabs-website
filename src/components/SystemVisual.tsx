@@ -51,7 +51,7 @@ export const SystemVisual: React.FC<{ kind: VisualKind; label?: string }> = ({ k
             </g>
           ))}
           <text x="600" y="182" textAnchor="end" className="nh-viz-tag">DUPLICATE IP</text>
-          <text x="380" y="418" textAnchor="middle" className="nh-viz-tag">EXPIRED WARRANTY</text>
+          <text x="398" y="392" className="nh-viz-tag">EXPIRED WARRANTY</text>
         </svg>
         <span className="nh-viz-label">{label ?? 'ILLUSTRATIVE · SYNTHETIC DATA'}</span>
       </div>
