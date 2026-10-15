@@ -3,8 +3,8 @@ import { ArrowRight, ArrowUpRight, Check } from 'lucide-react';
 
 const SITE = 'https://www.nahalabs.co.za';
 const PATH = '/revenuedesk';
-const TITLE = 'RevenueDesk | AI Front Desk & Revenue Recovery | NahaLabs';
-const DESCRIPTION = "RevenueDesk is NahaLabs' AI front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.";
+const TITLE = 'RevenueDesk | Front Desk & Revenue Recovery | NahaLabs';
+const DESCRIPTION = "RevenueDesk is NahaLabs' front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.";
 
 const verticals = [
   'Plumbing',
@@ -56,7 +56,7 @@ const getJsonLd = () => ({
       '@type': 'Service',
       '@id': SITE + PATH + '#service',
       name: 'RevenueDesk',
-      serviceType: 'AI front desk and revenue recovery',
+      serviceType: 'Front desk and revenue recovery',
       provider: { '@id': SITE + '/#organization' },
       areaServed: { '@type': 'Country', name: 'South Africa' },
       url: SITE + PATH,
@@ -116,7 +116,7 @@ export const RevenueDeskPage: React.FC = () => {
                 Your front desk should do more than receive enquiries.
               </h1>
               <p className="mt-7 max-w-3xl text-lead text-fg-2">
-                RevenueDesk is an AI front desk for service businesses. It captures every enquiry, understands what the customer needs, handles the next action and shows where revenue is leaking between first contact and booked work.
+                RevenueDesk is a front desk for service businesses. It captures every enquiry, understands what the customer needs, handles the next action and shows where revenue is leaking between first contact and booked work.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="/audit" className="btn btn-primary">
@@ -187,7 +187,7 @@ export const RevenueDeskPage: React.FC = () => {
         <section className="section border-b border-line">
           <div className="wrap grid lg:grid-cols-[0.8fr_1.2fr] gap-12">
             <div>
-              <p className="text-caption font-mono uppercase tracking-[0.2em] text-accent">AI FRONT DESK</p>
+              <p className="text-caption font-mono uppercase tracking-[0.2em] text-accent">FRONT DESK</p>
               <h2 className="mt-3 text-h1 font-semibold">Built around the way service businesses actually sell.</h2>
             </div>
             <div>
