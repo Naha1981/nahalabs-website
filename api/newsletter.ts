@@ -1,4 +1,5 @@
 import { put } from "@vercel/blob";
+import { sendLeadAlert } from "./_alert";
 
 /**
  * Stores newsletter signups so they are no longer lost.
@@ -57,6 +58,12 @@ export default async function handler(req: any, res: any) {
       token,
       contentType: "application/json",
     });
+
+    await sendLeadAlert(
+      `New newsletter signup: ${email}`,
+      [`New newsletter signup`, ``, `Email: ${email}`, `Source: footer form`, `At: ${record.subscribedAt}`].join("\n"),
+      email,
+    );
 
     return res.status(200).json({ ok: true });
   } catch (error) {
