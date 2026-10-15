@@ -1,5 +1,5 @@
 import { put } from "@vercel/blob";
-import { sendLeadAlert } from "./_alert";
+import { sendLeadAlert } from "./_alert.js";
 
 /**
  * Stores newsletter signups so they are no longer lost.
