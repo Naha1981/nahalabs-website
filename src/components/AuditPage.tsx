@@ -225,7 +225,7 @@ export const AuditPage: React.FC = () => {
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <ButtonLink
-                    href={`https://wa.me/?text=${encodeURIComponent(`Hi NahaLabs — I ran the free Revenue Leak Audit for ${domain}. Score: ${audit.score}/100. I want help fixing the highest-impact leaks.`)}`}
+                    href={`https://wa.me/27672347593?text=${encodeURIComponent(`Hi NahaLabs — I ran the free Revenue Leak Audit for ${domain}. Score: ${audit.score}/100. I want help fixing the highest-impact leaks.`)}`}
                     target="_blank"
                     rel="noreferrer"
                   >

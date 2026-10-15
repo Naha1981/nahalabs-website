@@ -104,7 +104,7 @@ export const InsightArticlePage: React.FC = () => {
       <main>
         <article className="max-w-5xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
           <div className="max-w-3xl">
-            <div className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#C8AE82] mb-5">
+            <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82] mb-5">
               NahaLabs Intelligence · Intelligent Revenue & Operations
             </div>
             <h1 className="text-4xl sm:text-6xl leading-[1.02] font-semibold tracking-[-0.035em] text-[#F3F0EA]">
@@ -113,7 +113,7 @@ export const InsightArticlePage: React.FC = () => {
             <p className="mt-6 text-lg sm:text-xl leading-relaxed text-[#A5A29B]">
               How fragmented operational data turns delays into financial exposure.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-3 text-[10px] font-mono uppercase tracking-[0.16em] text-[#666]">
+            <div className="mt-8 flex flex-wrap items-center gap-3 text-[11px] font-mono uppercase tracking-[0.16em] text-[#666]">
               <span>21 September 2026</span>
               <span>·</span>
               <span>South Africa</span>
@@ -124,7 +124,7 @@ export const InsightArticlePage: React.FC = () => {
             {HERO_IMAGE_URL && (
               <figure className="mt-10 overflow-hidden rounded-2xl border border-[#24262a] bg-[#0d0e10]">
                 <img src={HERO_IMAGE_URL} alt={MEDIA_ALT_TEXT} className="w-full h-auto" loading="eager" />
-                <figcaption className="px-4 py-3 text-[10px] font-mono uppercase tracking-[0.14em] text-[#666]">
+                <figcaption className="px-4 py-3 text-[11px] font-mono uppercase tracking-[0.14em] text-[#666]">
                   NahaLabs Intelligence · Evidence → Operations → Financial consequence
                 </figcaption>
               </figure>
@@ -371,7 +371,7 @@ export const InsightArticlePage: React.FC = () => {
                     ['Production', 'Integrate the evidence layer with existing operational systems. Create controlled workflows for investigation, review, approval and recovery, with provenance and human oversight.'],
                   ].map(([title, body]) => (
                     <div key={title} className="rounded-xl border border-[#24262a] bg-[#0d0e10] p-5 sm:p-6">
-                      <div className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">{title}</div>
+                      <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">{title}</div>
                       <div className="mt-3 text-sm leading-7 text-[#A5A29B]">{body}</div>
                     </div>
                   ))}
@@ -394,7 +394,7 @@ export const InsightArticlePage: React.FC = () => {
             </section>
 
             <section className="rounded-2xl border border-[#2a2c30] bg-[#0c0d0e] p-7 sm:p-10">
-              <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#C8AE82]">NahaLabs Perspective</div>
+              <div className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#C8AE82]">NahaLabs Perspective</div>
               <h2 className="mt-4 text-2xl sm:text-3xl font-semibold text-[#F3F0EA]">Diagnosis → Prototype → Production</h2>
               <div className="mt-5 space-y-4 text-[#A5A29B]">
                 <p>NahaLabs builds intelligent systems for business problems that are too specific for generic software and too important to manage manually.</p>
@@ -461,7 +461,7 @@ export const InsightIndexPage: React.FC = () => {
   <div data-site-theme="light" data-tone="light" className="min-h-screen bg-canvas text-fg">
     <main className="max-w-6xl mx-auto px-5 sm:px-8 py-20 sm:py-28">
       <div className="max-w-3xl">
-        <div className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">
+        <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">
           NahaLabs Intelligence
         </div>
         <h1 className="mt-5 text-4xl sm:text-6xl leading-[1.02] font-semibold tracking-[-0.035em]">
@@ -482,7 +482,7 @@ export const InsightIndexPage: React.FC = () => {
           href={ARTICLE_PATH}
           className="group rounded-2xl border border-[#24262a] bg-[#0c0d0e] p-7 sm:p-9 hover:border-[#C8AE82]/60 transition-all"
         >
-          <div className="flex flex-wrap items-center gap-3 text-[10px] font-mono uppercase tracking-[0.16em] text-[#666]">
+          <div className="flex flex-wrap items-center gap-3 text-[11px] font-mono uppercase tracking-[0.16em] text-[#666]">
             <span className="text-[#C8AE82]">Intelligent Revenue & Operations</span>
             <span>·</span>
             <span>21 September 2026</span>
@@ -493,7 +493,7 @@ export const InsightIndexPage: React.FC = () => {
           <p className="mt-4 max-w-2xl text-sm sm:text-base leading-7 text-[#A5A29B]">
             South African businesses have more operational data than ever, but fragmented systems make delays, costs and disputes difficult to reconstruct.
           </p>
-          <div className="mt-6 inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.16em] text-[#C8AE82]">
+          <div className="mt-6 inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.16em] text-[#C8AE82]">
             Read intelligence
             <ArrowUpRight className="w-3.5 h-3.5" />
           </div>

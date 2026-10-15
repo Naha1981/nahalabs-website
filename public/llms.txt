@@ -31,7 +31,7 @@ Key facts:
 
 - Lead Machine: https://github.com/Naha1981/lead-machine-women
 - Demand Radar: https://github.com/Naha1981/demand-rader
-- Flavourly: https://github.com/Naha1981/gemino-flavourly
+- Flavourly: https://github.com/Naha1981/flavourly-connect-final
 - CargoIQ: https://github.com/Naha1981/cargoiq-qwen
 - NahaLLM: https://github.com/Naha1981/NahaLLM
 - JEV UltraFast Browser: https://github.com/Naha1981/jev-ultrafast-browser-naha
