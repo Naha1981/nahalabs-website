@@ -3,10 +3,10 @@ import { ArrowRight, ArrowUpRight, Check, X } from 'lucide-react';
 
 const SITE = 'https://www.nahalabs.co.za';
 const PATH = '/bankbook';
-const DEMO_URL = 'https://bankbook-tax.lovable.app/';
+const APP_URL = 'https://bankbook-tax.lovable.app/';
 const TITLE = 'BankBook | Invoice & Bank Review Desk | NahaLabs';
 const DESCRIPTION =
-  'BankBook is a NahaLabs review desk for bookkeepers: check extracted invoice data against its source, reconcile it with a bank statement, and record a human decision for every match. Live demo on fictional South African data.';
+  'BankBook is a NahaLabs review desk for bookkeepers: check extracted invoice data against its source, reconcile it with a bank statement, and record a human decision for every match. Sample data. Fictional records.';
 
 const steps = [
   ['01', 'Import', 'Sample invoices and a bank CSV load with every row keeping its file and line reference.'],
@@ -27,7 +27,7 @@ const itIsNot = [
   'Not production accounting, and no tax filing.',
   'No live bank feeds - statements come in as CSV.',
   'No messages sent to your clients or suppliers.',
-  'The demo runs on fictional South African invoices and bank lines only.',
+  'It runs on fictional South African invoices and bank lines only.',
 ];
 
 const getJsonLd = () => ({
@@ -109,15 +109,15 @@ export const BankbookPage: React.FC = () => {
                 BankBook is a review desk for bookkeepers. It checks extracted invoice data against its source, reconciles it with a bank statement, and records a human decision for every match.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                  Open the live demo <ArrowRight className="w-4 h-4" />
+                <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                  Open BankBook <ArrowRight className="w-4 h-4" />
                 </a>
                 <a href="/#contact" className="btn btn-outline">
                   Talk to NahaLabs
                 </a>
               </div>
               <p className="mt-4 text-small text-fg-3">
-                The demo runs on fictional South African businesses only. No real client data.
+                Sample data. Fictional records. No real client data.
               </p>
             </div>
 
@@ -182,22 +182,22 @@ export const BankbookPage: React.FC = () => {
         <section className="section border-b border-line">
           <div className="wrap">
             <div className="max-w-3xl">
-              <p className="text-caption font-mono uppercase tracking-[0.2em] text-accent">LIVE DEMO</p>
+              <p className="text-caption font-mono uppercase tracking-[0.2em] text-accent">LIVE SYSTEM</p>
               <h2 className="mt-3 text-h1 font-semibold">Work a real review queue, start to finish.</h2>
               <p className="mt-5 text-body text-fg-2">
-                Import the sample pack, review flagged fields, approve or reject the proposed matches and export the audit trail. Everything in the demo is fictional.
+                Import the sample pack, review flagged fields, approve or reject the proposed matches and export the audit trail. Everything in it is fictional.
               </p>
             </div>
             <div className="mt-10 overflow-hidden rounded-sm ring-1 ring-line bg-white">
               <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-2 text-small">
-                <span className="text-fg-2">BankBook demo desk</span>
-                <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="link shrink-0">
+                <span className="text-fg-2">BankBook review desk</span>
+                <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="link shrink-0">
                   Open directly <ArrowUpRight className="inline w-3.5 h-3.5" />
                 </a>
               </div>
               <iframe
-                src={DEMO_URL}
-                title="BankBook live demo - invoice and bank review desk"
+                src={APP_URL}
+                title="BankBook - invoice and bank review desk"
                 className="h-[70dvh] w-full border-0"
                 loading="lazy"
                 allow="fullscreen; clipboard-write"
@@ -213,7 +213,7 @@ export const BankbookPage: React.FC = () => {
                 <p className="text-caption font-mono uppercase tracking-[0.2em] text-accent">BUILT TO ORDER</p>
                 <h2 className="mt-3 text-h1 font-semibold">Your review workflow, your rules.</h2>
                 <p className="mt-4 max-w-2xl text-body text-fg-2">
-                  BankBook is a working NahaLabs system, tailored per practice: your invoice formats, your matching rules, your export shape. The demo shows the pattern - the build fits the practice.
+                  BankBook is a working NahaLabs system, tailored per practice: your invoice formats, your matching rules, your export shape. The live desk shows the pattern - the build fits the practice.
                 </p>
               </div>
               <a href="/#contact" className="btn btn-primary shrink-0">

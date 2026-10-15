@@ -76,8 +76,8 @@ async function main() {
       ...[
         ['/cargo-iq', 'CargoIQ', 'Freight evidence and dispute intelligence.'],
         ['/nutri-tummies', 'Nutri Tummies', 'Family meal planning for South African kitchens.'],
-        ['/fieldproof', 'FieldProof', 'FieldProof: field evidence capture and verification, demonstrated on fictional data.'],
-        ['/railwatch', 'RailWatch', 'Rail operations prototype and demonstration.'],
+        ['/fieldproof', 'FieldProof', 'FieldProof: field evidence capture and verification on fictional data.'],
+        ['/railwatch', 'RailWatch', 'Rail operations monitoring on fictional data.'],
         ['/netpulse', 'NetPulse', 'ISP customer, IP and equipment record checks. Sample data. Fictional records.'],
       ].map(([path, name, description]) => ({ path, title: `${name} | NahaLabs`, description })),
       // Home keeps the head already authored in index.html.
@@ -139,7 +139,7 @@ async function main() {
         path: '/bankbook',
         title: 'BankBook | Invoice & Bank Review Desk | NahaLabs',
         description:
-          'BankBook is a NahaLabs review desk for bookkeepers: check extracted invoice data against its source, reconcile it with a bank statement, and record a human decision for every match. Live demo on fictional South African data.',
+          'BankBook is a NahaLabs review desk for bookkeepers: check extracted invoice data against its source, reconcile it with a bank statement, and record a human decision for every match. Sample data. Fictional records.',
         jsonLd: [jsonLdTag(bankbook.getBankbookJsonLd(), 'nahalabs-bankbook-jsonld')],
       },
       {

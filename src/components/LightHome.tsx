@@ -32,7 +32,7 @@ const SYSTEMS: SystemItem[] = [
       'A Restaurant Revenue OS designed to help restaurants increase profits, recover lost revenue and grow repeat sales through intelligent insights, marketing, loyalty programmes and personalised engagement. WhatsApp is one part of the system.',
     image: ASSETS.enterpriseJhb,
     alt: 'Johannesburg business district, the market for Flavourly',
-    href: '/systems#flavourly', cta: 'Explore the Flavourly prototype',
+    href: '/systems#flavourly', cta: 'Explore Flavourly',
   },
   {
     eyebrow: 'Freight',
@@ -40,10 +40,10 @@ const SYSTEMS: SystemItem[] = [
     flow: 'Quote → Risk → Recovery',
     title: 'Reconstruct the delay. Inspect the evidence.',
     description:
-      'A freight evidence demo for reviewing shipment events, delay timelines and the records behind detention and demurrage disputes. A review tool, not a promise of recovery.',
+      'Freight evidence review: shipment events, delay timelines and the records behind detention and demurrage disputes. A review tool, not a promise of recovery.',
     image: ASSETS.cargoiq,
     alt: 'Freight terminal representing CargoIQ',
-    href: '/cargo-iq', cta: 'Open the CargoIQ demo',
+    href: '/cargo-iq', cta: 'Open CargoIQ',
   },
   {
     eyebrow: 'Infrastructure',
@@ -51,10 +51,10 @@ const SYSTEMS: SystemItem[] = [
     flow: 'Signal → Detection → Dispatch',
     title: 'Bring corridor incidents into one review.',
     description:
-      'An infrastructure monitoring demo for inspecting corridor signals, incident records and response workflows. Demo scenarios are not a live railway deployment.',
+      'Infrastructure monitoring: corridor signals, incident records and response workflows in one review. Sample data. Fictional records.',
     image: ASSETS.railwatch,
     alt: 'Rail infrastructure representing RailWatch',
-    href: '/railwatch', cta: 'Open the RailWatch demo',
+    href: '/railwatch', cta: 'Open RailWatch',
   },
   {
     eyebrow: 'Revenue',
@@ -62,7 +62,7 @@ const SYSTEMS: SystemItem[] = [
     flow: 'Capture → Understand → Recover',
     title: 'Recover revenue hidden inside missed enquiries.',
     description:
-      'A front-desk prototype for service businesses, designed to organise enquiries, prepare follow-up and make missed opportunities visible. Start with a workflow diagnosis.',
+      'A front-desk system for service businesses, designed to organise enquiries, prepare follow-up and make missed opportunities visible. Start with a workflow diagnosis.',
     image: ASSETS.enterpriseJhb,
     alt: 'Johannesburg commercial environment representing RevenueDesk',
   },
@@ -72,10 +72,10 @@ const SYSTEMS: SystemItem[] = [
     flow: 'Spreadsheet → Check → Fix',
     title: 'Turn an ISP spreadsheet into a network health report.',
     description:
-      'Upload the Excel or CSV you already run on. NetPulse proposes the field mapping, finds duplicate IPs and expired equipment warranties, and tells you what to fix first. Demo uses synthetic data only.',
+      'Upload the Excel or CSV you already run on. NetPulse proposes the field mapping, finds duplicate IPs and expired equipment warranties, and tells you what to fix first. Sample data. Fictional records.',
     image: ASSETS.netpulse,
     href: '/netpulse',
-    cta: 'Open the NetPulse demo',
+    cta: 'Open NetPulse',
     alt: 'Network technicians on a Johannesburg rooftop radio mast representing NetPulse',
   },
   {
@@ -84,10 +84,10 @@ const SYSTEMS: SystemItem[] = [
     flow: 'Notes → Checks → Report',
     title: 'Catch bad field data before it reaches the report.',
     description:
-      'Paste technician pump-test notes. FieldProof runs the evidence checks, flags unit mix-ups, duplicates and missing datums, and holds the report behind a human review gate. Demo uses made-up data.',
+      'Paste technician pump-test notes. FieldProof runs the evidence checks, flags unit mix-ups, duplicates and missing datums, and holds the report behind a human review gate. Sample data. Fictional records.',
     image: ASSETS.fieldproof,
     href: '/fieldproof',
-    cta: 'Open the FieldProof demo',
+    cta: 'Open FieldProof',
     alt: 'Field technician capturing evidence at a telecoms cabinet representing FieldProof',
   },
 ];
@@ -308,7 +308,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 </Magnetic>
                 <Magnetic>
                   <ButtonLink href="#systems" variant="secondary">
-                    Explore the Demos <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
+                    Explore the systems <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
                   </ButtonLink>
                 </Magnetic>
               </motion.div>
@@ -319,7 +319,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 transition={{ duration: reduced ? 0 : 0.9, delay: reduced ? 0 : 0.94 }}
               >
                 <span className="nh-hero-meta-label">See the work</span>
-                <span className="nh-hero-meta-items">Working demos &middot; Early-stage products &middot; Founder-led engineering</span>
+                <span className="nh-hero-meta-items">Working systems &middot; Early-stage products &middot; Founder-led engineering</span>
               </motion.div>
             </motion.div>
 
@@ -355,7 +355,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
           <div className="wrap nh-proof-grid">
             {[
               ['Start with the bottleneck.', 'We map one workflow and agree what an improvement would mean before proposing a build.'],
-              ['Inspect the work.', 'Our demos make the approach visible. They are engineering work, not paid-client case studies.'],
+              ['Inspect the work.', 'The working systems make the approach visible. They are engineering work, not paid-client case studies.'],
               ['Decide on evidence.', 'Scope, integrations, data access and success measures are agreed before a production commitment.'],
             ].map(([title, body]) => (
               <Reveal key={title} className="nh-proof-item">
@@ -394,7 +394,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 <h2 className="nh-heading-xl">Real workflows. Work you can inspect.</h2>
               </div>
               <p>
-                Explore our demos and prototypes. Each starts with a specific business problem; production scope is agreed separately.
+                Explore the working systems. Each starts with a specific business problem; production scope is agreed separately.
               </p>
             </div>
 
@@ -407,7 +407,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                   </div>
                   <div className="nh-system-copy">
                     <div className="nh-system-meta">
-                      <span>{system.eyebrow} / {system.name === 'Flavourly' || system.name === 'RevenueDesk' ? 'Prototype' : 'Demo'}</span>
+                      <span>{system.eyebrow}</span>
                       <span>0{index + 1}</span>
                     </div>
                     <h3>{system.name}</h3>
