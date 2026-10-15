@@ -59,7 +59,7 @@ const SYSTEMS: SystemItem[] = [
     flow: 'Capture → Understand → Recover',
     title: 'Recover revenue hidden inside missed enquiries.',
     description:
-      'An AI front desk for service businesses that captures enquiries, understands intent, handles follow-up and surfaces the revenue leaks that sit between first contact and booked work.',
+      'A front desk for service businesses that captures enquiries, understands intent, handles follow-up and surfaces the revenue leaks that sit between first contact and booked work.',
     image: ASSETS.enterpriseJhb,
     alt: 'Johannesburg commercial environment representing RevenueDesk',
   },

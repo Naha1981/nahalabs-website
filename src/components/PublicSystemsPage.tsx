@@ -6,7 +6,7 @@ const SITE = 'https://www.nahalabs.co.za';
 const systems = [
   {
     name: 'RevenueDesk',
-    description: 'AI front desk and revenue recovery system for service businesses: capture enquiries, understand intent, act on follow-up and surface revenue leakage.',
+    description: 'Front desk and revenue recovery system for service businesses: capture enquiries, understand intent, act on follow-up and surface revenue leakage.',
     url: 'https://github.com/Naha1981/leadmachine-leadcatch-lovable',
     status: 'Public engineering repository',
   },

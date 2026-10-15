@@ -17,8 +17,8 @@ const PAGES = [
 ];
 
 const PRODUCTS = [
-  { href: '/revenuedesk', label: 'RevenueDesk', note: 'AI front desk for service businesses' },
-  { href: '/#systems', label: 'Flavourly', note: 'AI-powered Restaurant Revenue OS' },
+  { href: '/revenuedesk', label: 'RevenueDesk', note: 'Front desk for service businesses' },
+  { href: '/#systems', label: 'Flavourly', note: 'Restaurant Revenue OS' },
   { href: '/cargo-iq', label: 'CargoIQ', note: 'Freight evidence and dispute intelligence' },
   { href: '/gtg', label: 'FieldProof', note: 'Field evidence for telecom crews' },
   { href: '/netpulse', label: 'NetPulse', note: 'Network inventory clean-up (demo)' },

@@ -227,7 +227,7 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
     },
     footer: {
       dispatchesBadge: 'NAHALABS ARCHITECTURAL DISPATCHES',
-      dispatchesTitle: 'Executive Briefings on Bespoke Systems & Operational AI',
+      dispatchesTitle: 'Executive Briefings on Intelligent Systems & Operations',
       dispatchesDesc: 'Curated case analyses, Southern African industrial benchmarks, and deployment breakdowns from our Johannesburg engineering desk. Strictly zero marketing noise.',
       subscribeBtn: 'Subscribe',
       placeholder: 'corporate.email@company.co.za',
@@ -371,7 +371,7 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
     },
     footer: {
       dispatchesBadge: 'LITLHAHISO TSA BOTEKGENIKI TSA NAHALABS',
-      dispatchesTitle: 'Litlaleho tsa Baetapele Mabapi le Litsamaiso le AI ea Khoebo',
+      dispatchesTitle: 'Litlaleho tsa Baetapele Mabapi le Litsamaiso tsa Khoebo',
       dispatchesDesc: 'Tlhahlobo ea lithuto tsa linyeoe, litekanyetso tsa liindasteri tsa Afrika e ka Boroa, le litlaleho tse tsoang deskeng ea rona ea Johannesburg. Ha ho na lipapatso tse sa hlokahaleng.',
       subscribeBtn: 'Ingolise',
       placeholder: 'lebitso@khoebo.co.za',

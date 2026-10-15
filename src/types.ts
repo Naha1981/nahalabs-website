@@ -138,6 +138,6 @@ export interface ContactFormData {
     | 'Compliance & Regulatory'
     | 'Data & Analytics'
     | 'Automation & Digital Workers'
-    | 'AI / Intelligent Systems'
+    | 'Intelligent Systems'
     | 'Other Enterprise Problem';
 }
