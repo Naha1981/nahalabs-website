@@ -29,7 +29,7 @@ CARDS = [
     ('bankbook', 'NAHALABS BANKBOOK', 'Invoice & bank review desk.', 'Check extracted invoice data against its source. Live demo on fictional data.'),
     ('cargo-iq', 'NAHALABS CARGOIQ', 'Freight evidence and dispute intelligence.', 'Operational evidence, commercial rules, financial exposure.'),
     ('nutri-tummies', 'NAHALABS NUTRI TUMMIES', 'Family meal planning for SA kitchens.', 'A NahaLabs product demonstration.'),
-    ('gtg', 'NAHALABS FIELD EVIDENCE', 'GTG Field Evidence', 'Field evidence demonstration using fictional data.'),
+    ('gtg', 'NAHALABS FIELDPROOF', 'Field evidence, captured and verified.', 'FieldProof demonstration using fictional data.'),
     ('railwatch', 'NAHALABS RAILWATCH', 'Rail operations prototype.', 'A NahaLabs prototype and demonstration.'),
     ('revenue-leak-audit-johannesburg', 'FREE AUDIT - JOHANNESBURG', 'Where is your website losing enquiries?', 'Free website revenue leak audit from NahaLabs.'),
 ]

@@ -4,7 +4,7 @@ export const LIVE_APPS: { path: string; name: string; url: string; notice?: stri
   { path: '/railwatch', name: 'RailWatch', url: 'https://naha-railwatch.onrender.com/' },
   { path: '/cargo-iq', name: 'CargoIQ', url: 'https://cargo-iq.lovable.app/' },
   { path: '/nutri-tummies', name: 'Nutri Tummies', url: 'https://nutri-tummies.lovable.app/' },
-  { path: '/gtg', name: 'GTG Field Evidence', url: 'https://gtg-field-evidence-demo.onrender.com/' },
+  { path: '/gtg', name: 'FieldProof', url: 'https://gtg-field-evidence-demo.onrender.com/' },
   {
     path: '/netpulse',
     name: 'NetPulse',

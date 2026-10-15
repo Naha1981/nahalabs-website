@@ -236,9 +236,11 @@ export const Footer: React.FC<FooterProps> = ({
             <h2 className="text-sm font-semibold text-fg">Apps</h2>
             <ul className="mt-4 flex flex-col">
               {[
+                ['/revenuedesk', 'RevenueDesk'],
+                ['/bankbook', 'BankBook'],
                 ['/cargo-iq', 'CargoIQ'],
                 ['/nutri-tummies', 'Nutri Tummies'],
-                ['/gtg', 'GTG Field Evidence'],
+                ['/gtg', 'FieldProof'],
                 ['/railwatch', 'RailWatch'],
                 ['/netpulse', 'NetPulse (demo)'],
               ].map(([href, label]) => (
