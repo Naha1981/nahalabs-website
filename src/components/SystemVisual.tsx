@@ -28,7 +28,7 @@ export const SystemVisual: React.FC<{ kind: VisualKind; label?: string }> = ({ k
   if (kind === 'netpulse') {
     return (
       <div className="nh-viz nh-viz-netpulse" role="img" aria-label="Animated diagram: a spreadsheet is scanned and a network map highlights duplicate IP addresses. Illustrative, synthetic data.">
-        <svg viewBox="0 0 640 450" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <svg viewBox="0 0 640 450" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
           <g className="nh-viz-sheet">
             {Array.from({ length: 9 }).map((_, r) => (
               <g key={r}>
@@ -50,8 +50,8 @@ export const SystemVisual: React.FC<{ kind: VisualKind; label?: string }> = ({ k
               {n.flag && <circle cx={n.x} cy={n.y} r="9" className="nh-viz-alert" />}
             </g>
           ))}
-          <text x="560" y="180" className="nh-viz-tag">DUPLICATE IP</text>
-          <text x="380" y="412" className="nh-viz-tag">EXPIRED WARRANTY</text>
+          <text x="600" y="182" textAnchor="end" className="nh-viz-tag">DUPLICATE IP</text>
+          <text x="380" y="418" textAnchor="middle" className="nh-viz-tag">EXPIRED WARRANTY</text>
         </svg>
         <span className="nh-viz-label">{label ?? 'ILLUSTRATIVE · SYNTHETIC DATA'}</span>
       </div>
@@ -60,7 +60,7 @@ export const SystemVisual: React.FC<{ kind: VisualKind; label?: string }> = ({ k
 
   return (
     <div className="nh-viz nh-viz-fieldproof" role="img" aria-label="Animated diagram: technician notes are scanned and each evidence check is ticked or flagged for review. Illustrative.">
-      <svg viewBox="0 0 640 450" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <svg viewBox="0 0 640 450" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <rect x="40" y="40" width="210" height="370" rx="6" className="nh-viz-page" />
         {Array.from({ length: 12 }).map((_, i) => (
           <rect key={i} x="58" y={70 + i * 27} width={150 - ((i * 37) % 60)} height="8" rx="2" className="nh-viz-bar" />
