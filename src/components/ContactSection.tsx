@@ -1031,7 +1031,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem,
                             <option value="Compliance & Regulatory">Compliance, Regulatory & POPIA Governance</option>
                             <option value="Data & Analytics">Real-Time Data Pipelines & Analytics</option>
                             <option value="Automation & Digital Workers">Autonomous Digital Workers</option>
-                            <option value="AI / Intelligent Systems">Bespoke Intelligent Agent Architecture</option>
+                            <option value="Intelligent Systems">Bespoke Intelligent Agent Architecture</option>
                             <option value="Other Enterprise Problem">Other Complex Engineering Challenge</option>
                           </select>
                         </div>

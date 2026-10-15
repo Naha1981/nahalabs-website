@@ -122,9 +122,9 @@ async function main() {
       },
       {
         path: '/revenuedesk',
-        title: 'RevenueDesk | AI Front Desk & Revenue Recovery | NahaLabs',
+        title: 'RevenueDesk | Front Desk & Revenue Recovery | NahaLabs',
         description:
-          "RevenueDesk is NahaLabs' AI front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.",
+          "RevenueDesk is NahaLabs' front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.",
         jsonLd: [jsonLdTag(revenueDesk.getRevenueDeskJsonLd(), 'nahalabs-revenuedesk-jsonld')],
       },
       {

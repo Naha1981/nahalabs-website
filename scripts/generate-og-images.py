@@ -25,7 +25,7 @@ CARDS = [
     ('insights', 'INSIGHTS', 'Evidence-led field notes.', 'Where fragmented information becomes expensive.'),
     ('contact', 'CONTACT', 'Tell us what should work better.', 'Start an enquiry with NahaLabs.'),
     ('audit', 'FREE WEBSITE REVENUE LEAK AUDIT', 'Where is your website losing enquiries?', 'A free diagnosis of conversion, trust, mobile and technical leaks.'),
-    ('revenuedesk', 'NAHALABS REVENUEDESK', 'AI front desk & revenue recovery.', 'Capture every enquiry. Recover the revenue between contact and booked work.'),
+    ('revenuedesk', 'NAHALABS REVENUEDESK', 'Front desk & revenue recovery.', 'Capture every enquiry. Recover the revenue between contact and booked work.'),
     ('bankbook', 'NAHALABS BANKBOOK', 'Invoice & bank review desk.', 'Check extracted invoice data against its source. Live demo on fictional data.'),
     ('cargo-iq', 'NAHALABS CARGOIQ', 'Freight evidence and dispute intelligence.', 'Operational evidence, commercial rules, financial exposure.'),
     ('nutri-tummies', 'NAHALABS NUTRI TUMMIES', 'Family meal planning for SA kitchens.', 'A NahaLabs product demonstration.'),
