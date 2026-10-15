@@ -240,7 +240,7 @@ export const Footer: React.FC<FooterProps> = ({
                 ['/bankbook', 'BankBook'],
                 ['/cargo-iq', 'CargoIQ'],
                 ['/nutri-tummies', 'Nutri Tummies'],
-                ['/gtg', 'FieldProof'],
+                ['/fieldproof', 'FieldProof'],
                 ['/railwatch', 'RailWatch'],
                 ['/netpulse', 'NetPulse (demo)'],
                 ['/smile-bridge', 'Smile Bridge (pilot)'],

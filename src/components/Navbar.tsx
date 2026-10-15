@@ -20,7 +20,7 @@ const PRODUCTS = [
   { href: '/revenuedesk', label: 'RevenueDesk', note: 'Front desk for service businesses' },
   { href: '/#flavourly', label: 'Flavourly', note: 'Restaurant Revenue OS' },
   { href: '/cargo-iq', label: 'CargoIQ', note: 'Freight evidence and dispute intelligence' },
-  { href: '/gtg', label: 'FieldProof', note: 'Field evidence for telecom crews' },
+  { href: '/fieldproof', label: 'FieldProof', note: 'Field evidence for telecom crews' },
   { href: '/netpulse', label: 'NetPulse', note: 'Network inventory clean-up (demo)' },
   { href: '/smile-bridge', label: 'Smile Bridge', note: 'Patient conversion for dental practices' },
   { href: '/railwatch', label: 'RailWatch', note: 'Rail freight visibility' },

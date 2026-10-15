@@ -53,7 +53,7 @@
       "destination": "/index.html"
     },
     {
-      "source": "/gtg",
+      "source": "/fieldproof",
       "destination": "/index.html"
     },
     {
@@ -74,6 +74,11 @@
     {
       "source": "/services/lead-follow-up-automation-johannesburg",
       "destination": "/revenuedesk",
+      "permanent": true
+    },
+    {
+      "source": "/gtg",
+      "destination": "/fieldproof",
       "permanent": true
     }
   ],
