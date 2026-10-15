@@ -73,6 +73,7 @@ async function main() {
         ['/nutri-tummies', 'Nutri Tummies', 'Family meal planning for South African kitchens.'],
         ['/gtg', 'GTG Field Evidence', 'Field evidence demonstration using fictional data.'],
         ['/railwatch', 'RailWatch', 'Rail operations prototype and demonstration.'],
+        ['/netpulse', 'NetPulse', 'Free demo of ISP customer, IP and equipment records, using synthetic data only.'],
       ].map(([path, name, description]) => ({ path, title: `${name} | NahaLabs`, description })),
       // Home keeps the head already authored in index.html.
       { path: '/', keepHead: true },
