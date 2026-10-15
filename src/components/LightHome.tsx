@@ -86,7 +86,7 @@ const SYSTEMS: SystemItem[] = [
     description:
       'Paste technician pump-test notes. FieldProof runs the evidence checks, flags unit mix-ups, duplicates and missing datums, and holds the report behind a human review gate. Demo uses made-up data.',
     image: ASSETS.fieldproof,
-    href: '/gtg',
+    href: '/fieldproof',
     cta: 'Open the FieldProof demo',
     alt: 'Field technician capturing evidence at a telecoms cabinet representing FieldProof',
   },
@@ -400,7 +400,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
 
             <div className="nh-system-list">
               {SYSTEMS.map((system, index) => (
-                <Reveal key={system.name} as="article" className="nh-system-row">
+                <Reveal key={system.name} as="article" id={system.name.toLowerCase()} className="nh-system-row">
                   <div className={`nh-system-image ${index % 2 ? 'nh-system-image-right' : ''}`}>
                     <img src={system.image} alt={system.alt} loading="lazy" decoding="async" width="1280" height="960" />
                     <div className="nh-image-label">{system.flow}</div>

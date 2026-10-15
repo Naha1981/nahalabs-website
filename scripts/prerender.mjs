@@ -67,6 +67,7 @@ async function main() {
     const systems = await vite.ssrLoadModule('/src/components/PublicSystemsPage.tsx');
     const revenueDesk = await vite.ssrLoadModule('/src/components/RevenueDeskPage.tsx');
     const bankbook = await vite.ssrLoadModule('/src/components/BankbookPage.tsx');
+    const smileBridge = await vite.ssrLoadModule('/src/components/SmileBridgePage.tsx');
     const press = await vite.ssrLoadModule('/src/components/PressPage.tsx');
 
     const areaType = { johannesburg: 'City', soweto: 'City', gauteng: 'AdministrativeArea', lesotho: 'Country' };
@@ -75,7 +76,7 @@ async function main() {
       ...[
         ['/cargo-iq', 'CargoIQ', 'Freight evidence and dispute intelligence.'],
         ['/nutri-tummies', 'Nutri Tummies', 'Family meal planning for South African kitchens.'],
-        ['/gtg', 'FieldProof', 'FieldProof: field evidence capture and verification, demonstrated on fictional data.'],
+        ['/fieldproof', 'FieldProof', 'FieldProof: field evidence capture and verification, demonstrated on fictional data.'],
         ['/railwatch', 'RailWatch', 'Rail operations prototype and demonstration.'],
         ['/netpulse', 'NetPulse', 'Free demo of ISP customer, IP and equipment records, using synthetic data only.'],
       ].map(([path, name, description]) => ({ path, title: `${name} | NahaLabs`, description })),
@@ -126,6 +127,13 @@ async function main() {
         description:
           "RevenueDesk is NahaLabs' front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.",
         jsonLd: [jsonLdTag(revenueDesk.getRevenueDeskJsonLd(), 'nahalabs-revenuedesk-jsonld')],
+      },
+      {
+        path: '/smile-bridge',
+        title: 'Smile Bridge | Patient Conversion for Dental Practices | NahaLabs',
+        description:
+          "Smile Bridge is NahaLabs' patient conversion system for dental practices: a short practice video, one question at a time, and every visitor routed to booking, WhatsApp or a callback - with emergencies escalated first.",
+        jsonLd: [jsonLdTag(smileBridge.getSmileBridgeJsonLd(), 'nahalabs-smilebridge-jsonld')],
       },
       {
         path: '/bankbook',
@@ -212,7 +220,7 @@ async function main() {
           '/press': 'src/components/PressPage.tsx', '/revenuedesk': 'src/components/RevenueDeskPage.tsx',
           '/bankbook': 'src/components/BankbookPage.tsx',
           '/cargo-iq': 'src/components/AppFramePage.tsx', '/nutri-tummies': 'src/components/AppFramePage.tsx',
-          '/gtg': 'src/components/AppFramePage.tsx', '/railwatch': 'src/components/AppFramePage.tsx',
+          '/fieldproof': 'src/components/AppFramePage.tsx', '/railwatch': 'src/components/AppFramePage.tsx',
           '/audit': 'src/components/AuditPage.tsx', '/contact': 'src/components/ContactSection.tsx',
           '/insights': 'src/components/InsightArticlePage.tsx' })[route.path] ?? (route.path.startsWith('/services/') ? 'services/revenue-leak-audit-johannesburg.html' : 'src/components/InsightArticlePage.tsx');
     const lastmodFor = (route) => {

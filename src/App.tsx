@@ -12,6 +12,7 @@ import { scrollBehavior } from './lib/motion';
 import { initLenis } from './lib/lenis';
 import { RevenueDeskPage } from './components/RevenueDeskPage';
 import { BankbookPage } from './components/BankbookPage';
+import { SmileBridgePage } from './components/SmileBridgePage';
 import { SiteShell } from './components/SiteShell';
 import { AuditPage } from './components/AuditPage';
 import { ContactSection } from './components/ContactSection';
@@ -39,6 +40,7 @@ export default function App() {
   const isPressPage = normalizedPath === '/press';
   const isRevenueDeskPage = normalizedPath === '/revenuedesk';
   const isBankbookPage = normalizedPath === '/bankbook';
+  const isSmileBridgePage = normalizedPath === '/smile-bridge';
   const isInsightsIndexPage = normalizedPath === '/insights';
   const isInsightArticlePage = normalizedPath === '/insights/hidden-cost-fragmented-operational-information';
   const isAuditPage = normalizedPath === '/audit';
@@ -144,6 +146,8 @@ export default function App() {
     pageContent = <RevenueDeskPage />;
   } else if (isBankbookPage) {
     pageContent = <BankbookPage />;
+  } else if (isSmileBridgePage) {
+    pageContent = <SmileBridgePage />;
   } else if (isInsightsIndexPage) {
     pageContent = <InsightIndexPage />;
   } else if (isInsightArticlePage) {

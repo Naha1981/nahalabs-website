@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/li",
+      "destination": "/api/li"
+    },
+    {
       "source": "/audit",
       "destination": "/index.html"
     },
@@ -49,7 +53,7 @@
       "destination": "/index.html"
     },
     {
-      "source": "/gtg",
+      "source": "/fieldproof",
       "destination": "/index.html"
     },
     {
@@ -68,13 +72,13 @@
       "permanent": false
     },
     {
-      "source": "/li",
-      "destination": "/?utm_source=linkedin&utm_medium=profile&utm_campaign=about",
-      "permanent": false
-    },
-    {
       "source": "/services/lead-follow-up-automation-johannesburg",
       "destination": "/revenuedesk",
+      "permanent": true
+    },
+    {
+      "source": "/gtg",
+      "destination": "/fieldproof",
       "permanent": true
     }
   ],
