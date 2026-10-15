@@ -55,9 +55,18 @@
     {
       "source": "/railwatch",
       "destination": "/index.html"
+    },
+    {
+      "source": "/netpulse",
+      "destination": "/index.html"
     }
   ],
   "redirects": [
+    {
+      "source": "/np",
+      "destination": "/netpulse?utm_source=outreach&utm_medium=direct&utm_campaign=netpulse",
+      "permanent": false
+    },
     {
       "source": "/li",
       "destination": "/?utm_source=linkedin&utm_medium=profile&utm_campaign=about",

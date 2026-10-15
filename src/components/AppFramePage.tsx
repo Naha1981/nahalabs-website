@@ -1,10 +1,17 @@
 import React, { useEffect } from 'react';
 
-export const LIVE_APPS = [
+export const LIVE_APPS: { path: string; name: string; url: string; notice?: string }[] = [
   { path: '/railwatch', name: 'RailWatch', url: 'https://naha-railwatch.onrender.com/' },
   { path: '/cargo-iq', name: 'CargoIQ', url: 'https://cargo-iq.lovable.app/' },
   { path: '/nutri-tummies', name: 'Nutri Tummies', url: 'https://nutri-tummies.lovable.app/' },
   { path: '/gtg', name: 'GTG Field Evidence', url: 'https://gtg-field-evidence-demo.onrender.com/' },
+  {
+    path: '/netpulse',
+    name: 'NetPulse',
+    url: 'https://netpulse-demo.onrender.com/',
+    notice:
+      'Free demo with synthetic (fake) data only. Do not upload real customer data. The first load can take up to a minute while the free server wakes up.',
+  },
 ];
 
 type LiveApp = (typeof LIVE_APPS)[number];
@@ -22,6 +29,11 @@ export const AppFramePage: React.FC<{ app: LiveApp }> = ({ app }) => {
           Open directly
         </a>
       </div>
+      {app.notice && (
+        <p role="note" className="shrink-0 border-b border-[#dce2dc] bg-[#f4f7f4] px-4 py-2 text-xs text-[#33403a]">
+          {app.notice}
+        </p>
+      )}
       <iframe src={app.url} title={app.name} className="min-h-0 w-full flex-1 border-0" allow="fullscreen; clipboard-write" />
     </main>
   );
