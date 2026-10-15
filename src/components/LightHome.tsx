@@ -10,6 +10,7 @@ import { Marquee } from './magicui/marquee';
 import { TextAnimate } from './magicui/text-animate';
 import { BorderBeam } from './magicui/border-beam';
 import { Magnetic } from './magicui/magnetic';
+import { SystemVisual, type VisualKind } from './SystemVisual';
 
 const EASE_OUT: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -17,7 +18,12 @@ interface HomeProps {
   onStartConversation: () => void;
 }
 
-const SYSTEMS = [
+interface SystemItem {
+  eyebrow: string; name: string; flow: string; title: string; description: string;
+  image: string; alt: string; visual?: VisualKind; href?: string; cta?: string;
+}
+
+const SYSTEMS: SystemItem[] = [
   {
     eyebrow: 'Hospitality',
     name: 'Flavourly',
@@ -57,6 +63,32 @@ const SYSTEMS = [
       'An AI front desk for service businesses that captures enquiries, understands intent, handles follow-up and surfaces the revenue leaks that sit between first contact and booked work.',
     image: ASSETS.enterpriseJhb,
     alt: 'Johannesburg commercial environment representing RevenueDesk',
+  },
+  {
+    eyebrow: 'Telecoms',
+    name: 'NetPulse',
+    flow: 'Spreadsheet → Check → Fix',
+    title: 'Turn an ISP spreadsheet into a network health report.',
+    description:
+      'Upload the Excel or CSV you already run on. NetPulse proposes the field mapping, finds duplicate IPs and expired equipment warranties, and tells you what to fix first. Demo uses synthetic data only.',
+    image: '',
+    visual: 'netpulse' as VisualKind,
+    href: '/netpulse',
+    cta: 'Open the NetPulse demo',
+    alt: 'Animated NetPulse network health diagram',
+  },
+  {
+    eyebrow: 'Field evidence',
+    name: 'FieldProof',
+    flow: 'Notes → Checks → Report',
+    title: 'Catch bad field data before it reaches the report.',
+    description:
+      'Paste technician pump-test notes. FieldProof runs the evidence checks, flags unit mix-ups, duplicates and missing datums, and holds the report behind a human review gate. Demo uses made-up data.',
+    image: '',
+    visual: 'fieldproof' as VisualKind,
+    href: '/gtg',
+    cta: 'Open the FieldProof demo',
+    alt: 'Animated FieldProof evidence check diagram',
   },
 ];
 
@@ -114,7 +146,17 @@ function HeroFilm() {
         {reduced ? (
           <img src={SYSTEMS[0].image} alt="" className="nahafilm-scene is-active" loading="eager" decoding="async" />
         ) : (
-          SYSTEMS.map((item, index) => (
+          SYSTEMS.map((item, index) => item.visual ? (
+            <motion.div
+              key={item.name}
+              className="nahafilm-scene nh-viz-scene"
+              initial={false}
+              animate={{ opacity: index === scene ? 1 : 0, scale: index === scene ? 1.02 : 1.06 }}
+              transition={{ opacity: { duration: 1.05, ease: [0.4, 0, 0.2, 1] }, scale: { duration: 5.4, ease: 'linear' } }}
+            >
+              <SystemVisual kind={item.visual} label={' '} />
+            </motion.div>
+          ) : (
             <motion.img
               key={item.name}
               src={item.image}
@@ -375,7 +417,11 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
               {SYSTEMS.map((system, index) => (
                 <Reveal key={system.name} as="article" className="nh-system-row">
                   <div className={`nh-system-image ${index % 2 ? 'nh-system-image-right' : ''}`}>
-                    <img src={system.image} alt={system.alt} loading="lazy" decoding="async" width="1280" height="960" />
+                    {system.visual ? (
+                      <SystemVisual kind={system.visual} />
+                    ) : (
+                      <img src={system.image} alt={system.alt} loading="lazy" decoding="async" width="1280" height="960" />
+                    )}
                     <div className="nh-image-label">{system.flow}</div>
                   </div>
                   <div className="nh-system-copy">
@@ -386,8 +432,8 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                     <h3>{system.name}</h3>
                     <p className="nh-system-title">{system.title}</p>
                     <p className="nh-system-description">{system.description}</p>
-                    <a href={system.name === 'RevenueDesk' ? '/revenuedesk' : '#contact'} className="nh-text-link">
-                      {system.name === 'RevenueDesk' ? 'Explore RevenueDesk' : 'Discuss this system'} <ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" />
+                    <a href={system.href ?? (system.name === 'RevenueDesk' ? '/revenuedesk' : '#contact')} className="nh-text-link">
+                      {system.cta ?? (system.name === 'RevenueDesk' ? 'Explore RevenueDesk' : 'Discuss this system')} <ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" />
                     </a>
                   </div>
                 </Reveal>
