@@ -29,7 +29,7 @@ const SYSTEMS: SystemItem[] = [
     flow: 'Insight → Engagement → Repeat sales',
     title: 'A Restaurant Revenue OS for repeat business.',
     description:
-      'An AI-powered Restaurant Revenue OS designed to help restaurants increase profits, recover lost revenue and grow repeat sales through intelligent insights, marketing, loyalty programmes and personalised engagement. WhatsApp is one part of the system.',
+      'A Restaurant Revenue OS designed to help restaurants increase profits, recover lost revenue and grow repeat sales through intelligent insights, marketing, loyalty programmes and personalised engagement. WhatsApp is one part of the system.',
     image: ASSETS.enterpriseJhb,
     alt: 'Johannesburg business district, the market for Flavourly',
     href: '/systems#flavourly', cta: 'Explore the Flavourly prototype',
