@@ -22,6 +22,7 @@ const PRODUCTS = [
   { href: '/cargo-iq', label: 'CargoIQ', note: 'Freight evidence and dispute intelligence' },
   { href: '/gtg', label: 'FieldProof', note: 'Field evidence for telecom crews' },
   { href: '/netpulse', label: 'NetPulse', note: 'Network inventory clean-up (demo)' },
+  { href: '/smile-bridge', label: 'Smile Bridge', note: 'Patient conversion for dental practices' },
   { href: '/railwatch', label: 'RailWatch', note: 'Rail freight visibility' },
 ];
 
