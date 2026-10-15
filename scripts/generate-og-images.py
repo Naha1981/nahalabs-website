@@ -26,11 +26,11 @@ CARDS = [
     ('contact', 'CONTACT', 'Tell us what should work better.', 'Start an enquiry with NahaLabs.'),
     ('audit', 'FREE WEBSITE REVENUE LEAK AUDIT', 'Where is your website losing enquiries?', 'A free diagnosis of conversion, trust, mobile and technical leaks.'),
     ('revenuedesk', 'NAHALABS REVENUEDESK', 'Front desk & revenue recovery.', 'Capture every enquiry. Recover the revenue between contact and booked work.'),
-    ('bankbook', 'NAHALABS BANKBOOK', 'Invoice & bank review desk.', 'Check extracted invoice data against its source. Live demo on fictional data.'),
+    ('bankbook', 'NAHALABS BANKBOOK', 'Invoice & bank review desk.', 'Check extracted invoice data against its source. Sample data. Fictional records.'),
     ('cargo-iq', 'NAHALABS CARGOIQ', 'Freight evidence and dispute intelligence.', 'Operational evidence, commercial rules, financial exposure.'),
-    ('nutri-tummies', 'NAHALABS NUTRI TUMMIES', 'Family meal planning for SA kitchens.', 'A NahaLabs product demonstration.'),
-    ('fieldproof', 'NAHALABS FIELDPROOF', 'Field evidence, captured and verified.', 'FieldProof demonstration using fictional data.'),
-    ('railwatch', 'NAHALABS RAILWATCH', 'Rail operations prototype.', 'A NahaLabs prototype and demonstration.'),
+    ('nutri-tummies', 'NAHALABS NUTRI TUMMIES', 'Family meal planning for SA kitchens.', 'Family meal planning for South African kitchens.'),
+    ('fieldproof', 'NAHALABS FIELDPROOF', 'Field evidence, captured and verified.', 'Field evidence checks on fictional data.'),
+    ('railwatch', 'NAHALABS RAILWATCH', 'Rail operations monitoring.', 'Corridor monitoring on fictional data.'),
     ('revenue-leak-audit-johannesburg', 'FREE AUDIT - JOHANNESBURG', 'Where is your website losing enquiries?', 'Free website revenue leak audit from NahaLabs.'),
 ]
 

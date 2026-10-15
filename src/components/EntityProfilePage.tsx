@@ -79,7 +79,7 @@ export const EntityProfilePage: React.FC = () => (
           <div className="mt-8 grid md:grid-cols-3 gap-4">
             {[
               ['Source-backed', 'External facts are linked to the original public source.'],
-              ['Public engineering work', 'Open repositories and public demos are identified as engineering evidence, not customer case studies.'],
+              ['Public engineering work', 'Open repositories and public systems are identified as engineering evidence, not customer case studies.'],
               ['Proposal / assumption', 'Future ideas and target outcomes are labelled as such.'],
             ].map(([title, body]) => (
               <div key={title} className="rounded-lg border border-[#24262a] bg-[#101112] p-5">
@@ -99,7 +99,7 @@ export const EntityProfilePage: React.FC = () => (
             Diagnosis - Prototype - Production. The work starts with a business problem, not a request to add AI.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <ButtonLink href="/systems" variant="primary">Explore products and demos</ButtonLink>
+            <ButtonLink href="/systems" variant="primary">Explore products and systems</ButtonLink>
             <ButtonLink href="/contact" variant="secondary">Discuss your workflow</ButtonLink>
           </div>
         </div>
