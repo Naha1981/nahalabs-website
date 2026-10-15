@@ -242,7 +242,7 @@ export const Footer: React.FC<FooterProps> = ({
                 ['/nutri-tummies', 'Nutri Tummies'],
                 ['/fieldproof', 'FieldProof'],
                 ['/railwatch', 'RailWatch'],
-                ['/netpulse', 'NetPulse (demo)'],
+                ['/netpulse', 'NetPulse'],
                 ['/smile-bridge', 'Smile Bridge (pilot)'],
               ].map(([href, label]) => (
                 <li key={href}>

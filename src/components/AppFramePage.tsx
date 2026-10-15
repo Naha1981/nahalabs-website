@@ -10,7 +10,7 @@ export const LIVE_APPS: { path: string; name: string; url: string; notice?: stri
     name: 'NetPulse',
     url: 'https://netpulse-demo.onrender.com/',
     notice:
-      'Free demo with synthetic (fake) data only. Do not upload real customer data. The first load can take up to a minute while the free server wakes up.',
+      'Free to explore with sample data. Fictional records. Do not upload real customer data yet.',
   },
 ];
 
