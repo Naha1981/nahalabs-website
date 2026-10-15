@@ -8,7 +8,7 @@ export const LIVE_APPS: { path: string; name: string; url: string; notice?: stri
   {
     path: '/netpulse',
     name: 'NetPulse',
-    url: 'https://netpulse-demo.onrender.com/',
+    url: 'https://netpulse.onrender.com/',
     notice:
       'Free to explore with sample data. Fictional records. Do not upload real customer data yet.',
   },
