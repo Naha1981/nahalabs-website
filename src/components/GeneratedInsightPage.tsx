@@ -21,6 +21,13 @@ export type Bundle = {
   videoUrl?: string | null;
 };
 
+const SA_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const formatArticleDate = (iso: string): string => {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if (!match) return iso;
+  return `${Number(match[3])} ${SA_MONTHS[Number(match[2]) - 1]} ${match[1]}`;
+};
+
 export const GeneratedInsightPage: React.FC<{ slug: string; initialBundle?: Bundle | null }> = ({ slug, initialBundle }) => {
   const [bundle, setBundle] = useState<Bundle | null>(initialBundle ?? null);
   const [media, setMedia] = useState<{ heroImageUrl?: string | null; videoUrl?: string | null }>({});
@@ -74,13 +81,13 @@ export const GeneratedInsightPage: React.FC<{ slug: string; initialBundle?: Bund
     <div data-site-theme="light" data-tone="light" className="min-h-screen bg-[#F2F4F7] text-[#0B0E10]">
       <main className="max-w-5xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
         <div className="max-w-3xl">
-          <div className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#C8AE82] mb-5">
+          <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82] mb-5">
             NahaLabs Intelligence · {bundle.category}
           </div>
           <h1 className="text-4xl sm:text-6xl leading-[1.02] font-semibold tracking-[-0.035em]">{bundle.title}</h1>
           <p className="mt-6 text-lg sm:text-xl leading-relaxed text-[#5c655e]">{bundle.description}</p>
-          <div className="mt-8 flex flex-wrap gap-3 text-[10px] font-mono uppercase tracking-[0.16em] text-[#666]">
-            <span>{bundle.datePublished}</span><span>·</span><span>{bundle.product}</span>
+          <div className="mt-8 flex flex-wrap gap-3 text-[11px] font-mono uppercase tracking-[0.16em] text-[#666]">
+            <span>{formatArticleDate(bundle.datePublished)}</span><span>·</span><span>{bundle.product}</span>
           </div>
         </div>
 

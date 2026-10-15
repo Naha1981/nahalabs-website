@@ -19,7 +19,7 @@ const systems = [
   {
     name: 'Flavourly',
     description: 'Restaurant revenue and customer-experience engineering project focused on discovery, basket growth and WhatsApp-connected workflows.',
-    url: 'https://github.com/Naha1981/gemino-flavourly',
+    url: 'https://github.com/Naha1981/flavourly-connect-final',
     status: 'Public engineering repository',
   },
   {
@@ -46,8 +46,8 @@ export const PublicSystemsPage: React.FC = () => (
   <div data-site-theme="light" data-tone="light" className="min-h-screen bg-[#F2F4F7] text-[#0B0E10]">
     <main>
       <section className="border-b border-[#1b1c1f]">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
-          <p className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">Public engineering work</p>
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 pb-16 sm:pb-24 pt-28 sm:pt-32">
+          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">Public engineering work</p>
           <h1 className="mt-5 max-w-4xl text-4xl sm:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-[-0.04em]">
             Systems NahaLabs is building.
           </h1>
@@ -62,7 +62,7 @@ export const PublicSystemsPage: React.FC = () => (
           {systems.map((system) => (
             <article key={system.name} className="rounded-xl border border-[#24262a] bg-[#101112] p-6 sm:p-7">
               <div className="flex items-center justify-between gap-4">
-                <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-[#C8AE82]">{system.status}</span>
+                <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[#C8AE82]">{system.status}</span>
               </div>
               <h2 className="mt-4 text-2xl font-semibold">{system.name}</h2>
               <p className="mt-3 text-sm leading-7 text-[#A5A29B]">{system.description}</p>
@@ -77,7 +77,7 @@ export const PublicSystemsPage: React.FC = () => (
       <section>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16">
           <div className="max-w-3xl">
-            <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">Engineering doctrine</p>
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">Engineering doctrine</p>
             <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">Find the problem. Prove the mechanism. Engineer the system.</h2>
             <p className="mt-5 text-base leading-7 text-[#A5A29B]">
               NahaLabs combines open-source capabilities, models, business logic and operational data into useful systems. The public work page exists so the engineering record remains inspectable.

@@ -18,20 +18,24 @@ import {
   Sparkles, 
   Clock, 
   AlertCircle,
-  Save
+  Save,
+  MessageCircle,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Button } from './Button';
 
 interface ContactSectionProps {
   prefilledSystem?: string | null;
+  /** True when rendered as the standalone /contact page (its heading is the page h1). */
+  asPage?: boolean;
 }
 
 const DRAFT_STORAGE_KEY = 'nahalabs_contact_form_draft_v1';
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const PHONE_REGEX = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]{5,20}$/;
 
-export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem }) => {
+export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem, asPage = false }) => {
+  const Heading = (asPage ? 'h1' : 'h2') as 'h1' | 'h2';
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3>(1);
   const [maxStepReached, setMaxStepReached] = useState<1 | 2 | 3>(1);
 
@@ -423,9 +427,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
         
         {/* Closing statement: what the visitor can do next */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-6 items-end mb-14 sm:mb-20">
-          <h2 className="lg:col-span-7 font-serif text-h1 font-medium">
+          <Heading className="lg:col-span-7 font-serif text-h1 font-medium">
             There is probably something in your business that should work better. Let&rsquo;s find it.
-          </h2>
+          </Heading>
           <p className="lg:col-span-4 lg:col-start-9 text-lead text-fg-2">
             Tell us about an operational friction, a manual process, or an unmonitored margin leak.
             We&rsquo;ll evaluate whether an intelligent system can solve it.
@@ -477,6 +481,19 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                   </button>
                 </div>
 
+                {/* WhatsApp - fastest for most SA businesses */}
+                <div className="flex items-center justify-between gap-3 p-2.5 rounded bg-[#F7F8FA] border border-[#D1D5DB] group hover:border-[#3a3c40] transition-colors">
+                  <a
+                    href="https://wa.me/27672347593?text=Hi%20NahaLabs%20-%20I%20have%20an%20enquiry."
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2.5 text-[#0B0E10] hover:text-[#355241] transition-colors min-w-0"
+                  >
+                    <MessageCircle className="w-4 h-4 text-[#355241] shrink-0" />
+                    <span>WhatsApp 067 234 7593</span>
+                  </a>
+                </div>
+
                 {/* Physical Address with Copy to Clipboard */}
                 <div className="flex items-center justify-between gap-3 p-2.5 rounded bg-[#F7F8FA] border border-[#D1D5DB] group hover:border-[#3a3c40] transition-colors">
                   <div className="flex items-center gap-2.5 text-[#4D5660] min-w-0">
@@ -511,7 +528,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
               </div>
 
               <div className="pt-4 border-t border-[#D1D5DB]">
-                <span className="text-[10px] font-mono text-[#355241] uppercase tracking-widest block mb-1">
+                <span className="text-[11px] font-mono text-[#355241] uppercase tracking-widest block mb-1">
                   CORE COMMITMENT
                 </span>
                 <p className="text-xs text-[#4D5660]">
@@ -553,14 +570,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                   {/* Auto-save Status Badge */}
                   {lastAutoSaved && !submitted && (
                     <div 
-                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#F7F8FA] border border-[#D1D5DB] text-[10px] font-mono text-[#4D5660]"
+                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#F7F8FA] border border-[#D1D5DB] text-[11px] font-mono text-[#4D5660]"
                       title="Form progress is automatically saved to your local browser storage"
                     >
 <span>Saved {lastAutoSaved}</span>
                     </div>
                   )}
 
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#F7F8FA] border border-[#D1D5DB] text-[10px] font-mono text-[#355241] uppercase">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#F7F8FA] border border-[#D1D5DB] text-[11px] font-mono text-[#355241] uppercase">
                     <Lock className="w-3 h-3 text-[#355241]" />
                     <span>CONFIDENTIAL</span>
                   </span>
@@ -627,7 +644,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                   <div className="p-5 rounded bg-[#F7F8FA] border border-[#D1D5DB] max-w-md mx-auto text-left text-xs font-mono space-y-3">
                     <div className="flex items-center justify-between border-b border-[#D1D5DB] pb-2.5">
                       <div>
-                        <span className="text-[10px] text-[#4D5660] uppercase tracking-wider block">Inquiry Reference</span>
+                        <span className="text-[11px] text-[#4D5660] uppercase tracking-wider block">Inquiry Reference</span>
                         <span className="text-sm font-bold text-[#0B0E10] tracking-wider">{submissionRef}</span>
                       </div>
                       <button
@@ -742,7 +759,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           >
                             <div className="flex flex-col items-start gap-1.5 sm:flex-row sm:items-center sm:gap-2 mb-1">
                               <span
-                                className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold shrink-0 ${
+                                className={`w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-mono font-bold shrink-0 ${
                                   isCurrent
                                     ? 'bg-[#355241] text-white'
                                     : isDone
@@ -756,7 +773,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                                 {s.title}
                               </span>
                             </div>
-                            <span className="hidden sm:block text-[10px] text-[#4D5660] font-mono truncate pl-7">
+                            <span className="hidden sm:block text-[11px] text-[#4D5660] font-mono truncate pl-7">
                               {s.subtitle}
                             </span>
                           </button>
@@ -811,7 +828,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                                 Your Name *
                               </label>
                               {touched.name && !errors.name && formData.name && (
-                                <span className="text-[10px] font-mono text-[#1B6B45] flex items-center gap-1">
+                                <span className="text-[11px] font-mono text-[#1B6B45] flex items-center gap-1">
                                   <Check className="w-3 h-3" /> Valid
                                 </span>
                               )}
@@ -850,7 +867,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                                 Company / Organisation *
                               </label>
                               {touched.company && !errors.company && formData.company && (
-                                <span className="text-[10px] font-mono text-[#1B6B45] flex items-center gap-1">
+                                <span className="text-[11px] font-mono text-[#1B6B45] flex items-center gap-1">
                                   <Check className="w-3 h-3" /> Valid
                                 </span>
                               )}
@@ -893,7 +910,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                                 Work Email *
                               </label>
                               {touched.email && !errors.email && formData.email && (
-                                <span className="text-[10px] font-mono text-[#1B6B45] flex items-center gap-1">
+                                <span className="text-[11px] font-mono text-[#1B6B45] flex items-center gap-1">
                                   <Check className="w-3 h-3" /> Valid format
                                 </span>
                               )}
@@ -931,7 +948,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                                 Phone / WhatsApp (Optional)
                               </label>
                               {formData.phone && !errors.phone && (
-                                <span className="text-[10px] font-mono text-[#1B6B45] flex items-center gap-1">
+                                <span className="text-[11px] font-mono text-[#1B6B45] flex items-center gap-1">
                                   <Check className="w-3 h-3" />
                                 </span>
                               )}
@@ -1026,7 +1043,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                                 What problem or bottleneck are you trying to solve? *
                             </label>
                             {/* Real-time Character Counter & Validation Status */}
-                            <span className={`text-[10px] font-mono ${
+                            <span className={`text-[11px] font-mono ${
                               formData.problemDescription.length < 15
                                 ? 'text-[#8A5A00]'
                                 : formData.problemDescription.length > 1400
@@ -1070,7 +1087,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                             <label htmlFor="contact-success" className="block text-sm font-semibold text-[#323A42] mb-1.5">
                                 What would measurable success look like? (Optional)
                             </label>
-                            <span className="text-[10px] font-mono text-[#4D5660]">
+                            <span className="text-[11px] font-mono text-[#4D5660]">
                               {formData.successDescription?.length || 0} / 500 chars
                             </span>
                           </div>
@@ -1151,7 +1168,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                         <div className="p-4 rounded bg-[#F7F8FA] border border-[#D1D5DB] text-xs font-mono space-y-2">
                           <div className="flex items-center justify-between border-b border-[#222428] pb-2 text-[#355241]">
                             <span className="font-bold">BRIEF SPECIFICATION AUDIT</span>
-                            <span className="text-[10px] text-[#4D5660]">Confidential</span>
+                            <span className="text-[11px] text-[#4D5660]">Confidential</span>
                           </div>
                           <div className="grid grid-cols-2 gap-2 text-[#4D5660]">
                             <div>
@@ -1197,7 +1214,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem 
                           </Button>
                         </div>
 
-                        <p className="text-[10px] font-mono text-[#4D5660] text-center mt-2">
+                        <p className="text-[11px] font-mono text-[#4D5660] text-center mt-2">
                           Direct routing to the NahaLabs engineering team · Response within 1 business day
                         </p>
                       </div>

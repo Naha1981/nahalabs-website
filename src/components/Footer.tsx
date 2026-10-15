@@ -178,6 +178,14 @@ export const Footer: React.FC<FooterProps> = ({
                 </dd>
               </div>
               <div>
+                <dt className="text-caption text-fg-3">WhatsApp</dt>
+                <dd className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
+                  <a href="https://wa.me/27672347593" target="_blank" rel="noreferrer" className="text-fg underline decoration-line-strong underline-offset-4 hover:decoration-accent">
+                    067 234 7593
+                  </a>
+                </dd>
+              </div>
+              <div>
                 <dt className="text-caption text-fg-3">Location</dt>
                 <dd className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
                   <span className="text-fg">Johannesburg, Gauteng, South Africa</span>

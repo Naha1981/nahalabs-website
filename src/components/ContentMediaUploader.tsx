@@ -87,7 +87,7 @@ export const ContentMediaUploader: React.FC = () => {
     return (
       <div className="min-h-screen bg-[#080909] text-[#F3F0EA] flex items-center justify-center px-5">
         <form onSubmit={login} className="w-full max-w-md rounded-2xl border border-[#24262a] bg-[#0d0e10] p-8">
-          <div className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">NahaLabs Content</div>
+          <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">NahaLabs Content</div>
           <h1 className="mt-3 text-3xl font-semibold">Media uploader</h1>
           <p className="mt-3 text-sm leading-6 text-[#A5A29B]">Upload your own hero image or video. The selected media becomes the source of truth for that content item.</p>
           <input
@@ -111,7 +111,7 @@ export const ContentMediaUploader: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#080909] text-[#F3F0EA] px-5 py-10 sm:px-8">
       <main className="mx-auto max-w-5xl">
-        <div className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">NahaLabs Content</div>
+        <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">NahaLabs Content</div>
         <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h1 className="text-3xl sm:text-5xl font-semibold tracking-tight">Media uploader</h1>

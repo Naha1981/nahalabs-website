@@ -108,14 +108,14 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
             {/* Local Intervention Snapshot */}
             <div className="p-8 rounded-sm bg-[#121315] border border-[#262626] shadow-xl space-y-5">
               <div className="flex items-center justify-between border-b border-[#222222] pb-3">
-                <span className="text-[10px] font-mono text-[#C8AE82] uppercase tracking-widest">
+                <span className="text-[11px] font-mono text-[#C8AE82] uppercase tracking-widest">
                   REGIONAL SCENARIO
                 </span>
                 <span className="text-xs font-mono text-[#A5A29B]">{location.city}</span>
               </div>
 
               <div>
-                <span className="text-[10px] font-mono text-[#A5A29B] uppercase tracking-wider block mb-1">
+                <span className="text-[11px] font-mono text-[#A5A29B] uppercase tracking-wider block mb-1">
                   OPERATIONAL CONTEXT
                 </span>
                 <p className="text-xs text-[#F3F0EA] leading-relaxed">
@@ -124,7 +124,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
               </div>
 
               <div>
-                <span className="text-[10px] font-mono text-[#C8AE82] uppercase tracking-wider block mb-1">
+                <span className="text-[11px] font-mono text-[#C8AE82] uppercase tracking-wider block mb-1">
                   NAHALABS APPROACH
                 </span>
                 <p className="text-xs text-[#A5A29B] leading-relaxed">
@@ -133,7 +133,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
               </div>
 
               <div className="p-4 rounded bg-[#18191c] border border-[#2e2f33]">
-                <span className="text-[10px] font-mono text-[#C8AE82] uppercase tracking-wider block mb-1">
+                <span className="text-[11px] font-mono text-[#C8AE82] uppercase tracking-wider block mb-1">
                   TARGET OUTCOME
                 </span>
                 <p className="text-xs font-semibold text-[#F3F0EA]">

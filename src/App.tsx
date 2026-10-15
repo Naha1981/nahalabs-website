@@ -151,7 +151,7 @@ export default function App() {
   } else if (isAuditPage) {
     pageContent = <AuditPage />;
   } else if (isContactPage) {
-    pageContent = <ContactSection prefilledSystem={prefilledSystem} />;
+    pageContent = <ContactSection prefilledSystem={prefilledSystem} asPage />;
   } else if (generatedInsightSlug) {
     const initialBundle = typeof window === 'undefined'
       ? (globalThis as { __SSR_BUNDLE__?: Bundle | null }).__SSR_BUNDLE__ ?? null
