@@ -1499,3 +1499,17 @@ body {
     animation: none;
   }
 }
+
+/* Hero film: always fit one full scene inside a single viewport */
+.nahafilm {
+  min-height: 0;
+  max-height: calc(100vh - 120px);
+  max-height: calc(100svh - 120px);
+}
+
+@media (max-width: 640px) {
+  .nahafilm {
+    aspect-ratio: 4 / 5;
+    max-height: calc(100svh - 150px);
+  }
+}
