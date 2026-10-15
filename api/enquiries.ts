@@ -1,4 +1,5 @@
 import { put } from "@vercel/blob";
+import { sendLeadAlert } from "./_alert.js";
 
 /**
  * Stores enquiry-form submissions so they are no longer lost.
@@ -88,6 +89,25 @@ export default async function handler(req: any, res: any) {
       token,
       contentType: "application/json",
     });
+
+    const lines = [
+      `New website enquiry (${reference})`,
+      ``,
+      `Name: ${name}`,
+      `Company: ${company}`,
+      `Email: ${email}`,
+      record.phone ? `Phone: ${record.phone}` : ``,
+      record.location ? `Location: ${record.location}` : ``,
+      record.urgency ? `Urgency: ${record.urgency}` : ``,
+      record.businessArea ? `Business area: ${record.businessArea}` : ``,
+      ``,
+      `What they need:`,
+      record.problem || `(none given)`,
+      ``,
+      `Page: ${record.pageUrl || `unknown`}`,
+      `Stored: nahalabs/enquiries/${new Date(now).toISOString().slice(0, 10)}/${reference}.json`,
+    ];
+    await sendLeadAlert(`New enquiry: ${name} (${company})`, lines.join("\n"), email);
 
     return res.status(200).json({ ok: true, reference });
   } catch (error) {
