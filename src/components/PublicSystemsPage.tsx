@@ -1,92 +1,43 @@
 import React from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import { ButtonLink } from './Button';
 
 const SITE = 'https://www.nahalabs.co.za';
-
 const systems = [
-  {
-    name: 'RevenueDesk',
-    description: 'AI front desk and revenue recovery system for service businesses: capture enquiries, understand intent, act on follow-up and surface revenue leakage.',
-    url: 'https://github.com/Naha1981/leadmachine-leadcatch-lovable',
-    status: 'Public engineering repository',
-  },
-  {
-    name: 'Demand Radar',
-    description: 'Public engineering project for detecting demand signals, validating opportunity evidence and connecting activation to revenue workflows.',
-    url: 'https://github.com/Naha1981/demand-rader',
-    status: 'Public engineering repository',
-  },
-  {
-    name: 'Flavourly',
-    description: 'Restaurant revenue and customer-experience engineering project focused on discovery, basket growth and WhatsApp-connected workflows.',
-    url: 'https://github.com/Naha1981/flavourly-connect-final',
-    status: 'Public engineering repository',
-  },
-  {
-    name: 'CargoIQ',
-    description: 'Freight and logistics intelligence project focused on operational evidence, commercial rules, financial exposure and recovery workflows.',
-    url: 'https://github.com/Naha1981/cargoiq-qwen',
-    status: 'Public engineering repository',
-  },
-  {
-    name: 'NahaLLM',
-    description: 'NahaLabs model gateway project for integrating multiple language-model providers behind one application-facing interface.',
-    url: 'https://github.com/Naha1981/NahaLLM',
-    status: 'Public engineering repository',
-  },
-  {
-    name: 'JEV UltraFast Browser',
-    description: 'NahaLabs fork and experimentation surface for browser automation and agent workflows.',
-    url: 'https://github.com/Naha1981/jev-ultrafast-browser-naha',
-    status: 'Public engineering repository',
-  },
+  { id: 'revenuedesk', name: 'RevenueDesk', audience: 'Service businesses', description: 'A front-desk prototype for organising enquiries, preparing follow-up and reviewing the gaps between first contact and booked work.', status: 'Prototype', url: '/revenuedesk', action: 'Explore RevenueDesk' },
+  { id: 'flavourly', name: 'Flavourly', audience: 'Restaurants', description: 'An AI-powered Restaurant Revenue OS designed for profit growth, revenue recovery, customer retention and repeat sales through insights, marketing, loyalty programmes and personalised engagement. WhatsApp is one part of the system.', status: 'Prototype', url: '/contact', action: 'Request a walkthrough' },
+  { id: 'cargoiq', name: 'CargoIQ', audience: 'Freight and logistics', description: 'Inspect shipment events, delay timelines and the records behind a freight dispute. Evidence for human review, not a promise of recovery.', status: 'Interactive demo', url: '/cargo-iq', action: 'Open the CargoIQ demo' },
+  { id: 'fieldproof', name: 'FieldProof', audience: 'Field operations', description: 'Review pump-test notes, missing evidence and inconsistent units before a report is approved. The demo uses fictional data.', status: 'Interactive demo', url: '/gtg', action: 'Open the FieldProof demo' },
+  { id: 'netpulse', name: 'NetPulse', audience: 'Internet service providers', description: 'Explore spreadsheet checks for duplicate IPs, equipment warranties and data quality. Use synthetic data only in the public demo.', status: 'Interactive demo', url: '/netpulse', action: 'Open the NetPulse demo' },
+  { id: 'railwatch', name: 'RailWatch', audience: 'Infrastructure teams', description: 'Explore corridor signals, incident records and response workflows in a monitoring demo. Not a live railway deployment.', status: 'Interactive demo', url: '/railwatch', action: 'Open the RailWatch demo' },
+  { id: 'bankbook', name: 'BankBook', audience: 'Bookkeepers', description: 'Review invoice fields against their source, inspect bank-statement matches and record a human decision. Fictional South African data; no tax filing.', status: 'Interactive demo', url: '/bankbook', action: 'Explore BankBook' },
 ];
 
 export const PublicSystemsPage: React.FC = () => (
-  <div data-site-theme="light" data-tone="light" className="min-h-screen bg-[#F2F4F7] text-[#0B0E10]">
+  <div data-site-theme="light" data-tone="light" className="product-directory min-h-screen bg-[#F2F4F7] text-[#0B0E10]">
     <main>
-      <section className="border-b border-[#1b1c1f]">
+      <section className="border-b border-line">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 pb-16 sm:pb-24 pt-28 sm:pt-32">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">Public engineering work</p>
-          <h1 className="mt-5 max-w-4xl text-4xl sm:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-[-0.04em]">
-            Systems NahaLabs is building.
-          </h1>
-          <p className="mt-7 max-w-3xl text-lg sm:text-xl leading-relaxed text-[#A5A29B]">
-            These public repositories are engineering evidence. They show what NahaLabs is experimenting with and building; they are not, by themselves, claims of paid customer deployment or measured customer results.
-          </p>
+          <p className="text-caption font-mono uppercase tracking-[0.18em] text-accent">THE PRODUCT WORK</p>
+          <h1 className="mt-5 max-w-4xl text-4xl sm:text-6xl lg:text-7xl font-semibold leading-[1.04] tracking-[-0.045em]">Find your workflow.<br />Inspect the system.</h1>
+          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-fg-2">Intelligent systems for the work between an enquiry, a record and a decision. See what each product is designed to do and where it stands today.</p>
+          <div className="product-stage-note mt-8 max-w-3xl"><span className="product-status">EARLY-STAGE ENGINEERING</span><p>These are demos and prototypes, not paid-client case studies. A production engagement needs an agreed scope, data permissions, testing and support plan.</p></div>
         </div>
       </section>
-
-      <section className="border-b border-[#1b1c1f]">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 grid lg:grid-cols-2 gap-4">
-          {systems.map((system) => (
-            <article key={system.name} className="rounded-xl border border-[#24262a] bg-[#101112] p-6 sm:p-7">
-              <div className="flex items-center justify-between gap-4">
-                <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-[#C8AE82]">{system.status}</span>
-              </div>
-              <h2 className="mt-4 text-2xl font-semibold">{system.name}</h2>
-              <p className="mt-3 text-sm leading-7 text-[#A5A29B]">{system.description}</p>
-              <ButtonLink href={system.url} target="_blank" rel="noreferrer" variant="secondary" className="mt-6">
-                Open GitHub Repository
-              </ButtonLink>
+      <section aria-label="Products and demos">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-12 sm:py-16 grid md:grid-cols-2 gap-5">
+          {systems.map(system => (
+            <article id={system.id} key={system.id} className="product-card">
+              <div className="product-card-meta"><span>{system.audience}</span><span className="product-status">{system.status}</span></div>
+              <h2>{system.name}</h2><p>{system.description}</p>
+              <a href={system.url} className="nh-text-link">{system.action} <ArrowUpRight size={17} aria-hidden="true" /></a>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section>
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16">
-          <div className="max-w-3xl">
-            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">Engineering doctrine</p>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">Find the problem. Prove the mechanism. Engineer the system.</h2>
-            <p className="mt-5 text-base leading-7 text-[#A5A29B]">
-              NahaLabs combines open-source capabilities, models, business logic and operational data into useful systems. The public work page exists so the engineering record remains inspectable.
-            </p>
-          </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href="/insights" variant="primary">Read the research</ButtonLink>
-            <ButtonLink href="/#contact" variant="secondary">Discuss a system</ButtonLink>
-          </div>
+          <article className="product-card product-card-invite">
+            <p className="text-caption font-mono uppercase tracking-[0.18em] text-accent">A DIFFERENT WORKFLOW?</p>
+            <h2>Start with the problem.</h2><p>Tell us where enquiries stall, records go missing or checks depend on memory. We will discuss the workflow before proposing a system.</p>
+            <ButtonLink href="/contact">Discuss your workflow</ButtonLink>
+          </article>
         </div>
       </section>
     </main>
@@ -94,25 +45,8 @@ export const PublicSystemsPage: React.FC = () => (
 );
 
 export const getPublicSystemsJsonLd = () => ({
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'CollectionPage',
-      '@id': SITE + '/systems#page',
-      url: SITE + '/systems',
-      name: 'NahaLabs Public Engineering Work',
-      description: 'Public engineering repositories and system experiments from NahaLabs.',
-      isPartOf: { '@id': SITE + '/#website' }
-    },
-    {
-      '@type': 'ItemList',
-      '@id': SITE + '/systems#list',
-      itemListElement: systems.map((system, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        name: system.name,
-        url: system.url
-      }))
-    }
-  ]
+  '@context': 'https://schema.org', '@graph': [
+    { '@type': 'CollectionPage', '@id': SITE + '/systems#page', url: SITE + '/systems', name: 'NahaLabs Products and Demos', description: 'Explore early-stage intelligent systems, interactive demos and prototypes from NahaLabs.', isPartOf: { '@id': SITE + '/#website' } },
+    { '@type': 'ItemList', '@id': SITE + '/systems#list', itemListElement: systems.map((system, index) => ({ '@type': 'ListItem', position: index + 1, name: system.name, url: SITE + '/systems#' + system.id })) },
+  ],
 });

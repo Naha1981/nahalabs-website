@@ -26,32 +26,35 @@ const SYSTEMS: SystemItem[] = [
   {
     eyebrow: 'Hospitality',
     name: 'Flavourly',
-    flow: 'Demand → Prep → Margin',
-    title: 'Recover revenue hidden inside restaurant demand.',
+    flow: 'Insight → Engagement → Repeat sales',
+    title: 'A Restaurant Revenue OS for repeat business.',
     description:
-      'Predictive kitchen prep, automated replenishment, supplier reconciliation and dish-level margin intelligence for high-volume food operations.',
-    image: ASSETS.flavourly,
-    alt: 'Restaurant operations representing Flavourly',
+      'An AI-powered Restaurant Revenue OS designed to help restaurants increase profits, recover lost revenue and grow repeat sales through intelligent insights, marketing, loyalty programmes and personalised engagement. WhatsApp is one part of the system.',
+    image: ASSETS.enterpriseJhb,
+    alt: 'Johannesburg business district, the market for Flavourly',
+    href: '/systems#flavourly', cta: 'Explore the Flavourly prototype',
   },
   {
     eyebrow: 'Freight',
     name: 'CargoIQ',
     flow: 'Quote → Risk → Recovery',
-    title: 'Protect freight margin before the loss appears.',
+    title: 'Reconstruct the delay. Inspect the evidence.',
     description:
-      'Carrier-rate validation, automated quote assembly and proactive detention and demurrage intelligence across African trade corridors.',
+      'A freight evidence demo for reviewing shipment events, delay timelines and the records behind detention and demurrage disputes. A review tool, not a promise of recovery.',
     image: ASSETS.cargoiq,
     alt: 'Freight terminal representing CargoIQ',
+    href: '/cargo-iq', cta: 'Open the CargoIQ demo',
   },
   {
     eyebrow: 'Infrastructure',
     name: 'RailWatch',
     flow: 'Signal → Detection → Dispatch',
-    title: 'Turn infrastructure signals into operational action.',
+    title: 'Bring corridor incidents into one review.',
     description:
-      'Predictive corridor monitoring, incident detection and evidence-backed dispatch intelligence for rail and heavy infrastructure.',
+      'An infrastructure monitoring demo for inspecting corridor signals, incident records and response workflows. Demo scenarios are not a live railway deployment.',
     image: ASSETS.railwatch,
     alt: 'Rail infrastructure representing RailWatch',
+    href: '/railwatch', cta: 'Open the RailWatch demo',
   },
   {
     eyebrow: 'Revenue',
@@ -59,7 +62,7 @@ const SYSTEMS: SystemItem[] = [
     flow: 'Capture → Understand → Recover',
     title: 'Recover revenue hidden inside missed enquiries.',
     description:
-      'An AI front desk for service businesses that captures enquiries, understands intent, handles follow-up and surfaces the revenue leaks that sit between first contact and booked work.',
+      'A front-desk prototype for service businesses, designed to organise enquiries, prepare follow-up and make missed opportunities visible. Start with a workflow diagnosis.',
     image: ASSETS.enterpriseJhb,
     alt: 'Johannesburg commercial environment representing RevenueDesk',
   },
@@ -109,7 +112,7 @@ const OUTPUTS = ['Decisions', 'Predictions', 'Alerts', 'Actions', 'Recovery'];
 const FAQS = [
   {
     q: 'What does NahaLabs actually build?',
-    a: 'We engineer bespoke intelligent systems around a specific operational or commercial problem. That can include decision engines, AI digital workers, automation, integrations, computer vision and software — selected according to the problem rather than the technology trend.',
+    a: 'We engineer bespoke intelligent systems around a specific operational or commercial problem. That can include decision engines, AI digital workers, automation, integrations, computer vision and software - selected according to the problem rather than the technology trend.',
   },
   {
     q: 'Do you replace the software we already use?',
@@ -278,7 +281,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: reduced ? 0 : 0.7, ease: EASE_OUT }}
               >
-                Intelligent Systems Engineering &middot; Johannesburg &middot; South Africa
+                Intelligent systems for revenue &amp; operations
               </motion.p>
               <h1 className="nh-display">
                 <TextAnimate as="span" className="nh-display-line" text="Intelligence," delay={reduced ? 0 : 0.12} />
@@ -290,7 +293,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: reduced ? 0 : 0.7, delay: reduced ? 0 : 0.56, ease: EASE_OUT }}
               >
-                NahaLabs builds intelligent systems for businesses where generic software stops being enough.
+                Turn missed enquiries, scattered records and manual checks into a clear next action. We build intelligent systems for South African service businesses and operations teams.
               </motion.p>
               <motion.div
                 className="nh-hero-actions"
@@ -300,12 +303,12 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
               >
                 <Magnetic strength={4}>
                   <Button type="button" onClick={onStartConversation}>
-                    Start a Conversation
+                    Request a Workflow Diagnosis
                   </Button>
                 </Magnetic>
                 <Magnetic>
                   <ButtonLink href="#systems" variant="secondary">
-                    Explore the Systems <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
+                    Explore the Demos <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
                   </ButtonLink>
                 </Magnetic>
               </motion.div>
@@ -315,8 +318,8 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: reduced ? 0 : 0.9, delay: reduced ? 0 : 0.94 }}
               >
-                <span className="nh-hero-meta-label">Our systems</span>
-                <span className="nh-hero-meta-items">Flavourly &middot; CargoIQ &middot; RailWatch &middot; RevenueDesk</span>
+                <span className="nh-hero-meta-label">See the work</span>
+                <span className="nh-hero-meta-items">Working demos &middot; Early-stage products &middot; Founder-led engineering</span>
               </motion.div>
             </motion.div>
 
@@ -348,23 +351,18 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
           </motion.div>
         </section>
 
-        <section className="nh-proof" data-tone="light" aria-label="Verified results">
+        <section className="nh-proof" data-tone="light" aria-label="How an engagement works">
           <div className="wrap nh-proof-grid">
-            <Reveal className="nh-proof-item">
-              <p className="nh-proof-number">20</p>
-              <p className="nh-proof-label">Verified buyer &amp; seller leads surfaced in a single day for a Gauteng motor dealership.</p>
-              <p className="nh-proof-source">DealerSignal lead-intelligence report · 10 Oct 2026</p>
-            </Reveal>
-            <Reveal className="nh-proof-item nh-reveal-delay-1">
-              <p className="nh-proof-number">4</p>
-              <p className="nh-proof-label">Intelligent systems designed around real South African operations.</p>
-              <p className="nh-proof-source">Flavourly · CargoIQ · RailWatch · RevenueDesk</p>
-            </Reveal>
-            <Reveal className="nh-proof-item nh-reveal-delay-2">
-              <p className="nh-proof-number">45<span className="nh-proof-unit">min</span></p>
-              <p className="nh-proof-label">Diagnosis before any build is scoped, priced or sold.</p>
-              <p className="nh-proof-source">Every engagement starts with evidence</p>
-            </Reveal>
+            {[
+              ['Start with the bottleneck.', 'We map one workflow and agree what an improvement would mean before proposing a build.'],
+              ['Inspect the work.', 'Our demos make the approach visible. They are engineering work, not paid-client case studies.'],
+              ['Decide on evidence.', 'Scope, integrations, data access and success measures are agreed before a production commitment.'],
+            ].map(([title, body]) => (
+              <Reveal key={title} className="nh-proof-item">
+                <h2 className="nh-proof-heading">{title}</h2>
+                <p className="nh-proof-label">{body}</p>
+              </Reveal>
+            ))}
           </div>
         </section>
 
@@ -379,7 +377,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 Most companies already pay for the software, data and people required to run the operation. What is missing is often the intelligence between those systems.
               </p>
               <p>
-                We engineer that layer — around your workflows, your commercial rules and the outcome that matters.
+                We engineer that layer - around your workflows, your commercial rules and the outcome that matters.
               </p>
               <a href="#approach" className="nh-text-link">
                 See how we work <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
@@ -393,10 +391,10 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
             <div className="nh-section-head">
               <div>
                 <p className="nh-kicker">SYSTEMS</p>
-                <h2 className="nh-heading-xl">Different businesses. Same problem.</h2>
+                <h2 className="nh-heading-xl">Real workflows. Work you can inspect.</h2>
               </div>
               <p>
-                Each system below starts from a commercial friction point and ends with a working intelligence engine.
+                Explore our demos and prototypes. Each starts with a specific business problem; production scope is agreed separately.
               </p>
             </div>
 
@@ -409,7 +407,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                   </div>
                   <div className="nh-system-copy">
                     <div className="nh-system-meta">
-                      <span>{system.eyebrow}</span>
+                      <span>{system.eyebrow} / {system.name === 'Flavourly' || system.name === 'RevenueDesk' ? 'Prototype' : 'Demo'}</span>
                       <span>0{index + 1}</span>
                     </div>
                     <h3>{system.name}</h3>
@@ -468,7 +466,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
             <Reveal className="nh-method-foot">
               <p>We do not sell AI for its own sake. When intelligence is not the right tool, we tell you.</p>
               <Button type="button" onClick={onStartConversation}>
-                Book a 45-Minute Diagnosis <ArrowRight size={16} />
+                Request a Workflow Diagnosis <ArrowRight size={16} />
               </Button>
             </Reveal>
           </div>
@@ -520,9 +518,9 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
         <section className="nh-cta" data-tone="light">
           <Reveal className="wrap">
             <p className="nh-kicker">THE NEXT MOVE</p>
-            <h2>There is probably something in your business that should work better.</h2>
+            <h2>Start with one workflow. Know what to build next.</h2>
             <Button type="button" onClick={onStartConversation}>
-              Let&rsquo;s Find It <ArrowRight size={20} strokeWidth={1.5} />
+              Request a Workflow Diagnosis <ArrowRight size={20} strokeWidth={1.5} />
             </Button>
           </Reveal>
         </section>

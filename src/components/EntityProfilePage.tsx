@@ -5,28 +5,24 @@ const SITE = 'https://www.nahalabs.co.za';
 const FOUNDER_LINKEDIN = 'https://za.linkedin.com/in/thabiso-naha-4985316b';
 
 const focusAreas = [
-  'Intelligent systems engineering',
-  'AI Opportunity Engineering',
-  'Revenue intelligence and lead follow-up',
-  'WhatsApp and workflow automation',
-  'Operational and logistics intelligence',
-  'Computer vision and geospatial intelligence',
-  'Document and evidence intelligence',
-  'Custom AI agents and software',
+  'Enquiries and follow-up',
+  'Document and evidence review',
+  'Operational checks and exceptions',
+  'Connections between existing tools',
 ];
 
 export const EntityProfilePage: React.FC = () => (
   <div data-site-theme="light" data-tone="light" className="min-h-screen bg-[#F2F4F7] text-[#0B0E10]">
     <main>
       <section className="border-b border-[#1b1c1f]">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 pb-16 sm:pb-24 pt-28 sm:pt-32">
           <div className="max-w-4xl">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">Company profile</p>
+            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">JOHANNESBURG / INTELLIGENT SYSTEMS</p>
             <h1 className="mt-5 text-4xl sm:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-[-0.04em]">
-              NahaLabs is an intelligent systems engineering company based in Johannesburg, South Africa.
+              Built around the work.<br />Not the technology.
             </h1>
             <p className="mt-7 max-w-3xl text-lg sm:text-xl leading-relaxed text-[#A5A29B]">
-              We identify operational and commercial problems that are expensive to solve manually, then combine software, data, automation and AI into systems designed around the client's real workflow.
+              NahaLabs is a founder-led intelligent systems engineering company in Johannesburg. We build around missed enquiries, scattered records and manual checks, so service businesses and operations teams can see the next action.
             </p>
           </div>
         </div>
@@ -61,8 +57,8 @@ export const EntityProfilePage: React.FC = () => (
 
       <section className="border-b border-[#1b1c1f]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16">
-          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">What NahaLabs works on</p>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">Focus areas</h2>
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">WHERE WE START</p>
+          <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">One bottleneck. A clear next step.</h2>
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {focusAreas.map((item) => (
               <div key={item} className="rounded-lg border border-[#24262a] bg-[#0d0e10] p-4 text-sm leading-6 text-[#D7D3CA]">{item}</div>
@@ -100,11 +96,11 @@ export const EntityProfilePage: React.FC = () => (
           <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#C8AE82]">NahaLabs</p>
           <h2 className="mt-3 text-3xl sm:text-5xl font-semibold tracking-tight">Intelligent systems for real business problems.</h2>
           <p className="mt-5 max-w-2xl mx-auto text-base leading-7 text-[#A5A29B]">
-            Diagnosis → Prototype → Production. The work starts with a business problem, not a request to add AI.
+            Diagnosis - Prototype - Production. The work starts with a business problem, not a request to add AI.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <ButtonLink href="/systems" variant="primary">View public engineering work</ButtonLink>
-            <ButtonLink href="/insights" variant="secondary">Read NahaLabs insights</ButtonLink>
+            <ButtonLink href="/systems" variant="primary">Explore products and demos</ButtonLink>
+            <ButtonLink href="/contact" variant="secondary">Discuss your workflow</ButtonLink>
           </div>
         </div>
       </section>
