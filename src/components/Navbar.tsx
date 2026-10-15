@@ -154,7 +154,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
             )}
           </div>
           {PAGES.map((p) => (
-            <a key={p.href} href={p.href} className="py-2 text-fg-2 hover:text-fg transition-colors">
+            <a key={p.href} href={p.href} className="min-h-12 inline-flex items-center px-1 text-sm font-medium text-[#323A42] hover:text-[#0B0E10] transition-colors">
               {p.label}
             </a>
           ))}
