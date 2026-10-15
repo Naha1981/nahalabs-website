@@ -83,7 +83,7 @@ const SYSTEMS: SystemItem[] = [
     description:
       'Paste technician pump-test notes. FieldProof runs the evidence checks, flags unit mix-ups, duplicates and missing datums, and holds the report behind a human review gate. Demo uses made-up data.',
     image: ASSETS.fieldproof,
-    href: '/gtg',
+    href: '/fieldproof',
     cta: 'Open the FieldProof demo',
     alt: 'Field technician capturing evidence at a telecoms cabinet representing FieldProof',
   },

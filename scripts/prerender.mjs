@@ -76,7 +76,7 @@ async function main() {
       ...[
         ['/cargo-iq', 'CargoIQ', 'Freight evidence and dispute intelligence.'],
         ['/nutri-tummies', 'Nutri Tummies', 'Family meal planning for South African kitchens.'],
-        ['/gtg', 'FieldProof', 'FieldProof: field evidence capture and verification, demonstrated on fictional data.'],
+        ['/fieldproof', 'FieldProof', 'FieldProof: field evidence capture and verification, demonstrated on fictional data.'],
         ['/railwatch', 'RailWatch', 'Rail operations prototype and demonstration.'],
         ['/netpulse', 'NetPulse', 'Free demo of ISP customer, IP and equipment records, using synthetic data only.'],
       ].map(([path, name, description]) => ({ path, title: `${name} | NahaLabs`, description })),
@@ -220,7 +220,7 @@ async function main() {
           '/press': 'src/components/PressPage.tsx', '/revenuedesk': 'src/components/RevenueDeskPage.tsx',
           '/bankbook': 'src/components/BankbookPage.tsx',
           '/cargo-iq': 'src/components/AppFramePage.tsx', '/nutri-tummies': 'src/components/AppFramePage.tsx',
-          '/gtg': 'src/components/AppFramePage.tsx', '/railwatch': 'src/components/AppFramePage.tsx',
+          '/fieldproof': 'src/components/AppFramePage.tsx', '/railwatch': 'src/components/AppFramePage.tsx',
           '/audit': 'src/components/AuditPage.tsx', '/contact': 'src/components/ContactSection.tsx',
           '/insights': 'src/components/InsightArticlePage.tsx' })[route.path] ?? (route.path.startsWith('/services/') ? 'services/revenue-leak-audit-johannesburg.html' : 'src/components/InsightArticlePage.tsx');
     const lastmodFor = (route) => {
