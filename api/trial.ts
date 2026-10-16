@@ -20,7 +20,7 @@ export function trialStatus(startMs: number, nowMs: number) {
   const left = Math.ceil((endsMs - nowMs) / DAY_MS);
   return {
     status: nowMs < endsMs ? "active" : "expired",
-    daysLeft: Math.max(0, left),
+    daysLeft: Math.min(TRIAL_DAYS, Math.max(0, left)),
     endsAt: new Date(endsMs).toISOString(),
   };
 }
@@ -55,7 +55,7 @@ export default async function handler(req: any, res: any) {
       }
       found = (await list({ prefix: path, limit: 1, token })).blobs.find((b) => b.pathname === path);
     }
-    const start = found ? new Date(found.uploadedAt).getTime() : now;
+    const start = found ? Math.min(new Date(found.uploadedAt).getTime(), now) : now;
     res.status(200).json(trialStatus(start, now));
   } catch {
     res.status(200).json({ status: "active", daysLeft: TRIAL_DAYS, unmetered: true });
