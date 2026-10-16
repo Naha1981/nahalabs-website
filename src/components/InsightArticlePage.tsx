@@ -104,7 +104,7 @@ export const InsightArticlePage: React.FC = () => {
       <main>
         <article className="max-w-5xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
           <div className="max-w-3xl">
-            <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82] mb-5">
+            <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#7FA88F] mb-5">
               NahaLabs Intelligence · Intelligent Revenue & Operations
             </div>
             <h1 className="text-4xl sm:text-6xl leading-[1.02] font-semibold tracking-[-0.035em] text-[#F3F0EA]">
@@ -161,11 +161,11 @@ export const InsightArticlePage: React.FC = () => {
               <p>That matters because logistics costs are frequently time-dependent.</p>
               <p>A few hours can become another day of detention. A missed free-time window can become demurrage. A terminal disruption can create standing time, storage exposure or downstream customer disruption.</p>
               <p>And once the invoice arrives, the question is no longer simply:</p>
-              <blockquote className="border-l-2 border-[#C8AE82] pl-6 text-[#F3F0EA] font-medium">
+              <blockquote className="border-l-2 border-[#7FA88F] pl-6 text-[#F3F0EA] font-medium">
                 What did we get charged?
               </blockquote>
               <p>It becomes:</p>
-              <blockquote className="border-l-2 border-[#C8AE82] pl-6 text-[#F3F0EA] font-medium">
+              <blockquote className="border-l-2 border-[#7FA88F] pl-6 text-[#F3F0EA] font-medium">
                 What actually happened, when did it happen, which evidence proves it, and which part of the charge is supported by the underlying events?
               </blockquote>
             </section>
@@ -205,13 +205,13 @@ export const InsightArticlePage: React.FC = () => {
                 <p>The explanation for the delay could be sitting in a WhatsApp conversation.</p>
                 <p>The result is a fragmented operational record.</p>
                 <p>And fragmented records create an uncomfortable question:</p>
-                <blockquote className="border-l-2 border-[#C8AE82] pl-6 text-[#F3F0EA] font-medium">Which clock should the business trust?</blockquote>
+                <blockquote className="border-l-2 border-[#7FA88F] pl-6 text-[#F3F0EA] font-medium">Which clock should the business trust?</blockquote>
                 <p>That is particularly important because demurrage and detention are explicitly time-based commercial mechanisms.</p>
                 <p>Maersk's published South African import demurrage and detention revision, effective 15 April 2026, lists three days of import demurrage free time for standard dry containers at Durban's Pier 1, Pier 2 and Point. The same published schedule lists R2,698 per day on Day 4 and R4,391 per day from Day 5 for a 20-foot dry container.</p>
                 <p>These are <strong>Maersk-specific published tariff terms</strong>, not universal South African carrier tariffs.</p>
                 <p>
                   Source:{' '}
-                  <a className="text-[#C8AE82] hover:text-[#E5D1B0] underline underline-offset-4" href="https://www.maersk.com/news/articles/2026/03/13/south-africa-import-demurrage-detention-revision-april" target="_blank" rel="noreferrer">
+                  <a className="text-[#7FA88F] hover:text-[#A9C9BA] underline underline-offset-4" href="https://www.maersk.com/news/articles/2026/03/13/south-africa-import-demurrage-detention-revision-april" target="_blank" rel="noreferrer">
                     Maersk South Africa Import Demurrage & Detention Revision
                     <ExternalLink className="inline w-3.5 h-3.5 ml-1" />
                   </a>
@@ -228,7 +228,7 @@ export const InsightArticlePage: React.FC = () => {
                 <p>The Ports Regulator of South Africa's 2026/27 Record of Decision approved an overall weighted average tariff increase of 7.57%. It also recorded a R247 million Weighted Efficiency Gains from Operations adjustment in favour of port users following a weighted efficiency loss.</p>
                 <p>
                   Source:{' '}
-                  <a className="text-[#C8AE82] hover:text-[#E5D1B0] underline underline-offset-4" href="https://portsregulator.org/wp-content/uploads/2025/12/2026-27-Tariff-Record-of-Decision-signed.pdf" target="_blank" rel="noreferrer">
+                  <a className="text-[#7FA88F] hover:text-[#A9C9BA] underline underline-offset-4" href="https://portsregulator.org/wp-content/uploads/2025/12/2026-27-Tariff-Record-of-Decision-signed.pdf" target="_blank" rel="noreferrer">
                     Ports Regulator 2026/27 Record of Decision
                     <ExternalLink className="inline w-3.5 h-3.5 ml-1" />
                   </a>
@@ -268,12 +268,12 @@ export const InsightArticlePage: React.FC = () => {
               <div className="mt-6 space-y-6">
                 <p>Imagine that one container generates the following evidence:</p>
                 <div className="rounded-xl border border-[#24262a] bg-[#0d0e10] p-5 sm:p-7 font-mono text-sm leading-8 text-[#D7D3CA]">
-                  <div><span className="text-[#C8AE82]">08:10</span> — truck enters staging area.</div>
-                  <div><span className="text-[#C8AE82]">10:35</span> — terminal transaction remains unavailable.</div>
-                  <div><span className="text-[#C8AE82]">14:20</span> — carrier or terminal advisory reports operational disruption.</div>
-                  <div><span className="text-[#C8AE82]">17:45</span> — truck receives access instruction.</div>
-                  <div><span className="text-[#C8AE82]">18:30</span> — truck enters terminal.</div>
-                  <div><span className="text-[#C8AE82]">19:10</span> — container is collected.</div>
+                  <div><span className="text-[#7FA88F]">08:10</span> — truck enters staging area.</div>
+                  <div><span className="text-[#7FA88F]">10:35</span> — terminal transaction remains unavailable.</div>
+                  <div><span className="text-[#7FA88F]">14:20</span> — carrier or terminal advisory reports operational disruption.</div>
+                  <div><span className="text-[#7FA88F]">17:45</span> — truck receives access instruction.</div>
+                  <div><span className="text-[#7FA88F]">18:30</span> — truck enters terminal.</div>
+                  <div><span className="text-[#7FA88F]">19:10</span> — container is collected.</div>
                 </div>
                 <p>Separately, the commercial system calculates a charge based on the applicable free-time rules.</p>
                 <p>The invoice does not necessarily contain the operational story.</p>
@@ -320,7 +320,7 @@ export const InsightArticlePage: React.FC = () => {
                 <blockquote className="border-l-2 border-[#8f5f5f] pl-6 text-[#F3F0EA]">“The terminal is legally responsible.”</blockquote>
                 <p>That is a legal conclusion.</p>
                 <p>The system should instead say something closer to:</p>
-                <blockquote className="border-l-2 border-[#C8AE82] pl-6 text-[#F3F0EA]">
+                <blockquote className="border-l-2 border-[#7FA88F] pl-6 text-[#F3F0EA]">
                   “The available evidence shows that the truck entered the staging area at 08:10, terminal access was recorded at 17:45, and the attached terminal advisory reports an operational interruption during the intervening period. The evidence currently supports a review of whether this period should be included in the charge calculation.”
                 </blockquote>
                 <p>That is more useful.</p>
@@ -360,9 +360,9 @@ export const InsightArticlePage: React.FC = () => {
               <div className="mt-6 space-y-6">
                 <p>At NahaLabs, we call this <strong>AI Opportunity Engineering</strong>.</p>
                 <p>The question is not:</p>
-                <blockquote className="border-l-2 border-[#C8AE82] pl-6 text-[#F3F0EA]">“Where can we add AI?”</blockquote>
+                <blockquote className="border-l-2 border-[#7FA88F] pl-6 text-[#F3F0EA]">“Where can we add AI?”</blockquote>
                 <p>The better question is:</p>
-                <blockquote className="border-l-2 border-[#C8AE82] pl-6 text-[#F3F0EA] font-medium">“What important business problem becomes solvable when the right software, data and AI are combined into an intelligent system?”</blockquote>
+                <blockquote className="border-l-2 border-[#7FA88F] pl-6 text-[#F3F0EA] font-medium">“What important business problem becomes solvable when the right software, data and AI are combined into an intelligent system?”</blockquote>
                 <p>For logistics, one answer is the ability to move from fragmented operational records to an evidence-backed financial investigation.</p>
                 <div className="grid md:grid-cols-3 gap-4">
                   {[
@@ -371,7 +371,7 @@ export const InsightArticlePage: React.FC = () => {
                     ['Production', 'Integrate the evidence layer with existing operational systems. Create controlled workflows for investigation, review, approval and recovery, with provenance and human oversight.'],
                   ].map(([title, body]) => (
                     <div key={title} className="rounded-xl border border-[#24262a] bg-[#0d0e10] p-5 sm:p-6">
-                      <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">{title}</div>
+                      <div className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#7FA88F]">{title}</div>
                       <div className="mt-3 text-sm leading-7 text-[#A5A29B]">{body}</div>
                     </div>
                   ))}
@@ -394,7 +394,7 @@ export const InsightArticlePage: React.FC = () => {
             </section>
 
             <section className="rounded-2xl border border-[#2a2c30] bg-[#0c0d0e] p-7 sm:p-10">
-              <div className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#C8AE82]">NahaLabs Perspective</div>
+              <div className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#7FA88F]">NahaLabs Perspective</div>
               <h2 className="mt-4 text-2xl sm:text-3xl font-semibold text-[#F3F0EA]">Diagnosis → Prototype → Production</h2>
               <div className="mt-5 space-y-4 text-[#A5A29B]">
                 <p>NahaLabs builds intelligent systems for business problems that are too specific for generic software and too important to manage manually.</p>
@@ -419,18 +419,18 @@ export const InsightArticlePage: React.FC = () => {
               </div>
 
               <div className="mt-8">
-                <h3 className="text-sm font-mono uppercase tracking-[0.18em] text-[#C8AE82]">Primary sources and reporting</h3>
+                <h3 className="text-sm font-mono uppercase tracking-[0.18em] text-[#7FA88F]">Primary sources and reporting</h3>
                 <div className="mt-4 space-y-3 text-sm">
-                  <a className="block text-[#A5A29B] hover:text-[#C8AE82] transition-colors" href="https://www.maersk.com/news/articles/2026/03/13/south-africa-import-demurrage-detention-revision-april" target="_blank" rel="noreferrer">
+                  <a className="block text-[#A5A29B] hover:text-[#7FA88F] transition-colors" href="https://www.maersk.com/news/articles/2026/03/13/south-africa-import-demurrage-detention-revision-april" target="_blank" rel="noreferrer">
                     Maersk — South Africa Import Demurrage and Detention Revision
                   </a>
-                  <a className="block text-[#A5A29B] hover:text-[#C8AE82] transition-colors" href="https://portsregulator.org/wp-content/uploads/2025/12/2026-27-Tariff-Record-of-Decision-signed.pdf" target="_blank" rel="noreferrer">
+                  <a className="block text-[#A5A29B] hover:text-[#7FA88F] transition-colors" href="https://portsregulator.org/wp-content/uploads/2025/12/2026-27-Tariff-Record-of-Decision-signed.pdf" target="_blank" rel="noreferrer">
                     Ports Regulator of South Africa — 2026/27 Record of Decision
                   </a>
-                  <a className="block text-[#A5A29B] hover:text-[#C8AE82] transition-colors" href="https://www.freightnews.co.za/article/safla-and-rfa-propose-dgt-recovery-compact" target="_blank" rel="noreferrer">
+                  <a className="block text-[#A5A29B] hover:text-[#7FA88F] transition-colors" href="https://www.freightnews.co.za/article/safla-and-rfa-propose-dgt-recovery-compact" target="_blank" rel="noreferrer">
                     Freight News — SAFLA and RFA propose DGT recovery compact
                   </a>
-                  <a className="block text-[#A5A29B] hover:text-[#C8AE82] transition-colors" href="https://www.freightnews.co.za/article/durban-gateway-vessels-face-80-hour-anchorage-delays" target="_blank" rel="noreferrer">
+                  <a className="block text-[#A5A29B] hover:text-[#7FA88F] transition-colors" href="https://www.freightnews.co.za/article/durban-gateway-vessels-face-80-hour-anchorage-delays" target="_blank" rel="noreferrer">
                     Freight News — Durban Gateway vessel delays
                   </a>
                 </div>
@@ -461,7 +461,7 @@ export const InsightIndexPage: React.FC = () => {
   <div data-site-theme="light" data-tone="light" className="min-h-screen bg-canvas text-fg">
     <main className="max-w-6xl mx-auto px-5 sm:px-8 py-20 sm:py-28">
       <div className="max-w-3xl">
-        <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">
+        <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#7FA88F]">
           NahaLabs Intelligence
         </div>
         <h1 className="mt-5 text-4xl sm:text-6xl leading-[1.02] font-semibold tracking-[-0.035em]">
@@ -480,20 +480,20 @@ export const InsightIndexPage: React.FC = () => {
         </a>)}
         <a
           href={ARTICLE_PATH}
-          className="group rounded-2xl border border-[#24262a] bg-[#0c0d0e] p-7 sm:p-9 hover:border-[#C8AE82]/60 transition-all"
+          className="group rounded-2xl border border-[#24262a] bg-[#0c0d0e] p-7 sm:p-9 hover:border-[#7FA88F]/60 transition-all"
         >
           <div className="flex flex-wrap items-center gap-3 text-[11px] font-mono uppercase tracking-[0.16em] text-[#666]">
-            <span className="text-[#C8AE82]">Intelligent Revenue & Operations</span>
+            <span className="text-[#7FA88F]">Intelligent Revenue & Operations</span>
             <span>·</span>
             <span>21 September 2026</span>
           </div>
-          <h2 className="mt-5 text-2xl sm:text-4xl font-semibold tracking-tight text-[#F3F0EA] group-hover:text-[#E5D1B0] transition-colors">
+          <h2 className="mt-5 text-2xl sm:text-4xl font-semibold tracking-tight text-[#F3F0EA] group-hover:text-[#A9C9BA] transition-colors">
             The Hidden Cost of Fragmented Operational Information
           </h2>
           <p className="mt-4 max-w-2xl text-sm sm:text-base leading-7 text-[#A5A29B]">
             South African businesses have more operational data than ever, but fragmented systems make delays, costs and disputes difficult to reconstruct.
           </p>
-          <div className="mt-6 inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.16em] text-[#C8AE82]">
+          <div className="mt-6 inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.16em] text-[#7FA88F]">
             Read intelligence
             <ArrowUpRight className="w-3.5 h-3.5" />
           </div>

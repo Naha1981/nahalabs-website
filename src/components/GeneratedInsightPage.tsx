@@ -81,7 +81,7 @@ export const GeneratedInsightPage: React.FC<{ slug: string; initialBundle?: Bund
     <div data-site-theme="light" data-tone="light" className="min-h-screen bg-[#F2F4F7] text-[#0B0E10]">
       <main className="max-w-5xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
         <div className="max-w-3xl">
-          <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82] mb-5">
+          <div className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#7FA88F] mb-5">
             NahaLabs Intelligence · {bundle.category}
           </div>
           <h1 className="text-4xl sm:text-6xl leading-[1.02] font-semibold tracking-[-0.035em]">{bundle.title}</h1>
@@ -102,7 +102,7 @@ export const GeneratedInsightPage: React.FC<{ slug: string; initialBundle?: Bund
         <div className="mt-12 max-w-3xl space-y-9 text-[17px] sm:text-[18px] leading-[1.85] text-[#28322c]">
           {bundle.blocks.map((block, index) => {
             if (block.type === "h2") return <h2 key={index} className="text-2xl sm:text-3xl font-semibold text-[#17251d] pt-6">{block.text}</h2>;
-            if (block.type === "quote") return <blockquote key={index} className="border-l-2 border-[#C8AE82] pl-6 text-[#17251d] font-medium">{block.text}</blockquote>;
+            if (block.type === "quote") return <blockquote key={index} className="border-l-2 border-[#7FA88F] pl-6 text-[#17251d] font-medium">{block.text}</blockquote>;
             if (block.type === "ul") return <ul key={index} className="list-disc pl-6 space-y-2">{block.items.map((item) => <li key={item}>{item}</li>)}</ul>;
             return <p key={index}>{block.text}</p>;
           })}
@@ -121,7 +121,7 @@ export const GeneratedInsightPage: React.FC<{ slug: string; initialBundle?: Bund
               <div className="mt-5 space-y-4">
                 {bundle.sources.map((source) => (
                   <div key={source.url} className="border-b border-[#24262a] pb-4">
-                    <a href={source.url} target="_blank" rel="noreferrer" className="text-[#C8AE82] underline underline-offset-4">{source.title}</a>
+                    <a href={source.url} target="_blank" rel="noreferrer" className="text-[#7FA88F] underline underline-offset-4">{source.title}</a>
                     <p className="text-sm text-[#8d8982] mt-1">{source.note}</p>
                   </div>
                 ))}

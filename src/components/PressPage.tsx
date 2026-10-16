@@ -8,7 +8,7 @@ export const PressPage: React.FC = () => (
     <main>
       <section className="border-b border-[#1b1c1f]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
-          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">Press & research</p>
+          <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#7FA88F]">Press & research</p>
           <h1 className="mt-5 max-w-4xl text-4xl sm:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-[-0.04em]">
             NahaLabs research, engineering commentary and company background.
           </h1>
@@ -21,13 +21,13 @@ export const PressPage: React.FC = () => (
       <section className="border-b border-[#1b1c1f]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 grid md:grid-cols-2 gap-5">
           <article className="rounded-xl border border-[#24262a] bg-[#101112] p-6">
-            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">Company boilerplate</p>
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#7FA88F]">Company boilerplate</p>
             <p className="mt-4 text-base leading-7 text-[#D7D3CA]">
               NahaLabs is an intelligent systems engineering company based in Johannesburg, South Africa. It combines software, data, automation and AI to address operational and commercial problems where manual processes, fragmented information or slow decision cycles create measurable friction.
             </p>
           </article>
           <article className="rounded-xl border border-[#24262a] bg-[#101112] p-6">
-            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">Contact</p>
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#7FA88F]">Contact</p>
             <p className="mt-4 text-base leading-7 text-[#D7D3CA]">Founder: Thabiso Naha<br />Company: NahaLabs (PTY) Ltd<br />Location: Johannesburg, Gauteng, South Africa<br />Email: ai-solutions@nahalabs.co.za</p>
           </article>
         </div>
@@ -36,7 +36,7 @@ export const PressPage: React.FC = () => (
       <section className="border-b border-[#1b1c1f]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16">
           <div className="max-w-3xl">
-            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">Research themes</p>
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#7FA88F]">Research themes</p>
             <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">Topics NahaLabs publishes about.</h2>
           </div>
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -56,8 +56,8 @@ export const PressPage: React.FC = () => (
 
       <section>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16">
-          <div className="rounded-xl border border-[#C8AE82]/40 bg-[#12110f] p-7 sm:p-9">
-            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">Interview / source requests</p>
+          <div className="rounded-xl border border-[#7FA88F]/40 bg-[#12110f] p-7 sm:p-9">
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#7FA88F]">Interview / source requests</p>
             <h2 className="mt-3 text-3xl font-semibold">Contact NahaLabs.</h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-[#A5A29B]">
               For company background, founder commentary, technical context or access to public engineering work, contact NahaLabs directly.

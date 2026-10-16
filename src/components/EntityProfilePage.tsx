@@ -17,7 +17,7 @@ export const EntityProfilePage: React.FC = () => (
       <section className="border-b border-[#1b1c1f]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 pb-16 sm:pb-24 pt-28 sm:pt-32">
           <div className="max-w-4xl">
-            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#C8AE82]">JOHANNESBURG / INTELLIGENT SYSTEMS</p>
+            <p className="text-[11px] font-mono uppercase tracking-[0.22em] text-[#7FA88F]">JOHANNESBURG / INTELLIGENT SYSTEMS</p>
             <h1 className="mt-5 text-4xl sm:text-6xl lg:text-7xl font-semibold leading-[1.02] tracking-[-0.04em]">
               Built around the work.<br />Not the technology.
             </h1>
@@ -31,7 +31,7 @@ export const EntityProfilePage: React.FC = () => (
       <section className="border-b border-[#1b1c1f]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-1 rounded-xl border border-[#24262a] bg-[#101112] p-6">
-            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">Entity</p>
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#7FA88F]">Entity</p>
             <dl className="mt-5 space-y-4 text-sm">
               <div><dt className="text-[#777]">Legal name</dt><dd className="mt-1 text-[#D7D3CA]">NahaLabs (PTY) Ltd</dd></div>
               <div><dt className="text-[#777]">Brand</dt><dd className="mt-1 text-[#D7D3CA]">NahaLabs</dd></div>
@@ -42,7 +42,7 @@ export const EntityProfilePage: React.FC = () => (
           </div>
 
           <div className="lg:col-span-2 rounded-xl border border-[#24262a] bg-[#0d0e10] p-6 sm:p-8">
-            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">Founder</p>
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#7FA88F]">Founder</p>
             <h2 className="mt-3 text-3xl font-semibold">Thabiso Naha</h2>
             <p className="mt-1 text-[#8f8c85]">Founder and Systems Architect</p>
             <p className="mt-5 max-w-3xl text-base leading-7 text-[#A5A29B]">
@@ -57,7 +57,7 @@ export const EntityProfilePage: React.FC = () => (
 
       <section className="border-b border-[#1b1c1f]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16">
-          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">WHERE WE START</p>
+          <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#7FA88F]">WHERE WE START</p>
           <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">One bottleneck. A clear next step.</h2>
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {focusAreas.map((item) => (
@@ -70,7 +70,7 @@ export const EntityProfilePage: React.FC = () => (
       <section className="border-b border-[#1b1c1f]">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16">
           <div className="max-w-3xl">
-            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#C8AE82]">How projects are described</p>
+            <p className="text-[11px] font-mono uppercase tracking-[0.18em] text-[#7FA88F]">How projects are described</p>
             <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight">Facts, evidence and proposals are kept separate.</h2>
             <p className="mt-5 text-base leading-7 text-[#A5A29B]">
               NahaLabs distinguishes source-backed facts, customer-confirmed outcomes, public engineering work, proposals and assumptions. A system page should never turn a design target into a claimed customer result.
@@ -93,7 +93,7 @@ export const EntityProfilePage: React.FC = () => (
 
       <section>
         <div className="max-w-6xl mx-auto px-5 sm:px-8 py-16 text-center">
-          <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#C8AE82]">NahaLabs</p>
+          <p className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#7FA88F]">NahaLabs</p>
           <h2 className="mt-3 text-3xl sm:text-5xl font-semibold tracking-tight">Intelligent systems for real business problems.</h2>
           <p className="mt-5 max-w-2xl mx-auto text-base leading-7 text-[#A5A29B]">
             Diagnosis - Prototype - Production. The work starts with a business problem, not a request to add AI.

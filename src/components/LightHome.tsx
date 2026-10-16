@@ -8,7 +8,6 @@ import { Button, ButtonLink } from './Button';
 import { DotPattern } from './magicui/dot-pattern';
 import { Marquee } from './magicui/marquee';
 import { TextAnimate } from './magicui/text-animate';
-import { BorderBeam } from './magicui/border-beam';
 import { Magnetic } from './magicui/magnetic';
 
 const EASE_OUT: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -155,7 +154,6 @@ function HeroFilm() {
 
   return (
     <figure className="nahafilm" ref={filmRef}>
-      <BorderBeam size={130} duration={12} />
       <motion.div className="nahafilm-media" aria-hidden="true" style={{ y: mediaY }}>
         {reduced ? (
           <img src={SYSTEMS[0].image} alt="" className="nahafilm-scene is-active" loading="eager" decoding="async" />
