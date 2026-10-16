@@ -18,14 +18,26 @@ interface HomeProps {
 }
 
 interface SystemItem {
-  eyebrow: string; name: string; flow: string; title: string; description: string;
+  eyebrow: string; name: string; status: string; flow: string; title: string; description: string;
   image: string; alt: string; href?: string; cta?: string;
 }
 
 const SYSTEMS: SystemItem[] = [
   {
+    eyebrow: 'Revenue',
+    name: 'RevenueDesk',
+    status: 'Live',
+    flow: 'Capture → Understand → Recover',
+    title: 'Recover revenue hidden inside missed enquiries.',
+    description:
+      'A front-desk system for service businesses, designed to organise enquiries, prepare follow-up and make missed opportunities visible. Start with a workflow diagnosis.',
+    image: ASSETS.enterpriseJhb,
+    alt: 'Johannesburg commercial environment representing RevenueDesk',
+  },
+  {
     eyebrow: 'Hospitality',
     name: 'Flavourly',
+    status: 'In development',
     flow: 'Insight → Engagement → Repeat sales',
     title: 'A Restaurant Revenue OS for repeat business.',
     description:
@@ -37,6 +49,7 @@ const SYSTEMS: SystemItem[] = [
   {
     eyebrow: 'Freight',
     name: 'CargoIQ',
+    status: 'Live',
     flow: 'Quote → Risk → Recovery',
     title: 'Reconstruct the delay. Inspect the evidence.',
     description:
@@ -48,6 +61,7 @@ const SYSTEMS: SystemItem[] = [
   {
     eyebrow: 'Infrastructure',
     name: 'RailWatch',
+    status: 'Live',
     flow: 'Signal → Detection → Dispatch',
     title: 'Bring corridor incidents into one review.',
     description:
@@ -57,18 +71,9 @@ const SYSTEMS: SystemItem[] = [
     href: '/railwatch', cta: 'Open RailWatch',
   },
   {
-    eyebrow: 'Revenue',
-    name: 'RevenueDesk',
-    flow: 'Capture → Understand → Recover',
-    title: 'Recover revenue hidden inside missed enquiries.',
-    description:
-      'A front-desk system for service businesses, designed to organise enquiries, prepare follow-up and make missed opportunities visible. Start with a workflow diagnosis.',
-    image: ASSETS.enterpriseJhb,
-    alt: 'Johannesburg commercial environment representing RevenueDesk',
-  },
-  {
     eyebrow: 'Telecoms',
     name: 'NetPulse',
+    status: 'Live',
     flow: 'Spreadsheet → Check → Fix',
     title: 'Turn an ISP spreadsheet into a network health report.',
     description:
@@ -81,6 +86,7 @@ const SYSTEMS: SystemItem[] = [
   {
     eyebrow: 'Field evidence',
     name: 'FieldProof',
+    status: 'Live',
     flow: 'Notes → Checks → Report',
     title: 'Catch bad field data before it reaches the report.',
     description:
@@ -89,7 +95,7 @@ const SYSTEMS: SystemItem[] = [
     href: '/fieldproof',
     cta: 'Open FieldProof',
     alt: 'Field technician capturing evidence at a telecoms cabinet representing FieldProof',
-  },
+  }
 ];
 
 const SIGNALS = [
@@ -277,8 +283,8 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 Intelligent systems for revenue &amp; operations
               </motion.p>
               <h1 className="nh-display">
-                <TextAnimate as="span" className="nh-display-line" text="Intelligence," delay={reduced ? 0 : 0.12} />
-                <TextAnimate as="span" className="nh-display-line nh-display-accent" text="engineered." by="char" delay={reduced ? 0 : 0.42} stagger={0.032} />
+                <TextAnimate as="span" className="nh-display-line" text="We engineer systems that turn " delay={reduced ? 0 : 0.12} />
+                <TextAnimate as="span" className="nh-display-line nh-display-accent" text="business losses into measurable opportunities." by="word" delay={reduced ? 0 : 0.42} stagger={0.07} />
               </h1>
               <motion.p
                 className="nh-hero-lede"
@@ -286,7 +292,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: reduced ? 0 : 0.7, delay: reduced ? 0 : 0.56, ease: EASE_OUT }}
               >
-                Turn missed enquiries, scattered records and manual checks into a clear next action. We build intelligent systems for South African service businesses and operations teams.
+                NahaLabs builds intelligent systems that help businesses capture missed enquiries, improve restaurant margins, investigate freight costs and automate costly manual workflows. Every system starts with a real business problem and a measurable commercial outcome.
               </motion.p>
               <motion.div
                 className="nh-hero-actions"
@@ -296,12 +302,12 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
               >
                 <Magnetic strength={4}>
                   <Button type="button" onClick={onStartConversation}>
-                    Request a Workflow Diagnosis
+                    Discuss my business problem
                   </Button>
                 </Magnetic>
                 <Magnetic>
                   <ButtonLink href="#systems" variant="secondary">
-                    Explore the systems <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
+                    Explore our systems <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
                   </ButtonLink>
                 </Magnetic>
               </motion.div>
@@ -392,7 +398,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                   <div className="nh-system-copy">
                     <div className="nh-system-meta">
                       <span>{system.eyebrow}</span>
-                      <span>0{index + 1}</span>
+                      <span className="product-status">{system.status}</span>
                     </div>
                     <h3>{system.name}</h3>
                     <p className="nh-system-title">{system.title}</p>
@@ -450,7 +456,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
             <Reveal className="nh-method-foot">
               <p>We do not sell AI for its own sake. When intelligence is not the right tool, we tell you.</p>
               <Button type="button" onClick={onStartConversation}>
-                Request a Workflow Diagnosis <ArrowRight size={16} />
+                Discuss my business problem <ArrowRight size={16} />
               </Button>
             </Reveal>
           </div>
@@ -504,7 +510,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
             <p className="nh-kicker">THE NEXT MOVE</p>
             <h2>Start with one workflow. Know what to build next.</h2>
             <Button type="button" onClick={onStartConversation}>
-              Request a Workflow Diagnosis <ArrowRight size={20} strokeWidth={1.5} />
+              Discuss my business problem <ArrowRight size={20} strokeWidth={1.5} />
             </Button>
           </Reveal>
         </section>
