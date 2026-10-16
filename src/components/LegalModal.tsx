@@ -20,7 +20,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
       >
         <div className="flex items-center justify-between border-b border-[#222222] pb-3 text-[#F3F0EA]">
           <div className="flex items-center gap-2">
-            <Shield className="w-4 h-4 text-[#C8AE82]" />
+            <Shield className="w-4 h-4 text-[#7FA88F]" />
             <h3 className="text-base font-bold tracking-wide uppercase">
               {type === 'privacy' ? 'Privacy Policy & POPIA Notice' : 'Terms of Engineering Engagement'}
             </h3>
@@ -47,7 +47,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
             <p>
               Client telemetry within production systems engineered by NahaLabs remains the exclusive intellectual and proprietary property of the respective client organisation, hosted within client-designated cloud or on-premise infrastructure.
             </p>
-            <p className="font-mono text-[11px] text-[#C8AE82]">
+            <p className="font-mono text-[11px] text-[#7FA88F]">
               Inquiries regarding data retention or POPIA access: ai-solutions@nahalabs.co.za
             </p>
           </div>
@@ -68,7 +68,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
             <p>
               4. <strong>Jurisdiction:</strong> All contracts and engagements are governed by the laws of the Republic of South Africa, with legal domicile in Johannesburg, Gauteng.
             </p>
-            <p className="font-mono text-[11px] text-[#C8AE82]">
+            <p className="font-mono text-[11px] text-[#7FA88F]">
               NahaLabs (PTY) Ltd · Johannesburg, South Africa
             </p>
           </div>

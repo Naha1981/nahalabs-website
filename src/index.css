@@ -132,9 +132,9 @@
   --fg-3: #8d8b86;
   --line: rgb(241 238 232 / 0.12);
   --line-strong: rgb(241 238 232 / 0.24);
-  --accent: #c8ae82;
+  --accent: #7FA88F;
   --accent-hi: #dcc69f;
-  --btn-bg: #c8ae82;
+  --btn-bg: #7FA88F;
   --btn-bg-hover: #dcc69f;
   --btn-fg: #080909;
   --focus: #dcc69f;
@@ -375,6 +375,12 @@ select:focus-visible {
   .js-reveal .reveal.is-visible {
     opacity: 1;
     transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
@@ -644,7 +650,7 @@ html.ambient ::-webkit-scrollbar-thumb {
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C8AE82;
+  background: #7FA88F;
 }
 
 /* Success State & Check-mark Keyframes */
@@ -676,13 +682,13 @@ html.ambient ::-webkit-scrollbar-thumb {
 
 @keyframes success-glow-ring {
   0% {
-    box-shadow: 0 0 0 0 rgba(200, 174, 130, 0.45);
+    box-shadow: 0 0 0 0 rgba(127, 168, 143, 0.45);
   }
   70% {
-    box-shadow: 0 0 0 18px rgba(200, 174, 130, 0);
+    box-shadow: 0 0 0 18px rgba(127, 168, 143, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(200, 174, 130, 0);
+    box-shadow: 0 0 0 0 rgba(127, 168, 143, 0);
   }
 }
 
@@ -831,15 +837,3 @@ html, body {
 /* END PUBLIC LIGHT THEME COMPATIBILITY */
 
 /* Lenis smooth scrolling */
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}

@@ -757,7 +757,7 @@ body {
   color: var(--nh-muted) !important;
 }
 
-#contact [class~="text-[#C8AE82]"] {
+#contact [class~="text-[#496b58]"] {
   color: var(--nh-green-deep) !important;
 }
 
@@ -1322,20 +1322,6 @@ body {
   border-radius: 999px;
   padding: 6px 15px;
 }
-
-.magicui-border-beam {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(215, 235, 223, 0), #d7ebdf);
-  box-shadow: 0 0 8px rgba(215, 235, 223, 0.5);
-  offset-path: rect(0 auto auto 0 round var(--nh-radius));
-  pointer-events: none;
-  z-index: 3;
-}
-
 .magicui-magnetic {
   display: inline-block;
 }

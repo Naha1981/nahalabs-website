@@ -46,8 +46,8 @@ export const HeroSystemVisual: React.FC = () => {
             <stop offset="100%" stopColor="var(--color-champagne)" stopOpacity="0" />
           </radialGradient>
           <linearGradient id="sysMonogram" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#E5D1B0" />
-            <stop offset="55%" stopColor="#C8AE82" />
+            <stop offset="0%" stopColor="#355241" />
+            <stop offset="55%" stopColor="#496b58" />
             <stop offset="100%" stopColor="#9C8358" />
           </linearGradient>
         </defs>

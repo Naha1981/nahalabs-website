@@ -16,7 +16,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
         {/* Back navigation */}
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-2 text-xs font-mono text-[#A5A29B] hover:text-[#C8AE82] transition-colors mb-8 cursor-pointer"
+          className="inline-flex items-center gap-2 text-xs font-mono text-[#A5A29B] hover:text-[#7FA88F] transition-colors mb-8 cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>RETURN TO NAHALABS PRIMARY DIRECTORY</span>
@@ -24,8 +24,8 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
 
         {/* Hero Header */}
         <div className="border-b border-[#222222] pb-12 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#151515] border border-[#262626] text-[11px] font-mono tracking-widest text-[#C8AE82] uppercase mb-4">
-            <MapPin className="w-3.5 h-3.5 text-[#C8AE82]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#151515] border border-[#262626] text-[11px] font-mono tracking-widest text-[#7FA88F] uppercase mb-4">
+            <MapPin className="w-3.5 h-3.5 text-[#7FA88F]" />
             <span>REGIONAL HUB // {location.city} ({location.province})</span>
           </div>
           
@@ -41,7 +41,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
             {location.districts.map((district, idx) => (
               <span 
                 key={idx}
-                className="px-3 py-1 rounded bg-[#151618] border border-[#28292c] text-xs font-mono text-[#C8AE82]"
+                className="px-3 py-1 rounded bg-[#151618] border border-[#28292c] text-xs font-mono text-[#7FA88F]"
               >
                 {district}
               </span>
@@ -76,7 +76,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
                     key={idx}
                     className="p-3.5 rounded bg-[#121314] border border-[#222222] text-xs sm:text-sm text-[#F3F0EA] flex items-center gap-3"
                   >
-                    <CheckCircle className="w-4 h-4 text-[#C8AE82] shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-[#7FA88F] shrink-0" />
                     <span>{focus}</span>
                   </div>
                 ))}
@@ -92,7 +92,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
                 {location.coreSolutions.map((sol, idx) => (
                   <div 
                     key={idx}
-                    className="p-4 rounded bg-[#151618] border-l-2 border-[#C8AE82] border-y border-r border-[#262626] text-xs sm:text-sm text-[#A5A29B]"
+                    className="p-4 rounded bg-[#151618] border-l-2 border-[#7FA88F] border-y border-r border-[#262626] text-xs sm:text-sm text-[#A5A29B]"
                   >
                     <span className="text-[#F3F0EA] font-medium">{sol}</span>
                   </div>
@@ -108,7 +108,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
             {/* Local Intervention Snapshot */}
             <div className="p-8 rounded-sm bg-[#121315] border border-[#262626] shadow-xl space-y-5">
               <div className="flex items-center justify-between border-b border-[#222222] pb-3">
-                <span className="text-[11px] font-mono text-[#C8AE82] uppercase tracking-widest">
+                <span className="text-[11px] font-mono text-[#7FA88F] uppercase tracking-widest">
                   REGIONAL SCENARIO
                 </span>
                 <span className="text-xs font-mono text-[#A5A29B]">{location.city}</span>
@@ -124,7 +124,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
               </div>
 
               <div>
-                <span className="text-[11px] font-mono text-[#C8AE82] uppercase tracking-wider block mb-1">
+                <span className="text-[11px] font-mono text-[#7FA88F] uppercase tracking-wider block mb-1">
                   NAHALABS APPROACH
                 </span>
                 <p className="text-xs text-[#A5A29B] leading-relaxed">
@@ -133,7 +133,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
               </div>
 
               <div className="p-4 rounded bg-[#18191c] border border-[#2e2f33]">
-                <span className="text-[11px] font-mono text-[#C8AE82] uppercase tracking-wider block mb-1">
+                <span className="text-[11px] font-mono text-[#7FA88F] uppercase tracking-wider block mb-1">
                   TARGET OUTCOME
                 </span>
                 <p className="text-xs font-semibold text-[#F3F0EA]">
@@ -143,7 +143,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
             </div>
 
             {/* Regional Consultation Card */}
-            <div className="p-8 rounded-sm bg-gradient-to-b from-[#16171a] to-[#101112] border border-[#C8AE82]/40 shadow-2xl space-y-4 text-center">
+            <div className="p-8 rounded-sm bg-gradient-to-b from-[#16171a] to-[#101112] border border-[#7FA88F]/40 shadow-2xl space-y-4 text-center">
               <h4 className="text-lg font-bold text-[#F3F0EA]">
                 Deploy Intelligent Systems in {location.city}
               </h4>
@@ -152,7 +152,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
               </p>
               <button
                 onClick={onContact}
-                className="w-full py-3.5 rounded-lg bg-[#C8AE82] text-[#080909] font-bold text-xs tracking-wider uppercase hover:bg-[#E5D1B0] transition-colors flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-lg bg-[#7FA88F] text-[#080909] font-bold text-xs tracking-wider uppercase hover:bg-[#A9C9BA] transition-colors flex items-center justify-center gap-2"
               >
                 <span>Initiate Diagnostic In {location.city}</span>
                 <ArrowRight className="w-4 h-4" />

@@ -2,24 +2,32 @@ import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Toaster } from 'sonner';
 import { LightHome } from './components/LightHome';
 import { LOCATIONS_DATA } from './data/locations';
-import { InsightArticlePage, InsightIndexPage } from './components/InsightArticlePage';
-import { GeneratedInsightPage, type Bundle } from './components/GeneratedInsightPage';
-import { ContentMediaUploader } from './components/ContentMediaUploader';
-import { EntityProfilePage } from './components/EntityProfilePage';
-import { PublicSystemsPage } from './components/PublicSystemsPage';
-import { PressPage } from './components/PressPage';
 import { scrollBehavior } from './lib/motion';
-import { initLenis } from './lib/lenis';
-import { RevenueDeskPage } from './components/RevenueDeskPage';
-import { BankbookPage } from './components/BankbookPage';
-import { SmileBridgePage } from './components/SmileBridgePage';
 import { SiteShell } from './components/SiteShell';
-import { AuditPage } from './components/AuditPage';
 import { ContactSection } from './components/ContactSection';
 import { AppFramePage, LIVE_APPS } from './components/AppFramePage';
+import type { Bundle } from './components/GeneratedInsightPage';
 
+// Route-level code splitting: everything off the homepage loads on demand.
+// Prerendering (entry-server.tsx) uses renderToPipeableStream + onAllReady,
+// so Suspense boundaries still produce full static HTML for crawlers.
+const InsightArticlePage = lazy(() => import('./components/InsightArticlePage').then(m => ({ default: m.InsightArticlePage })));
+const InsightIndexPage = lazy(() => import('./components/InsightArticlePage').then(m => ({ default: m.InsightIndexPage })));
+const GeneratedInsightPage = lazy(() => import('./components/GeneratedInsightPage').then(m => ({ default: m.GeneratedInsightPage })));
+const ContentMediaUploader = lazy(() => import('./components/ContentMediaUploader').then(m => ({ default: m.ContentMediaUploader })));
+const EntityProfilePage = lazy(() => import('./components/EntityProfilePage').then(m => ({ default: m.EntityProfilePage })));
+const PublicSystemsPage = lazy(() => import('./components/PublicSystemsPage').then(m => ({ default: m.PublicSystemsPage })));
+const PressPage = lazy(() => import('./components/PressPage').then(m => ({ default: m.PressPage })));
+const RevenueDeskPage = lazy(() => import('./components/RevenueDeskPage').then(m => ({ default: m.RevenueDeskPage })));
+const BankbookPage = lazy(() => import('./components/BankbookPage').then(m => ({ default: m.BankbookPage })));
+const SmileBridgePage = lazy(() => import('./components/SmileBridgePage').then(m => ({ default: m.SmileBridgePage })));
+const AuditPage = lazy(() => import('./components/AuditPage').then(m => ({ default: m.AuditPage })));
 const LocationView = lazy(() => import('./components/LocationView').then(m => ({ default: m.LocationView })));
 const LegalModal = lazy(() => import('./components/LegalModal').then(m => ({ default: m.LegalModal })));
+
+const routeFallback = (
+  <div className="min-h-[50vh] flex items-center justify-center text-fg-3 text-sm">Loading…</div>
+);
 
 export default function App() {
   const rawPath =
@@ -49,10 +57,6 @@ export default function App() {
   const generatedInsightSlug = normalizedPath.startsWith('/insights/') && !isInsightArticlePage
     ? normalizedPath.replace('/insights/', '')
     : null;
-
-  useEffect(() => {
-    initLenis();
-  }, []);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -123,7 +127,7 @@ export default function App() {
     }, 100);
   };
 
-  if (isContentMediaAdmin) return <ContentMediaUploader />;
+  if (isContentMediaAdmin) return <Suspense fallback={routeFallback}><ContentMediaUploader /></Suspense>;
   const liveApp = LIVE_APPS.find(app => app.path === normalizedPath);
   if (liveApp) return <AppFramePage app={liveApp} />;
 
@@ -206,7 +210,7 @@ export default function App() {
   return (
     <SiteShell {...commonShellProps}>
       <Toaster position="top-right" richColors closeButton theme="light" />
-      {pageContent}
+      <Suspense fallback={routeFallback}>{pageContent}</Suspense>
       <Suspense fallback={null}>
         {legalModalType && <LegalModal type={legalModalType} onClose={() => setLegalModalType(null)} />}
       </Suspense>
