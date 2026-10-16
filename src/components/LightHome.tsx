@@ -36,7 +36,7 @@ const SYSTEMS: SystemItem[] = [
   {
     eyebrow: 'Hospitality',
     name: 'Flavourly',
-    status: 'In development',
+    status: '',
     flow: 'Insight → Engagement → Repeat sales',
     title: 'A Restaurant Revenue OS for repeat business.',
     description:
@@ -396,7 +396,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                   <div className="nh-system-copy">
                     <div className="nh-system-meta">
                       <span>{system.eyebrow}</span>
-                      <span className="product-status">{system.status}</span>
+                      {system.status && <span className="product-status">{system.status}</span>}
                     </div>
                     <h3>{system.name}</h3>
                     <p className="nh-system-title">{system.title}</p>
