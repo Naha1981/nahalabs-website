@@ -76,6 +76,14 @@
     .wrap{max-width:100%;padding:0}
     .card{border:1px solid #ccc;border-radius:8px;page-break-inside:avoid}
   }
+
+  .trial-bar{max-width:520px;margin:10px auto 0;padding:8px 14px;background:#f3efe6;border:1px solid #e4d9bf;border-radius:10px;font-size:13px;color:#5a4a22;display:none}
+  .trial-bar.warn{background:#fdf6ec;border-color:#e4c98f;color:#7a5a1d}
+  .lock{max-width:520px;margin:28px auto;width:calc(100% - 32px);padding:22px 18px;background:#fff;border:1px solid var(--line);border-radius:14px;display:none}
+  .lock h2{margin:0 0 8px;font-size:20px}
+  .lock p{margin:8px 0;color:var(--muted)}
+  .lock .owner{margin-top:16px;padding:14px;background:#f3f6f4;border:1px solid var(--line);border-radius:10px;color:var(--text)}
+  .lock .owner a{color:var(--green);font-weight:700}
 </style>
 </head>
 <body>
@@ -87,6 +95,12 @@
   <span class="ref-chip" id="refChip"></span>
 </div></header>
 
+<div class="trial-bar" id="trial-bar"></div>
+<section class="lock" id="trial-lock">
+  <h2>This quote tool's free trial has ended</h2>
+  <p id="lock-customer">To get a quote, please contact the transporter directly.</p>
+  <div class="owner"><b>Owner of <span id="lock-name">this business</span>?</b> Keep your customers' quote sheets coming in clean. Contact NahaLabs to continue: <a href="https://wa.me/27612980377">WhatsApp 061 298 0377</a> or <a href="mailto:ai-solutions@nahalabs.co.za?subject=Container%20quote%20tool%20-%20continue">ai-solutions@nahalabs.co.za</a>.</div>
+</section>
 <main class="wrap" id="form-view">
   <div class="intro">
     <div class="eyebrow">Container transport · quote request</div>
@@ -215,6 +229,23 @@
   var WA_NUMBER = (params.get("wa") || "").replace(/[^0-9]/g, "");
   var EMAIL_TO = (params.get("em") || "").trim();
 
+
+  // 7-day free trial (only for links that carry ?k=<slug>; no k = free sample, never locked)
+  var TRIAL_KEY = (params.get("k") || "").trim().toLowerCase();
+  if (TRIAL_KEY) {
+    fetch("/api/trial?k=" + encodeURIComponent(TRIAL_KEY), {cache:"no-store"}).then(function(r){ return r.json(); }).then(function(t){
+      if (t.status === "expired") {
+        $("form-view").style.display = "none"; $("sheet").style.display = "none";
+        $("lock-name").textContent = TRANSPORTER || "this business";
+        if (TRANSPORTER) $("lock-customer").textContent = "To get a quote, please contact " + TRANSPORTER + " directly.";
+        $("trial-lock").style.display = "block";
+      } else if (t.status === "active" && !t.unmetered) {
+        var b = $("trial-bar"); b.style.display = "block";
+        b.className = "trial-bar" + (t.daysLeft <= 2 ? " warn" : "");
+        b.textContent = "Free trial: " + t.daysLeft + (t.daysLeft === 1 ? " day" : " days") + " left.";
+      }
+    }).catch(function(){ /* fail open: never block a customer because of our outage */ });
+  }
   var ref = "CQ-" + new Date().toISOString().slice(0,10).replace(/-/g,"") + "-" + Math.random().toString(36).slice(2,6).toUpperCase();
   $("refChip").textContent = ref;
 
@@ -370,3 +401,4 @@
 </script>
 </body>
 </html>
+
