@@ -30,8 +30,8 @@ const SYSTEMS: SystemItem[] = [
     title: 'A Restaurant Revenue OS for repeat business.',
     description:
       'A Restaurant Revenue OS designed to help restaurants increase profits, recover lost revenue and grow repeat sales through intelligent insights, marketing, loyalty programmes and personalised engagement. WhatsApp is one part of the system.',
-    image: ASSETS.enterpriseJhb,
-    alt: 'Johannesburg business district, the market for Flavourly',
+    image: ASSETS.flavourly,
+    alt: 'Restaurant dining room in service, the market for Flavourly',
     href: '/systems#flavourly', cta: 'Explore Flavourly',
   },
   {
@@ -128,7 +128,15 @@ const FILM_DWELL_MS = 3600;
 
 function HeroFilm() {
   const [scene, setScene] = useState(0);
+  const [bed, setBed] = useState(0);
   const reduced = useReducedMotion();
+  const mounted = useRef(false);
+  const filmRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: filmRef, offset: ['start end', 'end start'] });
+  // Internal depth: the image bed lags the frame, the signal trace drifts ahead.
+  // Captions stay at 1x so text never moves against the reader.
+  const mediaY = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [26, -26]);
+  const signalY = useTransform(scrollYProgress, [0, 1], reduced ? [0, 0] : [-10, 10]);
 
   useEffect(() => {
     if (reduced) return;
@@ -140,46 +148,47 @@ function HeroFilm() {
   const captionTransition = { duration: reduced ? 0 : 0.45, ease: EASE_OUT };
 
   return (
-    <figure className="nahafilm">
+    <figure className="nahafilm" ref={filmRef}>
       <BorderBeam size={130} duration={12} />
-      <div className="nahafilm-media" aria-hidden="true">
+      <motion.div className="nahafilm-media" aria-hidden="true" style={{ y: mediaY }}>
         {reduced ? (
           <img src={SYSTEMS[0].image} alt="" className="nahafilm-scene is-active" loading="eager" decoding="async" />
         ) : (
-          SYSTEMS.map((item, index) => (
+          <>
+            {/* Bed: the last settled scene, always fully opaque, so a dissolve
+                never passes through an empty grey frame. */}
+            <img src={SYSTEMS[bed].image} alt="" className="nahafilm-scene nahafilm-bed" decoding="async" />
             <motion.img
-              key={item.name}
-              src={item.image}
+              key={scene}
+              src={current.image}
               alt=""
-              className="nahafilm-scene"
-              initial={false}
-              animate={{
-                opacity: index === scene ? 1 : 0,
-                scale: index === scene ? 1.02 : 1.1,
-              }}
+              className="nahafilm-scene nahafilm-subject"
+              initial={mounted.current ? { opacity: 0, scale: 1.06 } : false}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{
                 opacity: { duration: 1.05, ease: [0.4, 0, 0.2, 1] },
-                scale: { duration: 5.4, ease: 'linear' },
+                scale: { duration: FILM_DWELL_MS / 1000 + 1.4, ease: 'linear' },
               }}
-              loading={index === 0 ? 'eager' : 'lazy'}
+              onAnimationComplete={() => {
+                mounted.current = true;
+                setBed(scene);
+              }}
+              loading={scene === 0 ? 'eager' : 'lazy'}
               decoding="async"
             />
-          ))
+          </>
         )}
         <div className="nahafilm-wash" />
         <div className="nahafilm-grid" />
-        <svg className="nahafilm-signal" viewBox="0 0 1000 560" preserveAspectRatio="none">
+        <motion.svg className="nahafilm-signal" viewBox="0 0 1000 560" preserveAspectRatio="none" style={{ y: signalY }}>
           <path d="M75 465 C280 350 330 230 515 280 C680 325 710 165 920 85" />
           <path d="M120 105 C285 145 340 315 510 300 C700 280 735 400 900 420" />
           <circle cx="515" cy="280" r="7" />
-        </svg>
-      </div>
+        </motion.svg>
+      </motion.div>
 
       <div className="nahafilm-topline">
         <span>NAHALABS / REAL-WORLD INTELLIGENCE</span>
-        <span className="nahafilm-index">
-          {String(scene + 1).padStart(2, '0')} / {String(SYSTEMS.length).padStart(2, '0')}
-        </span>
       </div>
 
       <div className="nahafilm-bottom">
@@ -208,22 +217,6 @@ function HeroFilm() {
             <span className="nahafilm-arrow">&#8599;</span>
           </motion.div>
         </AnimatePresence>
-      </div>
-
-      <div className="nahafilm-progress" aria-hidden="true">
-        {SYSTEMS.map((item, index) => (
-          <span key={item.name} className="nahafilm-progress-segment">
-            {index === scene && !reduced && (
-              <motion.span
-                key={scene}
-                className="nahafilm-progress-fill"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: FILM_DWELL_MS / 1000, ease: 'linear' }}
-              />
-            )}
-          </span>
-        ))}
       </div>
 
       <figcaption className="sr-only">
@@ -311,15 +304,6 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                     Explore the systems <ArrowRight size={17} strokeWidth={1.5} aria-hidden="true" />
                   </ButtonLink>
                 </Magnetic>
-              </motion.div>
-              <motion.div
-                className="nh-hero-meta"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: reduced ? 0 : 0.9, delay: reduced ? 0 : 0.94 }}
-              >
-                <span className="nh-hero-meta-label">See the work</span>
-                <span className="nh-hero-meta-items">Working systems &middot; Early-stage products &middot; Founder-led engineering</span>
               </motion.div>
             </motion.div>
 
