@@ -69,17 +69,18 @@ export const TextAnimate: React.FC<TextAnimateProps> = ({
   return (
     <Tag className={className} aria-label={text}>
       {words.map((word, i) => (
-        <motion.span
-          key={i}
-          aria-hidden="true"
-          className={`text-animate-word ${accentFrom !== undefined && i >= accentFrom ? 'text-animate-accent' : ''}`}
-          initial={{ opacity: 0, y: '0.35em', filter: 'blur(10px)' }}
-          animate={{ opacity: 1, y: '0em', filter: 'blur(0px)' }}
-          transition={{ duration: 0.55, delay: delay + i * stagger, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {word}
-          {i < words.length - 1 ? ' ' : ''}
-        </motion.span>
+        <React.Fragment key={i}>
+          <motion.span
+            aria-hidden="true"
+            className={`text-animate-word ${accentFrom !== undefined && i >= accentFrom ? 'text-animate-accent' : ''}`}
+            initial={{ opacity: 0, y: '0.35em', filter: 'blur(10px)' }}
+            animate={{ opacity: 1, y: '0em', filter: 'blur(0px)' }}
+            transition={{ duration: 0.55, delay: delay + i * stagger, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {word}
+          </motion.span>
+          {i < words.length - 1 ? ' ' : null}
+        </React.Fragment>
       ))}
     </Tag>
   );

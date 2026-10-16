@@ -872,8 +872,8 @@ body {
   }
 
   .nh-display {
-    max-width: 9ch;
-    font-size: clamp(3.05rem, 14.6vw, 5.2rem);
+    max-width: 11ch;
+    font-size: clamp(2.7rem, 12.8vw, 4.6rem);
   }
 
   .nahafilm {
@@ -1476,7 +1476,7 @@ body {
   .nh-hero { padding-top: clamp(130px, 11vw, 164px); padding-bottom: 0; }
   .nh-hero > .wrap { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 56px; padding-bottom: 76px; }
   .nh-hero-copy { min-width: 0; }
-  .nh-display { font-size: clamp(4.25rem, 6.6vw, 6.4rem); }
+  .nh-display { font-size: clamp(3.4rem, 4.9vw, 5rem); max-width: 13ch; }
   .nh-hero-lede { font-size: 1.12rem; line-height: 1.6; margin-top: 30px; }
   .nh-hero .nahafilm { margin-top: 0; aspect-ratio: 4 / 4.5; max-height: min(580px, calc(100svh - 180px)); }
   .nh-hero .nahafilm-title { font-size: clamp(2.25rem, 4vw, 4rem); }
