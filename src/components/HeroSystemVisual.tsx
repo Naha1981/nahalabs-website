@@ -27,7 +27,7 @@ const OUTPUTS = [
 
 export const HeroSystemVisual: React.FC = () => {
   return (
-    <figure className="hero-visual sys-diagram m-0 w-full aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5] rounded-sm ring-1 ring-line bg-surface relative overflow-hidden">
+    <figure className="hero-visual sys-diagram m-0 w-full aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5] rounded-lg ring-1 ring-line bg-surface relative overflow-hidden">
       <p className="sr-only">
         Diagram: scattered operational friction — spreadsheets, manual approvals, delayed quotes,
         inventory gaps — flowing into one engineered NahaLabs system, and out again as recovered

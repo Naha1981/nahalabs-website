@@ -95,7 +95,7 @@ export const GeneratedInsightPage: React.FC<{ slug: string; initialBundle?: Bund
           <img
             src={heroImageUrl}
             alt={bundle.mediaAltText}
-            className="mt-12 w-full max-h-[560px] object-cover rounded-2xl border border-[#24262a]"
+            className="mt-12 w-full max-h-[560px] object-cover rounded-lg border border-[#24262a]"
           />
         )}
 
@@ -109,7 +109,7 @@ export const GeneratedInsightPage: React.FC<{ slug: string; initialBundle?: Bund
 
           {videoUrl && (
             <div className="pt-8">
-              <video controls playsInline preload="metadata" className="w-full rounded-2xl border border-[#24262a] bg-black">
+              <video controls playsInline preload="metadata" className="w-full rounded-lg border border-[#24262a] bg-black">
                 <source src={videoUrl} />
               </video>
             </div>
