@@ -106,7 +106,7 @@ export const FeaturedSystems: React.FC<FeaturedSystemsProps> = ({ onSelectSystem
                     decoding="async"
                     width={1280}
                     height={960}
-                    className="w-full aspect-[4/3] object-cover rounded-sm ring-1 ring-line"
+                    className="w-full aspect-[4/3] object-cover rounded-lg ring-1 ring-line"
                   />
                 </picture>
               </div>

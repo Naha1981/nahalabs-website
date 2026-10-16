@@ -122,7 +122,7 @@ export const InsightArticlePage: React.FC = () => {
             </div>
 
             {HERO_IMAGE_URL && (
-              <figure className="mt-10 overflow-hidden rounded-2xl border border-[#24262a] bg-[#0d0e10]">
+              <figure className="mt-10 overflow-hidden rounded-lg border border-[#24262a] bg-[#0d0e10]">
                 <img src={HERO_IMAGE_URL} alt={MEDIA_ALT_TEXT} className="w-full h-auto" loading="eager" />
                 <figcaption className="px-4 py-3 text-[11px] font-mono uppercase tracking-[0.14em] text-[#666]">
                   NahaLabs Intelligence · Evidence → Operations → Financial consequence
@@ -131,7 +131,7 @@ export const InsightArticlePage: React.FC = () => {
             )}
 
             {VIDEO_URL && (
-              <div className="mt-8 overflow-hidden rounded-2xl border border-[#24262a] bg-black aspect-video">
+              <div className="mt-8 overflow-hidden rounded-lg border border-[#24262a] bg-black aspect-video">
                 {/\\.(mp4|webm|ogg)(\\?|$)/i.test(VIDEO_URL) ? (
                   <video className="w-full h-full" controls preload="metadata" src={VIDEO_URL} />
                 ) : (

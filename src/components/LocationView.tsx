@@ -152,7 +152,7 @@ export const LocationView: React.FC<LocationViewProps> = ({ location, onBack, on
               </p>
               <button
                 onClick={onContact}
-                className="w-full py-3.5 rounded-full bg-[#C8AE82] text-[#080909] font-bold text-xs tracking-wider uppercase hover:bg-[#E5D1B0] transition-colors flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-lg bg-[#C8AE82] text-[#080909] font-bold text-xs tracking-wider uppercase hover:bg-[#E5D1B0] transition-colors flex items-center justify-center gap-2"
               >
                 <span>Initiate Diagnostic In {location.city}</span>
                 <ArrowRight className="w-4 h-4" />

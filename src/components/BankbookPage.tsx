@@ -188,7 +188,7 @@ export const BankbookPage: React.FC = () => {
                 Import the sample pack, review flagged fields, approve or reject the proposed matches and export the audit trail. Everything in it is fictional.
               </p>
             </div>
-            <div className="mt-10 overflow-hidden rounded-sm ring-1 ring-line bg-white">
+            <div className="mt-10 overflow-hidden rounded-lg ring-1 ring-line bg-white">
               <div className="flex items-center justify-between gap-3 border-b border-line px-4 py-2 text-small">
                 <span className="text-fg-2">BankBook review desk</span>
                 <a href={APP_URL} target="_blank" rel="noopener noreferrer" className="link shrink-0">

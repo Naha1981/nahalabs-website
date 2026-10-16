@@ -463,7 +463,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem,
                   <button
                     type="button"
                     onClick={() => handleCopy('ai-solutions@nahalabs.co.za', 'email', 'Contact Email')}
-                    className="px-2 py-1 rounded bg-white hover:bg-[#272a2f] text-[#4D5660] hover:text-[#355241] border border-[#D1D5DB] transition-all shrink-0 flex items-center gap-1 text-[11px] font-mono cursor-pointer"
+                    className="px-2 py-1 rounded-lg bg-white hover:bg-[#272a2f] text-[#4D5660] hover:text-[#355241] border border-[#D1D5DB] transition-all shrink-0 flex items-center gap-1 text-[11px] font-mono cursor-pointer"
                     title="Copy email to clipboard"
                     aria-label="Copy email address"
                   >
@@ -503,7 +503,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem,
                   <button
                     type="button"
                     onClick={() => handleCopy('Johannesburg, Gauteng, South Africa', 'address', 'Physical Address')}
-                    className="px-2 py-1 rounded bg-white hover:bg-[#272a2f] text-[#4D5660] hover:text-[#355241] border border-[#D1D5DB] transition-all shrink-0 flex items-center gap-1 text-[11px] font-mono cursor-pointer"
+                    className="px-2 py-1 rounded-lg bg-white hover:bg-[#272a2f] text-[#4D5660] hover:text-[#355241] border border-[#D1D5DB] transition-all shrink-0 flex items-center gap-1 text-[11px] font-mono cursor-pointer"
                     title="Copy physical address to clipboard"
                     aria-label="Copy physical address"
                   >
@@ -650,7 +650,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem,
                       <button
                         type="button"
                         onClick={() => handleCopy(submissionRef, 'ref', 'Reference Code')}
-                        className="px-2.5 py-1 rounded bg-white hover:bg-[#282a2f] text-[#4D5660] hover:text-[#355241] border border-[#D1D5DB] transition-colors flex items-center gap-1.5 text-[11px] cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-white hover:bg-[#282a2f] text-[#4D5660] hover:text-[#355241] border border-[#D1D5DB] transition-colors flex items-center gap-1.5 text-[11px] cursor-pointer"
                       >
                         {copiedField === 'ref' ? (
                           <>
@@ -749,7 +749,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem,
                             type="button"
                             onClick={() => isAccessible && handleJumpToStep(s.number as 1 | 2 | 3)}
                             disabled={!isAccessible}
-                            className={`p-2.5 sm:p-3 rounded text-left transition-all relative border cursor-pointer ${
+                            className={`p-2.5 sm:p-3 rounded-lg text-left transition-all relative border cursor-pointer ${
                               isCurrent
                                 ? 'bg-[#EEF4F0] border-[#355241] text-[#0B0E10] shadow-[0_0_0_1px_#355241]'
                                 : isDone
