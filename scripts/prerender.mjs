@@ -68,6 +68,7 @@ async function main() {
     const revenueDesk = await vite.ssrLoadModule('/src/components/RevenueDeskPage.tsx');
     const bankbook = await vite.ssrLoadModule('/src/components/BankbookPage.tsx');
     const smileBridge = await vite.ssrLoadModule('/src/components/SmileBridgePage.tsx');
+    const revup = await vite.ssrLoadModule('/src/components/RevUpPage.tsx');
     const press = await vite.ssrLoadModule('/src/components/PressPage.tsx');
 
     const areaType = { johannesburg: 'City', soweto: 'City', gauteng: 'AdministrativeArea', lesotho: 'Country' };
@@ -134,6 +135,13 @@ async function main() {
         description:
           "Smile Bridge is NahaLabs' patient conversion system for dental practices: a short practice video, one question at a time, and every visitor routed to booking, WhatsApp or a callback - with emergencies escalated first.",
         jsonLd: [jsonLdTag(smileBridge.getSmileBridgeJsonLd(), 'nahalabs-smilebridge-jsonld')],
+      },
+      {
+        path: '/revup',
+        title: 'RevUp | WhatsApp Employee & Social Growth Engine | NahaLabs',
+        description:
+          "RevUp is NahaLabs' growth system for restaurants and local businesses: pair the business WhatsApp in minutes, answer every customer, scout local demand and turn it into social posts the owner approves.",
+        jsonLd: [jsonLdTag(revup.getRevUpJsonLd(), 'nahalabs-revup-jsonld')],
       },
       {
         path: '/bankbook',

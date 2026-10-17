@@ -19,6 +19,7 @@ const PAGES = [
 const PRODUCTS = [
   { href: '/revenuedesk', label: 'RevenueDesk', note: 'Front desk for service businesses' },
   { href: '/#flavourly', label: 'Flavourly', note: 'Restaurant Revenue OS' },
+  { href: '/revup', label: 'RevUp', note: 'WhatsApp employee & social growth' },
   { href: '/cargo-iq', label: 'CargoIQ', note: 'Freight evidence and dispute intelligence' },
   { href: '/fieldproof', label: 'FieldProof', note: 'Field evidence for telecom crews' },
   { href: '/netpulse', label: 'NetPulse', note: 'Network inventory clean-up' },
