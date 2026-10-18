@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 export const LIVE_APPS: { path: string; name: string; url: string; notice?: string }[] = [
-  { path: '/railwatch', name: 'RailWatch', url: 'https://naha-railwatch.onrender.com/' },
-  { path: '/cargo-iq', name: 'CargoIQ', url: 'https://cargo-iq.lovable.app/' },
-  { path: '/nutri-tummies', name: 'Nutri Tummies', url: 'https://nutri-tummies.lovable.app/' },
+  { path: '/railwatch', name: 'RailWatch', url: 'https://railwatch.nahalabs.co.za/' },
+  { path: '/cargo-iq', name: 'CargoIQ', url: 'https://cargoiq.nahalabs.co.za/' },
+  { path: '/nutri-tummies', name: 'Nutri Tummies', url: 'https://nutri.nahalabs.co.za/' },
   { path: '/fieldproof', name: 'FieldProof', url: 'https://fieldproof.nahalabs.co.za/' },
   {
     path: '/netpulse',

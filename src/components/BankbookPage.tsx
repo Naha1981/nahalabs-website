@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, Check, X } from 'lucide-react';
 
 const SITE = 'https://www.nahalabs.co.za';
 const PATH = '/bankbook';
-const APP_URL = 'https://bankbook-tax.lovable.app/';
+const APP_URL = 'https://bankbook.nahalabs.co.za/';
 const TITLE = 'BankBook | Invoice & Bank Review Desk | NahaLabs';
 const DESCRIPTION =
   'BankBook is a NahaLabs review desk for bookkeepers: check extracted invoice data against its source, reconcile it with a bank statement, and record a human decision for every match. Sample data. Fictional records.';
