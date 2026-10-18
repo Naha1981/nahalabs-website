@@ -1,11 +1,11 @@
 {
   "rewrites": [
     {
-      "source": "/gods-eye/",
+      "source": "/harbour-view/",
       "destination": "https://naha1981.github.io/cargoiq-gods-eye/"
     },
     {
-      "source": "/gods-eye/:path*",
+      "source": "/harbour-view/:path*",
       "destination": "https://naha1981.github.io/cargoiq-gods-eye/:path*"
     },
     {
@@ -76,7 +76,22 @@
   "redirects": [
     {
       "source": "/gods-eye",
-      "destination": "/gods-eye/",
+      "destination": "/harbour-view/",
+      "permanent": true
+    },
+    {
+      "source": "/gods-eye/",
+      "destination": "/harbour-view/",
+      "permanent": true
+    },
+    {
+      "source": "/gods-eye/:path*",
+      "destination": "/harbour-view/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/harbour-view",
+      "destination": "/harbour-view/",
       "permanent": false
     },
     {
