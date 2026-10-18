@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/gods-eye/",
+      "destination": "https://naha1981.github.io/cargoiq-gods-eye/"
+    },
+    {
       "source": "/gods-eye/:path*",
       "destination": "https://naha1981.github.io/cargoiq-gods-eye/:path*"
     },
