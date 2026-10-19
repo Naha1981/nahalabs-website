@@ -18,6 +18,7 @@ Key facts:
 
 - [NahaLabs home](https://www.nahalabs.co.za/): What NahaLabs builds, the systems it has engineered (Flavourly, CargoIQ, RailWatch, RevenueDesk), its Diagnosis-Prototype-Production method, an FAQ, and how to start an enquiry.
 - [RevenueDesk](https://www.nahalabs.co.za/revenuedesk): NahaLabs' front desk and revenue-recovery offering for service businesses. Read the current page for scope and contact NahaLabs to discuss your workflow; no fixed pilot pricing is stated here.
+- [RevUp](https://www.nahalabs.co.za/revup): NahaLabs' growth system for restaurants and local businesses. The business WhatsApp pairs by phone number and code; the system answers customers, scouts local demand and drafts social posts the owner approves before publishing. A 7-day trial runs the full system.
 - [Free Website Revenue Leak Audit](https://www.nahalabs.co.za/audit): Free, no-login tool. Enter a public website URL and receive a revenue leak score, prioritised findings on conversion, trust, mobile and technical issues, a fix-pack preview, and an ROI scenario calculator.
 
 ## Regional pages
