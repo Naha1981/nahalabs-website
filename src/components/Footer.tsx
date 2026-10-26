@@ -178,10 +178,13 @@ export const Footer: React.FC<FooterProps> = ({
                 </dd>
               </div>
               <div>
-                <dt className="text-caption text-fg-3">WhatsApp</dt>
+                <dt className="text-caption text-fg-3">Phone / WhatsApp</dt>
                 <dd className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1">
-                  <a href="https://wa.me/27672347593" target="_blank" rel="noreferrer" className="text-fg underline decoration-line-strong underline-offset-4 hover:decoration-accent">
-                    067 234 7593
+                  <a href="tel:+27612980377" className="text-fg underline decoration-line-strong underline-offset-4 hover:decoration-accent">
+                    061 298 0377
+                  </a>
+                  <a href="https://wa.me/27612980377" target="_blank" rel="noreferrer" className="text-caption text-fg-2 hover:text-accent transition-colors shrink-0 min-h-11 px-1">
+                    WhatsApp
                   </a>
                 </dd>
               </div>
