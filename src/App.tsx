@@ -21,6 +21,7 @@ const PressPage = lazy(() => import('./components/PressPage').then(m => ({ defau
 const RevenueDeskPage = lazy(() => import('./components/RevenueDeskPage').then(m => ({ default: m.RevenueDeskPage })));
 const BankbookPage = lazy(() => import('./components/BankbookPage').then(m => ({ default: m.BankbookPage })));
 const SmileBridgePage = lazy(() => import('./components/SmileBridgePage').then(m => ({ default: m.SmileBridgePage })));
+const RevUpPage = lazy(() => import('./components/RevUpPage').then(m => ({ default: m.RevUpPage })));
 const AuditPage = lazy(() => import('./components/AuditPage').then(m => ({ default: m.AuditPage })));
 const LocationView = lazy(() => import('./components/LocationView').then(m => ({ default: m.LocationView })));
 const LegalModal = lazy(() => import('./components/LegalModal').then(m => ({ default: m.LegalModal })));
@@ -49,6 +50,7 @@ export default function App() {
   const isRevenueDeskPage = normalizedPath === '/revenuedesk';
   const isBankbookPage = normalizedPath === '/bankbook';
   const isSmileBridgePage = normalizedPath === '/smile-bridge';
+  const isRevUpPage = normalizedPath === '/revup';
   const isInsightsIndexPage = normalizedPath === '/insights';
   const isInsightArticlePage = normalizedPath === '/insights/hidden-cost-fragmented-operational-information';
   const isAuditPage = normalizedPath === '/audit';
@@ -152,6 +154,8 @@ export default function App() {
     pageContent = <BankbookPage />;
   } else if (isSmileBridgePage) {
     pageContent = <SmileBridgePage />;
+  } else if (isRevUpPage) {
+    pageContent = <RevUpPage />;
   } else if (isInsightsIndexPage) {
     pageContent = <InsightIndexPage />;
   } else if (isInsightArticlePage) {
