@@ -226,7 +226,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <a href="/audit" className={`${linkCls} block`}>Free website audit</a>
               </li>
               <li>
-                <a href="/revenuedesk" className={`${linkCls} block`}>RevenueDesk</a>
+                <a href="/revup" className={`${linkCls} block`}>RevUp</a>
               </li>
             </ul>
           </nav>
@@ -236,7 +236,7 @@ export const Footer: React.FC<FooterProps> = ({
             <h2 className="text-sm font-semibold text-fg">Apps</h2>
             <ul className="mt-4 flex flex-col">
               {[
-                ['/revenuedesk', 'RevenueDesk'],
+                ['/revup', 'RevUp'],
                 ['/bankbook', 'BankBook'],
                 ['/cargo-iq', 'CargoIQ'],
                 ['/nutri-tummies', 'Nutri Tummies'],

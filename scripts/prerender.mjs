@@ -138,9 +138,9 @@ async function main() {
       },
       {
         path: '/revup',
-        title: 'RevUp | WhatsApp Employee & Social Growth Engine | NahaLabs',
+        title: 'RevUp | WhatsApp Receptionist for Small Businesses | NahaLabs',
         description:
-          "RevUp is NahaLabs' growth system for restaurants and local businesses: pair the business WhatsApp in minutes, answer every customer, scout local demand and turn it into social posts the owner approves.",
+          "RevUp helps South African small businesses handle WhatsApp enquiries, calendar bookings and Google review requests.",
         jsonLd: [jsonLdTag(revup.getRevUpJsonLd(), 'nahalabs-revup-jsonld')],
       },
       {
