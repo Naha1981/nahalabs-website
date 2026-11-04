@@ -24,14 +24,14 @@ interface SystemItem {
 const SYSTEMS: SystemItem[] = [
   {
     eyebrow: 'Revenue',
-    name: 'RevenueDesk',
+    name: 'RevUp',
     status: 'Live',
     flow: 'Capture → Understand → Recover',
     title: 'Recover revenue hidden inside missed enquiries.',
     description:
       'A front-desk system for service businesses, designed to organise enquiries, prepare follow-up and make missed opportunities visible. Start with a workflow diagnosis.',
     image: ASSETS.enterpriseJhb,
-    alt: 'Johannesburg commercial environment representing RevenueDesk',
+    alt: 'Johannesburg commercial environment representing RevUp',
   },
   {
     eyebrow: 'Hospitality',
@@ -81,19 +81,6 @@ const SYSTEMS: SystemItem[] = [
     href: '/netpulse',
     cta: 'Open NetPulse',
     alt: 'Network technicians on a Johannesburg rooftop radio mast representing NetPulse',
-  },
-  {
-    eyebrow: 'Field evidence',
-    name: 'FieldProof',
-    status: 'Live',
-    flow: 'Notes → Checks → Report',
-    title: 'Catch bad field data before it reaches the report.',
-    description:
-      'Paste technician pump-test notes. FieldProof runs the evidence checks, flags unit mix-ups, duplicates and missing datums, and holds the report behind a human review gate. Sample data. Fictional records.',
-    image: ASSETS.fieldproof,
-    href: '/fieldproof',
-    cta: 'Open FieldProof',
-    alt: 'Field technician capturing evidence at a telecoms cabinet representing FieldProof',
   }
 ];
 
@@ -281,8 +268,8 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 Intelligent systems for revenue &amp; operations
               </motion.p>
               <h1 className="nh-display">
-                <TextAnimate as="span" className="nh-display-line" text="We engineer systems that turn " delay={reduced ? 0 : 0.12} />
-                <TextAnimate as="span" className="nh-display-line nh-display-accent" text="business losses into measurable opportunities." by="word" delay={reduced ? 0 : 0.42} stagger={0.07} />
+                <TextAnimate as="span" className="nh-display-line" text="We engineer systems that " delay={reduced ? 0 : 0.12} />
+                <TextAnimate as="span" className="nh-display-line nh-display-accent" text="recover revenue for businesses." by="word" delay={reduced ? 0 : 0.42} stagger={0.07} />
               </h1>
               <motion.p
                 className="nh-hero-lede"
@@ -290,7 +277,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: reduced ? 0 : 0.7, delay: reduced ? 0 : 0.56, ease: EASE_OUT }}
               >
-                NahaLabs builds intelligent systems that help businesses capture missed enquiries, improve restaurant margins, investigate freight costs and automate costly manual workflows. Every system starts with a real business problem and a measurable commercial outcome.
+                NahaLabs is a revenue recovery company. We find the money your business is losing and bring it back.
               </motion.p>
               <motion.div
                 className="nh-hero-actions"
@@ -401,8 +388,8 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                     <h3>{system.name}</h3>
                     <p className="nh-system-title">{system.title}</p>
                     <p className="nh-system-description">{system.description}</p>
-                    <a href={system.href ?? (system.name === 'RevenueDesk' ? '/revenuedesk' : '#contact')} className="nh-text-link">
-                      {system.cta ?? (system.name === 'RevenueDesk' ? 'Explore RevenueDesk' : 'Discuss this system')} <ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" />
+                    <a href={system.href ?? (system.name === 'RevUp' ? '/revenuedesk' : '#contact')} className="nh-text-link">
+                      {system.cta ?? (system.name === 'RevUp' ? 'Explore RevUp' : 'Discuss this system')} <ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" />
                     </a>
                   </div>
                 </Reveal>

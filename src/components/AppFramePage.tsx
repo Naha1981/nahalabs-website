@@ -4,7 +4,6 @@ export const LIVE_APPS: { path: string; name: string; url: string; notice?: stri
   { path: '/railwatch', name: 'RailWatch', url: 'https://railwatch.nahalabs.co.za/' },
   { path: '/cargo-iq', name: 'CargoIQ', url: 'https://cargoiq.nahalabs.co.za/' },
   { path: '/nutri-tummies', name: 'Nutri Tummies', url: 'https://nutri.nahalabs.co.za/' },
-  { path: '/fieldproof', name: 'FieldProof', url: 'https://fieldproof.nahalabs.co.za/' },
   {
     path: '/netpulse',
     name: 'NetPulse',

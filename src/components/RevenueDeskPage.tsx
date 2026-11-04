@@ -3,8 +3,8 @@ import { ArrowRight, ArrowUpRight, Check } from 'lucide-react';
 
 const SITE = 'https://www.nahalabs.co.za';
 const PATH = '/revenuedesk';
-const TITLE = 'RevenueDesk | Front Desk & Revenue Recovery | NahaLabs';
-const DESCRIPTION = "RevenueDesk is NahaLabs' front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.";
+const TITLE = 'RevUp | Front Desk & Revenue Recovery | NahaLabs';
+const DESCRIPTION = "RevUp is NahaLabs' front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.";
 
 const verticals = [
   'Plumbing',
@@ -45,7 +45,7 @@ const getJsonLd = () => ({
     {
       '@type': 'SoftwareApplication',
       '@id': SITE + PATH + '#software',
-      name: 'RevenueDesk',
+      name: 'RevUp',
       applicationCategory: 'BusinessApplication',
       operatingSystem: 'Web',
       description: DESCRIPTION,
@@ -55,7 +55,7 @@ const getJsonLd = () => ({
     {
       '@type': 'Service',
       '@id': SITE + PATH + '#service',
-      name: 'RevenueDesk',
+      name: 'RevUp',
       serviceType: 'Front desk and revenue recovery',
       provider: { '@id': SITE + '/#organization' },
       areaServed: { '@type': 'Country', name: 'South Africa' },
@@ -116,7 +116,7 @@ export const RevenueDeskPage: React.FC = () => {
                 Your front desk should do more than receive enquiries.
               </h1>
               <p className="mt-7 max-w-3xl text-lead text-fg-2">
-                RevenueDesk is a front desk for service businesses. It captures every enquiry, understands what the customer needs, handles the next action and shows where revenue is leaking between first contact and booked work.
+                RevUp is a front desk for service businesses. It captures every enquiry, understands what the customer needs, handles the next action and shows where revenue is leaking between first contact and booked work.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="/audit" className="btn btn-primary">
@@ -157,7 +157,7 @@ export const RevenueDeskPage: React.FC = () => {
                 Service businesses rarely lose revenue because they lack a CRM screen. They lose it in the gaps: a customer waits for a reply, a technician never records the urgency, a quote is sent with no chase, or the owner only discovers the missed job weeks later.
               </p>
               <p>
-                RevenueDesk is designed around those gaps. The experience is industry-aware, so a plumbing emergency, an inverter fault, a vehicle breakdown and a dental enquiry do not get treated as the same generic lead.
+                RevUp is designed around those gaps. The experience is industry-aware, so a plumbing emergency, an inverter fault, a vehicle breakdown and a dental enquiry do not get treated as the same generic lead.
               </p>
             </div>
           </div>
@@ -169,7 +169,7 @@ export const RevenueDeskPage: React.FC = () => {
               <p className="text-caption font-mono uppercase tracking-[0.2em] text-accent">REVENUE LEAKS</p>
               <h2 className="mt-3 text-h1 font-semibold">Find the money disappearing between enquiry and sale.</h2>
               <p className="mt-5 text-body text-fg-2">
-                RevenueDesk makes leakage operational. Instead of another inbox, it gives the business a working view of what needs attention, why it matters and what should happen next.
+                RevUp makes leakage operational. Instead of another inbox, it gives the business a working view of what needs attention, why it matters and what should happen next.
               </p>
             </div>
 
@@ -216,7 +216,7 @@ export const RevenueDeskPage: React.FC = () => {
               <p className="text-caption font-mono uppercase tracking-[0.2em] text-accent">INDUSTRY INTELLIGENCE</p>
               <h2 className="mt-3 text-h1 font-semibold">The system changes with the work.</h2>
               <p className="mt-5 text-body text-fg-2">
-                RevenueDesk does not rely on an industry dropdown sitting on top of a generic CRM. Each service category gets its own qualification logic, urgency signals, common leakage patterns and customer language.
+                RevUp does not rely on an industry dropdown sitting on top of a generic CRM. Each service category gets its own qualification logic, urgency signals, common leakage patterns and customer language.
               </p>
             </div>
             <div className="mt-9 flex flex-wrap gap-2.5">
@@ -236,7 +236,7 @@ export const RevenueDeskPage: React.FC = () => {
                 <p className="text-caption font-mono uppercase tracking-[0.2em] text-accent">START WITH EVIDENCE</p>
                 <h2 className="mt-3 text-h1 font-semibold">See your revenue leaks before buying another system.</h2>
                 <p className="mt-4 max-w-2xl text-body text-fg-2">
-                  The NahaLabs Revenue Leak Audit is the diagnostic entry point. It shows where your current enquiry journey is weak and where RevenueDesk can turn that leakage into an operating workflow.
+                  The NahaLabs Revenue Leak Audit is the diagnostic entry point. It shows where your current enquiry journey is weak and where RevUp can turn that leakage into an operating workflow.
                 </p>
               </div>
               <a href="/audit" className="btn btn-primary shrink-0">

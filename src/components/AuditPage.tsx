@@ -225,13 +225,11 @@ export const AuditPage: React.FC = () => {
 
                 <div className="mt-8 flex flex-wrap gap-3">
                   <ButtonLink
-                    href={`https://wa.me/27612980377?text=${encodeURIComponent(`Hi NahaLabs — I ran the free Revenue Leak Audit for ${domain}. Score: ${audit.score}/100. I want help fixing the highest-impact leaks.`)}`}
-                    target="_blank"
-                    rel="noreferrer"
+                    href={`mailto:ai-solutions@nahalabs.co.za?subject=${encodeURIComponent(`Revenue Leak Audit - ${domain}`)}&body=${encodeURIComponent(`Hi NahaLabs - I ran the free Revenue Leak Audit for ${domain}. Score: ${audit.score}/100. I want help fixing the highest-impact leaks.`)}`}
                   >
                     Send This Audit to NahaLabs
                   </ButtonLink>
-                  <ButtonLink href="/revenuedesk" variant="secondary">See RevenueDesk</ButtonLink>
+                  <ButtonLink href="/revenuedesk" variant="secondary">See RevUp</ButtonLink>
                 </div>
               </div>
             </section>

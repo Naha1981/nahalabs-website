@@ -77,7 +77,6 @@ async function main() {
       ...[
         ['/cargo-iq', 'CargoIQ', 'Freight evidence and dispute intelligence.'],
         ['/nutri-tummies', 'Nutri Tummies', 'Family meal planning for South African kitchens.'],
-        ['/fieldproof', 'FieldProof', 'FieldProof: field evidence capture and verification on fictional data.'],
         ['/railwatch', 'RailWatch', 'Rail operations monitoring on fictional data.'],
         ['/netpulse', 'NetPulse', 'ISP customer, IP and equipment record checks. Sample data. Fictional records.'],
       ].map(([path, name, description]) => ({ path, title: `${name} | NahaLabs`, description })),
@@ -124,9 +123,9 @@ async function main() {
       },
       {
         path: '/revenuedesk',
-        title: 'RevenueDesk | Front Desk & Revenue Recovery | NahaLabs',
+        title: 'RevUp | Front Desk & Revenue Recovery | NahaLabs',
         description:
-          "RevenueDesk is NahaLabs' front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.",
+          "RevUp is NahaLabs' front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.",
         jsonLd: [jsonLdTag(revenueDesk.getRevenueDeskJsonLd(), 'nahalabs-revenuedesk-jsonld')],
       },
       {
@@ -228,7 +227,7 @@ async function main() {
           '/press': 'src/components/PressPage.tsx', '/revenuedesk': 'src/components/RevenueDeskPage.tsx',
           '/bankbook': 'src/components/BankbookPage.tsx',
           '/cargo-iq': 'src/components/AppFramePage.tsx', '/nutri-tummies': 'src/components/AppFramePage.tsx',
-          '/fieldproof': 'src/components/AppFramePage.tsx', '/railwatch': 'src/components/AppFramePage.tsx',
+          '/railwatch': 'src/components/AppFramePage.tsx',
           '/audit': 'src/components/AuditPage.tsx', '/contact': 'src/components/ContactSection.tsx',
           '/insights': 'src/components/InsightArticlePage.tsx' })[route.path] ?? (route.path.startsWith('/services/') ? 'services/revenue-leak-audit-johannesburg.html' : 'src/components/InsightArticlePage.tsx');
     const lastmodFor = (route) => {

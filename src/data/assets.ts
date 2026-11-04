@@ -5,8 +5,8 @@
 const heroWebp = '/assets/images/nahalabs_hero_1789398573439_opt.webp';
 const heroJpg = '/assets/images/nahalabs_hero_1789398573439_opt.jpg';
 
-const flavourlyWebp = '/assets/images/flavourly_system_1789398600949_opt.webp';
-const flavourlyJpg = '/assets/images/flavourly_system_1789398600949_opt.jpg';
+const flavourlyWebp = '/assets/images/flavourly_system_v2_opt.webp';
+const flavourlyJpg = '/assets/images/flavourly_system_v2_opt.jpg';
 
 const cargoiqWebp = '/assets/images/cargoiq_system_1789398617043_opt.webp';
 const cargoiqJpg = '/assets/images/cargoiq_system_1789398617043_opt.jpg';
@@ -14,14 +14,11 @@ const cargoiqJpg = '/assets/images/cargoiq_system_1789398617043_opt.jpg';
 const railwatchWebp = '/assets/images/railwatch_system_1789398646749_opt.webp';
 const railwatchJpg = '/assets/images/railwatch_system_1789398646749_opt.jpg';
 
-const enterpriseJhbWebp = '/assets/images/enterprise_jhb_1789398631359_opt.webp';
-const enterpriseJhbJpg = '/assets/images/enterprise_jhb_1789398631359_opt.jpg';
+const enterpriseJhbWebp = '/assets/images/enterprise_jhb_v2_opt.webp';
+const enterpriseJhbJpg = '/assets/images/enterprise_jhb_v2_opt.jpg';
 
 const netpulseWebp = '/assets/images/netpulse_system_opt.webp';
 const netpulseJpg = '/assets/images/netpulse_system_opt.jpg';
-
-const fieldproofWebp = '/assets/images/fieldproof_system_opt.webp';
-const fieldproofJpg = '/assets/images/fieldproof_system_opt.jpg';
 
 export interface SystemAsset {
   webp: string;
@@ -44,8 +41,6 @@ export const ASSETS = {
   netpulse: netpulseWebp,
   netpulseJpg: netpulseJpg,
 
-  fieldproof: fieldproofWebp,
-  fieldproofJpg: fieldproofJpg,
 
   enterpriseJhb: enterpriseJhbWebp,
   enterpriseJhbJpg: enterpriseJhbJpg,

@@ -68,7 +68,7 @@ const SYSTEMS = [
       'Instant inbound enterprise intent scoring, automated prospect data enrichment, and digital worker follow-up before buyer momentum fades.',
     image: ASSETS.enterpriseJhb,
     imageFallback: ASSETS.enterpriseJhbJpg,
-    alt: 'Johannesburg office towers at dusk, the setting for the Revenue OS inbound intent and pipeline system',
+    alt: 'Sandton City office towers from the air, the setting for the Revenue OS inbound intent and pipeline system',
     outcomes: [
       'Sub-second inbound enterprise enrichment and executive intent mapping',
       'Autonomous digital worker outreach active within 120 seconds of inquiry',

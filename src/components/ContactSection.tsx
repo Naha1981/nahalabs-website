@@ -19,7 +19,6 @@ import {
   Clock, 
   AlertCircle,
   Save,
-  MessageCircle,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Button } from './Button';
@@ -479,19 +478,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledSystem,
                       </>
                     )}
                   </button>
-                </div>
-
-                {/* WhatsApp - fastest for most SA businesses */}
-                <div className="flex items-center justify-between gap-3 p-2.5 rounded bg-[#F7F8FA] border border-[#D1D5DB] group hover:border-[#3a3c40] transition-colors">
-                  <a
-                    href="https://wa.me/27612980377?text=Hi%20NahaLabs%20-%20I%20have%20an%20enquiry."
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2.5 text-[#0B0E10] hover:text-[#355241] transition-colors min-w-0"
-                  >
-                    <MessageCircle className="w-4 h-4 text-[#355241] shrink-0" />
-                    <span>WhatsApp 061 298 0377</span>
-                  </a>
                 </div>
 
                 {/* Physical Address with Copy to Clipboard */}

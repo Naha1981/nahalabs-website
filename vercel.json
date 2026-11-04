@@ -61,10 +61,6 @@
       "destination": "/index.html"
     },
     {
-      "source": "/fieldproof",
-      "destination": "/index.html"
-    },
-    {
       "source": "/railwatch",
       "destination": "/index.html"
     },
@@ -102,11 +98,6 @@
     {
       "source": "/services/lead-follow-up-automation-johannesburg",
       "destination": "/revenuedesk",
-      "permanent": true
-    },
-    {
-      "source": "/gtg",
-      "destination": "/fieldproof",
       "permanent": true
     }
   ],
