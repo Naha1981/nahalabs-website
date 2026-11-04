@@ -21,10 +21,6 @@
       "destination": "/index.html"
     },
     {
-      "source": "/revenuedesk",
-      "destination": "/index.html"
-    },
-    {
       "source": "/about",
       "destination": "/index.html"
     },
@@ -71,6 +67,11 @@
   ],
   "redirects": [
     {
+      "source": "/revenuedesk",
+      "destination": "/revup",
+      "permanent": true
+    },
+    {
       "source": "/gods-eye",
       "destination": "/harbour-view/",
       "permanent": true
@@ -97,7 +98,7 @@
     },
     {
       "source": "/services/lead-follow-up-automation-johannesburg",
-      "destination": "/revenuedesk",
+      "destination": "/revup",
       "permanent": true
     }
   ],

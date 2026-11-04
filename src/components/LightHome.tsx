@@ -388,7 +388,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                     <h3>{system.name}</h3>
                     <p className="nh-system-title">{system.title}</p>
                     <p className="nh-system-description">{system.description}</p>
-                    <a href={system.href ?? (system.name === 'RevUp' ? '/revenuedesk' : '#contact')} className="nh-text-link">
+                    <a href={system.href ?? (system.name === 'RevUp' ? '/revup' : '#contact')} className="nh-text-link">
                       {system.cta ?? (system.name === 'RevUp' ? 'Explore RevUp' : 'Discuss this system')} <ArrowUpRight size={17} strokeWidth={1.5} aria-hidden="true" />
                     </a>
                   </div>

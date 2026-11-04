@@ -18,7 +18,6 @@ const ContentMediaUploader = lazy(() => import('./components/ContentMediaUploade
 const EntityProfilePage = lazy(() => import('./components/EntityProfilePage').then(m => ({ default: m.EntityProfilePage })));
 const PublicSystemsPage = lazy(() => import('./components/PublicSystemsPage').then(m => ({ default: m.PublicSystemsPage })));
 const PressPage = lazy(() => import('./components/PressPage').then(m => ({ default: m.PressPage })));
-const RevenueDeskPage = lazy(() => import('./components/RevenueDeskPage').then(m => ({ default: m.RevenueDeskPage })));
 const BankbookPage = lazy(() => import('./components/BankbookPage').then(m => ({ default: m.BankbookPage })));
 const SmileBridgePage = lazy(() => import('./components/SmileBridgePage').then(m => ({ default: m.SmileBridgePage })));
 const RevUpPage = lazy(() => import('./components/RevUpPage').then(m => ({ default: m.RevUpPage })));
@@ -47,7 +46,6 @@ export default function App() {
   const isAboutPage = normalizedPath === '/about';
   const isSystemsPage = normalizedPath === '/systems';
   const isPressPage = normalizedPath === '/press';
-  const isRevenueDeskPage = normalizedPath === '/revenuedesk';
   const isBankbookPage = normalizedPath === '/bankbook';
   const isSmileBridgePage = normalizedPath === '/smile-bridge';
   const isRevUpPage = normalizedPath === '/revup';
@@ -78,6 +76,14 @@ export default function App() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, [locationPathSlug]);
+
+  // /revenuedesk is retired: there is one RevUp page at /revup.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (normalizedPath === '/revenuedesk') {
+      window.location.replace('/revup' + window.location.search + window.location.hash);
+    }
+  }, [normalizedPath]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -148,8 +154,6 @@ export default function App() {
     pageContent = <PublicSystemsPage />;
   } else if (isPressPage) {
     pageContent = <PressPage />;
-  } else if (isRevenueDeskPage) {
-    pageContent = <RevenueDeskPage />;
   } else if (isBankbookPage) {
     pageContent = <BankbookPage />;
   } else if (isSmileBridgePage) {

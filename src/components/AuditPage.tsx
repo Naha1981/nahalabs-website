@@ -229,7 +229,7 @@ export const AuditPage: React.FC = () => {
                   >
                     Send This Audit to NahaLabs
                   </ButtonLink>
-                  <ButtonLink href="/revenuedesk" variant="secondary">See RevUp</ButtonLink>
+                  <ButtonLink href="/revup" variant="secondary">See RevUp</ButtonLink>
                 </div>
               </div>
             </section>

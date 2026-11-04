@@ -65,7 +65,6 @@ async function main() {
     const article = await vite.ssrLoadModule('/src/components/InsightArticlePage.tsx');
     const entity = await vite.ssrLoadModule('/src/components/EntityProfilePage.tsx');
     const systems = await vite.ssrLoadModule('/src/components/PublicSystemsPage.tsx');
-    const revenueDesk = await vite.ssrLoadModule('/src/components/RevenueDeskPage.tsx');
     const bankbook = await vite.ssrLoadModule('/src/components/BankbookPage.tsx');
     const smileBridge = await vite.ssrLoadModule('/src/components/SmileBridgePage.tsx');
     const revup = await vite.ssrLoadModule('/src/components/RevUpPage.tsx');
@@ -120,13 +119,6 @@ async function main() {
         title: 'Free Website Revenue Leak Audit | NahaLabs',
         description:
           'Find where your website is losing enquiries with a free diagnosis of conversion, trust, mobile and technical leaks.',
-      },
-      {
-        path: '/revenuedesk',
-        title: 'RevUp | Front Desk & Revenue Recovery | NahaLabs',
-        description:
-          "RevUp is NahaLabs' front desk for service businesses: capture every enquiry, understand intent, handle follow-up and recover revenue lost between first contact and booked work.",
-        jsonLd: [jsonLdTag(revenueDesk.getRevenueDeskJsonLd(), 'nahalabs-revenuedesk-jsonld')],
       },
       {
         path: '/smile-bridge',
@@ -224,7 +216,7 @@ async function main() {
       : route.path === '/' ? 'src/components/LightHome.tsx'
       : route.path.startsWith('/locations/') ? 'src/data/locations.ts'
       : ({ '/about': 'src/components/EntityProfilePage.tsx', '/systems': 'src/components/PublicSystemsPage.tsx',
-          '/press': 'src/components/PressPage.tsx', '/revenuedesk': 'src/components/RevenueDeskPage.tsx',
+          '/press': 'src/components/PressPage.tsx',
           '/bankbook': 'src/components/BankbookPage.tsx',
           '/cargo-iq': 'src/components/AppFramePage.tsx', '/nutri-tummies': 'src/components/AppFramePage.tsx',
           '/railwatch': 'src/components/AppFramePage.tsx',

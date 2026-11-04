@@ -4,7 +4,7 @@ import { ButtonLink } from './Button';
 
 const SITE = 'https://www.nahalabs.co.za';
 const systems = [
-  { id: 'revenuedesk', name: 'RevUp', audience: 'Service businesses', description: 'A front-desk system for organising enquiries, preparing follow-up and reviewing the gaps between first contact and booked work.', status: 'Live', url: '/revenuedesk', action: 'Explore RevUp' },
+  { id: 'revenuedesk', name: 'RevUp', audience: 'Service businesses', description: 'A front-desk system for organising enquiries, preparing follow-up and reviewing the gaps between first contact and booked work.', status: 'Live', url: '/revup', action: 'Explore RevUp' },
   { id: 'flavourly', name: 'Flavourly', audience: 'Restaurants', description: 'A Restaurant Revenue OS designed for profit growth, revenue recovery, customer retention and repeat sales through insights, marketing, loyalty programmes and personalised engagement. WhatsApp is one part of the system.', status: '', url: '/contact', action: 'Request a walkthrough' },
   { id: 'cargoiq', name: 'CargoIQ', audience: 'Freight and logistics', description: 'Inspect shipment events, delay timelines and the records behind a freight dispute. Evidence for human review, not a promise of recovery.', status: 'Live', url: '/cargo-iq', action: 'Open CargoIQ' },
   { id: 'smilebridge', name: 'Smile Bridge', audience: 'Dental practices', description: 'A patient conversion system: a practice video greeting, one approved question at a time, emergencies escalated to a person first, and routing to booking, WhatsApp or a callback.', status: 'In pilot', url: '/smile-bridge', action: 'View product page' },
