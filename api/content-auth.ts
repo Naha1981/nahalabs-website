@@ -1,3 +1,4 @@
+import { rateLimit } from "./_rate-limit.js";
 import { createHmac, timingSafeEqual } from "node:crypto";
 
 function sign(value: string) {
@@ -6,7 +7,7 @@ function sign(value: string) {
 
 function verifyPassword(password: string) {
   const expected = process.env.CONTENT_ADMIN_PASSWORD || "";
-  if (!expected || password.length !== expected.length) return false;
+  if (!expected || Buffer.byteLength(password) !== Buffer.byteLength(expected)) return false;
   return timingSafeEqual(Buffer.from(password), Buffer.from(expected));
 }
 
@@ -18,6 +19,7 @@ function getBody(req: any) {
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
+  if (!await rateLimit(req, res, "admin-login", 5, 15 * 60_000)) return;
   const password = String(getBody(req).password || "");
   if (!verifyPassword(password)) return res.status(401).json({ error: "Invalid password" });
 

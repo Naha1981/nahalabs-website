@@ -1,3 +1,4 @@
+import { clientIp, rateLimit } from "./_rate-limit.js";
 import { put } from "@vercel/blob";
 import { sendLeadAlert } from "./_alert.js";
 
@@ -9,23 +10,14 @@ import { sendLeadAlert } from "./_alert.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const limit = new Map<string, { count: number; resetAt: number }>();
+
 
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
-  const forwarded = String(req.headers["x-forwarded-for"] || "");
-  const ip = forwarded.split(",")[0].trim() || String(req.socket?.remoteAddress || "unknown");
+  if (!await rateLimit(req, res, "newsletter", 8)) return;
+  const ip = clientIp(req);
   const now = Date.now();
-  const current = limit.get(ip);
-  if (!current || current.resetAt <= now) {
-    limit.set(ip, { count: 1, resetAt: now + 60_000 });
-  } else {
-    current.count += 1;
-    if (current.count > 8) {
-      return res.status(429).json({ error: "Too many attempts. Please try again shortly." });
-    }
-  }
 
   try {
     const raw = typeof req.body === "string" ? JSON.parse(req.body) : req.body;

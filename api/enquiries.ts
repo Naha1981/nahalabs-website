@@ -1,3 +1,4 @@
+import { clientIp, rateLimit } from "./_rate-limit.js";
 import { put } from "@vercel/blob";
 import { sendLeadAlert } from "./_alert.js";
 
@@ -14,9 +15,7 @@ import { sendLeadAlert } from "./_alert.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Simple per-instance rate limit. Resets on cold start; good enough to blunt
-// casual abuse without a datastore of its own.
-const limit = new Map<string, { count: number; resetAt: number }>();
+
 
 function clip(value: unknown, max: number): string {
   return String(value ?? "").trim().slice(0, max);
@@ -25,18 +24,9 @@ function clip(value: unknown, max: number): string {
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
-  const forwarded = String(req.headers["x-forwarded-for"] || "");
-  const ip = forwarded.split(",")[0].trim() || String(req.socket?.remoteAddress || "unknown");
+  if (!await rateLimit(req, res, "enquiries", 8)) return;
+  const ip = clientIp(req);
   const now = Date.now();
-  const current = limit.get(ip);
-  if (!current || current.resetAt <= now) {
-    limit.set(ip, { count: 1, resetAt: now + 60_000 });
-  } else {
-    current.count += 1;
-    if (current.count > 8) {
-      return res.status(429).json({ error: "Too many submissions. Please try again shortly, or email ai-solutions@nahalabs.co.za directly." });
-    }
-  }
 
   try {
     const raw = typeof req.body === "string" ? JSON.parse(req.body) : req.body;

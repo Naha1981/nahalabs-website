@@ -1,6 +1,6 @@
 
-import { lookup } from "node:dns/promises";
-import { isIP } from "node:net";
+import { safeFetch } from "./_safe-fetch.js";
+import { rateLimit } from "./_rate-limit.js";
 
 const MAX_BYTES = 1_500_000;
 const MAX_REDIRECTS = 3;
@@ -51,48 +51,6 @@ function hasRel(html: string, wanted: string) {
   );
 }
 
-function isPrivateV4(ip: string) {
-  const [a, b] = ip.split(".").map(Number);
-  return ![a, b].every(Number.isFinite)
-    || a === 0
-    || a === 10
-    || a === 127
-    || (a === 169 && b === 254)
-    || (a === 172 && b >= 16 && b <= 31)
-    || (a === 192 && b === 168)
-    || a >= 224;
-}
-
-function isPrivateV6(ip: string) {
-  const v = ip.toLowerCase();
-  return v === "::" || v === "::1" || v.startsWith("fc") || v.startsWith("fd") || v.startsWith("fe80") || v.startsWith("ff");
-}
-
-async function safe(url: URL) {
-  if (!["http:", "https:"].includes(url.protocol)) throw new Error("Only HTTP and HTTPS URLs are supported.");
-  if (url.username || url.password) throw new Error("URLs containing credentials are not supported.");
-
-  const host = url.hostname.toLowerCase();
-  if (host === "localhost" || host.endsWith(".localhost") || host.endsWith(".local") || host.endsWith(".internal") || host === "metadata.google.internal") {
-    throw new Error("That hostname is not publicly reachable.");
-  }
-
-  const kind = isIP(host);
-  if (kind === 4 && isPrivateV4(host)) throw new Error("Private or local addresses are not allowed.");
-  if (kind === 6 && isPrivateV6(host)) throw new Error("Private or local addresses are not allowed.");
-  if (kind) return;
-
-  const records = await lookup(host, { all: true, verbatim: true });
-  if (!records.length) throw new Error("The hostname could not be resolved.");
-
-  for (const record of records) {
-    const recordType = isIP(record.address);
-    if ((recordType === 4 && isPrivateV4(record.address)) || (recordType === 6 && isPrivateV6(record.address))) {
-      throw new Error("The hostname resolves to a private or local address.");
-    }
-  }
-}
-
 async function readBody(response: Response) {
   if (!response.body) return { text: await response.text(), bytes: 0 };
   const reader = response.body.getReader();
@@ -124,12 +82,12 @@ async function fetchPage(input: URL) {
   const started = Date.now();
 
   for (let hop = 0; hop <= MAX_REDIRECTS; hop += 1) {
-    await safe(current);
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), TIMEOUT_MS);
 
+    let release: (() => Promise<void>) | undefined;
     try {
-      const response = await fetch(current, {
+      const loaded = await safeFetch(current, {
         method: "GET",
         redirect: "manual",
         cache: "no-store",
@@ -140,6 +98,8 @@ async function fetchPage(input: URL) {
         signal: controller.signal,
       });
 
+      const response = loaded.response;
+      release = loaded.close;
       if ([301, 302, 303, 307, 308].includes(response.status)) {
         const location = response.headers.get("location");
         if (!location) throw new Error("Redirect destination missing.");
@@ -170,6 +130,7 @@ async function fetchPage(input: URL) {
       throw error;
     } finally {
       clearTimeout(timeout);
+      if (release) await release();
     }
   }
 
@@ -179,14 +140,16 @@ async function fetchPage(input: URL) {
 async function exists(base: URL, pathname: string) {
   try {
     const target = new URL(pathname, base);
-    await safe(target);
-    const response = await fetch(target, {
+    const loaded = await safeFetch(target, {
       method: "GET",
       redirect: "manual",
       cache: "no-store",
       headers: { "user-agent": UA },
       signal: AbortSignal.timeout(6000),
     });
+    const response = loaded.response;
+    await response.body?.cancel();
+    await loaded.close();
     return response.status >= 200 && response.status < 400;
   } catch {
     return false;
@@ -254,7 +217,6 @@ async function audit(raw: string) {
 
   const candidate = /^https?:\/\//i.test(input) ? input : "https://" + input;
   let requested = new URL(candidate);
-  await safe(requested);
 
   let page;
   try {
@@ -391,24 +353,9 @@ async function audit(raw: string) {
   };
 }
 
-const limit = new Map<string, { count: number; resetAt: number }>();
-
 export default async function handler(req: any, res: any) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
-
-  const forwarded = String(req.headers["x-forwarded-for"] || "");
-  const ip = forwarded.split(",")[0].trim() || String(req.socket?.remoteAddress || "unknown");
-  const now = Date.now();
-  const current = limit.get(ip);
-
-  if (!current || current.resetAt <= now) {
-    limit.set(ip, { count: 1, resetAt: now + 60_000 });
-  } else {
-    current.count += 1;
-    if (current.count > 3) {
-      return res.status(429).json({ error: "Free scan limit reached. Please try again in a minute." });
-    }
-  }
+  if (!await rateLimit(req, res, "audit", 3)) return;
 
   try {
     const raw = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
