@@ -106,7 +106,7 @@ export const RevUpPage: React.FC = () => {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href={APP_URL} className="btn btn-primary">
-                  Start the 7-day trial <ArrowRight className="w-4 h-4" />
+                  Get started <ArrowRight className="w-4 h-4" />
                 </a>
                 <a href="/contact" className="btn btn-outline">
                   Talk to NahaLabs
@@ -116,7 +116,7 @@ export const RevUpPage: React.FC = () => {
 
             <div className="mt-14 grid md:grid-cols-4 border-y border-line">
               {[
-                ['01', 'Sign up', 'Create a private workspace. No payment at signup.'],
+                ['01', 'Sign up', 'Create a private workspace. Billed monthly from R499.'],
                 ['02', 'Enquiries', 'Set up the WhatsApp receptionist.'],
                 ['03', 'Bookings', 'Review calendar bookings and held requests.'],
                 ['04', 'Review', 'Check conversations and workspace numbers.'],
@@ -220,7 +220,7 @@ export const RevUpPage: React.FC = () => {
                 Review conversations, follow setup steps and step in when a customer needs a person.
               </p>
               <p>
-                Free for 7 days, then from R499 a month. Cancel anytime. No payment is taken at signup.
+                From R499 a month, billed monthly from day one. No setup fee. Cancel anytime.
               </p>
             </div>
           </div>
@@ -252,11 +252,11 @@ export const RevUpPage: React.FC = () => {
                 <p className="text-caption font-mono uppercase tracking-[0.2em] text-accent">START THIS WEEK</p>
                 <h2 className="mt-3 text-h1 font-semibold">Put your number to work.</h2>
                 <p className="mt-4 max-w-2xl text-body text-fg-2">
-                  Create your private workspace and follow the setup checklist. Free for 7 days, then from R499 a month. No payment at signup.
+                  Create your private workspace and follow the setup checklist. From R499 a month, billed monthly from day one. No setup fee.
                 </p>
               </div>
               <a href={APP_URL} className="btn btn-primary shrink-0">
-                Start the trial <ArrowUpRight className="w-4 h-4" />
+                Get started <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
           </div>
