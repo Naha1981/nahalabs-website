@@ -1,0 +1,27 @@
+{
+  "slug": "durban-customs-update-a-new-depot-code-to-check",
+  "title": "Durban customs update: a new depot code to check.",
+  "description": "SARS has added a new Durban container depot, sub-number J8, to the facility codes used in Box 30 on the Goods Declaration.",
+  "category": "Logistics",
+  "product": "CargoIQ",
+  "datePublished": "2026-11-11",
+  "cta": "CargoIQ | Keep the source with the record.",
+  "mediaAltText": "",
+  "blocks": [
+    {
+      "type": "p",
+      "text": "The addition enables Customs to send electronic consignment-status messages to the facility."
+    },
+    {
+      "type": "p",
+      "text": "For clearing teams, a practical check: confirm the facility code against the updated list when preparing declarations."
+    }
+  ],
+  "sources": [
+    {
+      "title": "SARS: Customs Registration, Licensing and Accreditation update",
+      "url": "https://www.sars.gov.za/latest-news/customs-registration-licensing-and-accreditation-38/",
+      "note": "SARS, 10 November 2026."
+    }
+  ]
+}
