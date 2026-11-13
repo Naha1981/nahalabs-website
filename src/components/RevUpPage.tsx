@@ -178,7 +178,7 @@ export const RevUpPage: React.FC = () => {
             <div>
               <ul className="rule-list">
                 {[
-                  'Create an account without an email-verification gate or payment at signup.',
+                  'Create your account and choose a monthly plan. There is no free trial.',
                   'Start with an empty private workspace, not invented customer records.',
                   'Set up the business WhatsApp receptionist and calendar connection.',
                   'Review booking requests and their actual confirmation status.',
