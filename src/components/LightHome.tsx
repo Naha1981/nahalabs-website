@@ -268,8 +268,8 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 Intelligent systems for revenue &amp; operations
               </motion.p>
               <h1 className="nh-display">
-                <TextAnimate as="span" className="nh-display-line" text="We engineer systems that " delay={reduced ? 0 : 0.12} />
-                <TextAnimate as="span" className="nh-display-line nh-display-accent" text="recover revenue for businesses." by="word" delay={reduced ? 0 : 0.42} stagger={0.07} />
+                <TextAnimate as="span" className="nh-display-line" text="Messaged at 9pm. " delay={reduced ? 0 : 0.12} />
+                <TextAnimate as="span" className="nh-display-line nh-display-accent" text="Booked someone else by morning." by="word" delay={reduced ? 0 : 0.42} stagger={0.07} />
               </h1>
               <motion.p
                 className="nh-hero-lede"
@@ -277,7 +277,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: reduced ? 0 : 0.7, delay: reduced ? 0 : 0.56, ease: EASE_OUT }}
               >
-                NahaLabs is a revenue recovery company. We find the money your business is losing and bring it back.
+                That is how revenue quietly leaks. See every enquiry, every charge, every delay - and the system that brings the money back.
               </motion.p>
               <motion.div
                 className="nh-hero-actions"
