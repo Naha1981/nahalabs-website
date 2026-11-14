@@ -8,28 +8,28 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
     province: 'Gauteng',
     regionFocus: 'Sandton, Rosebank, Bryanston, CBD & Greater Johannesburg',
     metaTitle: 'NahaLabs | Intelligent Systems Engineering in Johannesburg',
-    metaDescription: 'Bespoke intelligent systems, operational automation, and business intelligence engineered for Johannesburg enterprises, commercial leaders, and fast-growing businesses.',
+    metaDescription: 'Revenue recovery and intelligent systems engineered in Johannesburg - we find the money businesses lose between their systems, then build the fix.',
     heroHeadline: 'INTELLIGENT SYSTEMS ENGINEERING IN JOHANNESBURG.',
-    heroSubtext: 'From the corporate headquarters of Sandton and Rosebank to industrial hubs across City Deep and the commercial dynamism of Johannesburg, NahaLabs engineers systems that turn fragmented business operations into measurable revenue and decisive action.',
+    heroSubtext: 'From Sandton's corporate towers to the freight yards of City Deep, Johannesburg businesses lose money in the gaps between their systems - the invoice nobody checked, the enquiry nobody answered. NahaLabs builds the systems that close those gaps.',
     districts: ['Sandton Financial District', 'Rosebank Commercial Hub', 'Bryanston Tech Corridor', 'City Deep Logistics Depot', 'Melrose Arch', 'Braamfontein Innovation Zone'],
     economicFocus: [
       'Financial Services & Risk Intelligence',
       'Freight, Warehousing & City Deep Logistics',
       'Commercial Real Estate & Property Underwriting',
-      'High-Margin Hospitality & Restaurant Revenue Recovery',
+      'Restaurant Revenue Recovery',
       'Cross-Enterprise ERP & Legacy System Integration'
     ],
-    strategicContext: 'Johannesburg is the commercial engine of Africa. High transaction velocity combined with legacy software fragmentation creates substantial hidden revenue leakage. NahaLabs does not deploy generic SaaS templates; we diagnose the commercial friction specific to Johannesburg enterprises and engineer production-grade systems to eliminate it.',
+    strategicContext: 'Johannesburg runs on high transaction volume and old software that does not talk to itself. That gap is where revenue leaks. We are a small, independent Johannesburg engineering desk: we diagnose the specific friction in your operation first, and we only build when the evidence says a system will pay for itself.',
     coreSolutions: [
       'LeadMachine Commercial Intelligence for Sandton B2B pipelines',
       'Flavourly Revenue Operating System for premier Johannesburg dining venues',
       'Autonomous Freight Audit & Recovery for City Deep supply chains',
-      'Digital Workers augmenting repetitive administrative workflows across financial institutions'
+      'Digital workers for repetitive admin in financial institutions'
     ],
     localCaseStudy: {
-      context: 'A multi-depot commercial distributor based in Johannesburg was losing billable revenue to freight demurrage and untracked carrier invoice discrepancies.',
-      intervention: 'Engineered an automated document extraction and tariff verification pipeline connecting ERP dispatch logs with carrier waybills.',
-      outcome: 'Designed to recover disputed freight charges automatically, with a full audit trail and no manual reconciliation.'
+      context: 'Illustrative scenario: a multi-depot distributor in Johannesburg disputes a carrier invoice - the waybills sit in one system, the dispatch logs in another, and nobody can prove which record is right.',
+      intervention: 'The proposed build: a document-extraction and tariff-verification pipeline connecting ERP dispatch logs with carrier waybills.',
+      outcome: 'Designed to flag disputed freight charges automatically, with a full audit trail and no manual reconciliation. A proposed outcome, not a client result.'
     }
   },
   soweto: {
