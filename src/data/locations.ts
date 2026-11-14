@@ -22,7 +22,7 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
     strategicContext: 'Johannesburg runs on high transaction volume and old software that does not talk to itself. That gap is where revenue leaks. We are a small, independent Johannesburg engineering desk: we diagnose the specific friction in your operation first, and we only build when the evidence says a system will pay for itself.',
     coreSolutions: [
       'LeadMachine Commercial Intelligence for Sandton B2B pipelines',
-      'Flavourly Revenue Operating System for premier Johannesburg dining venues',
+      'Flavourly Revenue Operating System for Johannesburg restaurants',
       'Autonomous Freight Audit & Recovery for City Deep supply chains',
       'Digital workers for repetitive admin in financial institutions'
     ],
