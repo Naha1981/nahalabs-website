@@ -39,9 +39,9 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
     province: 'Gauteng',
     regionFocus: 'Protea Glen, Vilakazi Street, Dobsonville, Orlando & Township Commercial Ecosystems',
     metaTitle: 'Intelligent Systems Engineering in Soweto | NahaLabs',
-    metaDescription: 'Practical business intelligence, WhatsApp automation, and revenue systems engineered for high-growth township enterprises, retailers, and restaurants in Soweto.',
+    metaDescription: 'Revenue recovery and intelligent systems engineered in Soweto - we find the money businesses lose between their systems, then build the fix.',
     heroHeadline: 'INTELLIGENT SYSTEMS ENGINEERING IN SOWETO.',
-    heroSubtext: 'Soweto is one of the most commercially vigorous retail and cultural economies in Africa. NahaLabs builds practical, high-impact systems tailored to the realities of township commerce — frictionless WhatsApp operations, booking intelligence, and automated revenue recovery.',
+    heroSubtext: 'From the restaurants of Vilakazi Street to the retail corridors of Protea Glen, money leaks in the gaps between your systems - the weekend booking nobody confirmed, the supplier order nobody reconciled. We build the system that closes those gaps.',
     districts: ['Vilakazi Street Hospitality Belt', 'Protea Glen Commercial Node', 'Maponya Mall Precinct', 'Dobsonville Retail Corridor', 'Orlando West', 'Diepkloof Square'],
     economicFocus: [
       'Township Retail & Fast-Moving Consumer Goods',
@@ -50,17 +50,17 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
       'Creator Commerce & Community Merchant Distribution',
       'Cash Flow & Supplier Reconciliation Intelligence'
     ],
-    strategicContext: 'Traditional desktop enterprise software frequently fails in township commercial environments because business moves through WhatsApp, mobile payment rails, and direct relationship networks. NahaLabs engineers systems that operate seamlessly within these native channels, converting customer conversations directly into completed transactions and inventory insights.',
+    strategicContext: 'Business in Soweto runs on WhatsApp, mobile payments and direct relationships. Desktop enterprise software was not built for that. We build inside the channels you already use, so a customer conversation can become a confirmed booking or a completed sale without extra staff watching a screen.',
     coreSolutions: [
       'Sella Creator Commerce for local brands and community retail activations',
-      'Flavourly Guest & Booking Intelligence for iconic Vilakazi hospitality venues',
+      'Flavourly Guest & Booking Intelligence for Vilakazi Street restaurants',
       'WhatsApp-First Digital Workers handling supplier orders and customer queries',
       'Micro-Distribution and Route Optimization across Soweto logistics networks'
     ],
     localCaseStudy: {
-      context: 'A high-traffic Vilakazi Street restaurant lost dozens of prime weekend reservations due to unmanaged WhatsApp inquiries and manual telephone booking logs.',
-      intervention: 'Deployed a WhatsApp reservation and VIP notification system integrated with table seating allocation and guest deposit confirmations.',
-      outcome: 'Designed to cut no-shows and turn unmanaged weekend inquiries into confirmed, deposit-backed bookings.'
+      context: 'Illustrative scenario: a busy Vilakazi Street restaurant takes weekend bookings over WhatsApp and a telephone logbook. Prime tables get double-booked and no-shows go unfilled because nobody sees both records at once.',
+      intervention: 'The proposed build: a WhatsApp reservation and guest-notification system linked to table allocation and deposit confirmations.',
+      outcome: 'Designed to cut no-shows and turn unmanaged weekend enquiries into confirmed, deposit-backed bookings. A proposed outcome, not a client result.'
     }
   },
   gauteng: {
@@ -70,9 +70,9 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
     province: 'Gauteng',
     regionFocus: 'Johannesburg, Pretoria, Centurion, Midrand, Ekurhuleni & Industrial Corridors',
     metaTitle: 'Intelligent Systems Engineering in Gauteng | NahaLabs',
-    metaDescription: 'Industrial-grade systems engineering, geospatial intelligence, and enterprise automation across the Gauteng economic heartland.',
+    metaDescription: 'Revenue recovery and intelligent systems engineered across Gauteng - we find the money businesses lose between their systems, then build the fix.',
     heroHeadline: 'INTELLIGENT SYSTEMS ENGINEERING IN GAUTENG.',
-    heroSubtext: 'Accounting for over a third of South Africa’s GDP, the Gauteng economic corridor demands robust engineering that bridges industrial rail, mining supply chains, government institutions in Pretoria, and high-tech hubs in Midrand and Centurion.',
+    heroSubtext: 'From the freight sidings of Ekurhuleni to the research campuses of Pretoria, money leaks in the gaps between your systems - the container that sat a day too long, the compliance deadline nobody tracked. We build the system that closes those gaps.',
     districts: ['Pretoria Administrative & Research Hub', 'Centurion High-Tech Corridor', 'Midrand Distribution Axis', 'Ekurhuleni Manufacturing & Cargo Basin', 'Sandton / JHB Financial District', 'Vaal Triangle Heavy Industry'],
     economicFocus: [
       'Rail, Highway & Intermodal Freight Telemetry',
@@ -81,7 +81,7 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
       'Provincial FMCG Distribution & Warehousing',
       'Cross-Corridor Geospatial Decision Intelligence'
     ],
-    strategicContext: 'Gauteng connects the continent’s primary manufacturing hubs with maritime ports and SADC export corridors. Operating here requires systems capable of handling massive data throughput, strict compliance, and complex multi-stakeholder logistics.',
+    strategicContext: 'Gauteng moves goods, money and paperwork at high volume across many organisations. When the records do not line up, the difference comes out of your margin. We diagnose where your information breaks down first, and we only build when the evidence says a system will pay for itself.',
     coreSolutions: [
       'RailWatch Corridor & Siding Intelligence for industrial rail operators',
       'CargoIQ Automated Rate Reconciliation for cross-provincial hauliers',
@@ -89,9 +89,9 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
       'Spatial Intelligence for provincial warehousing and distribution center site selection'
     ],
     localCaseStudy: {
-      context: 'An intermodal freight terminal operating between Ekurhuleni and Pretoria experienced excessive siding dwell times and delayed cargo clearance.',
-      intervention: 'Implemented predictive wagon turnaround modeling and automated customs documentation dispatch.',
-      outcome: 'Designed to shorten yard dwell time and release capital tied up in delayed freight containers.'
+      context: 'Illustrative scenario: an intermodal freight terminal between Ekurhuleni and Pretoria loses money to long siding dwell times and slow cargo clearance, with yard records and customs documents living in different systems.',
+      intervention: 'The proposed build: predictive wagon-turnaround modelling with automated customs documentation dispatch.',
+      outcome: 'Designed to shorten yard dwell time and release capital tied up in delayed containers. A proposed outcome, not a client result.'
     }
   },
   lesotho: {
@@ -101,9 +101,9 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
     province: 'Kingdom of Lesotho',
     regionFocus: 'Maseru, Mafeteng, Leribe, Mohale’s Hoek & Southern African Cross-Border Trade',
     metaTitle: 'Intelligent Systems Engineering in Lesotho | NahaLabs',
-    metaDescription: 'Practical intelligent systems, cross-border customs intelligence, and digital operations engineered for businesses and institutions in Lesotho.',
+    metaDescription: 'Revenue recovery and intelligent systems engineered in Lesotho - we find the money businesses lose between their systems, then build the fix.',
     heroHeadline: 'INTELLIGENT SYSTEMS ENGINEERING IN LESOTHO.',
-    heroSubtext: 'Building from our deep regional roots, NahaLabs engineers systems tailored to Lesotho’s unique economic architecture — cross-border SADC trade, institutional operations, mobile-first consumer markets, and light manufacturing.',
+    heroSubtext: 'From the border posts of Maseru to the factory floors of Thetsane, money leaks in the gaps between your systems - the consignment stuck over one wrong tariff code, the record nobody could verify. We build the system that closes those gaps.',
     districts: ['Maseru Central Business District', 'Peka & Maseru Border Crossings', 'Thetsane Industrial Area', 'Leribe Commercial Belt', 'Roma University & Research Node'],
     economicFocus: [
       'Cross-Border Customs & SACU Tariff Intelligence',
@@ -112,7 +112,7 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
       'Institutional Record Digitization & Verification',
       'Agri-Logistics & Mountain Corridor Route Optimization'
     ],
-    strategicContext: 'Enterprises and institutions in Lesotho operate at the intersection of SACU regulatory frameworks and mobile-first consumer ecosystems. NahaLabs brings world-class intelligent systems engineering without the bloated overhead of international consulting firms, respecting local market realities and technical constraints.',
+    strategicContext: 'Business in Lesotho runs at the intersection of SACU customs rules and mobile-first customers. We build for those realities: cross-border paperwork that checks itself before the border does, and systems that work on the connections people actually have.',
     coreSolutions: [
       'TaxIntel Cross-Border Customs Code and VAT reconciliation for SACU importers',
       'Digital Workers automating government liaison documents and trade paperwork',
@@ -120,9 +120,9 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
       'Spatial risk mapping for mountain infrastructure and agricultural logistics'
     ],
     localCaseStudy: {
-      context: 'A cross-border supplier moving agricultural equipment between the Free State and Maseru was facing repetitive border delays from mismatched customs tariff paperwork.',
-      intervention: 'Engineered an automated customs document compilation tool validating invoice line items against Lesotho revenue authority classifications.',
-      outcome: 'Designed to clear consignments on initial submission and cut vehicle idle time at the border.'
+      context: 'Illustrative scenario: a supplier moving agricultural equipment between the Free State and Maseru loses days at the border because invoice line items do not match customs tariff classifications.',
+      intervention: 'The proposed build: an automated customs-document tool that validates invoices against Lesotho revenue authority classifications before submission.',
+      outcome: 'Designed to clear consignments on first submission and cut vehicle idle time at the border. A proposed outcome, not a client result.'
     }
   }
 };
