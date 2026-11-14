@@ -231,7 +231,7 @@ export const TRANSLATIONS: Record<Language, TranslationDictionary> = {
       dispatchesDesc: 'Curated case analyses, Southern African industrial benchmarks, and deployment breakdowns from our Johannesburg engineering desk. Strictly zero marketing noise.',
       subscribeBtn: 'Subscribe',
       placeholder: 'corporate.email@company.co.za',
-      brandDesc: 'NahaLabs finds the money businesses lose between their systems - and builds the system that brings it back. Small and independent by choice; examine the work yourself.',
+      brandDesc: 'Money is leaking between your systems. NahaLabs finds it - and builds the system that brings it back. Small and independent by choice; examine the work yourself.',
       regionalHubs: 'Regions',
       methodology: 'METHODOLOGY',
       rights: 'All rights reserved. Registered in the Republic of South Africa.',

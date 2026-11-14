@@ -277,7 +277,7 @@ export const LightHome: React.FC<HomeProps> = ({ onStartConversation }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: reduced ? 0 : 0.7, delay: reduced ? 0 : 0.56, ease: EASE_OUT }}
               >
-                That is how revenue quietly leaks. NahaLabs finds the money your business is losing - and builds the system that brings it back.
+                That is how revenue quietly leaks. See every enquiry, every charge, every delay - and the system that brings the money back.
               </motion.p>
               <motion.div
                 className="nh-hero-actions"

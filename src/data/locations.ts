@@ -10,7 +10,7 @@ export const LOCATIONS_DATA: Record<string, LocationData> = {
     metaTitle: 'NahaLabs | Intelligent Systems Engineering in Johannesburg',
     metaDescription: 'Revenue recovery and intelligent systems engineered in Johannesburg - we find the money businesses lose between their systems, then build the fix.',
     heroHeadline: 'INTELLIGENT SYSTEMS ENGINEERING IN JOHANNESBURG.',
-    heroSubtext: 'From the corporate towers of Sandton to the freight yards of City Deep, Johannesburg businesses lose money in the gaps between their systems - the invoice nobody checked, the enquiry nobody answered. NahaLabs builds the systems that close those gaps.',
+    heroSubtext: 'From the corporate towers of Sandton to the freight yards of City Deep, money leaks in the gaps between your systems - the invoice nobody checked, the enquiry nobody answered. We build the system that closes those gaps.',
     districts: ['Sandton Financial District', 'Rosebank Commercial Hub', 'Bryanston Tech Corridor', 'City Deep Logistics Depot', 'Melrose Arch', 'Braamfontein Innovation Zone'],
     economicFocus: [
       'Financial Services & Risk Intelligence',
