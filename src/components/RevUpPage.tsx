@@ -4,10 +4,11 @@ import { ArrowRight, ArrowUpRight, Check } from 'lucide-react';
 const SITE = 'https://www.nahalabs.co.za';
 const PATH = '/revup';
 const APP_URL = 'https://revup.nahalabs.co.za';
+const WHATSAPP_URL = 'https://wa.me/27612980377?text=Hi+NahaLabs%2C+I+want+to+see+how+RevUp+would+work+for+my+business.';
 const API_DOCS_URL = 'https://revup.nahalabs.co.za/api/v1/docs';
 const TITLE = 'RevUp | WhatsApp Receptionist for Small Businesses | NahaLabs';
 const DESCRIPTION =
-  "RevUp helps South African small businesses handle WhatsApp enquiries, calendar bookings and Google review requests.";
+  "Every missed WhatsApp message is a missed sale. RevUp answers your enquiries, books the calendar and asks for Google reviews, so your small business stops losing customers after hours.";
 
 const capabilities = [
   ['WhatsApp receptionist', 'Handle customer enquiries on your business WhatsApp and hand over when a person should step in.'],
@@ -110,6 +111,9 @@ export const RevUpPage: React.FC = () => {
                 </a>
                 <a href="/contact" className="btn btn-outline">
                   Talk to NahaLabs
+                </a>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+                  Chat on WhatsApp
                 </a>
               </div>
             </div>

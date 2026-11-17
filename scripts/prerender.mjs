@@ -131,7 +131,7 @@ async function main() {
         path: '/revup',
         title: 'RevUp | WhatsApp Receptionist for Small Businesses | NahaLabs',
         description:
-          "RevUp helps South African small businesses handle WhatsApp enquiries, calendar bookings and Google review requests.",
+          "Every missed WhatsApp message is a missed sale. RevUp answers your enquiries, books the calendar and asks for Google reviews, so your small business stops losing customers after hours.",
         jsonLd: [jsonLdTag(revup.getRevUpJsonLd(), 'nahalabs-revup-jsonld')],
       },
       {
