@@ -33,6 +33,7 @@ export default async function handler(req: any, res: any) {
   const token = process.env.BLOB_READ_WRITE_TOKEN;
   const ua = String(req.headers["user-agent"] || "");
   const isBot = !ua || BOT_RE.test(ua);
+  const isBeaconPost = req.method === "POST";
 
   if (token && req.method !== "HEAD") {
     const record = {
@@ -57,6 +58,15 @@ export default async function handler(req: any, res: any) {
     }
   } else if (!token) {
     console.error("[li] BLOB_READ_WRITE_TOKEN is not configured - hit not recorded");
+  }
+
+  if (isBeaconPost) {
+    // Fired by the /li landing page after the analytics beacon loads:
+    // record only, no redirect (the page forwards the visitor itself).
+    res.statusCode = 204;
+    res.setHeader("Cache-Control", "no-store");
+    res.end();
+    return;
   }
 
   res.statusCode = 307;

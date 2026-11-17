@@ -9,10 +9,6 @@
       "destination": "https://naha1981.github.io/cargoiq-gods-eye/:path*"
     },
     {
-      "source": "/li",
-      "destination": "/api/li"
-    },
-    {
       "source": "/audit",
       "destination": "/index.html"
     },
