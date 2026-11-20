@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/s/:slug",
+      "destination": "/api/s?slug=:slug"
+    },
+    {
       "source": "/harbour-view/",
       "destination": "https://naha1981.github.io/cargoiq-gods-eye/"
     },
