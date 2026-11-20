@@ -8,7 +8,7 @@ const WHATSAPP_URL = 'https://wa.me/27612980377?text=Hi+NahaLabs%2C+I+want+to+se
 const API_DOCS_URL = 'https://revup.nahalabs.co.za/api/v1/docs';
 const TITLE = 'RevUp | WhatsApp Receptionist for Small Businesses | NahaLabs';
 const DESCRIPTION =
-  "Every missed WhatsApp message is a missed sale. RevUp answers your enquiries, books the calendar and asks for Google reviews, so your small business stops losing customers after hours.";
+  "Every missed WhatsApp message is a missed sale. RevUp, built by NahaLabs in Johannesburg, answers your enquiries, books the calendar and asks for Google reviews, so your small business stops losing customers after hours.";
 
 const capabilities = [
   ['WhatsApp receptionist', 'Handle customer enquiries on your business WhatsApp and hand over when a person should step in.'],
