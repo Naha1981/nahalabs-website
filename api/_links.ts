@@ -38,7 +38,7 @@ export function validDestination(url: string): boolean {
   }
 }
 
-export type LinkDef = { url: string; createdAt: string; createdBy: string };
+export type LinkDef = { url: string; createdAt: string; createdBy: string; ogTitle?: string; ogDescription?: string };
 
 export async function readLink(slug: string): Promise<LinkDef | null> {
   const token = process.env.BLOB_READ_WRITE_TOKEN;
