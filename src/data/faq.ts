@@ -46,6 +46,11 @@ export const FAQ_ITEMS: FaqItem[] = [
       'Bespoke systems are scoped as fixed projects rather than open-ended retainers, and the diagnosis produces the specification and return-on-investment projection that the project is based on. Lead response and follow-up automation for Johannesburg businesses has its own published pilot pricing on its service page.',
   },
   {
+    question: 'Does NahaLabs build WhatsApp booking systems for small businesses in Johannesburg?',
+    answer:
+      'Yes. RevUp, built by NahaLabs in Johannesburg, is a WhatsApp booking system and enquiry handler for small businesses: it answers WhatsApp enquiries, handles calendar bookings and sends Google review requests. It costs from R499 a month, billed monthly from day one, with no setup fee, and you can cancel anytime. Details are on the RevUp page at nahalabs.co.za/revup.',
+  },
+  {
     question: 'How do I get started?',
     answer:
       'Book a 45-minute technical diagnosis. NahaLabs reviews your bottleneck, verifies technical viability and estimates return on investment before any commitment. Use the enquiry form on this page or email ai-solutions@nahalabs.co.za.',

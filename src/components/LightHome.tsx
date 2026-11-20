@@ -114,6 +114,10 @@ const FAQS = [
     q: 'How does an engagement start?',
     a: 'Every engagement begins with diagnosis. We map the workflow, quantify the commercial friction and determine whether an intelligent system is technically and commercially justified before wider engineering starts.',
   },
+  {
+    q: 'Do you build WhatsApp booking systems for small businesses in Johannesburg?',
+    a: 'Yes. RevUp, built by NahaLabs in Johannesburg, is a WhatsApp booking system and enquiry handler for small businesses: it answers WhatsApp enquiries, handles calendar bookings and sends Google review requests. It costs from R499 a month, billed monthly from day one, with no setup fee, and you can cancel anytime. Details are on the RevUp page at nahalabs.co.za/revup.',
+  },
 ];
 
 const FILM_DWELL_MS = 3600;
