@@ -258,6 +258,41 @@ export const RevUpPage: React.FC = () => {
           </div>
         </section>
 
+        <section className="section border-b border-line">
+          <div className="wrap grid lg:grid-cols-2 gap-12">
+            <div>
+              <p className="text-caption font-mono uppercase tracking-[0.2em] text-accent">KEEP EXPLORING</p>
+              <h2 className="mt-3 text-h1 font-semibold">Where to look next.</h2>
+            </div>
+            <div className="space-y-5 text-body leading-relaxed text-fg-2">
+              <p>
+                <a href="/audit" className="link">
+                  Get a revenue-leak audit <ArrowUpRight className="inline w-4 h-4 align-[-0.125em]" />
+                </a>
+                <br />
+                See exactly where the money slips out, before you buy anything.
+              </p>
+              <p>
+                <a href="/systems" className="link">
+                  See the other systems <ArrowUpRight className="inline w-4 h-4 align-[-0.125em]" />
+                </a>
+                <br />
+                More tools that run for South African operators, the same way RevUp runs for you.
+              </p>
+              <p>
+                <a href="/insights/after-hours-enquiries-who-replies-first" className="link">
+                  Read: Messaged at 9pm. Booked someone else by morning. <ArrowUpRight className="inline w-4 h-4 align-[-0.125em]" />
+                </a>
+              </p>
+              <p>
+                <a href="/insights/hidden-cost-fragmented-operational-information" className="link">
+                  Read: The Hidden Cost of Fragmented Operational Information <ArrowUpRight className="inline w-4 h-4 align-[-0.125em]" />
+                </a>
+              </p>
+            </div>
+          </div>
+        </section>
+
         <section className="section">
           <div className="wrap">
             <div className="border border-line-strong bg-surface p-7 sm:p-10 grid lg:grid-cols-[1fr_auto] gap-8 items-center">
