@@ -100,12 +100,12 @@ export const AuditPage: React.FC = () => {
         <section className="section border-b border-line">
           <div className="wrap">
             <div className="max-w-4xl">
-              <p className="text-caption font-mono uppercase tracking-[0.18em] text-accent">Free website diagnosis</p>
+              <p className="text-caption font-mono uppercase tracking-[0.18em] text-accent">Free revenue leak audit</p>
               <h1 className="mt-5 text-display font-semibold tracking-tight">
-                Find where your website is losing enquiries.
+                Find the money your website is losing.
               </h1>
               <p className="mt-6 max-w-3xl text-lead text-fg-2">
-                Enter a website. We inspect the public page for conversion, trust, mobile and technical leaks, then show you what to fix first.
+                Enter a website. We inspect the public page for the leaks that cost you paying customers - a missing call to action, no WhatsApp path, weak proof, slow mobile pages - then show you what to fix first.
               </p>
               <form onSubmit={runAudit} className="mt-8 flex flex-col sm:flex-row gap-3 max-w-3xl">
                 <label htmlFor="audit-url" className="sr-only">Website URL</label>
