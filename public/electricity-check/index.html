@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Were you overcharged for electricity? - Free tariff check</title>
+<style>
+  :root { --ink:#17202a; --muted:#5b6b7a; --line:#d9e2ea; --bg:#f6f8fa; --card:#ffffff; --accent:#0b5cad; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; }
+  main { max-width:640px; margin:0 auto; padding:20px 16px 48px; }
+  h1 { font-size:1.45rem; line-height:1.25; margin:8px 0 4px; }
+  h2 { font-size:1.1rem; margin:28px 0 8px; }
+  p { margin:8px 0; }
+  .sub { color:var(--muted); font-size:.95rem; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-top:14px; }
+  label { display:block; font-weight:600; font-size:.95rem; margin:14px 0 6px; }
+  select { width:100%; padding:12px; font-size:1rem; border:1px solid var(--line); border-radius:8px; background:#fff; }
+  button { width:100%; margin-top:18px; padding:14px; font-size:1.05rem; font-weight:700; color:#fff; background:var(--accent); border:0; border-radius:10px; cursor:pointer; }
+  #result { margin-top:16px; padding:14px; border-radius:10px; display:none; font-size:1rem; }
+  #result.show { display:block; }
+  #result.yes { background:#fff7e6; border:1px solid #f0c36d; }
+  #result.no { background:#eef6ee; border:1px solid #9ecf9e; }
+  #result p { margin:6px 0; }
+  .fine { font-size:.85rem; color:var(--muted); }
+  ul { padding-left:20px; }
+  li { margin:6px 0; }
+  a { color:var(--accent); word-break:break-word; }
+  .badge { display:inline-block; background:#e8f0fa; color:var(--accent); font-size:.75rem; font-weight:700; padding:3px 8px; border-radius:999px; letter-spacing:.04em; }
+  footer { margin-top:32px; font-size:.8rem; color:var(--muted); border-top:1px solid var(--line); padding-top:12px; }
+</style>
+</head>
+<body>
+<main>
+  <span class="badge">FREE RESEARCH PREVIEW</span>
+  <h1>Were you overcharged for electricity?</h1>
+  <p class="sub">In November 2026 the energy regulator NERSA admitted in the High Court that the 2025/26 electricity tariffs it approved for five South African municipalities were unlawful. Answer three questions to see whether you may be affected.</p>
+
+  <div class="card">
+    <label for="muni">1. Who supplies your electricity?</label>
+    <select id="muni">
+      <option value="">Choose one...</option>
+      <option value="coj">City Power / City of Johannesburg</option>
+      <option value="eku">City of Ekurhuleni</option>
+      <option value="nmb">Nelson Mandela Bay (Gqeberha/Kariega)</option>
+      <option value="emf">Emfuleni (Vaal area)</option>
+      <option value="mad">Madibeng (Brits area)</option>
+      <option value="other">A different municipality</option>
+      <option value="eskom">Eskom directly</option>
+      <option value="unsure">I am not sure</option>
+    </select>
+
+    <label for="type">2. How are you billed?</label>
+    <select id="type">
+      <option value="">Choose one...</option>
+      <option value="biz">Business, billed directly by the municipality (postpaid)</option>
+      <option value="prepaid">Prepaid meter</option>
+      <option value="reseller">In a complex or estate - a reseller bills me</option>
+      <option value="house">Household, billed directly by the municipality</option>
+    </select>
+
+    <label for="period">3. Were you billed for electricity between 1 July 2025 and 30 June 2026?</label>
+    <select id="period">
+      <option value="">Choose one...</option>
+      <option value="yes">Yes</option>
+      <option value="partly">Partly</option>
+      <option value="no">No</option>
+    </select>
+
+    <button id="check" type="button">Check</button>
+
+    <div id="result" role="status"></div>
+  </div>
+
+  <h2>What happened, in short</h2>
+  <ul>
+    <li>On 9-11 November 2026, in the High Court in Pretoria, NERSA conceded that the 2025/26 electricity tariffs it approved for <strong>Johannesburg, Ekurhuleni, Nelson Mandela Bay, Emfuleni and Madibeng</strong> were based on calculations containing errors, and were therefore approved unlawfully.</li>
+    <li>In Nelson Mandela Bay, the court heard that businesses were charged up to 76% more than the cost of supplying them. No such figure has been published yet for the other municipalities.</li>
+    <li>The court has not yet decided how customers will be compensated. It has raised appointing an independent expert to calculate the overcharges - so nobody can calculate an exact figure today.</li>
+    <li>This is a pattern: tariffs for 2023/24 were already set aside by the courts for Johannesburg, Ekurhuleni, Madibeng and Msunduzi, and NERSA has still not redetermined them.</li>
+    <li>Keep paying your current bill in full. Do not deduct amounts yourself - that risks disconnection.</li>
+  </ul>
+
+  <h2>Sources</h2>
+  <ul class="fine">
+    <li><a href="https://www.moneyweb.co.za/news/south-africa/electricity-tariffs-in-three-metros-unlawful-nersa-admits/" rel="noopener">Moneyweb, 11 Nov 2026 - Electricity tariffs in three metros unlawful, Nersa admits</a></li>
+    <li><a href="https://businesstech.co.za/news/energy/884152/nersa-admits-some-households-owed-refunds-for-paying-unlawful-electricity-tariffs/" rel="noopener">BusinessTech, 15 Nov 2026 - Nersa admits some households owed refunds</a></li>
+    <li><a href="https://www.moneyweb.co.za/news/south-africa/another-boo-boo-with-electricity-tariffs/" rel="noopener">Moneyweb, 13 Nov 2026 - Another boo-boo with electricity tariffs</a></li>
+    <li><a href="https://thedetail.co.za/articles/nersa-municipal-electricity-tariffs-customer-credits/" rel="noopener">The Detail, 11 Nov 2026 - Five unlawful approvals and a battle over refunds</a></li>
+    <li><a href="https://joburg.org.za/documents_/Documents/Consolidated_Tariffs_2025-26.pdf" rel="noopener">City of Johannesburg - Approved Tariffs FY2025/26 (PDF)</a></li>
+    <li><a href="https://www.ekurhuleni.gov.za/wp-content/uploads/2025/05/A-F-19-2025-Annexure-F-2025_26-Final-Tariffs.pdf" rel="noopener">City of Ekurhuleni - Annexure F Final Tariffs 2025/26 (PDF)</a></li>
+  </ul>
+
+  <div class="card fine">
+    <p><strong>Please read:</strong> this page gives an eligibility indication only. It is not a calculation of money owed, not an estimate of any amount, and not legal advice. No refund is guaranteed - the court has not decided how corrections will work. Nothing you select here is sent anywhere or stored.</p>
+  </div>
+
+  <footer>
+    NahaLabs research preview. This page collects no data, uses no cookies and has no tracking.
+  </footer>
+</main>
+
+<script>
+(function () {
+  var conceded = { coj: "City Power / City of Johannesburg", eku: "City of Ekurhuleni", nmb: "Nelson Mandela Bay", emf: "Emfuleni", mad: "Madibeng" };
+  document.getElementById('check').addEventListener('click', function () {
+    var m = document.getElementById('muni').value;
+    var t = document.getElementById('type').value;
+    var p = document.getElementById('period').value;
+    var r = document.getElementById('result');
+    if (!m || !t || !p) {
+      r.className = 'show yes';
+      r.innerHTML = '<p>Please answer all three questions first.</p>';
+      return;
+    }
+    if (m === 'other' || m === 'eskom') {
+      r.className = 'show no';
+      r.innerHTML = '<p><strong>Probably not affected.</strong> Your supplier is not in the group of five municipalities whose 2025/26 tariffs NERSA conceded were unlawful. Nothing public says your tariff is affected.</p>';
+      return;
+    }
+    if (m === 'unsure') {
+      r.className = 'show yes';
+      r.innerHTML = '<p><strong>We cannot tell without knowing your supplier.</strong> Your municipality is named on your electricity bill. Keep your bills for 1 July 2025 to 30 June 2026 - they are what any future claim would be built on.</p>';
+      return;
+    }
+    if (p === 'no') {
+      r.className = 'show no';
+      r.innerHTML = '<p><strong>Probably not affected by this case.</strong> The conceded tariffs are the 2025/26 ones, which apply from 1 July 2025 to 30 June 2026. If you were not billed during that period, this particular case does not cover you.</p>';
+      return;
+    }
+    // conceded municipality + billed from Jul 2025 (yes or partly)
+    var extra = '';
+    if (t === 'reseller' && m === 'eku') {
+      extra = '<p>Because a reseller bills you in Ekurhuleni: Ekurhuleni\'s reseller tariff was separately declared invalid by the courts, so your position may be even stronger - resellers may charge no more than the municipal tariff by law.</p>';
+    } else if (t === 'reseller') {
+      extra = '<p>Because a reseller bills you: by law a reseller may charge no more than you would have paid the municipality directly, so an unlawful underlying tariff can flow through to you.</p>';
+    }
+    r.className = 'show yes';
+    r.innerHTML = '<p><strong>You may be affected.</strong> NERSA conceded in court that the 2025/26 tariffs for ' + conceded[m] + ' were approved on wrong calculations, and you were billed during 1 July 2025 to 30 June 2026.</p>'
+      + extra
+      + '<p>No exact amount can be calculated yet - the court is still deciding how corrections will work. Keep paying your current bill in full, and keep every bill for 1 July 2025 to 30 June 2026.</p>';
+  });
+})();
+</script>
+</body>
+</html>
