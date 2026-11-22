@@ -90,9 +90,9 @@ async function main() {
       },
       {
         path: '/systems',
-        title: 'Public Engineering Work | NahaLabs',
+        title: 'Business Systems for South African Operators | NahaLabs',
         description:
-          'Public engineering repositories and system experiments from NahaLabs across revenue intelligence, logistics, restaurant systems, model gateways and agent automation.',
+          'Working systems that close the gap between an enquiry and a paid job - WhatsApp receptionists, revenue-leak audits, freight evidence desks and more.',
         jsonLd: [jsonLdTag(systems.getPublicSystemsJsonLd(), 'nahalabs-systems-jsonld')],
       },
       {
@@ -116,9 +116,9 @@ async function main() {
       },
       {
         path: '/audit',
-        title: 'Free Website Revenue Leak Audit | NahaLabs',
+        title: 'Free Website Audit - See Where Enquiries Slip Away | NahaLabs',
         description:
-          'Find where your website is losing enquiries with a free diagnosis of conversion, trust, mobile and technical leaks.',
+          'Type in your website address and get a free instant report: where your site loses enquiries and sales, scored and explained in plain language.',
       },
       {
         path: '/smile-bridge',
