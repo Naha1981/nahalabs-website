@@ -105,7 +105,7 @@ export const AuditPage: React.FC = () => {
                 Find the money your business is losing
               </h1>
               <p className="mt-6 max-w-3xl text-lead text-fg-2">
-                Enter a website. We inspect the public page for the leaks that cost you paying customers - a missing call to action, no WhatsApp path, weak proof, slow mobile pages - then show you what to fix first.
+                Businesses lose money in quiet places: an enquiry that goes unanswered, a phone number nobody can find, a potential customer who gives up and calls a competitor. Your website is where many of those leaks become visible. Enter a website and we inspect the public page for the leaks we can prove - a missing call to action, no WhatsApp path, weak proof, slow mobile pages - then show you what to fix first.
               </p>
               <form onSubmit={runAudit} className="mt-8 flex flex-col sm:flex-row gap-3 max-w-3xl">
                 <label htmlFor="audit-url" className="sr-only">Website URL</label>
@@ -121,7 +121,7 @@ export const AuditPage: React.FC = () => {
                   className="flex-1 min-h-12 rounded-lg border border-[#6B7280] bg-white px-4 text-base text-[#0B0E10] placeholder:text-[#4D5660] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#355241]"
                 />
                 <Button type="submit" disabled={loading}>
-                  {loading ? 'Scanning…' : 'Run Free Audit'}
+                  {loading ? 'Scanning…' : 'Find My Leaks'}
                 </Button>
               </form>
               <p className="mt-3 text-sm text-fg-3">No login. No credit card. One public page is scanned.</p>
