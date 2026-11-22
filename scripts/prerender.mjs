@@ -116,9 +116,9 @@ async function main() {
       },
       {
         path: '/audit',
-        title: 'Free Website Audit - See Where Enquiries Slip Away | NahaLabs',
+        title: 'Free Revenue Leak Audit for Your Website | NahaLabs',
         description:
-          'Type in your website address and get a free instant report: where your site loses enquiries and sales, scored and explained in plain language.',
+          'Type in your website address and get a free instant report showing where your site loses paying customers, scored and explained in plain language.',
       },
       {
         path: '/smile-bridge',
