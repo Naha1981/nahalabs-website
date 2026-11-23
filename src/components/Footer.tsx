@@ -3,6 +3,7 @@ import { Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLanguage } from '../context/LanguageContext';
 import { Button } from './Button';
+import { CompanyChannels } from './CompanyChannels';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -192,6 +193,7 @@ export const Footer: React.FC<FooterProps> = ({
                 </dd>
               </div>
             </dl>
+            <div className="mt-5"><CompanyChannels /></div>
           </div>
 
           {/* Site */}

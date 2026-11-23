@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { CompanyChannels } from './CompanyChannels';
 
 export const LIVE_APPS: { path: string; name: string; url: string; notice?: string }[] = [
   { path: '/railwatch', name: 'RailWatch', url: 'https://railwatch.nahalabs.co.za/' },
@@ -37,6 +38,7 @@ export const AppFramePage: React.FC<{ app: LiveApp }> = ({ app }) => {
           Open directly
         </a>
       </div>
+      <div className="shrink-0 border-b border-[#dce2dc] bg-white px-4 py-1"><CompanyChannels /></div>
       {app.notice && (
         <p role="note" className="shrink-0 border-b border-[#dce2dc] bg-[#f4f7f4] px-4 py-2 text-xs text-[#33403a]">
           {app.notice}
