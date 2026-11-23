@@ -24,8 +24,8 @@ export const AppFramePage: React.FC<{ app: LiveApp }> = ({ app }) => {
   }, [app.name]);
   return (
     <main className="flex h-[100dvh] min-h-0 flex-col bg-white text-[#0B0E10]">
-      <div className="flex shrink-0 items-center justify-between gap-3 border-b border-[#dce2dc] px-4 py-2 text-sm">
-        <div className="flex min-w-0 shrink-0 items-center gap-4">
+      <div className="flex shrink-0 flex-wrap items-center justify-between gap-x-3 gap-y-0 border-b border-[#dce2dc] px-4 py-2 text-sm">
+        <div className="flex min-w-0 items-center gap-3">
           <a href="/" aria-label="NahaLabs home" className="shrink-0">
             <img src="/nahalabs-logo.svg" alt="NahaLabs" className="h-6 w-auto max-w-[130px]" />
           </a>
