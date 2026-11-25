@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SA InsurTech Architecture & Market Gap Matrix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e2e',
+                            950: '#0a0f1a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom subtle scrollbars for horizontal table scrolling on smaller viewports */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .code-pill {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            background-color: #f1f5f9;
+            color: #0f172a;
+            padding: 0.12rem 0.38rem;
+            border-radius: 0.375rem;
+            border: 1px solid #e2e8f0;
+            white-space: nowrap;
+        }
+        .pitch-highlight {
+            box-shadow: inset 4px 0 0 0 #059669;
+            background-color: rgba(236, 253, 245, 0.45);
+        }
+        .pitch-dimmed {
+            opacity: 0.42;
+            filter: grayscale(35%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
+
+    <!-- Top Strategic Pitch Banner -->
+    <div id="pitchBanner" class="bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-950 text-white border-b border-slate-700/80 shadow-md">
+        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+            <div class="flex items-start sm:items-center gap-3">
+                <span class="inline-flex items-center justify-center px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 shrink-0 mt-0.5 sm:mt-0">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
+                    7:00 PM Pitch Focus
+                </span>
+                <p class="text-sm text-slate-200 leading-snug">
+                    Lead with <strong class="text-white font-semibold">C1 + M1 (Recovery & Asset Triage)</strong> and <strong class="text-white font-semibold">M2 (Consent & Cover Integrity)</strong> to build and pilot now—zero external regulator/consortium permission required, and zero overlap with <span class="font-mono text-xs text-emerald-300">XTND</span> or <span class="font-mono text-xs text-emerald-300">Astute</span>.
+                </p>
+            </div>
+            <div class="flex items-center gap-2 shrink-0 self-end md:self-center">
+                <button id="togglePitchModeBtn" onclick="togglePitchMode()" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all bg-emerald-500 hover:bg-emerald-400 text-slate-950 shadow-sm cursor-pointer">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    <span id="pitchBtnText">Highlight Pilot Scope (C1, M1, M2)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
+        <!-- Header & Controls -->
+        <header class="mb-6 flex flex-col lg:flex-row lg:items-end justify-between gap-5">
+            <div>
+                <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-indigo-600 mb-1.5">
+                    <span>SA Life Insurance Fraud & Recovery Architecture</span>
+                    <span>•</span>
+                    <span>Evidence vs. Deliverables</span>
+                </div>
+                <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                    5-Column Module & Market Gap Matrix
+                </h1>
+                <p class="text-sm text-slate-600 mt-1 max-w-3xl">
+                    Strictly separating verified South African market & regulatory evidence from concrete product deliverables and CFO-auditable Rand ROI mechanics. Click any row to inspect module details in presentation view.
+                </p>
+            </div>
+
+            <!-- Action Toolbar -->
+            <div class="flex flex-wrap items-center gap-2.5">
+                <button onclick="copyMarkdownTable()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 hover:text-slate-900 shadow-xs transition cursor-pointer">
+                    <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                    <span>Copy Markdown</span>
+                </button>
+                <button onclick="window.print()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium bg-white text-slate-700 border border-slate-300 hover:bg-slate-50 hover:text-slate-900 shadow-xs transition cursor-pointer">
+                    <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                    <span>Print / PDF</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Filter & Search Bar -->
+        <div class="bg-white p-3.5 rounded-xl border border-slate-200 shadow-xs mb-6 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+            <!-- Phase Filter Pills -->
+            <div class="flex flex-wrap items-center gap-1.5" id="filterPills">
+                <button data-filter="ALL" onclick="setFilter('ALL')" class="filter-btn active px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white transition cursor-pointer">
+                    All Modules (5)
+                </button>
+                <button data-filter="PILOT" onclick="setFilter('PILOT')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition cursor-pointer">
+                    Pilot Now: C1 + M1 + M2 (3)
+                </button>
+                <button data-filter="PHASE1" onclick="setFilter('PHASE1')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer">
+                    Phase 1A / 1B
+                </button>
+                <button data-filter="PHASE2" onclick="setFilter('PHASE2')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer">
+                    Phase 2 (Claims Gate)
+                </button>
+                <button data-filter="PHASE3" onclick="setFilter('PHASE3')" class="filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer">
+                    Phase 3 (Consortium)
+                </button>
+            </div>
+
+            <!-- Live Search & Column View Toggle -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+                <div class="relative flex-1 sm:w-64">
+                    <svg class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <input type="text" id="searchInput" oninput="filterTable()" placeholder="Search ASISA, Rule 46A, NFO, SHA-256..." class="w-full pl-9 pr-8 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition">
+                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs font-bold cursor-pointer">✕</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Responsive 5-Column Table Container -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[1180px]" id="matrixTable">
+                    <thead>
+                        <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider border-b border-slate-800">
+                            <th class="py-4 px-4 font-semibold w-[16%] sticky left-0 z-20 bg-slate-900 border-r border-slate-800">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-slate-400 font-mono">1.</span> System Module
+                                </div>
+                            </th>
+                            <th class="py-4 px-4 font-semibold w-[16%] border-r border-slate-800">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-slate-400 font-mono">2.</span> Problem Solved
+                                </div>
+                            </th>
+                            <th class="py-4 px-4 font-semibold w-[26%] border-r border-slate-800 bg-slate-900/95">
+                                <div class="flex items-center justify-between gap-1.5">
+                                    <span><span class="text-amber-400 font-mono">3.</span> Evidence of Gap / Not Available</span>
+                                    <span class="text-[10px] font-normal normal-case px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Verified Market Facts</span>
+                                </div>
+                            </th>
+                            <th class="py-4 px-4 font-semibold w-[20%] border-r border-slate-800">
+                                <div class="flex items-center justify-between gap-1.5">
+                                    <span><span class="text-emerald-400 font-mono">4.</span> ROI Proof (Rands)</span>
+                                    <span class="text-[10px] font-normal normal-case px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">CFO Ledger</span>
+                                </div>
+                            </th>
+                            <th class="py-4 px-4 font-semibold w-[22%]">
+                                <div class="flex items-center justify-between gap-1.5">
+                                    <span><span class="text-indigo-400 font-mono">5.</span> Our Deliverables</span>
+                                    <span class="text-[10px] font-normal normal-case px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Product Scope</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-sm align-top" id="matrixBody">
+                        <!-- Rows populated dynamically via JavaScript for clean state management & modal inspection -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Empty Search State -->
+            <div id="emptyState" class="hidden py-14 px-6 text-center">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-slate-100 text-slate-400 mb-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-sm font-semibold text-slate-900">No matching modules found</h3>
+                <p class="text-xs text-slate-500 mt-1">Try adjusting your search keywords or resetting the phase filter.</p>
+                <button onclick="resetAllFilters()" class="mt-3 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-indigo-600 text-white hover:bg-indigo-500 transition cursor-pointer">
+                    Reset Filters
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer Legend -->
+        <footer class="mt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-500 px-1">
+            <div class="flex flex-wrap items-center gap-4">
+                <span class="inline-flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-sm bg-emerald-600"></span>
+                    <strong>Pilot Now (C1, M1, M2):</strong> Zero external consortium/regulator gate
+                </span>
+                <span class="inline-flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-sm bg-indigo-600"></span>
+                    <strong>Phase 2 (M3):</strong> Claims-stage corroboration & PayGate
+                </span>
+                <span class="inline-flex items-center gap-1.5">
+                    <span class="w-2.5 h-2.5 rounded-sm bg-amber-600"></span>
+                    <strong>Phase 3 (M4):</strong> Approval-gated cross-insurer PSI
+                </span>
+            </div>
+            <div>
+                Click any row for focused slide-out inspection
+            </div>
+        </footer>
+    </div>
+
+    <!-- Slide-Over Detail Modal for Presentation / Deep Dive -->
+    <div id="detailModal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs transition-opacity" onclick="closeModal()"></div>
+        <div class="fixed inset-y-0 right-0 max-w-2xl w-full bg-white shadow-2xl border-l border-slate-200 flex flex-col overflow-hidden transform transition-transform">
+            <!-- Modal Header -->
+            <div class="px-6 py-5 bg-slate-900 text-white flex items-start justify-between gap-4">
+                <div>
+                    <div id="modalBadges" class="flex flex-wrap items-center gap-2 mb-2"></div>
+                    <h2 id="modalTitle" class="text-xl font-bold tracking-tight"></h2>
+                </div>
+                <button onclick="closeModal()" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition cursor-pointer" aria-label="Close modal">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div id="modalContent" class="p-6 overflow-y-auto space-y-5 flex-1 text-sm text-slate-700">
+                <!-- Populated dynamically -->
+            </div>
+
+            <!-- Modal Footer Navigation -->
+            <div class="px-6 py-3.5 bg-slate-50 border-t border-slate-200 flex items-center justify-between">
+                <button id="prevModuleBtn" onclick="navigateModal(-1)" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 transition cursor-pointer">
+                    ← Previous Module
+                </button>
+                <span id="modalCounter" class="text-xs font-mono text-slate-500"></span>
+                <button id="nextModuleBtn" onclick="navigateModal(1)" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 transition cursor-pointer">
+                    Next Module →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Toast Notification (No alert() used) -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-slate-900 text-white px-4 py-3 rounded-xl shadow-lg border border-slate-700 flex items-center gap-2.5 text-xs font-medium">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span id="toastMessage">Copied to clipboard</span>
+        </div>
+    </div>
+
+    <script>
+        // Complete structured dataset preserving every single detail from the 5-column breakdown
+        const matrixData = [
+            {
+                id: 'C1',
+                code: 'C1',
+                title: 'Shared Evidence Core & Ledger',
+                phaseLabel: 'Phase 1A Foundation',
+                phaseCategory: 'PHASE1',
+                isPilot: true,
+                pilotBadge: 'Pilot Now • Foundation',
+                accentColor: 'emerald',
+                problemHtml: `
+                    <div class="font-semibold text-slate-900 mb-1.5">Supports <span class="code-pill">#1–#6</span></div>
+                    <p class="text-slate-600 text-xs leading-relaxed italic">(eliminates messy spreadsheets, unprovable saves, and compliance gaps)</p>
+                `,
+                evidenceHtml: `
+                    <p class="text-slate-700 leading-relaxed">
+                        No verified SA competitor (<span class="code-pill">XTND</span>, <span class="code-pill">Dark Pools</span>, <span class="code-pill">ICB</span>, <span class="code-pill">Astute</span>) bundles a tamper-proof <span class="code-pill">SHA-256</span> evidence vault with a dual-signed <strong class="text-slate-900">Forensics + Finance</strong> ledger that strips out double-counting and separates paper judgments from cleared bank cash.
+                    </p>
+                `,
+                roiHtml: `
+                    <p class="text-slate-700 leading-relaxed">
+                        Enforces <strong class="text-slate-900">strict incremental accounting</strong>: counts saves <em>only</em> if existing tools missed them, and counts recoveries <em>only</em> when bank-cleared cash arrives (never arrests or judgments).
+                    </p>
+                `,
+                deliverables: [
+                    'Single-tenant SA workspace',
+                    'Append-only <span class="code-pill">SHA-256</span> Evidence Vault',
+                    'Mandatory Evidence Tags (<span class="code-pill">Verified Fact</span> to <span class="code-pill">Unknown</span>)',
+                    'Full Read/Write Audit Log',
+                    'Dual-Signed Executive Savings Ledger'
+                ]
+            },
+            {
+                id: 'M1',
+                code: 'M1',
+                title: 'Recovery & Asset-Tenure Triage Desk',
+                phaseLabel: 'Launch First — Phase 1A',
+                phaseCategory: 'PHASE1',
+                isPilot: true,
+                pilotBadge: 'Pilot Now • Launch First',
+                accentColor: 'emerald',
+                problemHtml: `
+                    <ul class="space-y-1.5 text-slate-800">
+                        <li><span class="code-pill font-semibold">#4</span> Unrecovered payouts</li>
+                        <li><span class="code-pill font-semibold">#5</span> Zero-asset criminals</li>
+                        <li><span class="code-pill font-semibold">#6</span> Low-value / unsellable rural properties</li>
+                    </ul>
+                `,
+                evidenceHtml: `
+                    <p class="text-slate-700 leading-relaxed">
+                        <em>FAnews</em> (Sep 2026) notes post-payout recovery rights <em>"may be of little help"</em> in practice; ASISA publishes zero industry recovery rates; <strong class="text-slate-900">Uniform Rule 46A(9)</strong> stalls home auctions (7–8 mo loops) and <strong class="text-slate-900">IPILRA/PTO</strong> rural land lacks freehold title. <span class="code-pill">XTND Prof. Services</span> offers bespoke human consulting—no verified SA SaaS automates <span class="code-pill">NRV / Rule 46A / PTO</span> triage and <span class="code-pill">CPA s300(5)(b)</span> traps before legal fees are spent.
+                    </p>
+                `,
+                roiHtml: `
+                    <div class="font-semibold text-slate-900 mb-1.5">Two hard buckets:</div>
+                    <ol class="list-decimal list-inside space-y-1.5 text-slate-700">
+                        <li><strong class="text-slate-900">Avoided Legal Spend:</strong> Early-halted <span class="code-pill">R0</span>/rural cases × avg historical legal cost.</li>
+                        <li><strong class="text-slate-900">Net Cash Recovered:</strong> Bank-cleared receipts minus legal, sheriff, and tracing fees.</li>
+                    </ol>
+                `,
+                deliverables: [
+                    'Confirmed Loss Register',
+                    '8-Layer Asset & Tenure Profile',
+                    'Live <span class="code-pill">NRV</span> vs. Legal-Cost Calculator',
+                    '<span class="code-pill">Rule 46A</span>, <span class="code-pill">PTO</span> & <span class="code-pill">s300(5)(b)</span> 60-day warnings',
+                    'Attorney / AFU / <span class="code-pill">s297</span> Handover Packs & Early Write-Off Memo',
+                    'Bank-Reconciled Cash Ledger'
+                ]
+            },
+            {
+                id: 'M2',
+                code: 'M2',
+                title: 'Consent & Cover Integrity Engine',
+                phaseLabel: 'Co-Lead / Fast-Follow — Phase 1B',
+                phaseCategory: 'PHASE1',
+                isPilot: true,
+                pilotBadge: 'Pilot Now • Co-Lead',
+                accentColor: 'emerald',
+                problemHtml: `
+                    <ul class="space-y-1.5 text-slate-800">
+                        <li><span class="code-pill font-semibold">#3</span> Murder for insurance payouts</li>
+                        <li><span class="code-pill font-semibold">#1</span> Ghost / unauthorised policies passing through</li>
+                    </ul>
+                `,
+                evidenceHtml: `
+                    <p class="text-slate-700 leading-relaxed">
+                        On <strong class="text-slate-900">21 Sept 2026</strong>, the <strong class="text-slate-900">NFO</strong> asked the FSCA to consider mandatory proof of informed consent on third-party cover, confirming practices are <em>"not uniform"</em>. In the <em>Mbane/Msome</em> trial (Aug 2026), Judge Ngoqo flagged there is no obligation to notify the life assured. <strong class="text-slate-900">Astute</strong>’s documented Life Register (Jan 2018 manual; confirm 2026 status) excludes standard-rate lives until claim stage; <span class="code-pill">XTND/Dark Pools/ICB</span> sit at <em>claims</em>, not onboarding.
+                    </p>
+                `,
+                roiHtml: `
+                    <p class="text-slate-700 leading-relaxed">
+                        Counts confirmed cancelled/declined unauthorised policies (at a conservative CFO-agreed booking factor, e.g., 10% placeholder) <em>only</em> where existing onboarding missed them—plus NFO/FSCA compliance readiness.
+                    </p>
+                `,
+                deliverables: [
+                    'Anti-"Burner SIM" independent contact check',
+                    'Two-Tier WhatsApp/USSD Consent Flow (age-free triggers)',
+                    '<strong class="text-rose-700">Silent Duress ("Not Me") Block</strong>',
+                    'Upgrade & Beneficiary-Swap Alerts',
+                    'Own-Book Stacking & <span class="code-pill">PPR 2A.8.3</span> Audit',
+                    'Tamper-Evident Consent Certificates'
+                ]
+            },
+            {
+                id: 'M3',
+                code: 'M3',
+                title: 'Death-Event Corroboration, PayGate & Channel QA',
+                phaseLabel: 'Phase 2',
+                phaseCategory: 'PHASE2',
+                isPilot: false,
+                pilotBadge: 'Phase 2 • Claims Gate',
+                accentColor: 'indigo',
+                problemHtml: `
+                    <ul class="space-y-1.5 text-slate-800">
+                        <li><span class="code-pill font-semibold">#2</span> False death declarations <em>(alive people)</em></li>
+                        <li><span class="code-pill font-semibold">#1</span> Fraudulent claims & agent churn</li>
+                        <li><span class="code-pill font-semibold">#4</span> Mule-account cash drainage</li>
+                    </ul>
+                `,
+                evidenceHtml: `
+                    <p class="text-slate-700 leading-relaxed">
+                        <strong class="text-slate-900">Calvinia DHA clerk (Jan 2026, R334k)</strong> and <strong class="text-slate-900">Master’s Office fake deaths (Oct 2026)</strong> prove insider <span class="code-pill">BI-1663</span> fraud passes raw DHA checks; <strong class="text-slate-900">WinDeed</strong> notes a <strong class="text-slate-900">3–5 week</strong> bureau lag; <span class="code-pill">DHA-1663</span> box 2.4 allows word-of-mouth ID. ASISA (11 Nov 2026) recorded <strong class="text-slate-900">9,291 remuneration cases</strong> (<span class="code-pill">R26.2m</span> lost vs. <span class="code-pill">R1.7m</span> prevented) and a <strong class="text-slate-900">+40.4%</strong> surge in life-claim losses (<span class="code-pill">R54.9m</span>).
+                    </p>
+                `,
+                roiHtml: `
+                    <p class="text-slate-700 leading-relaxed">
+                        <strong class="text-slate-900">Incremental Prevented Payouts:</strong> Face value of confirmed fraud stopped inside the <span class="code-pill">2+14</span> day clock that <span class="code-pill">XTND</span>/<span class="code-pill">Astute</span>/internal rules missed, minus false-positive review cost, plus held fake-agent commissions.
+                    </p>
+                `,
+                deliverables: [
+                    '<span class="code-pill">BI-1663</span> Lag & Metadata Scorecard',
+                    'Doctor / Parlour / Agent Link Flags',
+                    'Zero-PII Forged-Template Hash Library',
+                    '<span class="code-pill">PPR 2A.8</span> <span class="code-pill">2+14</span> Business-Day Timers & <em>Basdeo</em> Neutral Notices',
+                    'Pre-EFT <span class="code-pill">AVS-R</span> Check & Voluntary <span class="code-pill">2A.10</span> Parlour Check',
+                    '<span class="code-pill">AgentShield</span> Churn/Commission Queue'
+                ]
+            },
+            {
+                id: 'M4',
+                code: 'M4',
+                title: 'Cross-Insurer PSI Stacking Exchange',
+                phaseLabel: 'Phase 3 — Approval-Gated',
+                phaseCategory: 'PHASE3',
+                isPilot: false,
+                pilotBadge: 'Phase 3 • POPIA s57/58 Gated',
+                accentColor: 'amber',
+                problemHtml: `
+                    <ul class="space-y-1.5 text-slate-800">
+                        <li><span class="code-pill font-semibold">#3</span> Multi-insurer syndicate stacking</li>
+                        <li><span class="code-pill font-semibold">#1</span> Undisclosed simultaneous apps (<em>Naidoo</em> R6m)</li>
+                    </ul>
+                `,
+                evidenceHtml: `
+                    <p class="text-slate-700 leading-relaxed">
+                        <strong class="text-slate-900">ASISA formed its Information Sharing Working Group in early 2026</strong> specifically because no universal prospective cross-insurer policy register exists yet—and ASISA’s <strong class="text-slate-900">March 2026 Guideline</strong> confirms <span class="code-pill">POPIA s57/58</span> prior authorisation is required before linking unique IDs across companies.
+                    </p>
+                `,
+                roiHtml: `
+                    <p class="text-slate-700 leading-relaxed">
+                        Measured in Phase 3 via confirmed multi-insurer stacking blocks and duplicate-exposure prevention across participating insurers (attributed per strict ledger rules).
+                    </p>
+                `,
+                deliverables: [
+                    'Neutral-operator salted/hashed <strong class="text-slate-900">Private Set Intersection (PSI)</strong> API returning risk bands only (zero raw PII pooled)',
+                    'Consumer-Wide Policy Lock <em>(unlocked only after <span class="code-pill">POPIA s57/58</span> & ASISA approval)</em>'
+                ]
+            }
+        ];
+
+        // Application State
+        let currentFilter = 'ALL';
+        let pitchModeActive = false;
+        let currentModalIndex = 0;
+
+        // Render Table Rows
+        function renderTable(data) {
+            const tbody = document.getElementById('matrixBody');
+            const emptyState = document.getElementById('emptyState');
+
+            if (data.length === 0) {
+                tbody.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            tbody.innerHTML = data.map((row) => {
+                const originalIndex = matrixData.findIndex(item => item.id === row.id);
+                const badgeStyles = row.isPilot
+                    ? 'bg-emerald-100 text-emerald-800 border-emerald-200'
+                    : row.phaseCategory === 'PHASE2'
+                        ? 'bg-indigo-100 text-indigo-800 border-indigo-200'
+                        : 'bg-amber-100 text-amber-800 border-amber-200';
+
+                const rowPitchClass = pitchModeActive
+                    ? (row.isPilot ? 'pitch-highlight' : 'pitch-dimmed')
+                    : '';
+
+                const deliverablesList = row.deliverables.map(item => `
+                    <li class="flex items-start gap-2">
+                        <span class="text-indigo-500 font-bold mt-0.5">•</span>
+                        <span class="text-slate-700 leading-snug">${item}</span>
+                    </li>
+                `).join('');
+
+                return `
+                    <tr onclick="openModal(${originalIndex})" class="group hover:bg-slate-50/90 transition-all cursor-pointer ${rowPitchClass}">
+                        <!-- Col 1: System Module -->
+                        <td class="py-4 px-4 sticky left-0 z-10 bg-white group-hover:bg-slate-50 border-r border-slate-200 transition-colors">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="inline-flex items-center justify-center px-2 py-0.5 rounded-md font-mono text-xs font-bold bg-slate-900 text-white">
+                                    ${row.code}
+                                </span>
+                                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold border ${badgeStyles}">
+                                    ${row.pilotBadge}
+                                </span>
+                            </div>
+                            <div class="font-bold text-slate-900 text-sm leading-snug group-hover:text-indigo-700 transition-colors">
+                                ${row.title}
+                            </div>
+                            <div class="text-xs text-slate-500 italic mt-1">
+                                (${row.phaseLabel})
+                            </div>
+                            <div class="mt-2.5 inline-flex items-center gap-1 text-[11px] font-medium text-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span>Inspect slide</span>
+                                <span>→</span>
+                            </div>
+                        </td>
+
+                        <!-- Col 2: Problem Solved -->
+                        <td class="py-4 px-4 border-r border-slate-200 text-xs sm:text-[13px]">
+                            ${row.problemHtml}
+                        </td>
+
+                        <!-- Col 3: Evidence of Gap -->
+                        <td class="py-4 px-4 border-r border-slate-200 bg-amber-50/20 text-xs sm:text-[13px]">
+                            ${row.evidenceHtml}
+                        </td>
+
+                        <!-- Col 4: ROI Proof -->
+                        <td class="py-4 px-4 border-r border-slate-200 bg-emerald-50/15 text-xs sm:text-[13px]">
+                            ${row.roiHtml}
+                        </td>
+
+                        <!-- Col 5: Deliverables -->
+                        <td class="py-4 px-4 text-xs sm:text-[13px]">
+                            <ul class="space-y-1.5">
+                                ${deliverablesList}
+                            </ul>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Filter and Search Logic
+        function filterTable() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const clearBtn = document.getElementById('clearSearchBtn');
+            clearBtn.classList.toggle('hidden', query.length === 0);
+
+            const filtered = matrixData.filter(row => {
+                // Phase Filter
+                if (currentFilter === 'PILOT' && !row.isPilot) return false;
+                if (currentFilter === 'PHASE1' && row.phaseCategory !== 'PHASE1') return false;
+                if (currentFilter === 'PHASE2' && row.phaseCategory !== 'PHASE2') return false;
+                if (currentFilter === 'PHASE3' && row.phaseCategory !== 'PHASE3') return false;
+
+                // Text Search across all columns
+                if (!query) return true;
+                const searchableText = [
+                    row.code,
+                    row.title,
+                    row.phaseLabel,
+                    row.problemHtml,
+                    row.evidenceHtml,
+                    row.roiHtml,
+                    row.deliverables.join(' ')
+                ].join(' ').replace(/<[^>]*>/g, ' ').toLowerCase();
+
+                return searchableText.includes(query);
+            });
+
+            renderTable(filtered);
+        }
+
+        function setFilter(filterKey) {
+            currentFilter = filterKey;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                const isSelected = btn.getAttribute('data-filter') === filterKey;
+                if (isSelected) {
+                    btn.className = 'filter-btn active px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-900 text-white transition cursor-pointer';
+                } else if (btn.getAttribute('data-filter') === 'PILOT') {
+                    btn.className = 'filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 transition cursor-pointer';
+                } else {
+                    btn.className = 'filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 transition cursor-pointer';
+                }
+            });
+            filterTable();
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            filterTable();
+        }
+
+        function resetAllFilters() {
+            document.getElementById('searchInput').value = '';
+            setFilter('ALL');
+        }
+
+        // Toggle 7:00 PM Pitch Mode
+        function togglePitchMode() {
+            pitchModeActive = !pitchModeActive;
+            const btn = document.getElementById('togglePitchModeBtn');
+            const btnText = document.getElementById('pitchBtnText');
+
+            if (pitchModeActive) {
+                btn.classList.remove('bg-emerald-500', 'hover:bg-emerald-400', 'text-slate-950');
+                btn.classList.add('bg-white', 'hover:bg-slate-100', 'text-slate-900');
+                btnText.textContent = 'Showing Pilot Scope (Click to Reset)';
+                showToast('Pitch Mode ON: Highlighting C1, M1 & M2 pilot modules');
+            } else {
+                btn.classList.add('bg-emerald-500', 'hover:bg-emerald-400', 'text-slate-950');
+                btn.classList.remove('bg-white', 'hover:bg-slate-100', 'text-slate-900');
+                btnText.textContent = 'Highlight Pilot Scope (C1, M1, M2)';
+                showToast('Pitch Mode OFF: Showing all 5 modules equally');
+            }
+            filterTable();
+        }
+
+        // Slide-Out Modal Functions
+        function openModal(index) {
+            currentModalIndex = index;
+            updateModalContent();
+            document.getElementById('detailModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('detailModal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function navigateModal(step) {
+            currentModalIndex = (currentModalIndex + step + matrixData.length) % matrixData.length;
+            updateModalContent();
+        }
+
+        function updateModalContent() {
+            const row = matrixData[currentModalIndex];
+            document.getElementById('modalTitle').textContent = `${row.code}: ${row.title}`;
+            document.getElementById('modalCounter').textContent = `Module ${currentModalIndex + 1} of ${matrixData.length}`;
+
+            const pilotPill = row.isPilot
+                ? `<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">7:00 PM Pilot Scope</span>`
+                : `<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-700 text-slate-300 border border-slate-600">Future Roadmap</span>`;
+
+            document.getElementById('modalBadges').innerHTML = `
+                <span class="px-2.5 py-0.5 rounded-md font-mono text-xs font-bold bg-indigo-500 text-white">${row.code}</span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-slate-200 border border-slate-700">${row.phaseLabel}</span>
+                ${pilotPill}
+            `;
+
+            const deliverablesHtml = row.deliverables.map(d => `
+                <li class="flex items-start gap-2.5 bg-white p-2.5 rounded-lg border border-slate-200/80">
+                    <span class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
+                    <span class="text-slate-800 leading-snug">${d}</span>
+                </li>
+            `).join('');
+
+            document.getElementById('modalContent').innerHTML = `
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                    <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">2. Problem Solved</div>
+                    <div>${row.problemHtml}</div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-amber-50/60 border border-amber-200/80">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-900">3. Evidence of Gap / Not Currently Available</span>
+                        <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-amber-200/60 text-amber-900">Verified Market Fact</span>
+                    </div>
+                    <div>${row.evidenceHtml}</div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-emerald-50/60 border border-emerald-200/80">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-900">4. ROI Proof (How It Proves Rands)</span>
+                        <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-emerald-200/60 text-emerald-900">CFO Auditable</span>
+                    </div>
+                    <div>${row.roiHtml}</div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-indigo-50/40 border border-indigo-200/70">
+                    <div class="text-xs font-bold uppercase tracking-wider text-indigo-900 mb-2.5">5. Our Deliverables</div>
+                    <ul class="space-y-2">${deliverablesHtml}</ul>
+                </div>
+            `;
+        }
+
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('detailModal');
+            if (modal.classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeModal();
+            if (e.key === 'ArrowRight') navigateModal(1);
+            if (e.key === 'ArrowLeft') navigateModal(-1);
+        });
+
+        // Copy clean Markdown back to clipboard
+        function copyMarkdownTable() {
+            const md = `| 1. System Module | 2. Problem Solved | 3. Evidence of Gap / Not Currently Available | 4. ROI Proof (How It Proves Rands) | 5. Our Deliverables |
+| :--- | :--- | :--- | :--- | :--- |
+| **\`C1\` Shared Evidence Core & Ledger** *(Phase 1A Foundation)* | Supports **#1–#6** *(eliminates messy spreadsheets, unprovable saves, and compliance gaps)* | No verified SA competitor (\`XTND\`, \`Dark Pools\`, \`ICB\`, \`Astute\`) bundles a tamper-proof \`SHA-256\` evidence vault with a dual-signed **Forensics + Finance** ledger that strips out double-counting and separates paper judgments from cleared bank cash. | Enforces **strict incremental accounting**: counts saves *only* if existing tools missed them, and counts recoveries *only* when bank-cleared cash arrives (never arrests or judgments). | • Single-tenant SA workspace<br>• Append-only \`SHA-256\` Evidence Vault<br>• Mandatory Evidence Tags (\`Verified Fact\` to \`Unknown\`)<br>• Full Read/Write Audit Log<br>• Dual-Signed Executive Savings Ledger |
+| **\`M1\` Recovery & Asset-Tenure Triage Desk** *(Launch First — Phase 1A)* | **#4** Unrecovered payouts<br>**#5** Zero-asset criminals<br>**#6** Low-value / unsellable rural properties | *FAnews* (Sep 2026) notes post-payout recovery rights *"may be of little help"* in practice; ASISA publishes zero industry recovery rates; **Uniform Rule 46A(9)** stalls home auctions (7–8 mo loops) and **IPILRA/PTO** rural land lacks freehold title. \`XTND Prof. Services\` offers bespoke human consulting—no verified SA SaaS automates \`NRV / Rule 46A / PTO\` triage and \`CPA s300(5)(b)\` traps before legal fees are spent. | **Two hard buckets:**<br>1. **Avoided Legal Spend:** Early-halted \`R0\`/rural cases × avg historical legal cost.<br>2. **Net Cash Recovered:** Bank-cleared receipts minus legal, sheriff, and tracing fees. | • Confirmed Loss Register<br>• 8-Layer Asset & Tenure Profile<br>• Live \`NRV\` vs. Legal-Cost Calculator<br>• \`Rule 46A\`, \`PTO\` & \`s300(5)(b)\` 60-day warnings<br>• Attorney / AFU / \`s297\` Handover Packs & Early Write-Off Memo<br>• Bank-Reconciled Cash Ledger |
+| **\`M2\` Consent & Cover Integrity Engine** *(Co-Lead / Fast-Follow — Phase 1B)* | **#3** Murder for insurance payouts<br>**#1** Ghost / unauthorised policies passing through | On **21 Sept 2026**, the **NFO** asked the FSCA to consider mandatory proof of informed consent on third-party cover, confirming practices are *"not uniform"*. In the *Mbane/Msome* trial (Aug 2026), Judge Ngoqo flagged there is no obligation to notify the life assured. **Astute**’s documented Life Register (Jan 2018 manual; confirm 2026 status) excludes standard-rate lives until claim stage; **XTND/Dark Pools/ICB** sit at *claims*, not onboarding. | Counts confirmed cancelled/declined unauthorised policies (at a conservative CFO-agreed booking factor, e.g., 10% placeholder) *only* where existing onboarding missed them—plus NFO/FSCA compliance readiness. | • Anti-"Burner SIM" independent contact check<br>• Two-Tier WhatsApp/USSD Consent Flow (age-free triggers)<br>• **Silent Duress ("Not Me") Block**<br>• Upgrade & Beneficiary-Swap Alerts<br>• Own-Book Stacking & \`PPR 2A.8.3\` Audit<br>• Tamper-Evident Consent Certificates |
+| **\`M3\` Death-Event Corroboration, PayGate & Channel QA** *(Phase 2)* | **#2** False death declarations *(alive people)*<br>**#1** Fraudulent claims & agent churn<br>**#4** Mule-account cash drainage | **Calvinia DHA clerk (Jan 2026, R334k)** and **Master’s Office fake deaths (Oct 2026)** prove insider \`BI-1663\` fraud passes raw DHA checks; **WinDeed** notes a **3–5 week** bureau lag; \`DHA-1663\` box 2.4 allows word-of-mouth ID. ASISA (11 Nov 2026) recorded **9,291 remuneration cases** (\`R26.2m\` lost vs. \`R1.7m\` prevented) and a **+40.4%** surge in life-claim losses (\`R54.9m\`). | **Incremental Prevented Payouts:** Face value of confirmed fraud stopped inside the \`2+14\` day clock that \`XTND\`/\`Astute\`/internal rules missed, minus false-positive review cost, plus held fake-agent commissions. | • \`BI-1663\` Lag & Metadata Scorecard<br>• Doctor / Parlour / Agent Link Flags<br>• Zero-PII Forged-Template Hash Library<br>• \`PPR 2A.8\` \`2+14\` Business-Day Timers & *Basdeo* Neutral Notices<br>• Pre-EFT \`AVS-R\` Check & Voluntary \`2A.10\` Parlour Check<br>• \`AgentShield\` Churn/Commission Queue |
+| **\`M4\` Cross-Insurer PSI Stacking Exchange** *(Phase 3 — Approval-Gated)* | **#3** Multi-insurer syndicate stacking<br>**#1** Undisclosed simultaneous apps (*Naidoo* R6m) | **ASISA formed its Information Sharing Working Group in early 2026** specifically because no universal prospective cross-insurer policy register exists yet—and ASISA’s **March 2026 Guideline** confirms \`POPIA s57/58\` prior authorisation is required before linking unique IDs across companies. | Measured in Phase 3 via confirmed multi-insurer stacking blocks and duplicate-exposure prevention across participating insurers (attributed per strict ledger rules). | • Neutral-operator salted/hashed **Private Set Intersection (PSI)** API returning risk bands only (zero raw PII pooled)<br>• Consumer-Wide Policy Lock *(unlocked only after \`POPIA s57/58\` & ASISA approval)* |`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = md;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showToast('Markdown table copied to clipboard!');
+            } catch (err) {
+                showToast('Unable to copy table.');
+            }
+            document.body.removeChild(textarea);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2800);
+        }
+
+        // Initial render
+        window.onload = () => {
+            renderTable(matrixData);
+        };
+    </script>
+</body>
+</html>
